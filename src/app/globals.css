@@ -116,8 +116,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
   }
 }
 
@@ -129,4 +140,74 @@
 
 *::-webkit-scrollbar {
   display: none;
+}
+
+
+.shine_animation {
+  animation: shine 2s ease-in-out infinite;
+}
+
+.beam {
+  position: absolute;
+  height: 1px;
+  /* Bahut patli line */
+  background: rgba(255, 255, 255, 1);
+  /* Pure white light */
+  animation: shine 2.5s ease-in-out infinite;
+
+  /* Multiple glow layers for realistic light effect */
+  box-shadow:
+    0 0 4px rgba(0, 150, 255, 1),
+    /* Inner glow - bright blue */
+    0 0 8px rgba(0, 150, 255, 0.8),
+    /* Middle glow */
+    0 0 16px rgba(0, 150, 255, 0.6),
+    /* Outer glow */
+    0 0 24px rgba(0, 150, 255, 0.4),
+    /* Far glow */
+    0 0 32px rgba(0, 150, 255, 0.2);
+  /* Very far glow */
+}
+
+/* Optional: Adding a subtle background glow where beam passes */
+.beam::before {
+  content: '';
+  background: radial-gradient(ellipse,
+      rgba(0, 150, 255, 0.1) 0%,
+      transparent 70%);
+  z-index: -1;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+    width: 0;
+    background: rgba(255, 255, 255, 1);
+    height: 1px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+    width: 80px;
+  }
+
+  50% {
+    width: 100px;
+    height: 1px;
+    opacity: 1;
+  }
+
+  90% {
+    width: 60px;
+    height: 1px;
+    opacity: 0.8;
+  }
+
+  100% {
+    left: 50%;
+    width: 0;
+    height: 1px;
+    opacity: 0;
+  }
 }
