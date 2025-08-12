@@ -11,6 +11,7 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-beam";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import IndusterySection from '@/components/industry-section';
 import PartnerSection from '@/components/partner-section';
+import Footer from '@/components/footer';
 import { shuffleArray } from "@/config/utils";
 import Image from "next/image";
 import { industries, partners } from "@/config/constant";
@@ -50,6 +51,7 @@ export default function Home() {
         </div>
 
         <AnimatedTestimonialsDemo />
+        <Footer />
 
       </div>
     </>

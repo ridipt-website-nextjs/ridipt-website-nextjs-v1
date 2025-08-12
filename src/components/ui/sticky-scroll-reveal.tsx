@@ -10,11 +10,11 @@ export const TechServices = ({ content, heading }: {
   }[], heading?: string;
 }) => {
   return (
-    <>
+    <div className="mt-20">
       <div
-        className="relative my-40 lg:container !max-w-[1400px] lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-28"
+        className="relative  lg:container !max-w-[1400px] lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-28"
       >
-        <div className="container relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
+        <div className="container mb-10 relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
           <div
             className="sticky bottom-0 top-[calc(var(--header-height)+40px)] flex flex-col gap-10"
           >
@@ -101,7 +101,7 @@ export const TechServices = ({ content, heading }: {
           </div>
         </article>
       </section>
-    </>
+    </div>
 
   )
 }

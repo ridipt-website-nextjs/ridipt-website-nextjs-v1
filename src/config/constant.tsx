@@ -176,27 +176,27 @@ export const industries = [
     {
         title: "Retail & E-commerce",
         description: "Omnichannel Solutions, Inventory Management, Customer Analytics",
-        image: ""
+        image: require('@/assests/industry/ecommerce.svg')
     },
     {
         title: "Healthcare & Wellness",
         description: "Telehealth, Medical Records, Wellness Apps",
-        image: ""
+        image: require('@/assests/industry/healthcare.svg')
     },
     {
         title: "EdTech & E-Learning",
         description: "Virtual Classrooms, Student Analytics, Learning Management Systems",
-        image: ""
+        image: require('@/assests/industry/elearning.svg')
     },
     {
         title: "Fintech",
         description: "Digital Banking, Investment Platforms, Fraud Detection",
-        image: ""
+        image: require('@/assests/industry/banking.svg')
     },
     {
         title: "Logistics & Transportation",
         description: "Fleet Management, Route Optimization, Supply Chain Analytics",
-        image: ""
+        image: require('@/assests/industry/logistics.svg')
     }
 ];
 

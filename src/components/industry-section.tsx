@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 const page = ({ industry }: {
@@ -43,7 +44,15 @@ const page = ({ industry }: {
                         >
                             <figure
                                 className='flex size-9 items-center justify-center rounded-full border border-[--border]  p-2 dark:border-[--dark-border] bg-card'
-                            ></figure>
+                            >
+                                <Image
+                                    alt={item.title}
+                                    className="dark:invert"
+                                    height={24}
+                                    src={item.image}
+                                    width={24}
+                                />
+                            </figure>
                             <div
                                 className='flex flex-col items-start gap-1'
                             >

@@ -15,49 +15,49 @@ import Link from "next/link";
 import { useState } from "react";
 import { ModeToggle } from "./mode-toggle";
 
+export const navItems = [
+    {
+        name: "Home",
+        link: "/",
+    },
+    {
+        name: "Company",
+        items: [{
+            name: "About Us",
+            link: "/about"
+        }, {
+            name: 'Portfolio',
+            link: "/portfolio"
+        }]
+    },
+    {
+        name: "Services",
+        items: [{
+            name: "Web Development",
+            link: "/services/web-development"
+        }, {
+            name: "Mobile Development",
+            link: "/services/mobile-development"
+        }, {
+            name: "UI/UX Design",
+            link: "/services/ui-ux-design"
+        }, {
+            name: 'Cloud & DevOps',
+            link: "/services/cloud-devops"
+        }, {
+            name: 'Automation testing',
+            link: "/services/automation-testing"
+        }, {
+            name: 'Ai & ML',
+            link: "/services/ai-ml"
+        }]
+    },
+    {
+        name: "Technologies",
+        link: "/",
+    },
+];
 export function Navbar() {
-    const navItems = [
-        {
-            name: "Home",
-            link: "/",
-        },
-        {
-            name: "Company",
-            items: [{
-                name: "About Us",
-                link: "/about"
-            }, {
-                name: 'Portfolio',
-                link: "/portfolio"
-            }]
-        },
-        {
-            name: "Services",
-            items: [{
-                name: "Web Development",
-                link: "/services/web-development"
-            }, {
-                name: "Mobile Development",
-                link: "/services/mobile-development"
-            }, {
-                name: "UI/UX Design",
-                link: "/services/ui-ux-design"
-            }, {
-                name: 'Cloud & DevOps',
-                link: "/services/cloud-devops"
-            }, {
-                name: 'Automation testing',
-                link: "/services/automation-testing"
-            }, {
-                name: 'Ai & ML',
-                link: "/services/ai-ml"
-            }]
-        },
-        {
-            name: "Technologies",
-            link: "/",
-        },
-    ];
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
