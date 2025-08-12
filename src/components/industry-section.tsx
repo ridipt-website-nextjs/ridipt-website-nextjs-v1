@@ -1,0 +1,79 @@
+import React from 'react'
+
+const page = ({ industry }: {
+    industry: {
+        title: string;
+        description: string;
+        image: string;
+    }[]
+}) => {
+    return (
+        <section className='my-40'>
+            <section
+                className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-20 gap-10'
+            >
+
+                {/* heading section */}
+                <div
+                    className='flex flex-col gap-3 items-center self-center'
+                >
+                    <h3
+                        className='flex min-h-7 items-center justify-center gap-2 rounded-full  px-3.5 pb-px text-sm font-medium bg-secondary  text-muted-foreground md:text-base'
+                    >
+                        Quick Connect
+                    </h3>
+                    <div
+                        className='flex max-w-[800px] flex-col justify-center gap-1 items-center self-center [&>*]:text-pretty [&>*]:text-3xl [&>*]:font-medium md:[&>*]:text-4xl [&>*]:text-center'
+                    >
+                        <h4 title="Discover Digital Innovations">Discover Digital Innovations</h4>
+                    </div>
+                    <p className="max-w-screen-md text-pretty text-lg font-light text-muted-foreground md:text-xl text-center">We provide comprehensive product strategies, insightful market research, intuitive UX design, and an expedited path to market launch.</p>
+                </div>
+
+
+                {/* content  */}
+                <div
+                    className='grid w-full grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5'
+                >
+                    {industry.map((item, idx) => (
+
+                        <article
+                            key={idx}
+                            className='flex flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]'
+                        >
+                            <figure
+                                className='flex size-9 items-center justify-center rounded-full border border-[--border]  p-2 dark:border-[--dark-border] bg-card'
+                            ></figure>
+                            <div
+                                className='flex flex-col items-start gap-1'
+                            >
+                                <h5 className="text-lg font-medium">{item.title}</h5>
+                                <p className="text-pretty text-muted-foreground">{item.description}</p>
+
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+            <section
+                className='flex flex-col items-center justify-center my-10 mb-20  w-full max-w-7xl mx-auto  gap-10'
+            >
+                <article
+                    className='flex flex-col justify-center gap-9 self-stretch rounded-xl bg-[rgba(var(--accent-500),0.1)] p-6 dark:bg-[rgba(var(--accent-600),0.1)] lg:flex-row lg:justify-between lg:p-1'
+                >
+                    <div
+                        className='flex flex-col gap-2'
+                    >
+                        <h4 className="text-3xl font-medium text-primary lg:text-4xl">Ignite Your Digital Journey</h4>
+                        <p className="text-lg text-muted-foreground lg:text-xl">We specialize in delivering strong product strategies, thorough market research, seamless UX design, and a swift route to market launch.</p>
+
+
+                    </div>
+                </article>
+            </section>
+        </section>
+
+    )
+}
+
+export default page

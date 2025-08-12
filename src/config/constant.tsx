@@ -23,7 +23,7 @@ const tech_stack = {
         }, {
             name: "Material UI",
             icon: "material-ui",
-        },  {
+        }, {
             name: "Sass",
             icon: "sass",
         }, {
@@ -41,7 +41,7 @@ const tech_stack = {
         }, {
             name: "Express.js",
             icon: "expressjs",
-        },{
+        }, {
             name: "Firebase",
             icon: "firebase",
         },
@@ -170,3 +170,43 @@ const tech_stack = {
             icon: "testng",
         }]
 }
+
+
+export const industries = [
+    {
+        title: "Retail & E-commerce",
+        description: "Omnichannel Solutions, Inventory Management, Customer Analytics",
+        image: ""
+    },
+    {
+        title: "Healthcare & Wellness",
+        description: "Telehealth, Medical Records, Wellness Apps",
+        image: ""
+    },
+    {
+        title: "EdTech & E-Learning",
+        description: "Virtual Classrooms, Student Analytics, Learning Management Systems",
+        image: ""
+    },
+    {
+        title: "Fintech",
+        description: "Digital Banking, Investment Platforms, Fraud Detection",
+        image: ""
+    },
+    {
+        title: "Logistics & Transportation",
+        description: "Fleet Management, Route Optimization, Supply Chain Analytics",
+        image: ""
+    }
+];
+
+
+export const partners = [
+    {
+        name: 'aws',
+        image: require('@/assests/partners/aws.svg')
+    }, {
+        name: 'azure',
+        image: require('@/assests/partners/azure.svg')
+    }
+] 

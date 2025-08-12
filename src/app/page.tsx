@@ -9,8 +9,11 @@ import { FlipWords } from "@/components/ui/flip-words";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { HoverBorderGradient } from "@/components/ui/hover-border-beam";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import IndusterySection from '@/components/industry-section';
+import PartnerSection from '@/components/partner-section';
 import { shuffleArray } from "@/config/utils";
 import Image from "next/image";
+import { industries, partners } from "@/config/constant";
 
 
 export default function Home() {
@@ -26,9 +29,12 @@ export default function Home() {
 
       {/* <TabStack /> */}
 
+
       <TechnologyContainer />
 
+      <IndusterySection industry={industries} />
 
+      <PartnerSection companies={partners} />
       <div className="flex flex-col items-center justify-center">
         <div
           className="flex relative items-center my-8 flex-col gap-0 justify-start w-full max-w-7xl mx-auto mb-[1rem]"
@@ -44,6 +50,7 @@ export default function Home() {
         </div>
 
         <AnimatedTestimonialsDemo />
+
       </div>
     </>
   );
