@@ -3,6 +3,7 @@ import { CardStack } from "@/components/card-stack";
 import { HeroParallaxDemo } from "@/components/hero-parallax";
 import { SubHeading } from "@/components/sub-heading";
 import { TabStack } from "@/components/tabs-stack";
+import { StickyScrollRevealDemo } from "@/components/tech-services";
 import { AnimatedTestimonialsDemo } from "@/components/testemonials";
 import { FlipWords } from "@/components/ui/flip-words";
 import { GridPattern } from "@/components/ui/grid-pattern";
@@ -17,11 +18,10 @@ export default function Home() {
     <>
       <HeroParallaxDemo />
       <div className="relative">
-        <SubHeading
-          text="Empowering Your Digital Vision:"
-          highlightedText="Innovative Solutions for Tomorrow"
-        />
-        <CardStack />
+        {/* tech service we provided */}
+        <StickyScrollRevealDemo />
+
+        {/* <CardStack /> */}
       </div>
 
       {/* <TabStack /> */}
@@ -92,28 +92,28 @@ const TechnologyIcons = ({ direction, speed }: { direction?: "left" | "right" | 
       items={shuffleArray(technologyIcons)}
       component={<>
         {technologyIcons.map((item, idx) => (
-            <HoverBorderGradient
-              key={idx}
-              containerClassName="rounded-2xl p-0 group" // group class add karo
-              className="p-0"
-            >
-              <li
-                className="relative flex justify-center p-0 items-center max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-6 py-4 dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]
+          <HoverBorderGradient
+            key={idx}
+            containerClassName="rounded-2xl p-0 group" // group class add karo
+            className="p-0"
+          >
+            <li
+              className="relative flex justify-center p-0 items-center max-w-full shrink-0 rounded-2xl border border-b-0  bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-6 py-4 dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]
     transition-all duration-300 ease-in-out group-hover:shadow-lg 
     group-hover:border-zinc-200 dark:group-hover:border-zinc-700 
     group-hover:ring-2 group-hover:ring-black/20 dark:group-hover:ring-white/30
     cursor-pointer"
-                key={idx}
-              >
-                <Image
-                  src={item.icon}
-                  alt={item.name}
-                  width={60}
-                  height={60}
-                  className="h-14 w-14 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-300 ease-in-out"
-                />
-              </li>
-            </HoverBorderGradient>
+              key={idx}
+            >
+              <Image
+                src={item.icon}
+                alt={item.name}
+                width={60}
+                height={60}
+                className="h-14 w-14 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-300 ease-in-out"
+              />
+            </li>
+          </HoverBorderGradient>
         ))}
       </>}
       direction={direction}
