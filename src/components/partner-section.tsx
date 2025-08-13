@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import React from 'react'
 import Headers from './section-heading'
+import { InfiniteMovingCards } from './ui/infinite-moving-cards'
 
 interface Company {
   name: string
@@ -51,78 +52,50 @@ const PartnersSection: React.FC<PartnersProps> = ({ companies }) => {
           <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent xl:hidden" />
 
           {/* Partners Container */}
-          <div className="overflow my-1">
+          <div className="overflow-hidden py-3 my-1">
             <div className={clsx(
               "flex items-center my- justify-center gap-8 md:gap-12 lg:gap-16",
               "animate-scroll xl:animate-none" // Add auto-scroll animation
             )}>
-              {companies?.map((company, idx) => (
-                <div
-                  key={idx}
-                  className={clsx(
-                    "flex-shrink-0 group  relative",
-                    "p-6 rounded-2xl transition-all duration-300",
-                    "hover:bg-card hover:shadow-lg hover:shadow-primary/5",
-                    "border border-transparent hover:border-border"
-                  )}
-                >
-                  {/* Logo Container */}
-                  <div className="relative flex items-center justify-center h-16 w-24 md:h-20 md:w-32">
-                    <Image
-                      alt={`${company.name} logo`}
-                      src={company.image}
-                      width={128}
-                      height={80}
-                      className={clsx(
-                        "object-contain transition-all duration-300",
-                        "opacity-70 group-hover:opacity-100",
-                        "grayscale group-hover:grayscale-0",
-                        "transform group-hover:scale-110"
-                      )}
-                    />
-                  </div>
+              <InfiniteMovingCards
+                component={companies?.map((company, idx) => (
+                  <div
+                    key={idx}
+                    className={clsx(
+                      "flex-shrink-0 group  relative",
+                      "p-6 rounded-2xl transition-all duration-300",
+                      "hover:bg-card hover:shadow-lg hover:shadow-primary/5",
+                      "border border-transparent hover:border-border"
+                    )}
+                  >
+                    {/* Logo Container */}
+                    <div className="relative flex items-center justify-center h-16 w-24 md:h-20 md:w-32">
+                      <Image
+                        alt={`${company.name} logo`}
+                        src={company.image}
+                        width={128}
+                        height={80}
+                        className={clsx(
+                          "object-contain transition-all duration-300",
+                          "opacity-70 group-hover:opacity-100",
+                          "grayscale group-hover:grayscale-0",
+                          "transform group-hover:scale-110"
+                        )}
+                      />
+                    </div>
 
-                  {/* Company Name (Optional - shows on hover) */}
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-xs capitalize font-medium text-muted-foreground bg-card px-3 py-1 rounded-full shadow-sm border border-border whitespace-nowrap">
-                      {company.name}
-                    </span>
+                    {/* Company Name (Optional - shows on hover) */}
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-xs capitalize font-medium text-muted-foreground bg-card px-3 py-1 rounded-full shadow-sm border border-border whitespace-nowrap">
+                        {company.name}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
-
-              {/* Duplicate for infinite scroll effect */}
-              {companies?.map((company, idx) => (
-                <div
-                  key={`duplicate-${idx}`}
-                  className={clsx(
-                    "flex-shrink-0 group relative xl:hidden",
-                    "p-6 rounded-2xl transition-all duration-300",
-                    "hover:bg-card hover:shadow-lg hover:shadow-primary/5",
-                    "border border-transparent hover:border-border"
-                  )}
-                >
-                  <div className="relative flex items-center justify-center h-16 w-24 md:h-20 md:w-32">
-                    <Image
-                      alt={`${company.name} logo`}
-                      src={company.image}
-                      width={128}
-                      height={80}
-                      className={clsx(
-                        "object-contain transition-all duration-300",
-                        "opacity-70 group-hover:opacity-100",
-                        "grayscale group-hover:grayscale-0",
-                        "transform group-hover:scale-110"
-                      )}
-                    />
-                  </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-xs font-medium text-muted-foreground bg-card px-3 py-1 rounded-full shadow-sm border border-border whitespace-nowrap">
-                      {company.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
+                ))}
+                direction="left"
+                speed='slow'
+                pauseOnHover={true}
+              />
             </div>
           </div>
         </div>
