@@ -11,7 +11,10 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-beam";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import IndusterySection from '@/components/industry-section';
 import PartnerSection from '@/components/partner-section';
+import PortofolioHighlight from '@/components/portfolio-highlights-section';
+import Header from '@/components/section-heading';
 import Footer from '@/components/footer';
+import ContactSession from '@/components/contact-sestion';
 import { shuffleArray } from "@/config/utils";
 import Image from "next/image";
 import { industries, partners } from "@/config/constant";
@@ -31,6 +34,7 @@ export default function Home() {
       {/* <TabStack /> */}
 
 
+      <PortofolioHighlight />
       <TechnologyContainer />
 
       <IndusterySection industry={industries} />
@@ -40,17 +44,19 @@ export default function Home() {
         <div
           className="flex relative items-center my-8 flex-col gap-0 justify-start w-full max-w-7xl mx-auto mb-[1rem]"
         >
-          <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
+          <div className="absolute inset-0 -z-1  [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
             <GridPattern />
           </div>
 
-          <SubHeading
-            className=" mb-0"
-            text="What Our Clients Say"
+          <Header
+            heading="Client Testimonials"
+            subheading="What Our Clients Say"
+            description="We take pride in delivering exceptional service and results. Here's what our clients have to say about their experience with us."
           />
         </div>
 
         <AnimatedTestimonialsDemo />
+        <ContactSession />
         <Footer />
 
       </div>
@@ -61,7 +67,7 @@ export default function Home() {
 
 const TechnologyContainer = () => {
   return <>
-    <div className="flex flex-col my-6 items-center justify-center ">
+    <div className="flex flex-col  my-6 items-center justify-center ">
       <div
         className="flex relative   items-start flex-col gap-0 justify-start w-full max-w-7xl mx-auto mb-[2rem]"
       >

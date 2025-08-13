@@ -100,8 +100,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "40%" : "100%",
-        y: visible ? 20 : 0,
+        // width: visible ? "40%" : "100%",
+        // y: visible ? 20 : 0,
       }}
       transition={{
         type: "spring",
@@ -112,12 +112,17 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
+        "relative z-[60] mx-0  hidden w-full max-w-full rounded-none flex-row items-center justify-between self-start bg-transparent px-4 py-4 lg:flex dark:bg-transparent",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
     >
+      <div
+        className="flex  flex-row justify-between items-center w-full max-w-[1200px] mx-auto"
+        >
+
       {children}
+      </div>
     </motion.div>
   );
 };
@@ -262,6 +267,93 @@ export const MobileNavMenu = ({
     </AnimatePresence>
   );
 };
+
+// Mobile NavItems component add karo
+export const MobileNavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+  const [expanded, setExpanded] = useState<number | null>(null);
+
+  const toggleExpanded = (idx: number) => {
+    setExpanded(expanded === idx ? null : idx);
+  };
+
+  return (
+    <div className={cn("flex flex-col w-full", className)}>
+      {items.map((item, idx) => (
+        <div key={`mobile-nav-item-${idx}`} className="w-full">
+          {item.items ? (
+            // Dropdown item
+            <div>
+              <button
+                className="flex w-full items-center justify-between px-4 py-3 text-left text-neutral-600 dark:text-neutral-300 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-md"
+                onClick={() => toggleExpanded(idx)}
+              >
+                <span>{item.name}</span>
+                <ChevronDown
+                  size={20}
+                  className="text-neutral-600 dark:text-neutral-300 transition-transform duration-300"
+                  style={{
+                    transform: expanded === idx ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.3s ease"
+                  }}
+                />
+              </button>
+              
+              <AnimatePresence>
+                {expanded === idx && item.items && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pl-4 py-2">
+                      {item.items.map((subItem, subIdx) => (
+                        subItem.link ? (
+                          <Link
+                            key={`mobile-sub-item-${subIdx}`}
+                            href={subItem.link}
+                            className="block px-4 py-2 text-sm text-neutral-500 dark:text-neutral-400 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-md"
+                            onClick={onItemClick}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ) : (
+                          <span
+                            key={`mobile-sub-item-${subIdx}`}
+                            className="block px-4 py-2 text-sm text-neutral-500 dark:text-neutral-400"
+                          >
+                            {subItem.name}
+                          </span>
+                        )
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ) : (
+            // Regular link item
+            item.link ? (
+              <Link
+                href={item.link}
+                className="block px-4 py-3 text-neutral-600 dark:text-neutral-300 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-md"
+                onClick={onItemClick}
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <span className="block px-4 py-3 text-neutral-600 dark:text-neutral-300">
+                {item.name}
+              </span>
+            )
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 
 export const MobileNavToggle = ({
   isOpen,

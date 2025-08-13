@@ -9,9 +9,9 @@ const page = ({ industry }: {
     }[]
 }) => {
     return (
-        <section className='my-40'>
+        <section className='my-40 '>
             <section
-                className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-20 gap-10'
+                className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-10 gap-10'
             >
 
                 {/* heading section */}
@@ -40,7 +40,7 @@ const page = ({ industry }: {
 
                         <article
                             key={idx}
-                            className='flex flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]'
+                            className='flex hover:shadow-md transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]'
                         >
                             <figure
                                 className='flex size-9 items-center justify-center rounded-full border border-[--border]  p-2 dark:border-[--dark-border] bg-card'
@@ -65,7 +65,7 @@ const page = ({ industry }: {
                 </div>
             </section>
             <section
-                className='flex flex-col items-center justify-center my-10 mb-20  w-full max-w-7xl mx-auto  gap-10'
+                className='flex flex-col items-center justify-center my-3 mb-5  w-full max-w-7xl mx-auto  gap-10'
             >
                 <article
                     className='flex flex-col justify-center gap-9 self-stretch rounded-xl bg-[rgba(var(--accent-500),0.1)] p-6 dark:bg-[rgba(var(--accent-600),0.1)] lg:flex-row lg:justify-between lg:p-1'

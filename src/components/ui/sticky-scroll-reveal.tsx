@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import s from './styles/sticky-scroll-reveal.module.css';
+import Header from '../section-heading';
 
 export const TechServices = ({ content, heading }: {
   content: {
@@ -18,7 +19,15 @@ export const TechServices = ({ content, heading }: {
           <div
             className="sticky bottom-0 top-[calc(var(--header-height)+40px)] flex flex-col gap-10"
           >
-            <div
+            <Header
+              heading={heading || "Our Services"}
+              className="items-start"
+              subheading="Customized Solutions with Transparency"
+              description="Are you ready to elevate your business with cutting-edge technology? Partner with us! We empower you to reach your objectives with our bespoke mobile app and web app development services."
+            />
+
+            {/* this is the same thing as header if header is not working properly then this will be used */}
+            {/* <div
               className="flex flex-col gap-3 items-start self-start "
             >
               <h3
@@ -30,7 +39,7 @@ export const TechServices = ({ content, heading }: {
                 className="flex max-w-[800px] flex-col justify-center gap-1 items-start self-start [&>*]:text-pretty [&>*]:text-3xl [&>*]:font-medium md:[&>*]:text-4xl [&>*]:text-left">
                 <h4 title="Customized Solutions with Transparency">Customized Solutions with Transparency</h4></div>
               <p className="max-w-screen-md text-pretty text-lg font-light text-muted-foreground  md:text-xl text-left">Are you ready to elevate your business with cutting-edge technology? Partner with us! We empower you to reach your objectives with our bespoke mobile app and web app development services.</p>
-            </div>
+            </div> */}
 
           </div>
         </div>
@@ -41,7 +50,7 @@ export const TechServices = ({ content, heading }: {
             {content.map((item, idx) => (
               <article
                 key={idx}
-                className="flex w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
+                className="flex hover:shadow-md transition-all ease-in-out w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
               >
                 <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-input p-3 ">
                   <Image

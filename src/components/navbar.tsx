@@ -9,6 +9,7 @@ import {
     MobileNavHeader,
     MobileNavToggle,
     MobileNavMenu,
+    MobileNavItems,
 } from "@/components/ui/resizable-navbar";
 import { Sun } from "lucide-react";
 import Link from "next/link";
@@ -62,7 +63,7 @@ export function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <div className="sticky  top-1 z-50 w-full ">
+        <div className="sticky  top-0 z-50 w-full ">
             <NavbarComponent>
                 {/* Desktop Navigation */}
                 <NavBody>
@@ -99,8 +100,9 @@ export function Navbar() {
                         isOpen={isMobileMenuOpen}
                         onClose={() => setIsMobileMenuOpen(false)}
                     >
-                        {navItems.map((item, idx) => (
-                            <Link
+                        <MobileNavItems items={navItems} onItemClick={() => setIsMobileMenuOpen(false)} />
+                        {/* {navItems.map((item, idx) => (
+                            item.link && <Link
                                 key={`mobile-link-${idx}`}
                                 href={item.link!}
                                 onClick={() => setIsMobileMenuOpen(false)}
@@ -108,7 +110,7 @@ export function Navbar() {
                             >
                                 <span className="block">{item.name}</span>
                             </Link>
-                        ))}
+                        ))} */}
                         <div className="flex w-full flex-col gap-4">
 
                             {/* when login functionality is implemented uncomment this btn */}
