@@ -11,9 +11,9 @@ export const TechServices = ({ content, heading }: {
   }[], heading?: string;
 }) => {
   return (
-    <div className="mt-20">
+    <div className="mt-20 sm:mt-10">
       <div
-        className="relative  lg:container !max-w-[1400px] lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-28"
+        className="relative  lg:container lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-28"
       >
         <div className="container mb-10 relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
           <div
@@ -62,7 +62,7 @@ export const TechServices = ({ content, heading }: {
                   />
                 </figure>
                 <div className="flex flex-col items-start gap-1">
-                  <h5 className="text-lg font-medium">{item.title}</h5>
+                  <h5 className="text-lg text-accent-foreground font-medium">{item.title}</h5>
                   <p className="text-pretty truncate text-muted-foreground">
                     {item.description}
                   </p>

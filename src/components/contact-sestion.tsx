@@ -117,10 +117,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({
       bg-secondary 
       border border-border outline-muted-foreground
       rounded-xl text-base
-      placeholder-gray-500 dark:placeholder-gray-400 
-      focus:outline-none focus:ring-2 focus:ring-primary/20 
+      placeholder-gray-500 dark:placeholder-gray-400 focus:border-transparent
+      focus:outline-none focus:ring-2 focus:ring-primary 
       focus:border-muted-foreground transition-all duration-200
-      backdrop-blur-sm shadow-sm
     `;
 
     if (field.type === 'textarea') {
@@ -188,11 +187,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-accent-foreground mb-6">
+          <div className="text-center flex flex-col gap-2 mb-12">
+            <h4 className="text-pretty text-3xl  text-primary font-medium md:text-4xl">
               Get Free Consultation
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            </h4>
+            <p className="max-w-screen-md text-pretty text-lg font-light text-muted-foreground md:text-xl">
               Ready to transform your business? Let's discuss your project requirements and explore innovative solutions together.
             </p>
           </div>

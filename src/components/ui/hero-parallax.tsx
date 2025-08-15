@@ -105,7 +105,7 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+      <h1 className="text-2xl md:text-7xl font-bold text-primary">
         Welcome to the Future of Application Development: <br />  <FlipWords
           words={[
             "Serverless Architecture",
@@ -113,9 +113,10 @@ export const Header = () => {
             "Scalable Applications",
             "Next-Gen Development"
           ]}
+          className="text-accent-foreground"
         />
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+      <p className="max-w-2xl text-base md:text-xl mt-8 text-muted-foreground">
         Revolutionize your applications with Ridipt Technologies. Build, deploy, and innovate without worrying about infrastructure.
       </p>
     </div>

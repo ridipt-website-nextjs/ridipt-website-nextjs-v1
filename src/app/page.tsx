@@ -3,7 +3,7 @@ import { CardStack } from "@/components/card-stack";
 import { HeroParallaxDemo } from "@/components/hero-parallax";
 import { SubHeading } from "@/components/sub-heading";
 import { TabStack } from "@/components/tabs-stack";
-import { StickyScrollRevealDemo } from "@/components/tech-services";
+import { StickyScrollRevealDemo as TechService } from "@/components/tech-services";
 import { AnimatedTestimonialsDemo } from "@/components/testemonials";
 import { FlipWords } from "@/components/ui/flip-words";
 import { GridPattern } from "@/components/ui/grid-pattern";
@@ -26,7 +26,7 @@ export default function Home() {
       <HeroParallaxDemo />
       <div className="relative">
         {/* tech service we provided */}
-        <StickyScrollRevealDemo />
+        <TechService />
 
         {/* <CardStack /> */}
       </div>
@@ -44,9 +44,9 @@ export default function Home() {
         <div
           className="flex relative items-center my-8 flex-col gap-0 justify-start w-full max-w-7xl mx-auto mb-[1rem]"
         >
-          <div className="absolute inset-0 -z-1  [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
+          {/* <div className="absolute inset-0 -z-1  [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
             <GridPattern />
-          </div>
+          </div> */}
 
           <Header
             heading="Client Testimonials"
@@ -57,7 +57,6 @@ export default function Home() {
 
         <AnimatedTestimonialsDemo />
         <ContactSession />
-        <Footer />
 
       </div>
     </>
@@ -73,17 +72,17 @@ const TechnologyContainer = () => {
       >
 
         <SubHeading
-          className=""
+          className="!text-primary"
           customHieghtlightedComponent={<>
             <FlipWords
               words={["React", "Next.js", "Node.js", "TypeScript", "Tailwind CSS"]}
-              className=" ml-0 pl-0 font-bold text-[blue] dark:text-[cyan]"
+              className=" ml-0 pl-0 font-bold text-accent-foreground"
 
             />
           </>}
           text="Technologies we are work with"
         />
-        <p className="max-w-2xl relative text-base md:text-xl  dark:text-neutral-200">
+        <p className="max-w-2xl relative text-base md:text-xl  text-muted-foreground ">
           Revolutionize your applications with Ridipt Technologies. Build, deploy, and innovate without worrying about infrastructure.
 
         </p>
@@ -115,8 +114,8 @@ const TechnologyIcons = ({ direction, speed }: { direction?: "left" | "right" | 
             <li
               className="relative flex justify-center p-0 items-center max-w-full shrink-0 rounded-2xl border border-b-0  bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-6 py-4 dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]
     transition-all duration-300 ease-in-out group-hover:shadow-lg 
-    group-hover:border-zinc-200 dark:group-hover:border-zinc-700 
-    group-hover:ring-2 group-hover:ring-black/20 dark:group-hover:ring-white/30
+    group-hover:border-accent 
+    group-hover:ring-2 group-hover:ring-ring
     cursor-pointer"
               key={idx}
             >

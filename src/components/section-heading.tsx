@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { JSX } from 'react'
 import { cn } from '@/lib/utils' // If you have cn utility
 
-interface HeaderProps {
-  heading: string;
-  subheading: string;
-  description: string;
-  className?: string;
-  align?: 'left' | 'center' | 'right';
-}
+type HeaderProps =
+  | {
+      heading: string;
+      subheading: string;
+      description: string; // required in this case
+      className?: string;
+      descriptionComponent?: undefined;
+      align?: 'left' | 'center' | 'right';
+    }
+  | {
+      heading: string;
+      subheading: string;
+      description?: string; // optional in this case
+      className?: string;
+      descriptionComponent: JSX.Element; // required here
+      align?: 'left' | 'center' | 'right';
+    };
+
 
 const Header: React.FC<HeaderProps> = ({
   heading,
   subheading,
   description,
+  descriptionComponent,
   className = '',
   align = 'center'
 }) => {
@@ -25,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
     },
     center: {
       container: 'items-center',
-      text: 'text-center', 
+      text: 'text-center',
       badge: 'self-center'
     },
     right: {
@@ -36,9 +48,9 @@ const Header: React.FC<HeaderProps> = ({
   }
 
   // Detect alignment from className if align prop not provided
-  const detectedAlign = className.includes('items-start') ? 'left' 
-    : className.includes('items-end') ? 'right' 
-    : align
+  const detectedAlign = className.includes('items-start') ? 'left'
+    : className.includes('items-end') ? 'right'
+      : align
 
   const config = alignmentConfig[detectedAlign]
 
@@ -50,32 +62,34 @@ const Header: React.FC<HeaderProps> = ({
     )}>
       {/* Heading Badge */}
       <h3 className={cn(
-        'flex min-h-7 items-center justify-center gap-2 rounded-full px-3.5 pb-px text-sm font-medium bg-secondary text-muted-foreground md:text-base',
+        'flex min-h-7 items-inherit justify-center gap-2 rounded-full px-3.5 pb-px text-sm font-medium bg-secondary text-muted-foreground md:text-base',
         config.badge
       )}>
         {heading}
       </h3>
-      
+
       {/* Subheading */}
       <div className={cn(
-        'flex max-w-[800px] flex-col justify-center gap-1 self-center',
+        'flex max-w-[800px] flex-col justify-center gap-1 ',
         config.container
       )}>
         <h4 className={cn(
-          'text-pretty text-3xl font-medium md:text-4xl',
+          'text-pretty text-3xl  text-secondary-foreground font-medium md:text-4xl',
           config.text
         )}>
           {subheading}
         </h4>
       </div>
-      
+
       {/* Description */}
-      <p className={cn(
-        'max-w-screen-md text-pretty text-lg font-light text-muted-foreground md:text-xl',
-        config.text
-      )}>
-        {description}
-      </p>
+      {
+        descriptionComponent ? descriptionComponent :
+          <p className={cn(
+            'max-w-screen-md text-pretty text-lg font-light text-muted-foreground md:text-xl',
+            config.text
+          )}>
+            {description}
+          </p>}
     </div>
   )
 }

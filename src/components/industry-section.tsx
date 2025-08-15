@@ -1,21 +1,33 @@
 import Image from 'next/image';
 import React from 'react'
+import Header from './section-heading';
 
-const page = ({ industry }: {
+const page = ({ industry, heading, subheading, description }: {
     industry: {
         title: string;
         description: string;
         image: string;
-    }[]
+    }[],
+    heading?: string;
+    subheading?: string;
+    description?: string;
 }) => {
     return (
-        <section className='my-40 '>
+        <section className='my-40 mb-20 '>
             <section
                 className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-10 gap-10'
             >
 
                 {/* heading section */}
-                <div
+                <Header
+                    heading={heading || 'Quick Connect'}
+                    subheading={subheading || 'Discover Digital Innovations'}
+                    description={description || `We provide comprehensive product strategies, insightful market research, intuitive UX design, and an expedited path to market launch.`}
+                    className='text-center'
+                />
+
+                {/* we are use dynamic header thats why this is commented if there is problem in header component then uncomment this */}
+                {/* <div
                     className='flex flex-col gap-3 items-center self-center'
                 >
                     <h3
@@ -29,7 +41,7 @@ const page = ({ industry }: {
                         <h4 title="Discover Digital Innovations">Discover Digital Innovations</h4>
                     </div>
                     <p className="max-w-screen-md text-pretty text-lg font-light text-muted-foreground md:text-xl text-center">We provide comprehensive product strategies, insightful market research, intuitive UX design, and an expedited path to market launch.</p>
-                </div>
+                </div> */}
 
 
                 {/* content  */}
@@ -56,7 +68,7 @@ const page = ({ industry }: {
                             <div
                                 className='flex flex-col items-start gap-1'
                             >
-                                <h5 className="text-lg font-medium">{item.title}</h5>
+                                <h5 className="text-lg font-medium text-accent-foreground">{item.title}</h5>
                                 <p className="text-pretty text-muted-foreground">{item.description}</p>
 
                             </div>

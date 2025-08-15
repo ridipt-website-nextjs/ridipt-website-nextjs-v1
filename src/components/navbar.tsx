@@ -25,7 +25,7 @@ export const navItems = [
         name: "Company",
         items: [{
             name: "About Us",
-            link: "/about"
+            link: "/about-us"
         }, {
             name: 'Portfolio',
             link: "/portfolio"
@@ -82,7 +82,7 @@ export function Navbar() {
                         </div>
 
 
-                        <NavbarButton variant="primary">Contact us</NavbarButton>
+                        <NavbarButton className="bg-secondary text-secondary-foreground hover:text-secondary hover:bg-secondary-foreground transition-all duration-300 ease-in-out" variant="primary">Contact us</NavbarButton>
                     </div>
                 </NavBody>
 

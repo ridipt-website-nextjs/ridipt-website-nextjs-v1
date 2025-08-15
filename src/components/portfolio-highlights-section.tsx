@@ -44,22 +44,37 @@ const portfolioData = [
     },
 ];
 
-const page = () => {
+const page = ({
+    className = '',
+    content = portfolioData
+    , heading,
+    subheading,
+    description
+
+}: {
+    className?: string
+    content?: typeof portfolioData;
+    heading?: string
+    subheading?: string
+    description?: string
+
+}) => {
     return (
         <section
             className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-20 gap-10'
         >
             <Header
-                heading='Portfolio Highlights'
-                subheading='Building Success Together'
-                description={`We are committed to addressing our clients' evolving business requirements, helping them stand out on the App Store, Google Play, and their websites.`}
+                heading={heading || 'Portfolio Highlights'}
+                subheading={subheading || 'Building Success Together'}
+                description={description || `We are committed to addressing our clients' evolving business requirements, helping them stand out on the App Store, Google Play, and their websites.`}
             />
             <div
                 className='flex flex-col gap-6'
             >
-                {portfolioData.map((item, idx) => (
+                {content.map((item, idx) => (
                     <Card
                         content={item}
+                        className={className}
                         key={idx}
                     />
                 ))}
@@ -68,17 +83,18 @@ const page = () => {
     )
 }
 
-const Card = ({ content }: {
+const Card = ({ content, className }: {
     content: {
         title: string;
         description: string;
         image: any; // Changed from string to any to accommodate both strings and objects
         isAnimation: boolean;
         highlights: string[];
-    }
+    },
+    className?: string
 }) => {
     return <article
-        className='flex min-h-96 w-full max-w-[380px] flex-col rounded-lg border border-border bg-card p-px  sm:max-w-full md:w-full md:flex-row md:odd:flex-row-reverse xl:gap-16'
+        className={`flex min-h-96 w-full max-w-[380px] flex-col rounded-lg border border-border bg-card p-px  sm:max-w-full md:w-full md:flex-row md:odd:flex-row-reverse xl:gap-16 ${className}`}
     >
         <figure
             className='p-2 md:h-auto md:w-[360px] lg:w-[480px] xl:w-[560px]'
@@ -87,12 +103,12 @@ const Card = ({ content }: {
                 <Lottie
                     animationData={content.image}
                     loop={true}
-                    className="block aspect-video h-[200px] w-full rounded-lg border border-border object-cover  md:h-full "
+                    className="block aspect-video h-[200px] w-full rounded-lg border border-inherit object-cover  md:h-full "
                 />
             ) : (
                 <Image
                     alt={content.title}
-                    className=" block aspect-video h-[200px] w-full rounded-lg border border-border object-cover  md:h-full"
+                    className=" block aspect-video h-[200px] w-full rounded-lg border border-inherit object-cover  md:h-full"
                     height={360}
                     src={content.image}
                     width={480}
@@ -106,7 +122,7 @@ const Card = ({ content }: {
                 className='flex flex-col items-start gap-2'
             >
                 <h5
-                    className='text-2xl font-medium text-primary  md:text-3xl'
+                    className='text-2xl font-medium text-accent-foreground  md:text-3xl'
                 >{content.title}</h5>
                 <p
                     className='font-normal text-muted-foreground md:text-lg'

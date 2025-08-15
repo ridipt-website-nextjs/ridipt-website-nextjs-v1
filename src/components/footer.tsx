@@ -37,7 +37,7 @@ const Footer = () => {
                 As a global leader, we deliver stellar and cost-effective solutions 
                 that pave the way for innovation.
               </p>
-              <p className='text-blue-400 font-medium text-sm'>
+              <p className='text-accent-foreground font-medium text-sm'>
                 "Innovating the Future with Cutting-Edge Technology"
               </p>
             </div>
@@ -176,12 +176,12 @@ const Footer = () => {
               <input 
                 type='email' 
                 placeholder='Enter your email' 
-                className='flex-1 px-4 py-2 bg-background border border-border rounded-lg text-primary text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all'
+                className='flex-1 px-4 focus:border py-2 bg-card border border-border rounded-lg text-primary text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all'
                 required
               />
               <button 
                 type='submit'
-                className='px-6 py-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium rounded-lg transition-colors duration-300 whitespace-nowrap'
+                className='px-6 py-2 bg-primary text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-border border border-primary   transition-all ease-in-out  text-sm font-medium rounded-lg duration-300 whitespace-nowrap'
               >
                 Subscribe
               </button>
