@@ -6,6 +6,7 @@ type HeaderProps =
       heading: string;
       subheading: string;
       description: string; // required in this case
+      headingStyle?:string
       className?: string;
       descriptionComponent?: undefined;
       align?: 'left' | 'center' | 'right';
@@ -13,6 +14,7 @@ type HeaderProps =
   | {
       heading: string;
       subheading: string;
+      headingStyle?:string
       description?: string; // optional in this case
       className?: string;
       descriptionComponent: JSX.Element; // required here
@@ -25,6 +27,7 @@ const Header: React.FC<HeaderProps> = ({
   subheading,
   description,
   descriptionComponent,
+  headingStyle,
   className = '',
   align = 'center'
 }) => {
@@ -63,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({
       {/* Heading Badge */}
       <h3 className={cn(
         'flex min-h-7 items-inherit justify-center gap-2 rounded-full px-3.5 pb-px text-sm font-medium bg-secondary text-muted-foreground md:text-base',
-        config.badge
+        config.badge,headingStyle
       )}>
         {heading}
       </h3>

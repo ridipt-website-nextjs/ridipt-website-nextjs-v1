@@ -3,27 +3,50 @@ import Image from "next/image";
 import s from './styles/sticky-scroll-reveal.module.css';
 import Header from '../section-heading';
 
-export const TechServices = ({ content, heading }: {
-  content: {
-    title: string;
-    description: string;
-    image: string;
-  }[], heading?: string;
+type ContentItem = {
+  title: string;
+  description: string;
+  image: string;
+};
+
+export const TechServices = ({
+  content,
+  heading,
+  className,
+  subheading,
+  description,
+  subSection = true,
+
+}: {
+  content: ContentItem[] | React.ReactNode;
+  heading?: string;
+  className?: string;
+  subheading?: string;
+  description?: string;
+  subSection?: boolean;
 }) => {
+  // Check if content is JSX or array
+  const isArrayContent = Array.isArray(content);
+  const isJSXContent = !isArrayContent;
+
   return (
-    <div className="mt-20 sm:mt-10">
+    <div className={`mt-20 sm:mt-10 ${className}`}>
       <div
-        className="relative  lg:container lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-28"
+        className="relative lg:container lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-28"
       >
         <div className="container mb-10 relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
           <div
-            className="sticky bottom-0 top-[calc(var(--header-height)+40px)] flex flex-col gap-10"
+            className={clsx(
+              "flex flex-col gap-10",
+              // Apply sticky only for array content, not JSX content
+              isArrayContent && "sticky bottom-0 top-[calc(var(--header-height)+40px)]"
+            )}
           >
             <Header
               heading={heading || "Our Services"}
               className="items-start"
-              subheading="Customized Solutions with Transparency"
-              description="Are you ready to elevate your business with cutting-edge technology? Partner with us! We empower you to reach your objectives with our bespoke mobile app and web app development services."
+              subheading={subheading || "Customized Solutions with Transparency"}
+              description={description || "Are you ready to elevate your business with cutting-edge technology? Partner with us! We empower you to reach your objectives with our bespoke mobile app and web app development services."}
             />
 
             {/* this is the same thing as header if header is not working properly then this will be used */}
@@ -43,37 +66,44 @@ export const TechServices = ({ content, heading }: {
 
           </div>
         </div>
+
         <div className="w-full flex-1 shrink-0 lg:w-1/2 lg:flex-1">
           <div
             className="no-scrollbar flex gap-10 overflow-auto px-6 lg:flex-col lg:px-0"
           >
-            {content.map((item, idx) => (
-              <article
-                key={idx}
-                className="flex hover:shadow-md transition-all ease-in-out w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
-              >
-                <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-input p-3 ">
-                  <Image
-                    alt={item.title}
-                    className="dark:invert"
-                    height={24}
-                    src={item.image}
-                    width={24}
-                  />
-                </figure>
-                <div className="flex flex-col items-start gap-1">
-                  <h5 className="text-lg text-accent-foreground font-medium">{item.title}</h5>
-                  <p className="text-pretty truncate text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
-            ))}
+            {/* Render JSX content if provided */}
+            {isJSXContent ? (
+              content as React.ReactNode
+            ) : (
+              /* Render array content */
+              (content as ContentItem[]).map((item, idx) => (
+                <article
+                  key={idx}
+                  className="flex hover:shadow-md transition-all ease-in-out w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
+                >
+                  <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-input p-3 ">
+                    <Image
+                      alt={item.title}
+                      className="dark:invert"
+                      height={24}
+                      src={item.image}
+                      width={24}
+                    />
+                  </figure>
+                  <div className="flex flex-col items-start gap-1">
+                    <h5 className="text-lg text-accent-foreground font-medium">{item.title}</h5>
+                    <p className="text-pretty truncate text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </article>
+              ))
+            )}
           </div>
         </div>
       </div>
 
-      <section
+      {subSection && <section
         className="py-10 max-w-[1300px] md:py-[72px] flex flex-col items-center gap-10 relative container mx-auto px-6"
       >
         <article
@@ -109,8 +139,7 @@ export const TechServices = ({ content, heading }: {
             </p>
           </div>
         </article>
-      </section>
+      </section>}
     </div>
-
   )
 }

@@ -76,7 +76,7 @@ const TechnologyContainer = () => {
           customHieghtlightedComponent={<>
             <FlipWords
               words={["React", "Next.js", "Node.js", "TypeScript", "Tailwind CSS"]}
-              className=" ml-0 pl-0 font-bold text-accent-foreground"
+              className=" ml-0 pl-0 font-bold !text-accent-foreground"
 
             />
           </>}

@@ -103,15 +103,15 @@ const PartnersSection: React.FC<PartnersProps> = ({ companies }) => {
         {/* Stats or Additional Info */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-2">50+</div>
+            <div className="text-2xl md:text-3xl font-bold text-accent-foreground mb-2">50+</div>
             <div className="text-sm text-muted-foreground">Technology Partners</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-2">99.9%</div>
+            <div className="text-2xl md:text-3xl font-bold text-accent-foreground mb-2">99.9%</div>
             <div className="text-sm text-muted-foreground">Uptime Guarantee</div>
           </div>
           <div className="text-center col-span-2 md:col-span-1">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-2">24/7</div>
+            <div className="text-2xl md:text-3xl font-bold text-accent-foreground mb-2">24/7</div>
             <div className="text-sm text-muted-foreground">Technical Support</div>
           </div>
         </div>

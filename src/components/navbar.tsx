@@ -123,7 +123,7 @@ export function Navbar() {
                             </NavbarButton> */}
                             <NavbarButton
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                variant="primary"
+                                variant="secondary"
                                 className="w-full"
                             >
                                 Contact us

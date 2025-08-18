@@ -44,21 +44,33 @@ const portfolioData = [
     },
 ];
 
+interface ServiceItem {
+    title: string;
+    description: string;
+    image: any;
+    isAnimation: boolean;
+    highlights: string[];
+}
+
+interface ServicesProps {
+    className?: string;
+    content?: ServiceItem[];
+    heading?: string;
+    subheading?: string;
+    description?: string;
+    CustomCard?: React.ComponentType<{ item: ServiceItem; index: number }>;
+}
+
+
 const page = ({
     className = '',
     content = portfolioData
     , heading,
     subheading,
-    description
+    description,
+    CustomCard
 
-}: {
-    className?: string
-    content?: typeof portfolioData;
-    heading?: string
-    subheading?: string
-    description?: string
-
-}) => {
+}: ServicesProps) => {
     return (
         <section
             className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-20 gap-10'
@@ -72,11 +84,15 @@ const page = ({
                 className='flex flex-col gap-6'
             >
                 {content.map((item, idx) => (
-                    <Card
-                        content={item}
-                        className={className}
-                        key={idx}
-                    />
+                    CustomCard ? (
+                        <CustomCard key={idx} item={item} index={idx} />
+                    ) : (
+                        <Card
+                            content={item}
+                            className={className}
+                            key={idx}
+                        />
+                    )
                 ))}
             </div>
         </section>

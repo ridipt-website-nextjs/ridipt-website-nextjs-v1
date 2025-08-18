@@ -21,7 +21,7 @@
 /build
 
 # static files
-/static-things
+docs/
 
 # misc
 .DS_Store

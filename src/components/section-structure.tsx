@@ -2,8 +2,10 @@ import React from 'react'
 
 const page = ({
   children,
+  className
 }: {
   children: React.ReactNode
+  className?: string
 }) => {
   return (
     <div
@@ -11,7 +13,7 @@ const page = ({
     >
 
       <section
-        className='flex flex-col  items-center justify-center w-full max-w-6xl mx-auto my-20 gap-10 px-2'
+        className={`flex flex-col  items-center justify-center w-full max-w-6xl mx-auto my-20 gap-10 px-2 ${className}`}
       >{children}</section>
     </div>
   )

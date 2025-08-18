@@ -6,6 +6,7 @@ const page = ({ industry, heading, subheading, description }: {
     industry: {
         title: string;
         description: string;
+        subtitle?: string;
         image: string;
     }[],
     heading?: string;
@@ -46,16 +47,16 @@ const page = ({ industry, heading, subheading, description }: {
 
                 {/* content  */}
                 <div
-                    className='grid w-full grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5'
+                    className={`grid w-full grid-cols-1 ${industry[0].subtitle ? 'gap-6' : 'gap-4'} lg:grid-cols-3 lg:gap-5`}
                 >
                     {industry.map((item, idx) => (
 
                         <article
                             key={idx}
-                            className='flex hover:shadow-md transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]'
+                            className={`group flex duration-300 hover:shadow-md transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] ${item.subtitle && '!pb-10 relative'}`}
                         >
                             <figure
-                                className='flex size-9 items-center justify-center rounded-full border border-[--border]  p-2 dark:border-[--dark-border] bg-card'
+                                className='flex size-9 items-center justify-center rounded-full border border-[--border] p-2 dark:border-[--dark-border] bg-card'
                             >
                                 <Image
                                     alt={item.title}
@@ -70,9 +71,17 @@ const page = ({ industry, heading, subheading, description }: {
                             >
                                 <h5 className="text-lg font-medium text-accent-foreground">{item.title}</h5>
                                 <p className="text-pretty text-muted-foreground">{item.description}</p>
-
                             </div>
+
+                            {item.subtitle && (
+                                <div
+                                    className='absolute group-hover:shadow-lg opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-300 flex transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-2 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] -right-[.7rem] bg-card truncate -bottom-[.7rem] max-w-[300px]'
+                                >
+                                    <h3 className='truncate font-medium text-muted-foreground'>{item.subtitle}</h3>
+                                </div>
+                            )}
                         </article>
+
                     ))}
                 </div>
             </section>

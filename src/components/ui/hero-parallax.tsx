@@ -14,15 +14,15 @@ import { FlipWords } from "./flip-words";
 export const HeroParallax = ({
   products,
 }: {
-  products: {
+  products?: {
     title: string;
     link: string;
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const firstRow = products?.slice(0, 5);
+  const secondRow = products?.slice(5, 10);
+  const thirdRow = products?.slice(10, 15);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -113,7 +113,7 @@ export const Header = () => {
             "Scalable Applications",
             "Next-Gen Development"
           ]}
-          className="text-accent-foreground"
+          className="!text-accent-foreground"
         />
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-muted-foreground">
