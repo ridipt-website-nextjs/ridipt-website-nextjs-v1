@@ -43,14 +43,8 @@ export const navItems = [
             name: "UI/UX Design",
             link: "/services/ui-ux-design"
         }, {
-            name: 'Cloud & DevOps',
-            link: "/services/cloud-devops"
-        }, {
-            name: 'Automation testing',
-            link: "/services/automation-testing"
-        }, {
-            name: 'Ai & ML',
-            link: "/services/ai-ml"
+            name: 'Emerging Technology',
+            link: "/services/emerging-technology"
         }]
     },
     {

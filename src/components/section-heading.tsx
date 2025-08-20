@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <div className={cn(
-      'flex flex-col gap-3 self-center',
+      'flex flex-col gap-3 max-w-6xl self-center',
       config.container,
       className
     )}>
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({
 
       {/* Subheading */}
       <div className={cn(
-        'flex max-w-[800px] flex-col justify-center gap-1 ',
+        'flex  flex-col justify-center gap-1 ',
         config.container
       )}>
         <h4 className={cn(

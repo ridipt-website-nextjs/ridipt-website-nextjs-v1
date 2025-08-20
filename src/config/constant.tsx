@@ -229,9 +229,8 @@ export const web_dev_services_second_section = [
 ];
 
 
-export const services_tech_stack = [
-  {
-    name: "Web Development",
+export const services_tech_stack = {
+  "Web Development": {
     // image: require("@assets/icons/web-dev.svg"),
     items: {
       frontend: [
@@ -270,7 +269,7 @@ export const services_tech_stack = [
       ],
       databases: [
         { name: "MySQL", image: require("@assets/technology_icons/mysql.svg") },
-        // { name: "PostgreSQL", image: require("@assets/technology_icons/p") },
+        // { name: "PostgreSQL", image: require("@assets/tech/p") },
         // { name: "MongoDB", image: require("@assets/tech/mongodb.svg") },
         // { name: "Redis", image: require("@assets/tech/redis.svg") },
         // { name: "MariaDB", image: require("@assets/tech/mariadb.svg") },
@@ -278,100 +277,285 @@ export const services_tech_stack = [
       ]
     }
   },
-//   {
-//     name: "Mobile Development",
-//     image: require("@assets/icons/mobile-dev.svg"),
-//     items: {
-//       crossPlatform: [
-//         { name: "React Native", image: require("@assets/tech/react-native.svg") },
-//         { name: "Flutter", image: require("@assets/tech/flutter.svg") },
-//         { name: "Ionic", image: require("@assets/tech/ionic.svg") },
-//         { name: "Xamarin", image: require("@assets/tech/xamarin.svg") }
-//       ],
-//       native: [
-//         { name: "Kotlin", image: require("@assets/tech/kotlin.svg") },
-//         { name: "Java", image: require("@assets/tech/java.svg") },
-//         { name: "Swift", image: require("@assets/tech/swift.svg") },
-//         { name: "Objective-C", image: require("@assets/tech/objectivec.svg") }
-//       ]
-//     }
-//   },
-//   {
-//     name: "UI/UX Design",
-//     image: require("@assets/icons/ui-ux.svg"),
-//     items: {
-//       designTools: [
-//         { name: "Figma", image: require("@assets/tech/figma.svg") },
-//         { name: "Adobe XD", image: require("@assets/tech/adobexd.svg") },
-//         { name: "Sketch", image: require("@assets/tech/sketch.svg") },
-//         { name: "InVision", image: require("@assets/tech/invision.svg") },
-//         { name: "Canva", image: require("@assets/tech/canva.svg") }
-//       ],
-//       prototyping: [
-//         { name: "Marvel", image: require("@assets/tech/marvel.svg") },
-//         { name: "Zeplin", image: require("@assets/tech/zeplin.svg") },
-//         { name: "Balsamiq", image: require("@assets/tech/balsamiq.svg") },
-//         { name: "Framer", image: require("@assets/tech/framer.svg") }
-//       ]
-//     }
-//   },
-//   {
-//     name: "Cloud & DevOps",
-//     image: require("@assets/icons/cloud-devops.svg"),
-//     items: {
-//       cloudProviders: [
-//         { name: "AWS", image: require("@assets/tech/aws.svg") },
-//         { name: "GCP", image: require("@assets/tech/gcp.svg") },
-//         { name: "Azure", image: require("@assets/tech/azure.svg") },
-//         { name: "DigitalOcean", image: require("@assets/tech/digitalocean.svg") },
-//         { name: "Heroku", image: require("@assets/tech/heroku.svg") },
-//         { name: "Vercel", image: require("@assets/tech/vercel.svg") },
-//         { name: "Netlify", image: require("@assets/tech/netlify.svg") }
-//       ],
-//       devops: [
-//         { name: "Docker", image: require("@assets/tech/docker.svg") },
-//         { name: "Kubernetes", image: require("@assets/tech/kubernetes.svg") },
-//         { name: "Terraform", image: require("@assets/tech/terraform.svg") },
-//         { name: "Ansible", image: require("@assets/tech/ansible.svg") },
-//         { name: "Pulumi", image: require("@assets/tech/pulumi.svg") }
-//       ]
-//     }
-//   },
-//   {
-//     name: "Automation Testing",
-//     image: require("@assets/icons/testing.svg"),
-//     items: {
-//       unitIntegration: [
-//         { name: "Jest", image: require("@assets/tech/jest.svg") },
-//         { name: "Mocha", image: require("@assets/tech/mocha.svg") },
-//         { name: "Chai", image: require("@assets/tech/chai.svg") },
-//         { name: "Vitest", image: require("@assets/tech/vitest.svg") }
-//       ],
-//       e2e: [
-//         { name: "Cypress", image: require("@assets/tech/cypress.svg") },
-//         { name: "Playwright", image: require("@assets/tech/playwright.svg") },
-//         { name: "Selenium", image: require("@assets/tech/selenium.svg") },
-//         { name: "Puppeteer", image: require("@assets/tech/puppeteer.svg") }
-//       ]
-//     }
-//   },
-//   {
-//     name: "AI & ML",
-//     image: require("@assets/icons/ai-ml.svg"),
-//     items: {
-//       languages: [
-//         { name: "Python", image: require("@assets/tech/python.svg") },
-//         { name: "R", image: require("@assets/tech/r.svg") },
-//         { name: "Julia", image: require("@assets/tech/julia.svg") },
-//         { name: "Scala", image: require("@assets/tech/scala.svg") }
-//       ],
-//       frameworks: [
-//         { name: "TensorFlow", image: require("@assets/tech/tensorflow.svg") },
-//         { name: "PyTorch", image: require("@assets/tech/pytorch.svg") },
-//         { name: "Keras", image: require("@assets/tech/keras.svg") },
-//         { name: "Scikit-learn", image: require("@assets/tech/scikit.svg") },
-//         { name: "XGBoost", image: require("@assets/tech/xgboost.svg") }
-//       ]
-//     }
-//   }
-];
+
+  "Mobile Development": {
+    // image: require("@assets/icons/mobile-dev.svg"),
+    items: {
+      crossPlatform: [
+        { name: "React Native", image: require("@assets/technology_icons/react.svg") },
+        { name: "Flutter", image: require("@assets/technology_icons/flutter.svg") },
+        { name: "Ionic", image: require("@assets/technology_icons/ionic.svg") },
+        { name: "Xamarin", image: require("@assets/technology_icons/xamarin.svg") }
+      ],
+      native: [
+        { name: "Kotlin", image: require("@assets/technology_icons/kotlin.svg") },
+        { name: "Java", image: require("@assets/technology_icons/java.svg") },
+        { name: "Swift", image: require("@assets/technology_icons/swift.svg") },
+        { name: "Objective-C", image: require("@assets/technology_icons/objectivec.svg") }
+      ]
+    }
+  },
+
+  "Emerging Technologies": {
+    // image: require("@assets/icons/emerging-tech.svg"),
+    items: {
+      ai_ml: [
+        { name: "TensorFlow", image: require("@assets/our_services/emerging technology/tensorflow.svg") },
+        { name: "PyTorch", image: require("@assets/our_services/emerging technology/pytorch.svg") },
+        { name: "Scikit-learn", image: require("@assets/our_services/emerging technology/r.svg") },
+        { name: "Keras", image: require("@assets/our_services/emerging technology/keras.svg") }
+      ],
+      blockchain: [
+        { name: "Ethereum", image: require("@assets/our_services/emerging technology/ethereum.svg") },
+        { name: "Solidity", image: require("@assets/our_services/emerging technology/solidity.svg") },
+        { name: "Hyperledger", image: require("@assets/our_services/emerging technology/hyperledger.svg") }
+      ],
+      data_science: [
+        { name: "Python", image: require("@assets/technology_icons/python.svg") },
+        { name: "R", image: require("@assets/our_services/emerging technology/r.svg") },
+        { name: "Jupyter", image: require("@assets/our_services/emerging technology/jupyter.svg") }
+      ],
+      devops: [
+        { name: "Docker", image: require("@assets/our_services/emerging technology/docker.svg") },
+        { name: "Kubernetes", image: require("@assets/our_services/emerging technology/kubernetes.svg") },
+        { name: "Terraform", image: require("@assets/our_services/emerging technology/terraform.svg") }
+      ]
+    }
+  },
+
+  // "UI/UX Design": {
+  //   image: require("@assets/icons/ui-ux.svg"),
+  //   items: {
+  //     designTools: [
+  //       { name: "Figma", image: require("@assets/tech/figma.svg") },
+  //       { name: "Adobe XD", image: require("@assets/tech/adobexd.svg") },
+  //       { name: "Sketch", image: require("@assets/tech/sketch.svg") },
+  //       { name: "InVision", image: require("@assets/tech/invision.svg") },
+  //       { name: "Canva", image: require("@assets/tech/canva.svg") }
+  //     ],
+  //     prototyping: [
+  //       { name: "Marvel", image: require("@assets/tech/marvel.svg") },
+  //       { name: "Zeplin", image: require("@assets/tech/zeplin.svg") },
+  //       { name: "Balsamiq", image: require("@assets/tech/balsamiq.svg") },
+  //       { name: "Framer", image: require("@assets/tech/framer.svg") }
+  //     ]
+  //   }
+  // },
+};
+
+
+
+
+export const streamlining_development = [
+  {
+    "id": "research-and-idea-generation",
+    "title": "Research and Idea Generation",
+    "description": "Our commitment to excellence is fueled by a continuous cycle of research and innovation. By deeply understanding our clients' requirements and market trends, we develop creative and effective solutions that address their challenges with precision and insight.",
+    "image": require('@assets/menifesto/inovation.svg'),
+    "colors": {
+      "primary": "blue",
+      "bg": "bg-blue-50",
+      "border": "border-blue-500",
+      "text": "text-blue-900",
+      "subtitle": "text-blue-700",
+      "icon": "text-blue-600",
+      "accent": "bg-blue-100",
+      "hover": "hover:bg-blue-100",
+      "gradient": "from-blue-500 to-blue-600"
+    }
+  },
+  {
+    "id": "innovation-and-design",
+    "title": "Innovation and Design", 
+    "description": "We help our clients uncover the most effective design and innovation strategies, enhancing their market presence. By focusing on user experience and aesthetic appeal, we create solutions that resonate with audiences and strengthen our clients' competitive edge.",
+    "image": require('@assets/menifesto/collaboration.svg'),
+    "colors": {
+      "primary": "purple",
+      "bg": "bg-purple-50",
+      "border": "border-purple-500", 
+      "text": "text-purple-900",
+      "subtitle": "text-purple-700",
+      "icon": "text-purple-600",
+      "accent": "bg-purple-100",
+      "hover": "hover:bg-purple-100",
+      "gradient": "from-purple-500 to-purple-600"
+    }
+  },
+  {
+    "id": "full-cycle-product-development",
+    "title": "Full-Cycle Product Development",
+    "description": "We deliver a holistic 360-degree suite of services that encompasses all phases of product development. With a focus on agile methodologies, we ensure enhanced progress and continuous improvement, leading to the successful creation of products that fulfill your vision and meet market demands.",
+    "image": require('@assets/menifesto/trophy.svg'),
+    "colors": {
+      "primary": "green",
+      "bg": "bg-green-50",
+      "border": "border-green-500",
+      "text": "text-green-900", 
+      "subtitle": "text-green-700",
+      "icon": "text-green-600",
+      "accent": "bg-green-100",
+      "hover": "hover:bg-green-100",
+      "gradient": "from-green-500 to-green-600"
+    }
+  },
+  {
+    "id": "product-growth-and-support",
+    "title": "Product Growth and Support",
+    "description": "We focus on helping our clients pinpoint the strengths of their products while efficiently resolving any issues that arise. Our proactive support fosters an environment for continuous growth, allowing you to optimize your solutions and achieve your business objectives.",
+    "image": require('@assets/menifesto/target.svg'),
+    "colors": {
+      "primary": "orange",
+      "bg": "bg-orange-50",
+      "border": "border-orange-500",
+      "text": "text-orange-900",
+      "subtitle": "text-orange-700", 
+      "icon": "text-orange-600",
+      "accent": "bg-orange-100",
+      "hover": "hover:bg-orange-100",
+      "gradient": "from-orange-500 to-orange-600"
+    }
+  }
+]
+
+ 
+
+export const business_process = [
+  {
+    "id": "research_plan",
+    "title": "Research & Plan",
+    "description": "We conduct solution-specific research to gather insights that inform our strategies. By drafting a tailored plan based on thorough analysis, we ensure that our approach aligns with your unique needs and objectives, setting the foundation for effective implementation and successful outcomes.",
+    "image": require('@assets/menifesto/inovation.svg'),
+    "colors": {
+      "primary": "blue",
+      "bg": "bg-blue-50",
+      "border": "border-blue-500",
+      "text": "text-blue-900",
+      "subtitle": "text-blue-700",
+      "accent": "bg-blue-100",
+      "hover": "hover:bg-blue-100",
+      "shadow": "hover:shadow-blue-200/50",
+      "icon": "bg-blue-500"
+    }
+  },
+  {
+    "id": "code",
+    "title": "Code",
+    "description": "Our in-house team of experts leverages modern, scalable, and maintainable coding practices to build robust and adaptable solutions. By adhering to best practices, we ensure clean, efficient, and high-quality code that meets current needs and remains future-ready.",
+    "image": require('@assets/technology_icons/html5.svg'),
+    "colors": {
+      "primary": "yellow",
+      "bg": "bg-yellow-50",
+      "border": "border-yellow-500",
+      "text": "text-yellow-900",
+      "subtitle": "text-yellow-700",
+      "accent": "bg-yellow-100",
+      "hover": "hover:bg-yellow-100",
+      "shadow": "hover:shadow-yellow-200/50",
+      "icon": "bg-yellow-500"
+    }
+  },
+  {
+    "id": "build",
+    "title": "Build",
+    "description": "We specialize in building solutions from the ground up, collaborating closely with you to create tailored outcomes that align with your vision. Our comprehensive approach guarantees a strong foundation for success and long-term growth.",
+    "image": require('@assets/our_services/automation.svg'),
+    "colors": {
+      "primary": "green",
+      "bg": "bg-green-50",
+      "border": "border-green-500",
+      "text": "text-green-900",
+      "subtitle": "text-green-700",
+      "accent": "bg-green-100",
+      "hover": "hover:bg-green-100",
+      "shadow": "hover:shadow-green-200/50",
+      "icon": "bg-green-500"
+    }
+  },
+  {
+    "id": "monitor",
+    "title": "Monitor",
+    "description": "We meticulously monitor every aspect of the product to ensure optimal performance. Our proactive approach allows us to swiftly identify and resolve issues, guaranteeing consistent reliability and efficiency.",
+    "image": require('@assets/business process/monitoring.svg'),
+    "colors": {
+      "primary": "cyan",
+      "bg": "bg-cyan-50",
+      "border": "border-cyan-500",
+      "text": "text-cyan-900",
+      "subtitle": "text-cyan-700",
+      "accent": "bg-cyan-100",
+      "hover": "hover:bg-cyan-100",
+      "shadow": "hover:shadow-cyan-200/50",
+      "icon": "bg-cyan-500"
+    }
+  },
+  {
+    "id": "test",
+    "title": "Test",
+    "description": "Through rigorous and comprehensive testing practices, we ensure your solution is robust, user-friendly, and error-free. Our focus on usability, performance, and reliability delivers a seamless user experience in real-world scenarios.",
+    "image": require('@assets/business process/test.svg'),
+    "colors": {
+      "primary": "red",
+      "bg": "bg-red-50",
+      "border": "border-red-500",
+      "text": "text-red-900",
+      "subtitle": "text-red-700",
+      "accent": "bg-red-100",
+      "hover": "hover:bg-red-100",
+      "shadow": "hover:shadow-red-200/50",
+      "icon": "bg-red-500"
+    }
+  },
+  {
+    "id": "release",
+    "title": "Release",
+    "description": "The release phase combines careful planning, thorough testing, and refinement to ensure a seamless launch. We deliver a robust, efficient solution that performs flawlessly and exceeds expectations in live environments.",
+    "image": require('@assets/business process/release.svg'),
+    "colors": {
+      "primary": "emerald",
+      "bg": "bg-emerald-50",
+      "border": "border-emerald-500",
+      "text": "text-emerald-900",
+      "subtitle": "text-emerald-700",
+      "accent": "bg-emerald-100",
+      "hover": "hover:bg-emerald-100",
+      "shadow": "hover:shadow-emerald-200/50",
+      "icon": "bg-emerald-500"
+    }
+  },
+  {
+    "id": "deploy",
+    "title": "Deploy",
+    "description": "Our deployment process ensures seamless installation, configuration, and continuous optimization. We guarantee a smooth transition while keeping your solution future-ready and adaptable to evolving technological demands.",
+    "image": require('@assets/business process/deploy.svg'),
+    "colors": {
+      "primary": "purple",
+      "bg": "bg-purple-50",
+      "border": "border-purple-500",
+      "text": "text-purple-900",
+      "subtitle": "text-purple-700",
+      "accent": "bg-purple-100",
+      "hover": "hover:bg-purple-100",
+      "shadow": "hover:shadow-purple-200/50",
+      "icon": "bg-purple-500"
+    }
+  },
+  {
+    "id": "operate",
+    "title": "Operate",
+    "description": "We provide comprehensive post-production support and maintenance to ensure stability, optimal performance, and long-term success. Our proactive approach keeps your solution running smoothly and adapting to changing requirements.",
+    "image": require('@assets/business process/operate.svg'),
+    "colors": {
+      "primary": "orange",
+      "bg": "bg-orange-50",
+      "border": "border-orange-500",
+      "text": "text-orange-900",
+      "subtitle": "text-orange-700",
+      "accent": "bg-orange-100",
+      "hover": "hover:bg-orange-100",
+      "shadow": "hover:shadow-orange-200/50",
+      "icon": "bg-orange-500"
+    }
+  }
+]
+
+

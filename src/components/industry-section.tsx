@@ -14,9 +14,9 @@ const page = ({ industry, heading, subheading, description }: {
     description?: string;
 }) => {
     return (
-        <section className='my-40 mb-20 '>
+        <section className='my-20  '>
             <section
-                className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-10 gap-10'
+                className='flex flex-col  items-center justify-center w-full container mx-auto my-10 gap-10'
             >
 
                 {/* heading section */}
@@ -75,7 +75,7 @@ const page = ({ industry, heading, subheading, description }: {
 
                             {item.subtitle && (
                                 <div
-                                    className='absolute group-hover:shadow-lg opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-300 flex transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-2 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] -right-[.7rem] bg-card truncate -bottom-[.7rem] max-w-[300px]'
+                                    className='absolute group-hover:shadow-lg opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-300 flex transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-2 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] right-[.7rem] bg-card truncate -bottom-[1rem] max-w-[300px]'
                                 >
                                     <h3 className='truncate font-medium text-muted-foreground'>{item.subtitle}</h3>
                                 </div>
@@ -86,7 +86,7 @@ const page = ({ industry, heading, subheading, description }: {
                 </div>
             </section>
             <section
-                className='flex flex-col items-center justify-center my-3 mb-5  w-full max-w-7xl mx-auto  gap-10'
+                className='flex flex-col items-center justify-center my-3 mb-5  w-full container mx-auto  gap-10'
             >
                 <article
                     className='flex flex-col justify-center gap-9 self-stretch rounded-xl bg-[rgba(var(--accent-500),0.1)] p-6 dark:bg-[rgba(var(--accent-600),0.1)] lg:flex-row lg:justify-between lg:p-1'

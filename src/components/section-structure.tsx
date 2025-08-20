@@ -13,7 +13,7 @@ const page = ({
     >
 
       <section
-        className={`flex flex-col  items-center justify-center w-full max-w-6xl mx-auto my-20 gap-10 px-2 ${className}`}
+        className={`flex flex-col  items-center justify-center w-full container mx-auto my-20 gap-10 px-2 ${className}`}
       >{children}</section>
     </div>
   )

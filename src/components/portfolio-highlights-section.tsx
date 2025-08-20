@@ -73,7 +73,7 @@ const page = ({
 }: ServicesProps) => {
     return (
         <section
-            className='flex flex-col  items-center justify-center w-full max-w-7xl mx-auto my-20 gap-10'
+            className='flex flex-col  items-center justify-center w-full container mx-auto my-20 gap-10'
         >
             <Header
                 heading={heading || 'Portfolio Highlights'}

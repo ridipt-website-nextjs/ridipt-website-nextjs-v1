@@ -32,7 +32,7 @@ export const TechServices = ({
   return (
     <div className={`mt-20 sm:mt-10 ${className}`}>
       <div
-        className="relative lg:container lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-28"
+        className="relative lg:container lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-15"
       >
         <div className="container mb-10 relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
           <div
@@ -104,7 +104,7 @@ export const TechServices = ({
       </div>
 
       {subSection && <section
-        className="py-10 max-w-[1300px] md:py-[72px] flex flex-col items-center gap-10 relative container mx-auto px-6"
+        className="py-10  md:py-[72px] flex flex-col items-center gap-10 relative container mx-auto px-6"
       >
         <article
           className="relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border border-border bg-card p-6 "
