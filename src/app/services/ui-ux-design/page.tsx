@@ -80,7 +80,7 @@ const page = () => {
         heading="Our UI UX Design Tech-Stack"
         subheading="Elevate Your Brand with Cutting-Edge Design Solutions"
         description="At Ridipt, we harness top-tier technologies and a skilled team of designers to craft solutions that meet the challenges of today's digital landscape. We integrate a robust technological stack into our UI/UX design process, enabling our clients to effectively showcase their brand to a global audience with innovative, contemporary designs."
-        techStackData={services_tech_stack['Mobile Development']}
+        techStackData={services_tech_stack['UI/UX Design']}
       />
 
       {/* Promotional Section */}

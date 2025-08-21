@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react'
 import Header from './section-heading';
 
-const page = ({ industry, heading, subheading, description }: {
+const page = ({ industry, heading, subheading, description,className,cardStyling }: {
     industry: {
         title: string;
         description: string;
@@ -12,11 +12,13 @@ const page = ({ industry, heading, subheading, description }: {
     heading?: string;
     subheading?: string;
     description?: string;
+    className?:string;
+    cardStyling?:string
 }) => {
     return (
         <section className='my-20  '>
             <section
-                className='flex flex-col  items-center justify-center w-full container mx-auto my-10 gap-10'
+                className={`${className} flex flex-col  items-center justify-center w-full container mx-auto my-10 gap-10`}
             >
 
                 {/* heading section */}
@@ -53,7 +55,7 @@ const page = ({ industry, heading, subheading, description }: {
 
                         <article
                             key={idx}
-                            className={`group flex duration-300 hover:shadow-md transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] ${item.subtitle && '!pb-10 relative'}`}
+                            className={`${cardStyling} group flex duration-300 hover:shadow-md transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] ${item.subtitle && '!pb-10 relative'}`}
                         >
                             <figure
                                 className='flex size-9 items-center justify-center rounded-full border border-[--border] p-2 dark:border-[--dark-border] bg-card'

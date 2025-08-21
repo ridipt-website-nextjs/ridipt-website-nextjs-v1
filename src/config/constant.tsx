@@ -323,24 +323,23 @@ export const services_tech_stack = {
     }
   },
 
-  // "UI/UX Design": {
-  //   image: require("@assets/icons/ui-ux.svg"),
-  //   items: {
-  //     designTools: [
-  //       { name: "Figma", image: require("@assets/tech/figma.svg") },
-  //       { name: "Adobe XD", image: require("@assets/tech/adobexd.svg") },
-  //       { name: "Sketch", image: require("@assets/tech/sketch.svg") },
-  //       { name: "InVision", image: require("@assets/tech/invision.svg") },
-  //       { name: "Canva", image: require("@assets/tech/canva.svg") }
-  //     ],
-  //     prototyping: [
-  //       { name: "Marvel", image: require("@assets/tech/marvel.svg") },
-  //       { name: "Zeplin", image: require("@assets/tech/zeplin.svg") },
-  //       { name: "Balsamiq", image: require("@assets/tech/balsamiq.svg") },
-  //       { name: "Framer", image: require("@assets/tech/framer.svg") }
-  //     ]
-  //   }
-  // },
+  "UI/UX Design": {
+    // image: require("@assets/icons/ui-ux.svg"),
+    items: {
+      designTools: [
+        { name: "Figma", image: require("@assets/our_services/ui ux/figma.svg") },
+        { name: "Adobe XD", image: require("@assets/our_services/ui ux/adobexd.svg") },
+        { name: "Sketch", image: require("@assets/our_services/ui ux/sketch.svg") },
+        { name: "InVision", image: require("@assets/our_services/ui ux/invision.svg") },
+        { name: "Canva", image: require("@assets/our_services/ui ux/canva.svg") }
+      ],
+      prototyping: [
+        { name: "Marvel", image: require("@assets/our_services/ui ux/marvel.svg") },
+        { name: "Zeplin", image: require("@assets/our_services/ui ux/zeplin.svg") },
+        { name: "Framer", image: require("@assets/our_services/ui ux/framer.svg") }
+      ]
+    }
+  },
 };
 
 

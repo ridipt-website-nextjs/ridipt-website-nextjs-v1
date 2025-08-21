@@ -1550,11 +1550,387 @@ export const emerging_tech_faq = [
     }
 ];
 
+// MERN/MEAN Stack FAQs
+export const mern_mean_faq = [
+    {
+        title: "What is the MERN stack?",
+        icon: <Code className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    The MERN stack is a JavaScript-based web development stack consisting of four key technologies:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Database className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">MongoDB:</span>
+                            <p className="text-green-800 mt-1">NoSQL database for storing JSON-like documents with flexibility and scalability.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Server className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Express.js:</span>
+                            <p className="text-blue-800 mt-1">Backend web application framework for Node.js, providing robust API development.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Monitor className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">React:</span>
+                            <p className="text-purple-800 mt-1">Frontend library for building interactive user interfaces with component-based architecture.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Settings className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Node.js:</span>
+                            <p className="text-orange-800 mt-1">JavaScript runtime environment for server-side development and API creation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        MERN enables <span className="font-semibold">full-stack JavaScript development</span> with high performance and modern development practices.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What is the MEAN stack?",
+        icon: <Code className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    The MEAN stack is another popular JavaScript-based development stack consisting of:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Database className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">MongoDB:</span>
+                            <p className="text-green-800 mt-1">Same NoSQL database as MERN for flexible data storage.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Server className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Express.js:</span>
+                            <p className="text-blue-800 mt-1">Same backend framework for creating RESTful APIs and server logic.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                        <Monitor className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-red-900">Angular:</span>
+                            <p className="text-red-800 mt-1">Full-featured frontend framework with TypeScript support and comprehensive tooling.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Settings className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Node.js:</span>
+                            <p className="text-orange-800 mt-1">Same JavaScript runtime for server-side development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        MEAN provides a <span className="font-semibold">complete enterprise-grade framework</span> with Angular's structured approach.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the key differences between MERN and MEAN?",
+        icon: <GitBranch className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    The main difference lies in the frontend framework choice:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <ArrowRight className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">MERN (React):</span>
+                            <p className="text-blue-800 mt-1">Library-based approach, more flexibility, larger ecosystem, easier learning curve.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                        <ArrowRight className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-red-900">MEAN (Angular):</span>
+                            <p className="text-red-800 mt-1">Full framework with built-in features, TypeScript support, opinionated structure.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Common Ground:</span>
+                            <p className="text-green-800 mt-1">Both use MongoDB, Express.js, and Node.js for backend development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Choice depends on <span className="font-semibold">project requirements, team expertise, and development preferences</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the benefits of using MERN/MEAN stacks?",
+        icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Both stacks offer numerous advantages for modern web development:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        "Full-stack JavaScript development - single language across client and server",
+                        "Large community support and extensive documentation",
+                        "High performance with Node.js and optimized frontend rendering",
+                        "Rapid development with reusable components and modules",
+                        "Scalable architecture suitable for small to enterprise applications",
+                        "Rich ecosystem of npm packages and third-party integrations",
+                        "Real-time application support with WebSockets and Socket.io",
+                        "Cost-effective development with shared JavaScript knowledge"
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-green-50 rounded-lg transition-colors">
+                            <ArrowRight className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
+                            <p className="text-gray-700">{item}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                            These stacks enable <span className="font-semibold">faster time-to-market and maintainable codebases</span>
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What types of applications can be built with MERN/MEAN?",
+        icon: <Layers className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    MERN and MEAN stacks are versatile and can build various types of applications:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Globe className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Web Applications:</span>
+                            <p className="text-blue-700 text-sm mt-1">SPAs, Progressive Web Apps, dashboards, admin panels</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">E-commerce:</span>
+                            <p className="text-green-700 text-sm mt-1">Online stores, marketplace platforms, payment integrations</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Users className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Social Platforms:</span>
+                            <p className="text-purple-700 text-sm mt-1">Social networks, chat applications, community forums</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Activity className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">Real-time Apps:</span>
+                            <p className="text-orange-700 text-sm mt-1">Live collaboration tools, gaming platforms, streaming apps</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <BarChart className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Enterprise Solutions:</span>
+                            <p className="text-indigo-700 text-sm mt-1">CRM systems, project management tools, analytics platforms</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-100 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        Both stacks are ideal for <span className="font-semibold">data-driven applications requiring real-time updates</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What development tools and practices do you use?",
+        icon: <Settings className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    We follow modern development practices and use industry-standard tools:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="p-3 bg-blue-50 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Code className="w-4 h-4 text-blue-600" />
+                            <span className="font-semibold text-blue-900">Development Tools:</span>
+                        </div>
+                        <p className="text-blue-800 text-sm">VS Code, Git, npm/yarn, Webpack, Babel, ESLint, Prettier</p>
+                    </div>
+
+                    <div className="p-3 bg-green-50 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                            <TestTube className="w-4 h-4 text-green-600" />
+                            <span className="font-semibold text-green-900">Testing:</span>
+                        </div>
+                        <p className="text-green-800 text-sm">Jest, Cypress, React Testing Library, Mocha, Chai, Supertest</p>
+                    </div>
+
+                    <div className="p-3 bg-purple-50 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Cloud className="w-4 h-4 text-purple-600" />
+                            <span className="font-semibold text-purple-900">Deployment:</span>
+                        </div>
+                        <p className="text-purple-800 text-sm">Docker, AWS, Heroku, Vercel, Netlify, CI/CD pipelines</p>
+                    </div>
+
+                    <div className="p-3 bg-orange-50 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Shield className="w-4 h-4 text-orange-600" />
+                            <span className="font-semibold text-orange-900">Security:</span>
+                        </div>
+                        <p className="text-orange-800 text-sm">JWT authentication, bcrypt, helmet.js, CORS configuration</p>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        We ensure <span className="font-semibold">code quality, security, and scalability</span> through best practices and modern tooling.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does MERN/MEAN development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Development timeline depends on <span className="font-semibold">complexity, features, design requirements, and integrations</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Apps (MVP/Basic Features):</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">3–6 weeks</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity (E-commerce/Social):</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">2–4 months</span>
+                            <p className="text-blue-700 text-sm mt-1">With authentication, payments, real-time features</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Complex Applications (Enterprise/SaaS):</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">4–8+ months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Factors like <span className="font-semibold">API integrations, custom UI/UX, testing, and deployment setup</span> affect development time.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide MERN/MEAN stack maintenance and support?",
+        icon: <Shield className="w-5 h-5 text-emerald-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes.</span> We offer comprehensive <span className="font-semibold text-emerald-700">maintenance and support services</span> for MERN/MEAN applications:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "Regular security updates and dependency management" },
+                        { icon: <Activity className="w-4 h-4 text-green-500" />, text: "Performance monitoring and optimization" },
+                        { icon: <Settings className="w-4 h-4 text-purple-500" />, text: "Bug fixes and feature enhancements" },
+                        { icon: <Database className="w-4 h-4 text-orange-500" />, text: "Database optimization and backup management" },
+                        { icon: <Cloud className="w-4 h-4 text-indigo-500" />, text: "Server maintenance and scaling support" },
+                        { icon: <TestTube className="w-4 h-4 text-pink-500" />, text: "Continuous testing and quality assurance" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-emerald-50 rounded-lg border border-emerald-200">
+                    <p className="text-emerald-800">
+                        Available as <span className="font-semibold">monthly or yearly maintenance packages</span> with 24/7 support options.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+
 // Combined export for all FAQ categories
 export const all_service_faqs = {
     web_development: web_dev_faq,
     mobile_development: mobile_dev_faq,
     uiux_design: uiux_faq,
+    mern_mean_stack: mern_mean_faq,
     cloud_devops: cloud_devops_faq,
     automation_testing: automation_testing_faq,
     emerging_technology: emerging_tech_faq,

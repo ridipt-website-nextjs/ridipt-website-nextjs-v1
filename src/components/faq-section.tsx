@@ -37,12 +37,21 @@ const FAQItem = ({ item, index, isOpen, onToggle }: {
     );
 };
 
-const page = ({ content = web_dev_faq }: {
+const page = ({ 
+    content = web_dev_faq,
+    header
+}: {
     content?: {
         title: string;
         icon: JSX.Element;
         description: JSX.Element;
     }[]
+    header?: {
+        heading?: string;
+        subheading?: string;
+        description?: string;
+        className?: string;
+    }
 }) => {
     // State to track which FAQ is open (0 = first item open by default)
     const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -52,13 +61,28 @@ const page = ({ content = web_dev_faq }: {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    // Default header values
+    const defaultHeaderProps = {
+        heading: "Frequently Asked Questions",
+        subheading: "Everything You Need to Know About Web Development",
+        description: "Find answers to the most common questions about our web development services, including process, technologies, costs, timelines, and post-launch support. These FAQs will help you better understand how we work and how we can bring your ideas to life.",
+        className: 'items-start !container !max-w-[auto]'
+    };
+
+    // Merge user props with defaults
+    const finalHeaderProps = {
+        ...defaultHeaderProps,
+        ...header,
+        className: header?.className || defaultHeaderProps.className
+    };
+
     return (
         <Section>
             <Header
-                heading="Frequently Asked Questions"
-                subheading="Everything You Need to Know About Web Development"
-                description="Find answers to the most common questions about our web development services, including process, technologies, costs, timelines, and post-launch support. These FAQs will help you better understand how we work and how we can bring your ideas to life."
-                className='items-start !container !max-w-[auto]'
+                heading={finalHeaderProps.heading}
+                subheading={finalHeaderProps.subheading}
+                description={finalHeaderProps.description}
+                className={finalHeaderProps.className}
             />
 
             <div className='w-full'>
