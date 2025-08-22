@@ -32,7 +32,21 @@ import {
     Activity,
     FileText,
     Camera,
-    MessageSquare
+    MessageSquare,
+    Image,
+    Link,
+    Bug,
+    AlertTriangle,
+    Info,
+    GitCompare,
+    BookOpen,
+    Briefcase,
+    Building,
+    Edit,
+    Truck,
+    CreditCard,
+    Puzzle,
+    GraduationCap
 } from 'lucide-react';
 
 export const web_dev_faq = [
@@ -1925,6 +1939,1231 @@ export const mern_mean_faq = [
 ];
 
 
+export const nextjs_faq = [
+    {
+        title: "What is Next.js and why should I choose it?",
+        icon: <Code className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Next.js is a production-ready React framework that provides powerful features for modern web development:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Server className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Server-Side Rendering (SSR):</span>
+                            <p className="text-blue-800 mt-1">Renders pages on the server for better SEO and faster initial loads.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Zap className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Static Site Generation (SSG):</span>
+                            <p className="text-green-800 mt-1">Pre-builds pages at build time for lightning-fast performance.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Globe className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">API Routes:</span>
+                            <p className="text-purple-800 mt-1">Built-in API functionality without needing a separate backend server.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Image className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Built-in Optimization:</span>
+                            <p className="text-orange-800 mt-1">Automatic image optimization, code splitting, and bundle optimization.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        Next.js enables <span className="font-semibold">production-ready React applications</span> with zero configuration.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What's the difference between SSR, SSG, and CSR in Next.js?",
+        icon: <GitBranch className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Next.js offers multiple rendering strategies to optimize performance and user experience:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Server className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Server-Side Rendering (SSR):</span>
+                            <p className="text-blue-800 mt-1">Pages rendered on each request. Best for dynamic content and real-time data.</p>
+                            <span className="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">getServerSideProps</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Zap className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Static Site Generation (SSG):</span>
+                            <p className="text-green-800 mt-1">Pages pre-built at build time. Ideal for content that doesn't change often.</p>
+                            <span className="inline-block mt-2 px-2 py-1 bg-green-100 text-green-700 text-xs rounded">getStaticProps</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Monitor className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Client-Side Rendering (CSR):</span>
+                            <p className="text-orange-800 mt-1">Traditional React rendering in the browser. Good for dashboard-like apps.</p>
+                            <span className="inline-block mt-2 px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">useEffect</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <RefreshCw className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Incremental Static Regeneration (ISR):</span>
+                            <p className="text-purple-800 mt-1">Updates static pages after deployment without full rebuilds.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Next.js allows <span className="font-semibold">mixing different rendering methods</span> on a per-page basis for optimal performance.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How does Next.js improve SEO compared to regular React?",
+        icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Next.js provides significant SEO advantages over client-side rendered React applications:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <Search className="w-4 h-4 text-blue-500" />, text: "Server-side rendering enables search engines to crawl fully rendered HTML" },
+                        { icon: <Zap className="w-4 h-4 text-green-500" />, text: "Faster page load times improve search rankings and user experience" },
+                        { icon: <FileText className="w-4 h-4 text-purple-500" />, text: "Built-in Head component for managing meta tags, titles, and descriptions" },
+                        { icon: <Image className="w-4 h-4 text-orange-500" />, text: "Automatic image optimization with lazy loading and WebP conversion" },
+                        { icon: <Link className="w-4 h-4 text-indigo-500" />, text: "Link prefetching for instant navigation between pages" },
+                        { icon: <Code className="w-4 h-4 text-red-500" />, text: "Automatic code splitting reduces bundle sizes and improves Core Web Vitals" },
+                        { icon: <Globe className="w-4 h-4 text-cyan-500" />, text: "Built-in sitemap generation and robots.txt support" },
+                        { icon: <Shield className="w-4 h-4 text-green-600" />, text: "Structured data and JSON-LD support for rich snippets" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                            Next.js apps typically see <span className="font-semibold">30-50% improvement in SEO metrics</span> compared to CSR React apps.
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the performance benefits of Next.js?",
+        icon: <Zap className="w-5 h-5 text-yellow-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Next.js includes numerous performance optimizations out of the box:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Activity className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Automatic Code Splitting:</span>
+                            <p className="text-blue-700 text-sm mt-1">Only loads JavaScript needed for each page, reducing initial bundle size</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <Image className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">Image Optimization:</span>
+                            <p className="text-green-700 text-sm mt-1">Automatic WebP conversion, lazy loading, and responsive images</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Link className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Smart Prefetching:</span>
+                            <p className="text-purple-700 text-sm mt-1">Preloads linked pages when they enter the viewport for instant navigation</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Database className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">Built-in Caching:</span>
+                            <p className="text-orange-700 text-sm mt-1">Intelligent caching strategies for static and dynamic content</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <Zap className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Edge Runtime:</span>
+                            <p className="text-indigo-700 text-sm mt-1">Deploy to edge locations worldwide for minimal latency</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-100 rounded-lg border border-yellow-200">
+                    <p className="text-yellow-800">
+                        These optimizations result in <span className="font-semibold">faster load times and better Core Web Vitals scores</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Can you migrate my existing React app to Next.js?",
+        icon: <RefreshCw className="w-5 h-5 text-indigo-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> We specialize in <span className="font-semibold text-indigo-700">seamless React to Next.js migrations</span> with minimal disruption:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Search className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Assessment & Planning:</span>
+                            <p className="text-blue-800 mt-1">Analyze your current app structure and create a migration roadmap</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <Settings className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Gradual Migration:</span>
+                            <p className="text-green-800 mt-1">Migrate page by page to ensure stability and functionality</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Zap className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Performance Optimization:</span>
+                            <p className="text-purple-800 mt-1">Implement SSR/SSG, optimize images, and improve loading times</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <TestTube className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Testing & Validation:</span>
+                            <p className="text-orange-800 mt-1">Comprehensive testing to ensure feature parity and performance gains</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Migration typically takes <span className="font-semibold">2-6 weeks</span> depending on app complexity and custom requirements.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What types of applications are best suited for Next.js?",
+        icon: <Layers className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Next.js is versatile and excellent for various application types:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Globe className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Marketing & Corporate Websites:</span>
+                            <p className="text-blue-700 text-sm mt-1">Landing pages, company sites, blogs with excellent SEO performance</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">E-commerce Platforms:</span>
+                            <p className="text-green-700 text-sm mt-1">Online stores with fast loading, SEO optimization, and dynamic product pages</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <FileText className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Content Management Systems:</span>
+                            <p className="text-purple-700 text-sm mt-1">Headless CMS frontends, blogs, news sites, and documentation</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <BarChart className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">SaaS Applications:</span>
+                            <p className="text-orange-700 text-sm mt-1">Dashboards, analytics platforms, and business tools</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <Users className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Social Platforms:</span>
+                            <p className="text-indigo-700 text-sm mt-1">Community sites, forums, and user-generated content platforms</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg">
+                        <Smartphone className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-red-900">Progressive Web Apps (PWA):</span>
+                            <p className="text-red-700 text-sm mt-1">App-like experiences with offline capabilities and push notifications</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-100 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        Ideal for projects requiring <span className="font-semibold">excellent SEO, fast performance, and scalability</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does Next.js development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Development timeline varies based on <span className="font-semibold">complexity, features, integrations, and design requirements</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Websites (Landing Pages/Blogs):</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">1–3 weeks</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity (E-commerce/CMS):</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">4–8 weeks</span>
+                            <p className="text-blue-700 text-sm mt-1">With dynamic content, user authentication, payment integration</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Complex Applications (SaaS/Enterprise):</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">2–6+ months</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-orange-50 rounded-lg">
+                        <RefreshCw className="w-5 h-5 text-orange-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Migration Projects:</span>
+                            <span className="ml-2 px-2 py-1 bg-orange-100 text-orange-800 rounded text-sm font-medium">2–6 weeks</span>
+                            <p className="text-orange-700 text-sm mt-1">Depending on existing codebase complexity</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Factors like <span className="font-semibold">custom UI/UX design, third-party integrations, and performance optimization</span> affect development time.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide Next.js maintenance and support?",
+        icon: <Shield className="w-5 h-5 text-emerald-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Absolutely.</span> We offer comprehensive <span className="font-semibold text-emerald-700">maintenance and support services</span> for Next.js applications:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "Next.js version updates and framework migration support" },
+                        { icon: <Shield className="w-4 h-4 text-green-500" />, text: "Security updates and dependency vulnerability patches" },
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Performance monitoring and Core Web Vitals optimization" },
+                        { icon: <Search className="w-4 h-4 text-purple-500" />, text: "SEO monitoring and search ranking improvements" },
+                        { icon: <Database className="w-4 h-4 text-orange-500" />, text: "CDN optimization and edge deployment management" },
+                        { icon: <Monitor className="w-4 h-4 text-indigo-500" />, text: "Analytics setup and conversion tracking implementation" },
+                        { icon: <Settings className="w-4 h-4 text-pink-500" />, text: "Feature enhancements and functionality updates" },
+                        { icon: <TestTube className="w-4 h-4 text-cyan-500" />, text: "Automated testing and continuous integration setup" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-emerald-50 rounded-lg border border-emerald-200">
+                    <p className="text-emerald-800">
+                        Available as <span className="font-semibold">flexible support packages</span> with priority response times and dedicated developer access.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+
+export const static_website_faq = [
+    {
+        title: "What is a static website?",
+        icon: <Code className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    A static website consists of fixed content pages built with HTML, CSS, and JavaScript that display the same information to every visitor:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Code className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">HTML5:</span>
+                            <p className="text-orange-800 mt-1">Semantic markup for structured content and improved accessibility.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Palette className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">CSS3:</span>
+                            <p className="text-blue-800 mt-1">Modern styling with animations, responsive design, and visual appeal.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                        <Zap className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-yellow-900">JavaScript:</span>
+                            <p className="text-yellow-800 mt-1">Interactive elements and enhanced user experience functionality.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-green-50 rounded-lg">
+                    <p className="text-green-800">
+                        Static websites are <span className="font-semibold">fast, secure, and cost-effective</span> for businesses with stable content.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the benefits of static websites?",
+        icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Static websites offer numerous advantages for businesses:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Lightning-fast loading times with minimal server processing" },
+                        { icon: <DollarSign className="w-4 h-4 text-green-500" />, text: "Cost-effective hosting with lower bandwidth and server requirements" },
+                        { icon: <Shield className="w-4 h-4 text-blue-500" />, text: "Enhanced security with fewer attack vectors and vulnerabilities" },
+                        { icon: <Search className="w-4 h-4 text-purple-500" />, text: "Better SEO performance with fast loading and clean HTML structure" },
+                        { icon: <Settings className="w-4 h-4 text-orange-500" />, text: "Easy maintenance and updates without complex backend systems" },
+                        { icon: <Globe className="w-4 h-4 text-indigo-500" />, text: "Excellent reliability with minimal downtime and server issues" },
+                        { icon: <Smartphone className="w-4 h-4 text-pink-500" />, text: "Perfect responsive design across all devices and browsers" },
+                        { icon: <Database className="w-4 h-4 text-cyan-500" />, text: "No database requirements, reducing complexity and costs" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-green-50 rounded-lg transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                            Static websites are ideal for <span className="font-semibold">businesses prioritizing speed, security, and cost-efficiency</span>.
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Who should choose static websites?",
+        icon: <Users className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Static websites are perfect for various business types and use cases:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Building className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Small Businesses:</span>
+                            <p className="text-blue-700 text-sm mt-1">Local services, restaurants, professional practices with stable content</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <Briefcase className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">Portfolio Websites:</span>
+                            <p className="text-green-700 text-sm mt-1">Artists, photographers, designers showcasing their work</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <FileText className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Landing Pages:</span>
+                            <p className="text-purple-700 text-sm mt-1">Marketing campaigns, product launches, event promotions</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Globe className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">Corporate Websites:</span>
+                            <p className="text-orange-700 text-sm mt-1">Company information, services, contact details, and team pages</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <BookOpen className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Documentation Sites:</span>
+                            <p className="text-indigo-700 text-sm mt-1">Product docs, user guides, API documentation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Perfect for businesses that <span className="font-semibold">don't require frequent content updates or user interactions</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How do static websites compare to dynamic websites?",
+        icon: <GitCompare className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Understanding the key differences helps choose the right solution:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Static Website Advantages:</span>
+                            <p className="text-green-800 mt-1">Faster loading, lower costs, better security, easier hosting, excellent SEO</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Dynamic Website Advantages:</span>
+                            <p className="text-blue-800 mt-1">User accounts, real-time content updates, interactive features, databases</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                        <AlertTriangle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-yellow-900">Consider Static When:</span>
+                            <p className="text-yellow-800 mt-1">Content changes infrequently, budget is limited, speed is priority, simple functionality needed</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Users className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Consider Dynamic When:</span>
+                            <p className="text-purple-800 mt-1">User logins needed, frequent updates, e-commerce, complex interactions required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        We help you choose the <span className="font-semibold">right solution based on your specific business needs and goals</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does static website development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Development timeline depends on <span className="font-semibold">complexity, design requirements, content volume, and functionality</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Websites (1-5 pages):</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">3–7 days</span>
+                            <p className="text-green-700 text-sm mt-1">Basic business cards, simple landing pages</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Standard Websites (5-15 pages):</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">1–3 weeks</span>
+                            <p className="text-blue-700 text-sm mt-1">Corporate sites, portfolios, service-based businesses</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Complex Websites (15+ pages):</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">3–6 weeks</span>
+                            <p className="text-purple-700 text-sm mt-1">Large corporate sites, detailed portfolios, extensive content</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Factors like <span className="font-semibold">custom design, content creation, integrations, and revisions</span> can affect timeline.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide hosting and domain assistance?",
+        icon: <Server className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> We provide complete <span className="font-semibold text-blue-700">hosting and domain assistance</span> for your static website:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <Globe className="w-4 h-4 text-blue-500" />, text: "Domain name selection and registration guidance" },
+                        { icon: <Server className="w-4 h-4 text-green-500" />, text: "Hosting provider recommendations based on your needs" },
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Fast CDN setup for global content delivery" },
+                        { icon: <Shield className="w-4 h-4 text-purple-500" />, text: "SSL certificate installation for security" },
+                        { icon: <Settings className="w-4 h-4 text-orange-500" />, text: "DNS configuration and email setup" },
+                        { icon: <BarChart className="w-4 h-4 text-indigo-500" />, text: "Analytics and monitoring tool integration" },
+                        { icon: <RefreshCw className="w-4 h-4 text-pink-500" />, text: "Automated backup and deployment setup" },
+                        { icon: <Users className="w-4 h-4 text-cyan-500" />, text: "Training on content updates and maintenance" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        We ensure a <span className="font-semibold">seamless launch process</span> with optimal performance and reliability.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Can static websites be mobile-friendly and responsive?",
+        icon: <Smartphone className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Absolutely!</span> All our static websites are built with <span className="font-semibold text-green-700">mobile-first responsive design</span>:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <Smartphone className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">Mobile Optimization:</span>
+                            <p className="text-green-700 text-sm mt-1">Touch-friendly interfaces, optimized loading, thumb-friendly navigation</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Monitor className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Responsive Layout:</span>
+                            <p className="text-blue-700 text-sm mt-1">Fluid grids that adapt seamlessly to any screen size or device</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Image className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Optimized Media:</span>
+                            <p className="text-purple-700 text-sm mt-1">Responsive images and media that scale appropriately</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <TestTube className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">Cross-Device Testing:</span>
+                            <p className="text-orange-700 text-sm mt-1">Thorough testing across multiple devices and browsers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <p className="text-green-800">
+                        Our responsive design ensures <span className="font-semibold">perfect user experience on mobile, tablet, and desktop</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide maintenance and support for static websites?",
+        icon: <Settings className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> We offer comprehensive <span className="font-semibold text-purple-700">maintenance and support services</span> for static websites:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "Content updates and page modifications" },
+                        { icon: <Shield className="w-4 h-4 text-green-500" />, text: "Security monitoring and SSL certificate renewal" },
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Performance optimization and speed improvements" },
+                        { icon: <Bug className="w-4 h-4 text-red-500" />, text: "Bug fixes and compatibility issue resolution" },
+                        { icon: <Image className="w-4 h-4 text-purple-500" />, text: "Image optimization and new media integration" },
+                        { icon: <BarChart className="w-4 h-4 text-indigo-500" />, text: "Analytics reporting and SEO improvements" },
+                        { icon: <Database className="w-4 h-4 text-orange-500" />, text: "Backup management and disaster recovery" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "Training and documentation for content updates" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <p className="text-purple-800">
+                        Available as <span className="font-semibold">flexible maintenance packages</span> with quick response times and affordable rates.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+
+export const wordpress_faq = [
+    {
+        title: "What is WordPress and why should I choose it?",
+        icon: <Code className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    WordPress is the world's most popular content management system (CMS), powering over 40% of all websites:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Edit className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">User-Friendly CMS:</span>
+                            <p className="text-blue-800 mt-1">Easy content management without technical knowledge required.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Puzzle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Extensive Plugin Library:</span>
+                            <p className="text-green-800 mt-1">Over 60,000 plugins to extend functionality for any business need.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Palette className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Customizable Themes:</span>
+                            <p className="text-purple-800 mt-1">Thousands of themes and unlimited customization possibilities.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Search className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">SEO-Friendly:</span>
+                            <p className="text-orange-800 mt-1">Built-in SEO features and compatibility with SEO plugins.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        WordPress powers <span className="font-semibold">businesses of all sizes</span> from blogs to enterprise websites.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What types of websites can be built with WordPress?",
+        icon: <Layers className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    WordPress is incredibly versatile and can power virtually any type of website:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Building className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Business Websites:</span>
+                            <p className="text-blue-700 text-sm mt-1">Corporate sites, service pages, company portfolios, team pages</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">E-commerce Stores:</span>
+                            <p className="text-green-700 text-sm mt-1">WooCommerce integration for full online store functionality</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <BookOpen className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Blogs & News Sites:</span>
+                            <p className="text-purple-700 text-sm mt-1">Content management, multi-author blogs, news publications</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Users className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">Community & Membership Sites:</span>
+                            <p className="text-orange-700 text-sm mt-1">User registration, forums, subscription-based content</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <Briefcase className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Portfolios & Creative Sites:</span>
+                            <p className="text-indigo-700 text-sm mt-1">Artist portfolios, photography sites, creative agencies</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg">
+                        <GraduationCap className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-red-900">Educational & Non-profit:</span>
+                            <p className="text-red-700 text-sm mt-1">Learning management systems, charity sites, event management</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-100 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        WordPress can be <span className="font-semibold">customized for any industry or business model</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the benefits of using WordPress?",
+        icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    WordPress offers numerous advantages for businesses and organizations:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <Edit className="w-4 h-4 text-blue-500" />, text: "User-friendly interface - manage content without technical skills" },
+                        { icon: <DollarSign className="w-4 h-4 text-green-500" />, text: "Cost-effective - open source with affordable hosting options" },
+                        { icon: <Search className="w-4 h-4 text-purple-500" />, text: "SEO-friendly - built-in optimization features and plugin support" },
+                        { icon: <Smartphone className="w-4 h-4 text-orange-500" />, text: "Mobile responsive - themes automatically adapt to all devices" },
+                        { icon: <Puzzle className="w-4 h-4 text-indigo-500" />, text: "Extensive plugin library - add any functionality you need" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "Large community support - tutorials, forums, and documentation" },
+                        { icon: <Globe className="w-4 h-4 text-cyan-500" />, text: "Multilingual support - reach global audiences easily" },
+                        { icon: <Shield className="w-4 h-4 text-red-500" />, text: "Regular security updates - maintained by a dedicated team" },
+                        { icon: <TrendingUp className="w-4 h-4 text-yellow-500" />, text: "Scalable - grows with your business from small to enterprise" },
+                        { icon: <Settings className="w-4 h-4 text-gray-500" />, text: "Easy integrations - connect with third-party tools and services" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-green-50 rounded-lg transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                            WordPress combines <span className="font-semibold">ease of use with powerful functionality</span> for any business.
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How secure is WordPress?",
+        icon: <Shield className="w-5 h-5 text-red-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    WordPress security depends on proper setup, maintenance, and best practices:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Shield className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Core Security:</span>
+                            <p className="text-green-800 mt-1">WordPress core is regularly updated with security patches and improvements.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Lock className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Security Plugins:</span>
+                            <p className="text-blue-800 mt-1">Robust security plugins like Wordfence, Sucuri, and iThemes Security provide additional protection.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <AlertTriangle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Best Practices:</span>
+                            <p className="text-orange-800 mt-1">Regular updates, strong passwords, secure hosting, and proper user permissions are essential.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Our Security Measures Include:</h4>
+                    {[
+                        "Regular WordPress core and plugin updates",
+                        "SSL certificate installation and configuration",
+                        "Firewall setup and malware scanning",
+                        "Strong password policies and two-factor authentication",
+                        "Regular security audits and monitoring",
+                        "Automated backups and disaster recovery plans"
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{item}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-red-50 rounded-lg border border-red-200">
+                    <p className="text-red-800">
+                        With proper security measures, WordPress is <span className="font-semibold">as secure as any other CMS platform</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Can you migrate my existing website to WordPress?",
+        icon: <RefreshCw className="w-5 h-5 text-indigo-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> We specialize in <span className="font-semibold text-indigo-700">seamless website migrations to WordPress</span>:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Search className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Pre-Migration Analysis:</span>
+                            <p className="text-blue-800 mt-1">Comprehensive audit of your current site structure, content, and functionality</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <Database className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Content Migration:</span>
+                            <p className="text-green-800 mt-1">Safe transfer of all content, images, and media files with data integrity</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Link className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">URL Structure & SEO:</span>
+                            <p className="text-purple-800 mt-1">Preserve SEO rankings with proper redirects and URL mapping</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <TestTube className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Testing & Validation:</span>
+                            <p className="text-orange-800 mt-1">Thorough testing to ensure all features work perfectly after migration</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">We Migrate From:</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                        {[
+                            "Static HTML websites", "Joomla CMS", "Drupal CMS", "Shopify stores",
+                            "Squarespace sites", "Wix websites", "Custom CMS platforms", "Other frameworks"
+                        ].map((item, index) => (
+                            <div key={index} className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                                <ArrowRight className="w-3 h-3 text-gray-600" />
+                                <span className="text-sm text-gray-700">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Migration typically takes <span className="font-semibold">1-4 weeks</span> depending on site complexity and content volume.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What is WooCommerce and do you develop e-commerce sites?",
+        icon: <DollarSign className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">WooCommerce</span> is the most popular e-commerce plugin for WordPress, and <span className="font-semibold text-green-700">yes, we specialize in WooCommerce development</span>:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Complete E-commerce Solution:</span>
+                            <p className="text-green-800 mt-1">Full online store functionality with product management, inventory, and order processing.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <CreditCard className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Payment Integration:</span>
+                            <p className="text-blue-800 mt-1">Support for all major payment gateways including PayPal, Stripe, and local payment methods.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Truck className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Shipping & Tax Management:</span>
+                            <p className="text-purple-800 mt-1">Flexible shipping options, tax calculations, and multi-location inventory management.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Our WooCommerce Services:</h4>
+                    {[
+                        "Custom WooCommerce store development",
+                        "Theme customization and responsive design",
+                        "Payment gateway integration and setup",
+                        "Inventory management and product import",
+                        "Custom plugin development for specific needs",
+                        "Performance optimization for large catalogs",
+                        "Multi-vendor marketplace setup",
+                        "Ongoing maintenance and security updates"
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{item}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <p className="text-green-800">
+                        WooCommerce powers <span className="font-semibold">over 5 million online stores</span> worldwide with flexible, scalable solutions.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does WordPress development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Development timeline varies based on <span className="font-semibold">complexity, customization requirements, content volume, and functionality</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple WordPress Sites (5-10 pages):</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">1–2 weeks</span>
+                            <p className="text-green-700 text-sm mt-1">Basic business sites, blogs, portfolios</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Custom WordPress Sites (10-25 pages):</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">3–6 weeks</span>
+                            <p className="text-blue-700 text-sm mt-1">Custom themes, advanced functionality, member areas</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">WooCommerce E-commerce Sites:</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">4–8 weeks</span>
+                            <p className="text-purple-700 text-sm mt-1">Online stores, payment integration, inventory setup</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-orange-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Enterprise WordPress Solutions:</span>
+                            <span className="ml-2 px-2 py-1 bg-orange-100 text-orange-800 rounded text-sm font-medium">2–4+ months</span>
+                            <p className="text-orange-700 text-sm mt-1">Multi-site, custom plugins, complex integrations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Factors like <span className="font-semibold">content creation, custom design, plugin development, and integrations</span> affect timeline.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide WordPress maintenance and support?",
+        icon: <Settings className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Absolutely!</span> We offer comprehensive <span className="font-semibold text-purple-700">WordPress maintenance and support services</span>:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "Regular WordPress core, theme, and plugin updates" },
+                        { icon: <Shield className="w-4 h-4 text-green-500" />, text: "Security monitoring, malware scanning, and firewall management" },
+                        { icon: <Database className="w-4 h-4 text-purple-500" />, text: "Automated daily backups and disaster recovery" },
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Performance optimization and speed improvements" },
+                        { icon: <Bug className="w-4 h-4 text-red-500" />, text: "Bug fixes and compatibility issue resolution" },
+                        { icon: <Edit className="w-4 h-4 text-indigo-500" />, text: "Content updates and minor design changes" },
+                        { icon: <BarChart className="w-4 h-4 text-orange-500" />, text: "Analytics reporting and SEO monitoring" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "24/7 support and emergency response" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 space-y-3">
+                    <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <h4 className="font-semibold text-blue-900 mb-2">Maintenance Plans Available:</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Basic Plan</span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Professional Plan</span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Enterprise Plan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <p className="text-purple-800">
+                        Our maintenance keeps your WordPress site <span className="font-semibold">secure, fast, and always up-to-date</span> with minimal downtime.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+
 // Combined export for all FAQ categories
 export const all_service_faqs = {
     web_development: web_dev_faq,
@@ -1934,5 +3173,8 @@ export const all_service_faqs = {
     cloud_devops: cloud_devops_faq,
     automation_testing: automation_testing_faq,
     emerging_technology: emerging_tech_faq,
-    ai_ml: ai_ml_faq
+    wordpress_development: wordpress_faq,
+    static_website: static_website_faq,
+    ai_ml: ai_ml_faq,
+    nextjs_development: nextjs_faq
 };
