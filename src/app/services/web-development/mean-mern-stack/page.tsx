@@ -2,6 +2,7 @@
 import React from 'react'
 import Structure from '@/components/common/page-structure';
 import { TechServices as HeroSection } from '@/components/ui/sticky-scroll-reveal';
+import { TechServices as ServiceSection } from '@/components/ui/sticky-scroll-reveal';
 import MessageSection from '@/components/message-section';
 import Image from 'next/image';
 import { mean_mern_services, mean_mern_stack_content, mern_business_process, mern_streamlining_development } from '@/config/content/mean-mern-stack';
@@ -11,13 +12,9 @@ import FAQ from '@/components/faq-section';
 import { mern_mean_faq } from '@/config/FAQs';
 
 
-
-
-
-
 const page = () => {
     return (
-        <Structure className='!p-0 !-top-[var(--header-height)]'>
+        <Structure className=''>
             <div
                 className='relative w-full'
             >
@@ -43,13 +40,19 @@ const page = () => {
             </div>
 
             {/* section 2 */}
-            <HeroSection
-                heading='Our Services'
-                subheading='Innovative MEAN & MERN Stack Solutions for Modern Businesses'
-                description='We provide end-to-end MEAN & MERN stack solutions including development, integration, consulting, CMS, migration, testing, API, and porting services — designed to help your business grow with scalable and future-ready applications.'
-                content={mean_mern_stack_content}
-                subSection={false}
-            />
+            <div
+                className='!w-full !relative !mt-0'
+            >
+
+                <ServiceSection
+                    heading='Our Services'
+                    subheading='Innovative MEAN & MERN Stack Solutions for Modern Businesses'
+                    description='We provide end-to-end MEAN & MERN stack solutions including development, integration, consulting, CMS, migration, testing, API, and porting services — designed to help your business grow with scalable and future-ready applications.'
+                    content={mean_mern_stack_content}
+                    subSection={false}
+                    className=''
+                />
+            </div>
 
 
             {/* section 3 */}
@@ -97,7 +100,7 @@ const page = () => {
                 className='p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
                 description="Our MEAN/MERN process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure scalable, secure, and future-ready applications tailored to your business needs."
                 processes={mern_streamlining_development}
-                />
+            />
 
             {/* section 7 */}
             <BusinessProcessSection

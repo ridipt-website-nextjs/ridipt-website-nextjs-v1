@@ -10,7 +10,7 @@ const page = ({
     return (
         <div className='min-h-screen bg-background text-primary-foreground'>
             {/* Main container with proper responsive constraints */}
-            <div className={`flex flex-col items-center justify-start  mx-auto w-full px-4 py-8 ${className}`}>
+            <div className={`flex flex-col items-center justify-start  mx-auto w-full px-4 ${className}`}>
                 {children}
             </div>
         </div>

@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-import React, { useRef, useState } from "react";
+import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -26,6 +26,7 @@ interface NavBodyProps {
 interface NavItem {
   name: string;
   items?: NavItem[];
+  content?: JSX.Element
   link?: string;
 }
 
@@ -165,6 +166,41 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               </motion.div>
             )}
           </div>
+        ) : item.content ? (
+          <div
+            key={`nav-item-${idx}`}
+            className="relative group"
+          >
+            <span
+              className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 hover:text-popover-foreground"
+              onMouseEnter={() => setHovered(idx)}
+              onClick={onItemClick}
+            >
+              {item.name}
+              <ChevronDown
+                size={20}
+                className="text-popover-foreground/60 transition-transform duration-300"
+                style={{
+                  transform: hovered === idx ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.3s ease"
+                }}
+              />
+            </span>
+            {hovered === idx && (
+              <motion.div
+                layoutId="hovered"
+                className="absolute bg-card left-1/2 transform translate-y-5 -translate-x-1/2 top-full mt-3 overflow-hidden w-[950px]  overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
+                style={{
+                  bottom: "auto",
+                  // maxHeight: "calc(100vh - 200px)" // Screen height minus some margin
+                }}
+              >
+                <div className="p-6">
+                  {item.content}
+                </div>
+              </motion.div>
+            )}
+          </div>
         ) : (
           <Link
             onMouseEnter={() => setHovered(idx)}
@@ -186,6 +222,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     </motion.div>
   );
 };
+
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
@@ -260,61 +297,146 @@ export const MobileNavMenu = ({
 
 export const MobileNavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const toggleExpanded = (idx: number) => {
     setExpanded(expanded === idx ? null : idx);
   };
 
+  // Handle scroll position detection
+  const handleScroll = useCallback(() => {
+    if (!containerRef.current) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+    const threshold = 10; // 10px threshold for better UX
+    
+    const atTop = scrollTop <= threshold;
+    const atBottom = scrollTop + clientHeight >= scrollHeight - threshold;
+    
+    setIsAtTop(atTop);
+    setIsAtBottom(atBottom);
+
+    // Enable page scroll when at boundaries
+    if (atTop || atBottom) {
+      document.body.style.overflow = 'unset';
+      document.body.style.position = 'unset';
+    } else {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    }
+  }, []);
+
+  // Initial setup and cleanup
+  useEffect(() => {
+    // Initially prevent background scroll
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    
+    // Cleanup when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.style.position = 'unset';
+      document.body.style.width = 'unset';
+    };
+  }, []);
+
+  // Add scroll listener
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Check initial scroll position
+    handleScroll();
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
-    <div className={cn("flex flex-col w-full", className)}>
+    <div 
+      ref={containerRef}
+      className={cn(
+        "flex flex-col w-full h-full max-h-[calc(100vh-200px)] overflow-y-auto overscroll-contain scroll-smooth",
+        className
+      )}
+      style={{
+        // Better scrollbar styling
+        scrollbarWidth: 'thin',
+        scrollbarColor: 'rgba(155, 155, 155, 0.3) transparent'
+      }}
+    >
+      {/* Scroll indicator at top */}
+      {!isAtTop && (
+        <div className="sticky top-0 z-10 flex justify-center py-1 bg-gradient-to-b from-popover to-transparent">
+          <div className="w-8 h-1 bg-popover-foreground/20 rounded-full"></div>
+        </div>
+      )}
+
       {items.map((item, idx) => (
-        <div key={`mobile-nav-item-${idx}`} className="w-full">
-          {item.items ? (
+        <div key={`mobile-nav-item-${idx}`} className="w-full flex-shrink-0">
+          {item.items || item.content ? (
             <div>
               <button
                 className="flex w-full items-center justify-between px-4 py-3 text-left text-popover-foreground hover:bg-popover-foreground/10 rounded-md transition-colors duration-200"
                 onClick={() => toggleExpanded(idx)}
               >
-                <span>{item.name}</span>
+                <span className="font-medium">{item.name}</span>
                 <ChevronDown
                   size={20}
-                  className="text-popover-foreground/60 transition-transform duration-300"
+                  className="text-popover-foreground/60 transition-transform duration-300 flex-shrink-0"
                   style={{
                     transform: expanded === idx ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "transform 0.3s ease"
                   }}
                 />
               </button>
-              
+
               <AnimatePresence>
-                {expanded === idx && item.items && (
+                {expanded === idx && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
+                    onAnimationComplete={() => {
+                      // Recalculate scroll position after animation
+                      setTimeout(handleScroll, 50);
+                    }}
                   >
-                    <div className="pl-4 py-2">
-                      {item.items.map((subItem, subIdx) => (
-                        subItem.link ? (
-                          <Link
-                            key={`mobile-sub-item-${subIdx}`}
-                            href={subItem.link}
-                            className="block px-4 py-2 text-sm text-popover-foreground/70 hover:bg-popover-foreground/10 hover:text-popover-foreground rounded-md transition-colors duration-200"
-                            onClick={onItemClick}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ) : (
-                          <span
-                            key={`mobile-sub-item-${subIdx}`}
-                            className="block px-4 py-2 text-sm text-popover-foreground/70"
-                          >
-                            {subItem.name}
-                          </span>
-                        )
-                      ))}
+                    <div className="pl-4 py-2 space-y-1">
+                      {item.items ? (
+                        item.items.map((subItem, subIdx) => (
+                          subItem.link ? (
+                            <Link
+                              key={`mobile-sub-item-${subIdx}`}
+                              href={subItem.link}
+                              className="block px-4 py-2 text-sm text-popover-foreground/70 hover:bg-popover-foreground/10 hover:text-popover-foreground rounded-md transition-colors duration-200"
+                              onClick={onItemClick}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ) : (
+                            <span
+                              key={`mobile-sub-item-${subIdx}`}
+                              className="block px-4 py-2 text-sm text-popover-foreground/70"
+                            >
+                              {subItem.name}
+                            </span>
+                          )
+                        ))
+                      ) : (
+                        <div className="px-4 py-2">
+                          {item.content}
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 )}
@@ -324,22 +446,30 @@ export const MobileNavItems = ({ items, className, onItemClick }: NavItemsProps)
             item.link ? (
               <Link
                 href={item.link}
-                className="block px-4 py-3 text-popover-foreground hover:bg-popover-foreground/10 rounded-md transition-colors duration-200"
+                className="block px-4 py-3 text-popover-foreground hover:bg-popover-foreground/10 rounded-md transition-colors duration-200 font-medium"
                 onClick={onItemClick}
               >
                 {item.name}
               </Link>
             ) : (
-              <span className="block px-4 py-3 text-popover-foreground/70">
+              <span className="block px-4 py-3 text-popover-foreground/70 font-medium">
                 {item.name}
               </span>
             )
           )}
         </div>
       ))}
+
+      {/* Scroll indicator at bottom */}
+      {!isAtBottom && (
+        <div className="sticky bottom-0 z-10 flex justify-center py-1 bg-gradient-to-t from-popover to-transparent">
+          <div className="w-8 h-1 bg-popover-foreground/20 rounded-full"></div>
+        </div>
+      )}
     </div>
   );
 };
+
 
 export const MobileNavToggle = ({
   isOpen,
@@ -389,7 +519,7 @@ export const NavbarButton = ({
     | React.ComponentPropsWithoutRef<"a">
     | React.ComponentPropsWithoutRef<"button">
   )) => {
-  
+
   const baseStyles =
     "px-4 py-2 rounded-md button text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
@@ -404,7 +534,7 @@ export const NavbarButton = ({
 
   if (href) {
     return (
-      <Link 
+      <Link
         href={href}
         className={cn(baseStyles, variantStyles[variant], className)}
         {...(props as React.ComponentPropsWithoutRef<"a">)}
