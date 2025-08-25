@@ -35,13 +35,14 @@ const Page = () => {
             />
 
             {/* Services Section */}
+
             <ServiceSection
                 heading='Our WordPress Development Services'
                 subheading='Comprehensive Solutions for Effective WordPress Websites'
                 description='We provide end-to-end WordPress solutions including custom theme development, plugin customization, WooCommerce integration, SEO optimization, migration services, and ongoing maintenance — designed to help your business harness the full potential of WordPress.'
                 content={wordpress_content}
                 subSection={false}
-                className=''
+                className='!mt-0'
             />
 
             {/* Call to Action Section */}

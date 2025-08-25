@@ -46,7 +46,18 @@ import {
     Truck,
     CreditCard,
     Puzzle,
-    GraduationCap
+    GraduationCap,
+    FileCheck,
+    Wifi,
+    Bell,
+    Download,
+    Wrench,
+    Store,
+    Crown,
+    Fingerprint,
+    MapPin,
+    Apple,
+    Package
 } from 'lucide-react';
 
 export const web_dev_faq = [
@@ -3164,12 +3175,1787 @@ export const wordpress_faq = [
 ];
 
 
+export const android_app_faq = [
+    {
+        title: "What is Android app development?",
+        icon: <Smartphone className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Android app development is the process of creating mobile applications for devices running the Android operating system:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Code className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Native Development:</span>
+                            <p className="text-green-800 mt-1">Built using Java or Kotlin with Android SDK for optimal performance and device integration.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Globe className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Market Reach:</span>
+                            <p className="text-blue-800 mt-1">Android powers over 70% of mobile devices worldwide, offering massive market potential.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Settings className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Rich Features:</span>
+                            <p className="text-purple-800 mt-1">Access to device hardware, Google services, and extensive customization options.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Store className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Google Play Store:</span>
+                            <p className="text-orange-800 mt-1">Distribution through the world's largest app marketplace with billions of users.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        Android development offers <span className="font-semibold">flexibility, scalability, and vast market opportunities</span> for businesses.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the benefits of native Android app development?",
+        icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Native Android app development offers numerous advantages over hybrid or web-based solutions:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Superior performance with direct access to device hardware and resources" },
+                        { icon: <Smartphone className="w-4 h-4 text-green-500" />, text: "Full integration with Android features like camera, GPS, contacts, and sensors" },
+                        { icon: <Shield className="w-4 h-4 text-blue-500" />, text: "Enhanced security with Android's built-in security model and encryption" },
+                        { icon: <Palette className="w-4 h-4 text-purple-500" />, text: "Native UI/UX that follows Android design guidelines and user expectations" },
+                        { icon: <Wifi className="w-4 h-4 text-indigo-500" />, text: "Offline functionality and better handling of network connectivity issues" },
+                        { icon: <Bell className="w-4 h-4 text-orange-500" />, text: "Push notifications and background processing capabilities" },
+                        { icon: <Download className="w-4 h-4 text-pink-500" />, text: "Easy distribution through Google Play Store with built-in monetization options" },
+                        { icon: <Wrench className="w-4 h-4 text-cyan-500" />, text: "Access to latest Android features and APIs as soon as they're released" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-100 rounded-lg border border-blue-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-blue-600" />
+                        <p className="text-blue-800 font-medium">
+                            Native Android apps provide <span className="font-semibold">optimal user experience and maximum platform capabilities</span>.
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Which programming languages and technologies do you use?",
+        icon: <Code className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    We use cutting-edge technologies and programming languages for Android app development:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Code className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Programming Languages:</span>
+                            <p className="text-purple-700 text-sm mt-1">Kotlin (preferred), Java, with Kotlin being Google's recommended language</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Wrench className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Development Tools:</span>
+                            <p className="text-blue-700 text-sm mt-1">Android Studio, Gradle, ADB, Android SDK, Firebase Console</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <Database className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">Backend & Database:</span>
+                            <p className="text-green-700 text-sm mt-1">Firebase, Room Database, SQLite, RESTful APIs, GraphQL</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Palette className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">UI/UX Frameworks:</span>
+                            <p className="text-orange-700 text-sm mt-1">Material Design, Jetpack Compose, XML layouts, ConstraintLayout</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <TestTube className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Testing & Quality:</span>
+                            <p className="text-indigo-700 text-sm mt-1">Espresso, JUnit, Mockito, Firebase Test Lab, Android Testing Framework</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        We stay updated with <span className="font-semibold">latest Android technologies and best practices</span> to deliver modern, efficient apps.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does Android app development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Development timeline varies based on <span className="font-semibold">app complexity, features, design requirements, and integrations</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Apps (Basic Features):</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">6–12 weeks</span>
+                            <p className="text-green-700 text-sm mt-1">Basic UI, simple functionality, minimal integrations</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">3–6 months</span>
+                            <p className="text-blue-700 text-sm mt-1">Custom UI, API integrations, user authentication, payment features</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Complex Apps (Enterprise/Advanced):</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">6–12+ months</span>
+                            <p className="text-purple-700 text-sm mt-1">Advanced features, real-time functionality, complex backend</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Development Phases Include:</h4>
+                    {[
+                        "Requirements analysis and planning (1-2 weeks)",
+                        "UI/UX design and prototyping (2-4 weeks)",
+                        "Development and coding (4-20+ weeks)",
+                        "Testing and quality assurance (2-4 weeks)",
+                        "App store submission and approval (1-2 weeks)"
+                    ].map((phase, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{phase}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Timeline depends on <span className="font-semibold">feature complexity, third-party integrations, and approval cycles</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What is the cost of Android app development?",
+        icon: <DollarSign className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Android app development cost varies significantly based on multiple factors:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Apps:</span>
+                            <p className="text-green-800 mt-1">$10,000 - $25,000 for basic functionality and standard UI</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity:</span>
+                            <p className="text-blue-800 mt-1">$25,000 - $75,000 for custom features, integrations, and advanced UI</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Crown className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Enterprise Apps:</span>
+                            <p className="text-purple-800 mt-1">$75,000+ for complex functionality, enterprise integrations, and scalability</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Cost Factors Include:</h4>
+                    {[
+                        "App complexity and number of features",
+                        "Custom UI/UX design requirements",
+                        "Third-party integrations and APIs",
+                        "Backend development and database setup",
+                        "Testing across multiple devices and OS versions",
+                        "App store submission and optimization",
+                        "Post-launch maintenance and updates"
+                    ].map((factor, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{factor}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <p className="text-yellow-800">
+                        We provide <span className="font-semibold">detailed cost estimates</span> after analyzing your specific requirements and project scope.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide app store submission and ASO services?",
+        icon: <Store className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> We provide complete <span className="font-semibold text-blue-700">Google Play Store submission and ASO services</span>:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <FileText className="w-4 h-4 text-blue-500" />, text: "Complete app store listing creation with compelling descriptions" },
+                        { icon: <Image className="w-4 h-4 text-green-500" />, text: "Professional app icons, screenshots, and promotional graphics" },
+                        { icon: <Search className="w-4 h-4 text-purple-500" />, text: "Keyword research and optimization for better discoverability" },
+                        { icon: <CheckCircle className="w-4 h-4 text-orange-500" />, text: "Compliance with Google Play Store policies and guidelines" },
+                        { icon: <TrendingUp className="w-4 h-4 text-indigo-500" />, text: "App Store Optimization (ASO) to improve rankings and downloads" },
+                        { icon: <BarChart className="w-4 h-4 text-pink-500" />, text: "Performance monitoring and analytics setup" },
+                        { icon: <RefreshCw className="w-4 h-4 text-cyan-500" />, text: "Regular updates and optimization based on user feedback" },
+                        { icon: <Shield className="w-4 h-4 text-red-500" />, text: "Security review and privacy policy compliance" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 space-y-3">
+                    <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <h4 className="font-semibold text-blue-900 mb-2">ASO Services Include:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Keyword Optimization</span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Competitor Analysis</span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Review Management</span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Conversion Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        Our ASO expertise helps <span className="font-semibold">increase app visibility by 3-5x and improve download rates significantly</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What about app security and data protection?",
+        icon: <Shield className="w-5 h-5 text-red-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Security is our top priority in Android app development. We implement comprehensive security measures:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                        <Shield className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-red-900">Data Encryption:</span>
+                            <p className="text-red-800 mt-1">End-to-end encryption for data transmission and storage using industry standards.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Lock className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Authentication & Authorization:</span>
+                            <p className="text-blue-800 mt-1">Secure user authentication with biometrics, OAuth, and JWT tokens.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <FileCheck className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Compliance:</span>
+                            <p className="text-green-800 mt-1">GDPR, CCPA, HIPAA compliance and privacy policy implementation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Security Measures:</h4>
+                    {[
+                        "Secure API communication with HTTPS and certificate pinning",
+                        "Local data encryption and secure key management",
+                        "Code obfuscation and anti-reverse engineering protection",
+                        "Regular security audits and penetration testing",
+                        "Secure third-party library integration and updates",
+                        "Runtime Application Self-Protection (RASP) implementation",
+                        "Secure backend infrastructure and database protection"
+                    ].map((measure, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{measure}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-red-50 rounded-lg border border-red-200">
+                    <p className="text-red-800">
+                        We follow <span className="font-semibold">OWASP Mobile Security Guidelines</span> and implement security-by-design principles.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide maintenance and support after app launch?",
+        icon: <Settings className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Absolutely!</span> We offer comprehensive <span className="font-semibold text-purple-700">post-launch maintenance and support services</span>:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "Regular app updates for new Android versions and security patches" },
+                        { icon: <Bug className="w-4 h-4 text-red-500" />, text: "Bug fixes and performance optimization based on user feedback" },
+                        { icon: <TrendingUp className="w-4 h-4 text-green-500" />, text: "Feature enhancements and new functionality development" },
+                        { icon: <BarChart className="w-4 h-4 text-purple-500" />, text: "Analytics monitoring and performance tracking" },
+                        { icon: <Shield className="w-4 h-4 text-orange-500" />, text: "Security monitoring and vulnerability assessments" },
+                        { icon: <Smartphone className="w-4 h-4 text-indigo-500" />, text: "Device compatibility updates for new Android devices" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "24/7 technical support and emergency response" },
+                        { icon: <Cloud className="w-4 h-4 text-cyan-500" />, text: "Backend server maintenance and API updates" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 space-y-3">
+                    <div className="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                        <h4 className="font-semibold text-purple-900 mb-2">Maintenance Plans:</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Basic Support</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Standard Plan</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Enterprise Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <p className="text-purple-800">
+                        Our maintenance ensures your app stays <span className="font-semibold">secure, up-to-date, and competitive</span> in the market.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+
+export const flutter_app_faq = [
+    {
+        title: "What is Flutter and why should I choose it?",
+        icon: <Smartphone className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Flutter is Google's open-source UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Code className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Single Codebase:</span>
+                            <p className="text-blue-800 mt-1">Write once, run everywhere - iOS, Android, web, and desktop applications.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Zap className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">High Performance:</span>
+                            <p className="text-green-800 mt-1">Native-level performance with smooth 60fps animations and fast startup times.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Palette className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Rich UI Widgets:</span>
+                            <p className="text-purple-800 mt-1">Extensive catalog of customizable widgets for beautiful, expressive UIs.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <DollarSign className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Cost-Effective:</span>
+                            <p className="text-orange-800 mt-1">Reduce development time and costs with cross-platform code sharing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        Flutter is trusted by <span className="font-semibold">Google, Alibaba, BMW, and thousands of developers</span> worldwide.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the advantages of Flutter over native development?",
+        icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Flutter offers significant advantages over traditional native development approaches:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <Code className="w-4 h-4 text-blue-500" />, text: "Single codebase for multiple platforms reduces development time by 50-70%" },
+                        { icon: <DollarSign className="w-4 h-4 text-green-500" />, text: "Cost-effective development with shared code and reduced maintenance overhead" },
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Hot reload feature enables instant code changes and faster iteration" },
+                        { icon: <Users className="w-4 h-4 text-purple-500" />, text: "Smaller development team required compared to separate native teams" },
+                        { icon: <Smartphone className="w-4 h-4 text-indigo-500" />, text: "Consistent UI/UX across all platforms with pixel-perfect designs" },
+                        { icon: <RefreshCw className="w-4 h-4 text-orange-500" />, text: "Faster time-to-market with simultaneous multi-platform releases" },
+                        { icon: <Settings className="w-4 h-4 text-pink-500" />, text: "Easy maintenance and updates across all platforms simultaneously" },
+                        { icon: <TestTube className="w-4 h-4 text-cyan-500" />, text: "Comprehensive testing framework with widget and integration testing" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-green-50 rounded-lg transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                            Flutter provides <span className="font-semibold">90% code reusability</span> across platforms while maintaining native performance.
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What programming language is used in Flutter?",
+        icon: <Code className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Flutter uses <span className="font-semibold text-purple-700">Dart programming language</span>, developed by Google specifically for modern app development:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Code className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Dart Language Features:</span>
+                            <p className="text-purple-800 mt-1">Object-oriented, type-safe language with null safety and strong typing.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Zap className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">High Performance:</span>
+                            <p className="text-blue-800 mt-1">Compiles to native ARM and x64 machine code for optimal performance.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Users className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Easy to Learn:</span>
+                            <p className="text-green-800 mt-1">Familiar syntax for developers coming from Java, C#, or JavaScript backgrounds.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Dart Advantages:</h4>
+                    {[
+                        "Fast development with hot reload capability",
+                        "Strong typing system prevents common programming errors",
+                        "Excellent tooling and IDE support (VS Code, IntelliJ)",
+                        "Rich standard library and package ecosystem (pub.dev)",
+                        "Ahead-of-time (AOT) compilation for production builds",
+                        "Just-in-time (JIT) compilation for development"
+                    ].map((advantage, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{advantage}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        Dart is <span className="font-semibold">easy to learn and optimized for Flutter development</span> with excellent performance characteristics.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does Flutter app development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Flutter development timeline varies based on <span className="font-semibold">app complexity, features, design requirements, and platform targets</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Cross-Platform Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">4–8 weeks</span>
+                            <p className="text-green-700 text-sm mt-1">Basic UI, simple functionality, standard widgets</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">2–4 months</span>
+                            <p className="text-blue-700 text-sm mt-1">Custom UI, API integrations, state management, animations</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Complex Enterprise Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">4–8+ months</span>
+                            <p className="text-purple-700 text-sm mt-1">Advanced features, complex backend, real-time functionality</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Flutter Development Phases:</h4>
+                    {[
+                        "Requirements analysis and architecture planning (1-2 weeks)",
+                        "UI/UX design and prototyping (1-3 weeks)",
+                        "Cross-platform development and coding (3-16+ weeks)",
+                        "Testing across multiple platforms (1-2 weeks)",
+                        "App store submission for both iOS and Android (1-2 weeks)"
+                    ].map((phase, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{phase}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-orange-50 rounded-lg border border-orange-200">
+                    <p className="text-orange-800">
+                        Flutter's <span className="font-semibold">single codebase approach typically reduces development time by 40-60%</span> compared to native development.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What is the cost of Flutter app development?",
+        icon: <DollarSign className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Flutter app development cost varies based on complexity, features, and platform requirements:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Cross-Platform Apps:</span>
+                            <p className="text-green-800 mt-1">$15,000 - $35,000 for basic functionality across iOS and Android</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity Apps:</span>
+                            <p className="text-blue-800 mt-1">$35,000 - $80,000 for custom features, integrations, and advanced UI</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Crown className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Enterprise Flutter Apps:</span>
+                            <p className="text-purple-800 mt-1">$80,000+ for complex functionality, enterprise integrations, and web/desktop support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Cost-Saving Benefits:</h4>
+                    {[
+                        "50-70% cost reduction compared to separate native development",
+                        "Single development team instead of separate iOS/Android teams",
+                        "Shared codebase reduces maintenance and update costs",
+                        "Faster time-to-market reduces overall project costs",
+                        "Simultaneous platform releases eliminate staggered development",
+                        "Lower testing costs with unified testing approach"
+                    ].map((benefit, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{benefit}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <p className="text-yellow-800">
+                        Flutter's <span className="font-semibold">cross-platform nature typically provides 40-60% cost savings</span> over native development.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Can Flutter apps access native device features?",
+        icon: <Smartphone className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> Flutter provides extensive access to <span className="font-semibold text-blue-700">native device features and APIs</span>:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Camera className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Camera & Media:</span>
+                            <p className="text-blue-700 text-sm mt-1">Camera access, photo/video capture, image picking, and media processing</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <MapPin className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">Location Services:</span>
+                            <p className="text-green-700 text-sm mt-1">GPS location, geofencing, maps integration, and location tracking</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Bell className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Notifications:</span>
+                            <p className="text-purple-700 text-sm mt-1">Push notifications, local notifications, and background processing</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Fingerprint className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">Biometric Authentication:</span>
+                            <p className="text-orange-700 text-sm mt-1">Fingerprint, face recognition, and secure authentication methods</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <Database className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Storage & Sensors:</span>
+                            <p className="text-indigo-700 text-sm mt-1">File system access, accelerometer, gyroscope, and device sensors</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Platform Integration Methods:</h4>
+                    {[
+                        "Official Flutter plugins for common functionalities",
+                        "Platform channels for custom native code integration",
+                        "Method channels for calling native iOS/Android methods",
+                        "Event channels for streaming data from native code",
+                        "Plugin development for custom native feature access"
+                    ].map((method, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{method}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-100 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        Flutter provides <span className="font-semibold">95% native feature access</span> through plugins and platform channels.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How does Flutter handle app performance?",
+        icon: <Zap className="w-5 h-5 text-yellow-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    Flutter delivers exceptional performance through its unique architecture and optimization techniques:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                        <Zap className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-yellow-900">Skia Graphics Engine:</span>
+                            <p className="text-yellow-800 mt-1">Hardware-accelerated 2D graphics engine ensures smooth 60fps animations.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Code className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Dart AOT Compilation:</span>
+                            <p className="text-blue-800 mt-1">Ahead-of-time compilation to native machine code for optimal performance.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Layers className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Widget Tree Optimization:</span>
+                            <p className="text-green-800 mt-1">Efficient widget rendering with minimal overhead and smart rebuilds.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Performance Features:</h4>
+                    {[
+                        "120fps support on capable devices",
+                        "Minimal memory footprint and garbage collection",
+                        "Tree shaking eliminates unused code from builds",
+                        "Hot reload without losing app state during development",
+                        "Isolates for multi-threaded processing",
+                        "Efficient asset bundling and loading",
+                        "Platform-specific performance optimizations"
+                    ].map((feature, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{feature}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-100 rounded-lg border border-yellow-200">
+                    <p className="text-yellow-800">
+                        Flutter apps achieve <span className="font-semibold">near-native performance</span> with startup times comparable to native apps.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide Flutter app maintenance and support?",
+        icon: <Settings className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Absolutely!</span> We offer comprehensive <span className="font-semibold text-purple-700">Flutter app maintenance and support services</span>:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "Flutter SDK updates and framework version upgrades" },
+                        { icon: <Bug className="w-4 h-4 text-red-500" />, text: "Bug fixes and performance optimization across all platforms" },
+                        { icon: <Shield className="w-4 h-4 text-green-500" />, text: "Security updates and vulnerability patches" },
+                        { icon: <Smartphone className="w-4 h-4 text-purple-500" />, text: "iOS and Android OS compatibility updates" },
+                        { icon: <TrendingUp className="w-4 h-4 text-orange-500" />, text: "Feature enhancements and new functionality development" },
+                        { icon: <BarChart className="w-4 h-4 text-indigo-500" />, text: "Performance monitoring and analytics integration" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "24/7 technical support and emergency response" },
+                        { icon: <Cloud className="w-4 h-4 text-cyan-500" />, text: "Backend services maintenance and API updates" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 space-y-3">
+                    <div className="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                        <h4 className="font-semibold text-purple-900 mb-2">Maintenance Plans:</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Basic Support</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Standard Plan</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Enterprise Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <p className="text-purple-800">
+                        Our maintenance ensures your Flutter app stays <span className="font-semibold">current, secure, and high-performing</span> across all platforms.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+
+export const ios_app_faq = [
+    {
+        title: "What is iOS app development?",
+        icon: <Apple className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    iOS app development is the process of creating mobile applications specifically for Apple's iOS operating system:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Code className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Native Development:</span>
+                            <p className="text-blue-800 mt-1">Built using Swift or Objective-C with iOS SDK for optimal performance and seamless integration.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Store className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Apple App Store:</span>
+                            <p className="text-purple-800 mt-1">Exclusive distribution through Apple's curated app marketplace with premium user base.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Smartphone className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Device Compatibility:</span>
+                            <p className="text-green-800 mt-1">Runs on iPhone, iPad, iPod Touch, Apple Watch, and Apple TV devices.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Shield className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Premium Quality:</span>
+                            <p className="text-orange-800 mt-1">Apple's strict guidelines ensure high-quality apps with excellent user experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        iOS development targets <span className="font-semibold">premium users with higher spending power</span> and engagement rates.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the benefits of iOS app development?",
+        icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    iOS app development offers numerous advantages for businesses and developers:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <DollarSign className="w-4 h-4 text-green-500" />, text: "Higher revenue potential with premium user base willing to pay for quality apps" },
+                        { icon: <Shield className="w-4 h-4 text-blue-500" />, text: "Enhanced security with Apple's robust security model and encryption" },
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Superior performance with optimized hardware-software integration" },
+                        { icon: <Users className="w-4 h-4 text-purple-500" />, text: "Loyal customer base with high engagement and retention rates" },
+                        { icon: <Palette className="w-4 h-4 text-indigo-500" />, text: "Consistent UI/UX guidelines ensuring polished app experiences" },
+                        { icon: <Globe className="w-4 h-4 text-cyan-500" />, text: "Global reach through Apple's international App Store presence" },
+                        { icon: <Settings className="w-4 h-4 text-orange-500" />, text: "Advanced features and APIs available from Apple's ecosystem" },
+                        { icon: <CheckCircle className="w-4 h-4 text-pink-500" />, text: "Quality assurance through Apple's strict app review process" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-green-50 rounded-lg transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                            iOS users generate <span className="font-semibold">70% more revenue</span> per user compared to other platforms.
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Which programming languages are used for iOS development?",
+        icon: <Code className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    iOS app development primarily uses Apple's modern programming languages and frameworks:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <Code className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Swift (Recommended):</span>
+                            <p className="text-orange-800 mt-1">Apple's modern, safe, and fast programming language designed specifically for iOS development.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Settings className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Objective-C (Legacy):</span>
+                            <p className="text-blue-800 mt-1">Traditional iOS programming language, still used for maintaining existing apps and specific use cases.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Layers className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">SwiftUI:</span>
+                            <p className="text-purple-800 mt-1">Apple's declarative UI framework for building modern, responsive user interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Development Tools & Frameworks:</h4>
+                    {[
+                        "Xcode - Apple's integrated development environment",
+                        "UIKit - Traditional iOS UI framework",
+                        "SwiftUI - Modern declarative UI framework",
+                        "Core Data - Data persistence and management",
+                        "CloudKit - Apple's cloud database service",
+                        "Core Animation - Advanced animation capabilities",
+                        "TestFlight - Beta testing and distribution platform"
+                    ].map((tool, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{tool}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        <span className="font-semibold">Swift is now the preferred language</span> for iOS development, offering better performance and safety.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does iOS app development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    iOS development timeline varies based on <span className="font-semibold">app complexity, features, design requirements, and Apple review process</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple iOS Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">6–12 weeks</span>
+                            <p className="text-green-700 text-sm mt-1">Basic UI, simple functionality, minimal integrations</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">3–6 months</span>
+                            <p className="text-blue-700 text-sm mt-1">Custom UI, API integrations, user authentication, payment features</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Complex Enterprise Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">6–12+ months</span>
+                            <p className="text-purple-700 text-sm mt-1">Advanced features, real-time functionality, complex backend integration</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">iOS Development Phases:</h4>
+                    {[
+                        "Requirements analysis and iOS-specific planning (1-2 weeks)",
+                        "UI/UX design following Apple Human Interface Guidelines (2-4 weeks)",
+                        "iOS development and coding with Swift/Objective-C (4-20+ weeks)",
+                        "Testing on various iOS devices and versions (2-3 weeks)",
+                        "Apple App Store submission and review process (1-2 weeks)"
+                    ].map((phase, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{phase}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-orange-50 rounded-lg border border-orange-200">
+                    <p className="text-orange-800">
+                        Apple's review process typically takes <span className="font-semibold">24-48 hours</span> but can extend to 7 days for complex apps.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What is the cost of iOS app development?",
+        icon: <DollarSign className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    iOS app development cost varies based on complexity, features, and quality requirements:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple iOS Apps:</span>
+                            <p className="text-green-800 mt-1">$15,000 - $30,000 for basic functionality and standard UI</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity Apps:</span>
+                            <p className="text-blue-800 mt-1">$30,000 - $80,000 for custom features, integrations, and advanced UI</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Crown className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Enterprise iOS Apps:</span>
+                            <p className="text-purple-800 mt-1">$80,000+ for complex functionality, enterprise integrations, and premium features</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Additional iOS Development Costs:</h4>
+                    {[
+                        "Apple Developer Program membership ($99/year)",
+                        "Mac computer and Xcode for development",
+                        "iOS device testing across multiple models",
+                        "Apple App Store commission (30% for first year, 15% after)",
+                        "Premium design and animation requirements",
+                        "Integration with Apple services (iCloud, Apple Pay, etc.)",
+                        "Ongoing maintenance and iOS version updates"
+                    ].map((cost, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{cost}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <p className="text-yellow-800">
+                        Higher development costs are often offset by <span className="font-semibold">premium user monetization and revenue potential</span>.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How do you ensure App Store approval?",
+        icon: <Store className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    We follow Apple's strict guidelines and best practices to ensure smooth App Store approval:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <FileText className="w-4 h-4 text-blue-500" />, text: "Strict adherence to Apple's App Store Review Guidelines" },
+                        { icon: <Palette className="w-4 h-4 text-green-500" />, text: "Following Apple Human Interface Guidelines for UI/UX design" },
+                        { icon: <Shield className="w-4 h-4 text-purple-500" />, text: "Implementing proper privacy policies and data handling" },
+                        { icon: <TestTube className="w-4 h-4 text-orange-500" />, text: "Thorough testing across multiple iOS devices and versions" },
+                        { icon: <CheckCircle className="w-4 h-4 text-indigo-500" />, text: "Code quality assurance and performance optimization" },
+                        { icon: <Settings className="w-4 h-4 text-pink-500" />, text: "Proper app metadata, descriptions, and keyword optimization" },
+                        { icon: <Image className="w-4 h-4 text-cyan-500" />, text: "High-quality app icons, screenshots, and promotional materials" },
+                        { icon: <Lock className="w-4 h-4 text-red-500" />, text: "Security compliance and encryption implementation" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 space-y-3">
+                    <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <h4 className="font-semibold text-blue-900 mb-2">Our Approval Success Rate:</h4>
+                        <div className="flex items-center gap-2">
+                            <div className="w-full bg-blue-200 rounded-full h-2">
+                                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '98%' }}></div>
+                            </div>
+                            <span className="text-blue-800 font-semibold">98%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        Our expertise ensures <span className="font-semibold">first-time approval in 98% of cases</span> with minimal revisions required.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What about iOS app security and data protection?",
+        icon: <Shield className="w-5 h-5 text-red-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    iOS app security is paramount. We implement Apple's security best practices and advanced protection measures:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                        <Shield className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-red-900">iOS Security Framework:</span>
+                            <p className="text-red-800 mt-1">Leveraging Apple's built-in security architecture including Secure Enclave and hardware encryption.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Lock className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Data Encryption:</span>
+                            <p className="text-blue-800 mt-1">End-to-end encryption using Apple's CryptoKit and Keychain Services for secure data storage.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Fingerprint className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Biometric Authentication:</span>
+                            <p className="text-green-800 mt-1">Face ID, Touch ID, and secure authentication methods integrated with Apple's APIs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Security Implementations:</h4>
+                    {[
+                        "App Transport Security (ATS) for secure network communications",
+                        "Code signing and app sandboxing for runtime protection",
+                        "Keychain Services for secure credential storage",
+                        "Certificate pinning and secure API communications",
+                        "Regular security audits and vulnerability assessments",
+                        "Compliance with GDPR, CCPA, and other privacy regulations",
+                        "Secure payment processing with Apple Pay integration"
+                    ].map((security, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{security}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-red-50 rounded-lg border border-red-200">
+                    <p className="text-red-800">
+                        iOS provides <span className="font-semibold">industry-leading security</span> with hardware-level protection and regular security updates.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide iOS app maintenance and support?",
+        icon: <Settings className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> We offer comprehensive <span className="font-semibold text-purple-700">iOS app maintenance and support services</span>:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "iOS version updates and compatibility maintenance" },
+                        { icon: <Apple className="w-4 h-4 text-gray-500" />, text: "Xcode and development tools updates" },
+                        { icon: <Bug className="w-4 h-4 text-red-500" />, text: "Bug fixes and performance optimization" },
+                        { icon: <Shield className="w-4 h-4 text-green-500" />, text: "Security updates and vulnerability patches" },
+                        { icon: <TrendingUp className="w-4 h-4 text-purple-500" />, text: "Feature enhancements and new functionality" },
+                        { icon: <BarChart className="w-4 h-4 text-orange-500" />, text: "App Store optimization and analytics monitoring" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "24/7 technical support and emergency response" },
+                        { icon: <Cloud className="w-4 h-4 text-cyan-500" />, text: "iCloud and backend services maintenance" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 space-y-3">
+                    <div className="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                        <h4 className="font-semibold text-purple-900 mb-2">Support Plans:</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Basic Support</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Premium Care</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Enterprise Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <p className="text-purple-800">
+                        Our maintenance ensures your iOS app stays <span className="font-semibold">compatible, secure, and competitive</span> in Apple's ecosystem.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+export const react_native_app_faq = [
+    {
+        title: "What is React Native and why should I choose it?",
+        icon: <Smartphone className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    React Native is Facebook's open-source framework for building mobile applications using JavaScript and React:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Code className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Cross-Platform Development:</span>
+                            <p className="text-blue-800 mt-1">Write once, run on both iOS and Android with shared codebase.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <Zap className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Near-Native Performance:</span>
+                            <p className="text-green-800 mt-1">Direct rendering to native components for optimal performance and user experience.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Users className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Large Developer Community:</span>
+                            <p className="text-purple-800 mt-1">Backed by Facebook with extensive community support and resources.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <DollarSign className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-orange-900">Cost-Effective:</span>
+                            <p className="text-orange-800 mt-1">Reduce development time and costs with code reusability across platforms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                    <p className="text-yellow-800">
+                        React Native powers <span className="font-semibold">Facebook, Instagram, Uber Eats, and Airbnb</span> mobile applications.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What are the advantages of React Native over other frameworks?",
+        icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    React Native offers significant advantages over other mobile development frameworks:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <Code className="w-4 h-4 text-blue-500" />, text: "80-90% code reusability between iOS and Android platforms" },
+                        { icon: <Zap className="w-4 h-4 text-yellow-500" />, text: "Hot reloading enables instant code changes and faster development" },
+                        { icon: <DollarSign className="w-4 h-4 text-green-500" />, text: "Cost-effective development with shared codebase and single team" },
+                        { icon: <RefreshCw className="w-4 h-4 text-purple-500" />, text: "Fast refresh and live reloading for improved developer experience" },
+                        { icon: <Settings className="w-4 h-4 text-indigo-500" />, text: "Native module integration for accessing platform-specific features" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "Large ecosystem and community support with extensive libraries" },
+                        { icon: <Smartphone className="w-4 h-4 text-orange-500" />, text: "Native look and feel with platform-specific UI components" },
+                        { icon: <Globe className="w-4 h-4 text-cyan-500" />, text: "Easy migration from existing React web applications" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 hover:bg-green-50 rounded-lg transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-green-100 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                            React Native reduces development time by <span className="font-semibold">30-50%</span> compared to native development.
+                        </p>
+                    </div>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What technologies and tools are used in React Native development?",
+        icon: <Code className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    React Native development utilizes modern JavaScript technologies and development tools:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Code className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Programming Languages:</span>
+                            <p className="text-purple-700 text-sm mt-1">JavaScript, TypeScript, JSX for component-based development</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Settings className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Development Tools:</span>
+                            <p className="text-blue-700 text-sm mt-1">React Native CLI, Expo, Metro bundler, Flipper debugging</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <Database className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">State Management:</span>
+                            <p className="text-green-700 text-sm mt-1">Redux, MobX, Context API, Zustand for application state</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Palette className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">UI Libraries:</span>
+                            <p className="text-orange-700 text-sm mt-1">NativeBase, React Native Elements, UI Kitten, Shoutem UI</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <TestTube className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Testing Frameworks:</span>
+                            <p className="text-indigo-700 text-sm mt-1">Jest, Detox, Enzyme, React Native Testing Library</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700">
+                        We use <span className="font-semibold">modern JavaScript ecosystem tools</span> for efficient React Native development.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How long does React Native app development take?",
+        icon: <Clock className="w-5 h-5 text-orange-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    React Native development timeline varies based on <span className="font-semibold">app complexity, features, design requirements, and platform-specific customizations</span>.
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Cross-Platform Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-sm font-medium">4–8 weeks</span>
+                            <p className="text-green-700 text-sm mt-1">Basic UI, simple functionality, standard components</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">2–5 months</span>
+                            <p className="text-blue-700 text-sm mt-1">Custom UI, API integrations, state management, navigation</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Complex Enterprise Apps:</span>
+                            <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">5–10+ months</span>
+                            <p className="text-purple-700 text-sm mt-1">Advanced features, real-time functionality, complex integrations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">React Native Development Phases:</h4>
+                    {[
+                        "Requirements analysis and cross-platform planning (1-2 weeks)",
+                        "UI/UX design for both iOS and Android (2-4 weeks)",
+                        "Cross-platform development and coding (3-20+ weeks)",
+                        "Testing on both iOS and Android devices (2-3 weeks)",
+                        "App store submission for both platforms (1-2 weeks)"
+                    ].map((phase, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{phase}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-orange-50 rounded-lg border border-orange-200">
+                    <p className="text-orange-800">
+                        React Native's <span className="font-semibold">shared codebase reduces development time by 30-50%</span> compared to native development.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "What is the cost of React Native app development?",
+        icon: <DollarSign className="w-5 h-5 text-green-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    React Native app development cost varies based on complexity, features, and customization requirements:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Simple Cross-Platform Apps:</span>
+                            <p className="text-green-800 mt-1">$12,000 - $30,000 for basic functionality across iOS and Android</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">Medium Complexity Apps:</span>
+                            <p className="text-blue-800 mt-1">$30,000 - $75,000 for custom features, integrations, and advanced UI</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                        <Crown className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-purple-900">Enterprise React Native Apps:</span>
+                            <p className="text-purple-800 mt-1">$75,000+ for complex functionality, enterprise integrations, and scalability</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Cost-Saving Benefits:</h4>
+                    {[
+                        "40-60% cost reduction compared to separate native app development",
+                        "Single development team instead of separate iOS/Android teams",
+                        "Shared codebase reduces maintenance and update costs",
+                        "Faster time-to-market reduces overall project expenses",
+                        "Reusable components and libraries speed up development",
+                        "Lower testing costs with unified testing approach"
+                    ].map((benefit, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <ArrowRight className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{benefit}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <p className="text-yellow-800">
+                        React Native typically provides <span className="font-semibold">30-50% cost savings</span> over native development approaches.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Can React Native apps access native device features?",
+        icon: <Smartphone className="w-5 h-5 text-blue-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Yes!</span> React Native provides extensive access to <span className="font-semibold text-blue-700">native device features and APIs</span>:
+                </div>
+
+                <div className="grid gap-3">
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                        <Camera className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-blue-900">Camera & Media:</span>
+                            <p className="text-blue-700 text-sm mt-1">Camera access, photo/video capture, image picker, and media processing</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                        <MapPin className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-green-900">Location Services:</span>
+                            <p className="text-green-700 text-sm mt-1">GPS location, geofencing, maps integration, and location tracking</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Bell className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-purple-900">Push Notifications:</span>
+                            <p className="text-purple-700 text-sm mt-1">Push notifications, local notifications, and background processing</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                        <Database className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-orange-900">Storage & Sensors:</span>
+                            <p className="text-orange-700 text-sm mt-1">AsyncStorage, device sensors, accelerometer, and file system access</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                        <Wifi className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-medium text-indigo-900">Network & Connectivity:</span>
+                            <p className="text-indigo-700 text-sm mt-1">Network status, Bluetooth, WiFi, and connectivity management</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Native Integration Methods:</h4>
+                    {[
+                        "React Native community packages for common functionalities",
+                        "Native modules for custom iOS/Android code integration",
+                        "Bridge communication between JavaScript and native code",
+                        "Third-party library integration and customization",
+                        "Platform-specific implementations when needed"
+                    ].map((method, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{method}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-blue-100 rounded-lg border border-blue-200">
+                    <p className="text-blue-800">
+                        React Native provides <span className="font-semibold">90-95% native feature access</span> through community packages and native modules.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "How does React Native performance compare to native apps?",
+        icon: <Zap className="w-5 h-5 text-yellow-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    React Native delivers near-native performance through its unique architecture and optimization techniques:
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                        <Zap className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-yellow-900">Native Component Rendering:</span>
+                            <p className="text-yellow-800 mt-1">UI components render to native views for smooth performance and authentic look.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <Code className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-blue-900">JavaScript Engine Optimization:</span>
+                            <p className="text-blue-800 mt-1">Hermes engine and JSI provide faster app startup and better memory usage.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <RefreshCw className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                            <span className="font-semibold text-green-900">Bridge Optimization:</span>
+                            <p className="text-green-800 mt-1">Efficient communication between JavaScript and native threads for smooth animations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                    <h4 className="font-semibold text-gray-900">Performance Comparison:</h4>
+                    {[
+                        "UI Performance: 95-98% of native app performance",
+                        "CPU-intensive tasks: 85-90% of native performance", 
+                        "Memory usage: Comparable to native apps with proper optimization",
+                        "Animation performance: Near-native with proper implementation",
+                        "Network operations: Equivalent to native app performance",
+                        "Device feature access: Native-level performance through bridges"
+                    ].map((comparison, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-gray-700 text-sm">{comparison}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-100 rounded-lg border border-yellow-200">
+                    <p className="text-yellow-800">
+                        React Native achieves <span className="font-semibold">95%+ native performance</span> for most mobile app use cases.
+                    </p>
+                </div>
+            </>
+        ),
+    },
+    {
+        title: "Do you provide React Native app maintenance and support?",
+        icon: <Settings className="w-5 h-5 text-purple-500" />,
+        description: (
+            <>
+                <div className="mb-4">
+                    <span className="font-semibold">Absolutely!</span> We offer comprehensive <span className="font-semibold text-purple-700">React Native app maintenance and support services</span>:
+                </div>
+
+                <div className="space-y-2">
+                    {[
+                        { icon: <RefreshCw className="w-4 h-4 text-blue-500" />, text: "React Native framework updates and version upgrades" },
+                        { icon: <Bug className="w-4 h-4 text-red-500" />, text: "Bug fixes and performance optimization for both platforms" },
+                        { icon: <Shield className="w-4 h-4 text-green-500" />, text: "Security updates and vulnerability patches" },
+                        { icon: <Smartphone className="w-4 h-4 text-purple-500" />, text: "iOS and Android OS compatibility updates" },
+                        { icon: <TrendingUp className="w-4 h-4 text-orange-500" />, text: "Feature enhancements and new functionality development" },
+                        { icon: <Package className="w-4 h-4 text-indigo-500" />, text: "Third-party library updates and dependency management" },
+                        { icon: <Users className="w-4 h-4 text-pink-500" />, text: "24/7 technical support and emergency response" },
+                        { icon: <Cloud className="w-4 h-4 text-cyan-500" />, text: "Backend services maintenance and API updates" }
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            {item.icon}
+                            <p className="text-gray-700">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 space-y-3">
+                    <div className="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                        <h4 className="font-semibold text-purple-900 mb-2">Maintenance Plans:</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Basic Support</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Standard Plan</span>
+                            <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">Enterprise Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <p className="text-purple-800">
+                        Our maintenance ensures your React Native app stays <span className="font-semibold">current, secure, and high-performing</span> across both platforms.
+                    </p>
+                </div>
+            </>
+        ),
+    }
+];
+
+
+
 // Combined export for all FAQ categories
 export const all_service_faqs = {
     web_development: web_dev_faq,
     mobile_development: mobile_dev_faq,
     uiux_design: uiux_faq,
     mern_mean_stack: mern_mean_faq,
+    android_app_development: android_app_faq,
+    flutter_app_development: flutter_app_faq,
+    ios_app_development: ios_app_faq,
     cloud_devops: cloud_devops_faq,
     automation_testing: automation_testing_faq,
     emerging_technology: emerging_tech_faq,

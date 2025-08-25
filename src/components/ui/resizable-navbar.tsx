@@ -189,7 +189,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {hovered === idx && (
               <motion.div
                 layoutId="hovered"
-                className="absolute bg-card left-1/2 transform translate-y-3 -translate-x-1/2 top-full mt-3 overflow-hidden w-[950px]  overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
+                className="absolute bg-card left-1/2 transform translate-y-2 -translate-x-1/2 top-full mt-3 overflow-hidden w-[950px]  overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
                 style={{
                   bottom: "auto",
                   // maxHeight: "calc(100vh - 200px)" // Screen height minus some margin
