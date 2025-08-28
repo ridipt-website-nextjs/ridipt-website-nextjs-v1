@@ -65,6 +65,9 @@ const services = [
             }, {
                 name: 'Data Science',
                 link: '/services/emerging-technology/data-science'
+            }, {
+                name: 'Blockchain',
+                link: '/services/emerging-technology/blockchain'
             }
         ]
     }

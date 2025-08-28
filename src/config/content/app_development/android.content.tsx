@@ -7,37 +7,37 @@ export const android_app_content = [
     title: "Expert Consultation for Android App Development",
     description:
       "Our team conducts thorough assessments to align your specific needs with effective strategies, ensuring the creation of Android app solutions that enhance your customer engagement and drive growth.",
-    // image: require('@assets/our_services/mobile_development/android-consultation.svg'),
+    image: require('@assets/our_services/mobile development/android.svg'),
   },
   {
     title: "User-Centric Android App UI/UX Design Services",
     description:
       "We create visually engaging and user-focused UI/UX designs that simplify navigation and enhance user satisfaction. Our designs prioritize user needs while aligning with your brand identity, ensuring a seamless experience that meets your customers' expectations.",
-    // image: require('@assets/our_services/mobile_development/ui-ux-design.svg'),
+    image: require('@assets/our_services/web development/ui-ux.svg'),
   },
   {
     title: "Comprehensive Android Software Testing Services",
     description:
       "Our Android software testing services ensure your applications meet the highest standards of security and performance. We conduct thorough testing to guarantee that users can engage with your app seamlessly and efficiently, experiencing zero downtime and maximum reliability.",
-    // image: require('@assets/our_services/mobile_development/testing-services.svg'),
+    image: require('@assets/our_services/web development/testing-maintenance.svg'),
   },
   {
     title: "Comprehensive Android Firebase Integration Services",
     description:
       "We specialize in implementing robust Android Firebase integration, leveraging cloud functions, hosting, and databases powered by high-end Google infrastructure. Our solutions enhance your app's performance and scalability, ensuring a seamless user experience and efficient data management.",
-    // image: require('@assets/our_services/mobile_development/firebase-integration.svg'),
+    image: require('@assets/our_services/mobile development/firebase.svg'),
   },
   {
     title: "Tailored Android App Development Services",
     description:
       "Partner with our expert team of Android app developers dedicated to delivering customized applications that meet your specific needs. Equipped with extensive technical expertise, our developers ensure that your app is not only functional but also aligns perfectly with your vision.",
-    // image: require('@assets/our_services/mobile_development/custom-development.svg'),
+    image: require('@assets/our_services/web development/custom-developement.svg'),
   },
   {
     title: "Native Android App Development",
     description:
       "We specialize in creating high-performance native Android applications using Java and Kotlin. Our native development approach ensures optimal performance, better user experience, and full access to device features and capabilities.",
-    // image: require('@assets/our_services/mobile_development/native-development.svg'),
+    image: require('@assets/our_services/mobile development/multi-platform.svg'),
   },
   {
     title: "Android App Maintenance & Support",

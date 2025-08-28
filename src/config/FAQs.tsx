@@ -57,7 +57,8 @@ import {
     Fingerprint,
     MapPin,
     Apple,
-    Package
+    Package,
+    Scan
 } from 'lucide-react';
 
 export const web_dev_faq = [
@@ -4944,6 +4945,7 @@ export const react_native_app_faq = [
         ),
     }
 ];
+
 
 
 
