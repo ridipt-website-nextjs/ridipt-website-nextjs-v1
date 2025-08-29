@@ -3,6 +3,7 @@ import Image from "next/image";
 import s from './styles/sticky-scroll-reveal.module.css';
 import Header from '../section-heading';
 import Section from '@/components/section-structure';
+import { JSX } from "react";
 
 
 type ContentItem = {
@@ -18,12 +19,14 @@ export const TechServices = ({
   subheading,
   description,
   subSection = true,
+  CustomCard
 
 }: {
   content: ContentItem[] | React.ReactNode;
   heading?: string;
   className?: string;
   subheading?: string;
+  CustomCard?: (item: any, idx: any) => JSX.Element
   description?: string;
   subSection?: boolean;
 }) => {
@@ -73,35 +76,40 @@ export const TechServices = ({
 
           <div className="w-full flex-1 shrink-0 lg:w-1/2 lg:flex-1">
             <div
-              className="no-scrollbar flex gap-10 overflow-auto px-6 lg:flex-col lg:px-0"
+              className="no-scrollbar flex gap-10 overflow-auto w-auto px-7 lg:flex-col lg:px-2 lg:pb-7"
             >
               {/* Render JSX content if provided */}
               {isJSXContent ? (
                 content as React.ReactNode
               ) : (
                 /* Render array content */
-                (content as ContentItem[]).map((item, idx) => (
-                  <article
-                    key={idx}
-                    className="flex hover:shadow-md transition-all ease-in-out w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
-                  >
-                    <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-input p-3 ">
-                      <Image
-                        alt={item.title}
-                        className="dark:invert"
-                        height={24}
-                        src={item.image}
-                        width={24}
-                      />
-                    </figure>
-                    <div className="flex flex-col items-start gap-1">
-                      <h5 className="text-lg text-accent-foreground font-medium">{item.title}</h5>
-                      <p className="text-pretty truncate text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                  </article>
-                ))
+                (content as ContentItem[]).map((item, idx) => {
+                  if (CustomCard) {
+                    return CustomCard(item, idx)
+                  }
+                  return (
+                    <article
+                      key={idx}
+                      className="flex hover:shadow-md transition-all ease-in-out w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
+                    >
+                      <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-input p-3 ">
+                        <Image
+                          alt={item.title}
+                          className="dark:invert"
+                          height={24}
+                          src={item.image}
+                          width={24}
+                        />
+                      </figure>
+                      <div className="flex flex-col items-start gap-1">
+                        <h5 className="text-lg text-accent-foreground font-medium">{item.title}</h5>
+                        <p className="text-pretty truncate text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </article>
+                  )
+                })
               )}
             </div>
           </div>

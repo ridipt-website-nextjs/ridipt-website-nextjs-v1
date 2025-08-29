@@ -8,8 +8,11 @@ const industries: { name: string; link: string }[] = [
   { name: "Fintech", link: "/industries/fintech" },
   { name: "E-commerce", link: "/industries/ecommerce" },
   { name: "Education", link: "/industries/education" },
-  { name: "Real Estate", link: "/industries/real-estate" },
-  { name: "Manufacturing", link: "/industries/manufacturing" },
+  { name: "Restaurant / Food", link: "/industries/restaurant-food" },
+  { name: "Human Resource", link: "/industries/human-resource" },
+  { name: "Social Media", link: "/industries/social-media" },
+  { name: "Custom Solution", link: "/industries/custom-solution" },
+  { name: "Logistics & Supply Chain", link: "/industries/logistics-supply-chain" },
 ];
 
 
