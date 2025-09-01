@@ -1,58 +1,75 @@
+import {
+  Brain,
+  Camera,
+  Zap,
+  MessageSquare,
+  Cpu,
+  Cloud,
+  Sparkles,
+  FileText,
+  BarChart3,
+  Shield,
+  Settings,
+  UserCheck,
+  Layers,
+  RefreshCw,
+} from 'lucide-react';
+
 import { FeatureItem } from "@/config/interface";
+import { ContentItem } from '@/components/ui/sticky-scroll-reveal';
 import { mergeProcessWithOverrides } from "../common-functions";
 import { business_process, streamlining_development } from "@/config/constant";
 
-export const ai_ml_content = [
+export const ai_ml_content: ContentItem[] = [
   {
     title: "AI Development Services",
     description:
       "Revolutionize Your Business with AI Development Services - Leverage cutting-edge AI technologies to design and implement innovative solutions tailored to your business needs. Unlock operational efficiency and data-driven decision-making with our custom AI development services.",
-    // image: require('@assets/our_services/ai_ml/ai-development.svg'),
+    icon: Brain,
   },
   {
     title: "Computer Vision",
     description:
       "Transform Insights with Computer Vision Solutions - Unleash the power of computer vision to analyze, process, and understand visual data. From facial recognition to image classification, our solutions redefine how businesses interact with data.",
-    // image: require('@assets/our_services/ai_ml/computer-vision.svg'),
+    icon: Camera,
   },
   {
     title: "Intelligent Automation",
     description:
       "Streamline Operations with Intelligent Automation - Transform your workflows with AI-driven automation solutions designed to increase efficiency, reduce costs, and enhance decision-making across your organization.",
-    // image: require('@assets/our_services/ai_ml/intelligent-automation.svg'),
+    icon: Zap,
   },
   {
     title: "AI Chatbot Development",
     description:
       "Enhance Customer Experience with AI Chatbots - Design intelligent conversational AI solutions that engage users, resolve queries, and deliver personalized experiences around the clock.",
-    // image: require('@assets/our_services/ai_ml/chatbot-development.svg'),
+    icon: MessageSquare,
   },
   {
     title: "Machine Learning Solutions",
     description:
       "Harness the Power of Machine Learning for Business Success - Unlock insights, automate tasks, and create predictive models with our custom machine learning solutions designed to drive innovation and growth.",
-    // image: require('@assets/our_services/ai_ml/machine-learning.svg'),
+    icon: Cpu,
   },
   {
     title: "AIaaS (AI as a Service)",
     description:
       "AI as a Service for Scalable, On-Demand Solutions - Transform your business with AIaaS solutions designed for flexibility and scalability. Access AI-powered tools and models to drive innovation without heavy infrastructure costs.",
-    // image: require('@assets/our_services/ai_ml/ai-as-service.svg'),
+    icon: Cloud,
   },
   {
     title: "Generative AI Solutions",
     description:
       "Unlock Creative Potential with Generative AI - Leverage advanced generative AI models to create unique content, automate creative processes, and drive innovation across your business operations.",
-    // image: require('@assets/our_services/ai_ml/generative-ai.svg'),
+    icon: Sparkles,
   },
   {
     title: "Natural Language Processing",
     description:
       "Transform Text Data with NLP Solutions - Harness the power of natural language processing to analyze, understand, and generate human language, enabling intelligent text processing and communication.",
-    // image: require('@assets/our_services/ai_ml/nlp-solutions.svg'),
+    icon: FileText,
   },
 ];
-
 
 export const ai_ml_services: FeatureItem[] = [
   {
@@ -60,45 +77,44 @@ export const ai_ml_services: FeatureItem[] = [
     subtitle: "Driving Success with Intelligence",
     description:
       "Our AI/ML consulting services are crafted to align with your business goals. From data analysis to predictive modeling, we deliver intelligent solutions that streamline operations and enhance decision-making.",
-    // image: require('@assets/our_services/ai_ml/advanced-practices.svg'),
+    icon: BarChart3,
   },
   {
     title: "Generative AI Innovation",
     subtitle: "Revolutionizing Business Operations",
     description:
       "Explore the potential of Generative AI to create unique, high-value outputs. Our team delivers tailored solutions that empower your enterprise to stay competitive and relevant in the evolving tech landscape.",
-    // image: require('@assets/our_services/ai_ml/generative-innovation.svg'),
+    icon: Sparkles,
   },
   {
     title: "Expert AI/ML Professionals",
     subtitle: "Deep Technical Knowledge",
     description:
       "Our skilled team of AI/ML consultants brings in-depth technical knowledge to address your enterprise's complex challenges. With expertise in machine learning, deep learning, and natural language processing, we ensure transformative results.",
-    // image: require('@assets/our_services/ai_ml/expert-professionals.svg'),
+    icon: UserCheck,
   },
   {
     title: "Precision-Based Execution",
     subtitle: "Tailored for Your Unique Needs",
     description:
       "We specialize in end-to-end integration, precision-based execution, and custom-built solutions designed to meet client-centric development demands with exceptional diligence.",
-    // image: require('@assets/our_services/ai_ml/precision-execution.svg'),
+    icon: Settings,
   },
   {
     title: "State-of-the-Art Technologies",
     subtitle: "Cutting-Edge Performance",
     description:
       "Our AI/ML solutions are crafted using top-tier features and state-of-the-art technologies to ensure unmatched quality and performance for transformative growth and efficiency.",
-    // image: require('@assets/our_services/ai_ml/cutting-edge-tech.svg'),
+    icon: Zap,
   },
   {
     title: "Scalable AI Solutions",
     subtitle: "Future-Ready Intelligence",
     description:
       "We craft intelligent, future-ready AI/ML solutions that align with your enterprise's needs, ensuring smooth integration and optimized performance for sustainable growth.",
-    // image: require('@assets/our_services/ai_ml/scalable-solutions.svg'),
+    icon: Layers,
   },
 ];
-
 
 // --- Streamlining Development Overrides ---
 const ai_ml_streamlining_overrides = [

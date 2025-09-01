@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Moon, Sun, Monitor } from "lucide-react"
 import { useTheme } from "next-themes"
+import Link from 'next/link';
 
 const industries: { name: string; link: string }[] = [
   { name: "Healthcare", link: "/industries/healthcare" },
@@ -94,12 +95,12 @@ const Footer = () => {
             <ul className='space-y-3'>
               {industries.map((industry) => (
                 <li key={industry.link}>
-                  <a
+                  <Link
                     href={industry.link}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
                   >
                     {industry.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

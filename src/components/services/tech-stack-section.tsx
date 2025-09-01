@@ -4,12 +4,32 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { AppWindowIcon, CodeIcon } from 'lucide-react';
 import Image from 'next/image';
 
+// Base interface for common properties
+interface BaseItem {
+  name: string;
+}
+
+// Interface for items with icon (image should be optional/undefined)
+interface ItemWithIcon extends BaseItem {
+  icon: React.ComponentType<any>;
+  image?: never; // This ensures image cannot be provided when icon is present
+}
+
+// Interface for items with image (icon should be optional/undefined)
+interface ItemWithImage extends BaseItem {
+  image: any;
+  icon?: never; // This ensures icon cannot be provided when image is present
+}
+
+// Union type that ensures either icon OR image is provided, but not both or neither
+export type Item = ItemWithIcon | ItemWithImage;
+
 interface TechStackSectionProps {
   heading: string;
   subheading: string;
   description: string;
   techStackData: {
-    items: Record<string, { name: string; image: any }[]>
+    items: Record<string, Item[]>
   };
   className?: string;
 }
@@ -42,7 +62,7 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({
 
 // Tech Stack Tabs Component
 const TechStackTabs = (
-  { techStackData, className = '' }: { techStackData: { items: Record<string, { name: string; image: any }[]> }; className?: string }
+  { techStackData, className = '' }: { techStackData: { items: Record<string, Item[]> }; className?: string }
 ) => {
   // Determine tab keys dynamically from the items keys
   const categories = Object.keys(techStackData.items);
@@ -88,13 +108,18 @@ const TechStackTabs = (
                   className="group relative flex flex-col hover:z-[5] items-center gap-3 p-5 rounded-lg border border-border bg-card hover:shadow-md transition-all duration-200 hover:scale-105"
                 >
                   <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/50 p-2 group-hover:bg-secondary transition-colors">
-                    <Image
-                      src={tech.image}
-                      alt={tech.name}
-                      width={40}
-                      height={40}
-                      className="dark:invert"
-                    />
+                    {tech.icon && (
+                      <tech.icon className="w-8 h-8 text-muted-foreground group-hover:text-primary" />
+                    )}
+                    {tech.image &&
+                      <Image
+                        src={tech.image}
+                        alt={tech.name}
+                        width={40}
+                        height={40}
+                        className="dark:invert"
+                      />
+                    }
                   </div>
                   <span className="text-sm truncate group-hover:z-10 top-full -translate-y-1/2 p-1 rounded-lg border border-border px-2 bg-card scale-0 transition-all duration-300 ease-in-out group-hover:scale-100 opacity-0 group-hover:opacity-100 absolute font-medium text-center text-muted-foreground group-hover:shadow-lg">
                     {tech.name}

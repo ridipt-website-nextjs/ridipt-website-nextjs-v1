@@ -1,9 +1,63 @@
-export const education_challenges = [
+import {
+  Monitor,
+  User,
+  ClipboardList,
+  Heart,
+  ShieldCheck,
+  Globe,
+  GraduationCap,
+  Database,
+  Laptop,
+  FileText,
+  Smartphone,
+  Users,
+  Trophy,
+  Brain,
+  Cloud,
+  BarChart3,
+  Settings,
+  Lightbulb,
+  Palette,
+  Shield,
+  Headphones,
+  Award,
+  TrendingUp,
+  BookOpen,
+  ClipboardCheck,
+  MessageSquare,
+  Bot,
+  PieChart,
+  Calendar,
+  CreditCard,
+  Building,
+  Layers,
+  Target,
+  Gamepad2,
+  Library,
+  Video,
+  MessageCircle,
+  Share2,
+  Sparkles,
+  Badge,
+  Briefcase,
+  Clock,
+  Lock,
+  Key,
+  UserCheck,
+  Eye,
+  Fingerprint,
+} from 'lucide-react';
+
+import { FeatureItem } from "@/config/interface";
+import { ChallengeItem } from '@/components/services/process-card-section';
+import { ContentItem } from '@/components/ui/sticky-scroll-reveal';
+
+export const education_challenges: ChallengeItem[] = [
   {
     "id": "hybrid-learning-models",
     "title": "Hybrid Learning Models",
     "description": "Managing both in-person and online learning environments can be challenging for educational institutions. The need for robust platforms that support virtual classrooms, collaboration, and resource sharing is higher than ever.",
-    // "image": require('@assets/education/hybrid-learning.svg'),
+    "icon": Monitor,
     "colors": {
       "primary": "blue",
       "bg": "bg-blue-50",
@@ -20,7 +74,7 @@ export const education_challenges = [
     "id": "personalized-learning",
     "title": "Personalized Learning",
     "description": "Every student has unique learning needs. Delivering personalized content, tracking progress, and adapting to individual learning styles is essential to foster better outcomes.",
-    // "image": require('@assets/education/personalized-learning.svg'),
+    "icon": User,
     "colors": {
       "primary": "green",
       "bg": "bg-green-50",
@@ -37,7 +91,7 @@ export const education_challenges = [
     "id": "administrative-overload",
     "title": "Administrative Overload",
     "description": "Inefficient administrative workflows in admissions, scheduling, and fee collection consume valuable time and resources. Institutions need tools to automate and simplify these processes.",
-    // "image": require('@assets/education/admin-overload.svg'),
+    "icon": ClipboardList,
     "colors": {
       "primary": "purple",
       "bg": "bg-purple-50",
@@ -54,7 +108,7 @@ export const education_challenges = [
     "id": "student-engagement",
     "title": "Student Engagement",
     "description": "Keeping students motivated and engaged in the learning process is critical. The lack of interactive tools and gamified content can hinder their overall performance and interest.",
-    // "image": require('@assets/education/student-engagement.svg'),
+    "icon": Heart,
     "colors": {
       "primary": "orange",
       "bg": "bg-orange-50",
@@ -71,7 +125,7 @@ export const education_challenges = [
     "id": "data-security-compliance",
     "title": "Data Security and Compliance",
     "description": "Educational institutions handle sensitive student and staff data. Ensuring data security while complying with regulatory standards like GDPR and FERPA is a major challenge.",
-    // "image": require('@assets/education/data-security.svg'),
+    "icon": ShieldCheck,
     "colors": {
       "primary": "red",
       "bg": "bg-red-50",
@@ -88,7 +142,7 @@ export const education_challenges = [
     "id": "accessibility-to-education",
     "title": "Accessibility to Education",
     "description": "Bridging the digital divide to make education accessible to remote and underprivileged students is essential for inclusivity. Reliable, scalable solutions are needed to extend the reach of education.",
-    // "image": require('@assets/education/accessibility.svg'),
+    "icon": Globe,
     "colors": {
       "primary": "teal",
       "bg": "bg-teal-50",
@@ -103,70 +157,68 @@ export const education_challenges = [
   }
 ];
 
-export const education_content = [
+export const education_content: ContentItem[] = [
   {
     title: "Learning Management Systems (LMS)",
     description:
       "We create robust LMS platforms that allow educators to manage courses, track student performance, and deliver engaging content. These systems support virtual classrooms, quizzes, assignments, and grading.",
-    // image: require('@assets/our_services/education/lms.svg'),
+    icon: GraduationCap,
   },
   {
     title: "Student Information Systems (SIS)",
     description:
       "Our SIS solutions streamline admissions, enrollment, attendance tracking, and progress reporting, reducing administrative overhead for educational institutions.",
-    // image: require('@assets/our_services/education/sis.svg'),
+    icon: Database,
   },
   {
     title: "E-Learning Platforms",
     description:
       "We design custom e-learning platforms that facilitate self-paced learning, multimedia content delivery, and course management, making education more engaging and accessible.",
-    // image: require('@assets/our_services/education/elearning.svg'),
+    icon: Laptop,
   },
   {
     title: "Online Examination Portals",
     description:
       "Conduct secure online assessments with our examination portals. We provide tools for test creation, proctoring, grading, and analytics to ensure a seamless assessment process.",
-    // image: require('@assets/our_services/education/online-exams.svg'),
+    icon: ClipboardCheck,
   },
   {
     title: "Mobile Learning Applications",
     description:
       "Develop mobile apps to enable students to learn on the go. Our apps offer features like course materials, videos, interactive quizzes, and real-time notifications.",
-    // image: require('@assets/our_services/education/mobile-learning.svg'),
+    icon: Smartphone,
   },
   {
     title: "Collaboration Tools",
     description:
       "Foster collaboration between students, teachers, and parents with tools that support messaging, group discussions, file sharing, and project management.",
-    // image: require('@assets/our_services/education/collaboration.svg'),
+    icon: Users,
   },
   {
     title: "Gamified Learning Solutions",
     description:
       "Make learning fun and interactive with gamified content, quizzes, and reward systems. These solutions keep students motivated and improve knowledge retention.",
-    // image: require('@assets/our_services/education/gamified-learning.svg'),
+    icon: Trophy,
   },
   {
     title: "AI-Powered Tutoring",
     description:
       "Implement AI-based systems that provide personalized tutoring and real-time feedback, adapting to each student's learning pace and style.",
-    // image: require('@assets/our_services/education/ai-tutoring.svg'),
+    icon: Brain,
   },
   {
     title: "Cloud-Based Solutions",
     description:
       "Move your education systems to the cloud for improved scalability, reliability, and collaboration. Cloud platforms reduce infrastructure costs and ensure seamless access to learning resources.",
-    // image: require('@assets/our_services/education/cloud-solutions.svg'),
+    icon: Cloud,
   },
   {
     title: "Data Analytics for Education",
     description:
       "Use analytics tools to track student performance, identify trends, and make data-driven decisions to improve learning outcomes.",
-    // image: require('@assets/our_services/education/data-analytics.svg'),
+    icon: BarChart3,
   },
 ];
-
-import { FeatureItem } from "@/config/interface";
 
 export const education_services: FeatureItem[] = [
   {
@@ -174,97 +226,96 @@ export const education_services: FeatureItem[] = [
     subtitle: "Education Technology Specialists",
     description:
       "Our team has in-depth knowledge of the education industry and understands the specific needs of institutions, educators, and students.",
-    // image: require('@assets/our_services/education/domain-expertise.svg'),
+    icon: GraduationCap,
   },
   {
     title: "Custom Solutions",
     subtitle: "Tailored for Educational Needs",
     description:
       "We tailor our services to meet the unique requirements of each educational institution, ensuring the best fit for your goals and challenges.",
-    // image: require('@assets/our_services/education/custom-solutions.svg'),
+    icon: Settings,
   },
   {
     title: "Innovative Technologies",
     subtitle: "AI, IoT & Cloud-Powered Learning",
     description:
       "We leverage the latest technologies, including AI, IoT, and cloud computing, to create transformative education solutions.",
-    // image: require('@assets/our_services/education/innovative-tech.svg'),
+    icon: Lightbulb,
   },
   {
     title: "Focus on User Experience",
     subtitle: "Intuitive & Engaging Platforms",
     description:
       "Our solutions are designed with both educators and students in mind, ensuring ease of use and maximum engagement.",
-    // image: require('@assets/our_services/education/user-experience.svg'),
+    icon: Palette,
   },
   {
     title: "Security and Compliance",
     subtitle: "GDPR & FERPA Compliant",
     description:
       "We prioritize data security and compliance with education standards like GDPR and FERPA to safeguard sensitive student and institutional information.",
-    // image: require('@assets/our_services/education/security-compliance.svg'),
+    icon: Shield,
   },
   {
     title: "End-to-End Support",
     subtitle: "Comprehensive Assistance",
     description:
       "From implementation to training and maintenance, we provide comprehensive support to help you get the most out of our solutions.",
-    // image: require('@assets/our_services/education/end-to-end-support.svg'),
+    icon: Headphones,
   },
   {
     title: "Proven Track Record",
     subtitle: "Trusted Education Solutions",
     description:
       "Our successful partnerships with educational institutions demonstrate our ability to deliver impactful and scalable solutions.",
-    // image: require('@assets/our_services/education/proven-track.svg'),
+    icon: Award,
   },
   {
     title: "Scalability and Flexibility",
     subtitle: "Adaptable to Growth",
     description:
       "Whether you're a small institution or a large university, our solutions are scalable and flexible to adapt to your growth and changing needs.",
-    // image: require('@assets/our_services/education/scalability.svg'),
+    icon: TrendingUp,
   },
 ];
 
-
 export const education_services_stack = {
   "Learning Platforms": [
-    { name: "Online Course Management", image: "" },
-    { name: "Mobile Learning Apps", image: "" },
-    { name: "Virtual Classroom Solutions", image: "" },
-    { name: "Interactive Content Creation", image: "" },
-    { name: "Learning Analytics", image: "" },
-    { name: "Assessment Tools", image: "" },
+    { name: "Online Course Management", icon: BookOpen },
+    { name: "Mobile Learning Apps", icon: Smartphone },
+    { name: "Virtual Classroom Solutions", icon: Video },
+    { name: "Interactive Content Creation", icon: Sparkles },
+    { name: "Learning Analytics", icon: BarChart3 },
+    { name: "Assessment Tools", icon: ClipboardCheck },
   ],
   "Administration Tools": [
-    { name: "Student Management Systems", image: "" },
-    { name: "Fee Collection and Payment Solutions", image: "" },
-    { name: "Admission Portals", image: "" },
-    { name: "Scheduling and Timetable Management", image: "" },
+    { name: "Student Management Systems", icon: Users },
+    { name: "Fee Collection and Payment Solutions", icon: CreditCard },
+    { name: "Admission Portals", icon: Building },
+    { name: "Scheduling and Timetable Management", icon: Calendar },
   ],
   "Advanced Learning Solutions": [
-    { name: "AI-Powered Learning Platforms", image: "" },
-    { name: "Gamification Tools", image: "" },
-    { name: "Digital Libraries", image: "" },
-    { name: "Virtual Reality Learning", image: "" },
+    { name: "AI-Powered Learning Platforms", icon: Brain },
+    { name: "Gamification Tools", icon: Gamepad2 },
+    { name: "Digital Libraries", icon: Library },
+    { name: "Virtual Reality Learning", icon: Eye },
   ],
   "Collaboration and Engagement": [
-    { name: "Teacher-Parent-Student Communication Portals", image: "" },
-    { name: "Group Learning Platforms", image: "" },
-    { name: "Social Learning Features", image: "" },
-    { name: "Discussion Forums", image: "" },
+    { name: "Teacher-Parent-Student Communication Portals", icon: MessageCircle },
+    { name: "Group Learning Platforms", icon: Users },
+    { name: "Social Learning Features", icon: Share2 },
+    { name: "Discussion Forums", icon: MessageSquare },
   ],
   "On-Demand Education Solutions": [
-    { name: "Skill-Based Training Platforms", image: "" },
-    { name: "Certification and Badge Systems", image: "" },
-    { name: "Professional Development Tools", image: "" },
-    { name: "Microlearning Modules", image: "" },
+    { name: "Skill-Based Training Platforms", icon: Target },
+    { name: "Certification and Badge Systems", icon: Badge },
+    { name: "Professional Development Tools", icon: Briefcase },
+    { name: "Microlearning Modules", icon: Clock },
   ],
   "Security and Compliance": [
-    { name: "GDPR and FERPA-Compliant Systems", image: "" },
-    { name: "Data Security Solutions", image: "" },
-    { name: "Identity Management", image: "" },
-    { name: "Access Control Systems", image: "" },
+    { name: "GDPR and FERPA-Compliant Systems", icon: Shield },
+    { name: "Data Security Solutions", icon: Lock },
+    { name: "Identity Management", icon: UserCheck },
+    { name: "Access Control Systems", icon: Key },
   ],
 };

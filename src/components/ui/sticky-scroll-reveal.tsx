@@ -6,11 +6,28 @@ import Section from '@/components/section-structure';
 import { JSX } from "react";
 
 
-type ContentItem = {
+// Base interface for common properties
+// Base type (shared between both variants)
+interface BaseContentItem {
   title: string;
   description: string;
-  image: string;
-};
+}
+
+// Variant when using Lucide (or any React) icon
+interface ContentItemWithIcon extends BaseContentItem {
+  icon: React.ComponentType<any>;
+  image?: never; // ❌ explicitly disallow image
+}
+
+// Variant when using imported/static image
+interface ContentItemWithImage extends BaseContentItem {
+  image: any; // or StaticImageData if Next.js
+  icon?: never; // ❌ explicitly disallow icon
+}
+
+// Final union type (either icon OR image)
+export type ContentItem = ContentItemWithIcon | ContentItemWithImage;
+
 
 export const TechServices = ({
   content,
@@ -90,16 +107,18 @@ export const TechServices = ({
                   return (
                     <article
                       key={idx}
-                      className="flex hover:shadow-md transition-all ease-in-out w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
+                      className="flex hover:shadow-md group transition-all ease-in-out w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[var(--border)] bg-card shadow-sm  p-4 lg:w-full lg:flex-row lg:p-5"
                     >
                       <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-input p-3 ">
-                        <Image
-                          alt={item.title}
-                          className="dark:invert"
-                          height={24}
-                          src={item.image}
-                          width={24}
-                        />
+                        {item.icon ? <item.icon className={`h-6 w-6 transition-all text-muted-foreground group-hover:shadow group-hover:text-accent-foreground duration-300 group-hover:scale-125`} /> : null}
+                        {item.image &&
+                          <Image
+                            alt={item.title}
+                            className="dark:invert"
+                            height={24}
+                            src={item.image}
+                            width={24}
+                          />}
                       </figure>
                       <div className="flex flex-col items-start gap-1">
                         <h5 className="text-lg text-accent-foreground font-medium">{item.title}</h5>

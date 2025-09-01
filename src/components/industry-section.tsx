@@ -1,19 +1,15 @@
 import Image from 'next/image';
 import React from 'react'
 import Header from './section-heading';
+import { FeatureItem } from '@/config/interface';
 
-const page = ({ industry, heading, subheading, description,className,cardStyling }: {
-    industry: {
-        title: string;
-        description: string;
-        subtitle?: string;
-        image: string;
-    }[],
+const page = ({ industry, heading, subheading, description, className, cardStyling }: {
+    industry: FeatureItem[],
     heading?: string;
     subheading?: string;
     description?: string;
-    className?:string;
-    cardStyling?:string
+    className?: string;
+    cardStyling?: string
 }) => {
     return (
         <section className='my-20  '>
@@ -60,13 +56,15 @@ const page = ({ industry, heading, subheading, description,className,cardStyling
                             <figure
                                 className='flex size-9 items-center justify-center rounded-full border border-[--border] p-2 dark:border-[--dark-border] bg-card'
                             >
-                                <Image
-                                    alt={item.title}
-                                    className="dark:invert"
-                                    height={24}
-                                    src={item.image}
-                                    width={24}
-                                />
+                                {item.icon ? <item.icon className={`h-6 text-primary w-6 transition-all duration-300 group-hover:scale-125`} /> : null}
+                                {item.image &&
+                                    <Image
+                                        alt={item.title}
+                                        className="dark:invert"
+                                        height={24}
+                                        src={item.image}
+                                        width={24}
+                                    />}
                             </figure>
                             <div
                                 className='flex flex-col items-start gap-1'

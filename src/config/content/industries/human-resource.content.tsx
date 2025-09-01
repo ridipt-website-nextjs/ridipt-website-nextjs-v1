@@ -1,80 +1,130 @@
-export const hr_content = [
+import {
+  Users,
+  UserPlus,
+  UserCheck,
+  Target,
+  DollarSign,
+  GraduationCap,
+  Heart,
+  BarChart3,
+  Shield,
+  Home,
+  User,
+  Brain,
+  Building2,
+  Settings,
+  Zap,
+  Lock,
+  Palette,
+  TrendingUp,
+  Link,
+  Lightbulb,
+  Headphones,
+  Search,
+  MessageCircle,
+  Activity,
+  FileText,
+  Calculator,
+  BookOpen,
+  ShieldCheck,
+  PieChart,
+  MessageSquare,
+  Award,
+  BarChart,
+  RotateCcw,
+  CheckCircle,
+  AlertTriangle,
+  Calendar,
+  Scale,
+  History,
+  Gift,
+  Receipt,
+  Monitor,
+  CheckSquare,
+  Clock,
+  Smartphone,
+  Video,
+  GitBranch,
+} from 'lucide-react';
+
+import { FeatureItem } from "@/config/interface";
+import { ChallengeItem } from '@/components/services/process-card-section';
+import { ContentItem } from '@/components/ui/sticky-scroll-reveal';
+
+export const hr_content: ContentItem[] = [
   {
     title: "HR Management Systems (HRMS)",
     description:
       "Develop comprehensive systems to manage employee data, leave tracking, attendance, and more, ensuring efficient HR operations. Centralized platforms that integrate all HR functions for streamlined workforce management.",
-    // image: require('@assets/our_services/hr/hrms.svg'),
+    icon: Users,
   },
   {
     title: "Recruitment Solutions",
     description:
       "Create platforms for job postings, applicant tracking, and interview scheduling to streamline the hiring process. AI-powered tools for candidate sourcing, screening, and selection to improve hiring efficiency.",
-    // image: require('@assets/our_services/hr/recruitment.svg'),
+    icon: UserPlus,
   },
   {
     title: "Employee Onboarding Systems",
     description:
       "Simplify onboarding with digital tools that automate document collection, training, and orientation processes. Interactive workflows that ensure new hires are productive from day one.",
-    // image: require('@assets/our_services/hr/onboarding.svg'),
+    icon: UserCheck,
   },
   {
     title: "Performance Management Tools",
     description:
       "Build tools to set goals, track progress, and evaluate employee performance through 360-degree feedback mechanisms. Continuous performance monitoring with real-time feedback and development planning.",
-    // image: require('@assets/our_services/hr/performance.svg'),
+    icon: Target,
   },
   {
     title: "Payroll Management Solutions",
     description:
       "Automate payroll processing, tax calculations, and benefits management to save time and reduce errors. Compliance-ready systems that handle complex payroll requirements across multiple locations.",
-    // image: require('@assets/our_services/hr/payroll.svg'),
+    icon: DollarSign,
   },
   {
     title: "Learning Management Systems (LMS)",
     description:
       "Provide employees with access to training modules, certifications, and skill-building courses to enhance professional growth. Personalized learning paths with progress tracking and certification management.",
-    // image: require('@assets/our_services/hr/lms.svg'),
+    icon: GraduationCap,
   },
   {
     title: "Employee Engagement Platforms",
     description:
       "Develop mobile apps and portals for employee feedback, surveys, recognition programs, and team collaboration. Tools to measure engagement levels and implement improvement strategies.",
-    // image: require('@assets/our_services/hr/engagement.svg'),
+    icon: Heart,
   },
   {
     title: "Workforce Analytics Tools",
     description:
       "Use advanced analytics to gain insights into workforce trends, employee performance, and organizational productivity. Predictive analytics for workforce planning and decision-making support.",
-    // image: require('@assets/our_services/hr/analytics.svg'),
+    icon: BarChart3,
   },
   {
     title: "Compliance Management Systems",
     description:
       "Ensure adherence to labor laws and industry regulations through automated compliance checks and reporting. Real-time updates on regulatory changes with automated compliance workflows.",
-    // image: require('@assets/our_services/hr/compliance-management.svg'),
+    icon: Shield,
   },
   {
     title: "Remote Work Solutions",
     description:
       "Equip your HR team with tools to manage remote employees effectively, including virtual time tracking and collaboration platforms. Digital solutions for remote onboarding, performance tracking, and team coordination.",
-    // image: require('@assets/our_services/hr/remote-work.svg'),
+    icon: Home,
   },
   {
     title: "Employee Self-Service Portals",
     description:
       "Enable employees to manage their profiles, access payslips, apply for leave, and update personal details independently. User-friendly interfaces that reduce HR workload and improve employee satisfaction.",
-    // image: require('@assets/our_services/hr/self-service.svg'),
+    icon: User,
   },
   {
     title: "AI-Driven Recruitment Tools",
     description:
       "Leverage AI to screen resumes, identify top candidates, and predict candidate-job fit for smarter hiring decisions. Machine learning algorithms that improve recruitment accuracy and reduce time-to-hire.",
-    // image: require('@assets/our_services/hr/ai-recruitment.svg'),
+    icon: Brain,
   },
 ];
-
-
-import { FeatureItem } from "@/config/interface";
 
 export const hr_services: FeatureItem[] = [
   {
@@ -82,73 +132,72 @@ export const hr_services: FeatureItem[] = [
     subtitle: "HR Technology Specialists",
     description:
       "Our team has extensive experience in designing HR solutions tailored to diverse industries and organizational structures. We understand the complexities of modern workforce management and regulatory requirements.",
-    // image: require('@assets/our_services/hr/industry-expertise.svg'),
+    icon: Building2,
   },
   {
     title: "Customized Solutions",
     subtitle: "Tailored to Your Organization",
     description:
       "We understand that every organization is unique. Our solutions are tailored to your specific HR needs and challenges, ensuring maximum impact and ROI for your investment.",
-    // image: require('@assets/our_services/hr/customized-solutions.svg'),
+    icon: Settings,
   },
   {
     title: "Focus on Efficiency",
     subtitle: "Streamlined Operations",
     description:
       "Our tools are designed to automate repetitive tasks, enabling your HR team to focus on strategic initiatives that drive business growth and employee satisfaction.",
-    // image: require('@assets/our_services/hr/efficiency.svg'),
+    icon: Zap,
   },
   {
     title: "Data Security and Compliance",
     subtitle: "Enterprise-Grade Protection",
     description:
       "We prioritize data security and ensure compliance with relevant labor laws and data protection regulations including GDPR, CCPA, and local privacy requirements.",
-    // image: require('@assets/our_services/hr/security-compliance.svg'),
+    icon: Lock,
   },
   {
     title: "User-Friendly Design",
     subtitle: "Intuitive Interfaces",
     description:
       "Our HR solutions are intuitive and accessible, ensuring ease of use for HR teams and employees alike. Modern interfaces that require minimal training and adoption time.",
-    // image: require('@assets/our_services/hr/user-friendly.svg'),
+    icon: Palette,
   },
   {
     title: "Scalable and Flexible",
     subtitle: "Growth-Ready Architecture",
     description:
       "Whether you're a small business or a large enterprise, our solutions scale seamlessly to match your growth. Cloud-native architecture ensures performance at any scale.",
-    // image: require('@assets/our_services/hr/scalable.svg'),
+    icon: TrendingUp,
   },
   {
     title: "Integration Capabilities",
     subtitle: "Seamless Connectivity",
     description:
       "We integrate our solutions with existing systems like payroll software, ERP platforms, and communication tools for a unified experience across your organization.",
-    // image: require('@assets/our_services/hr/integration.svg'),
+    icon: Link,
   },
   {
     title: "Innovative Technology",
     subtitle: "AI-Powered Solutions",
     description:
       "From AI-driven recruitment to advanced analytics, we incorporate the latest technologies to enhance HR management and provide competitive advantages.",
-    // image: require('@assets/our_services/hr/innovative-tech.svg'),
+    icon: Lightbulb,
   },
   {
     title: "Continuous Support",
     subtitle: "Ongoing Partnership",
     description:
       "We provide ongoing support and updates to ensure your HR systems remain reliable and effective. 24/7 technical support and regular system enhancements included.",
-    // image: require('@assets/our_services/hr/continuous-support.svg'),
+    icon: Headphones,
   },
 ];
 
-
-export const hr_challenges = [
+export const hr_challenges: ChallengeItem[] = [
   {
     "id": "talent-acquisition",
     "title": "Talent Acquisition",
     "description": "Finding and hiring the right talent can be time-consuming and resource-intensive, especially in competitive industries. The challenge extends beyond just sourcing candidates to ensuring quality hires that align with company culture and requirements.",
-    // "image": require('@assets/hr/talent-acquisition.svg'),
+    "icon": Search,
     "colors": {
       "primary": "blue",
       "bg": "bg-blue-50",
@@ -165,7 +214,7 @@ export const hr_challenges = [
     "id": "employee-engagement",
     "title": "Employee Engagement",
     "description": "Ensuring employee satisfaction and engagement requires continuous monitoring and innovative strategies. Low engagement leads to decreased productivity, higher turnover rates, and negative impact on company culture.",
-    // "image": require('@assets/hr/employee-engagement.svg'),
+    "icon": MessageCircle,
     "colors": {
       "primary": "green",
       "bg": "bg-green-50",
@@ -182,7 +231,7 @@ export const hr_challenges = [
     "id": "performance-management",
     "title": "Performance Management",
     "description": "Tracking and evaluating employee performance accurately can be challenging without effective tools. Traditional annual reviews are being replaced by continuous feedback systems that require sophisticated technology platforms.",
-    // "image": require('@assets/hr/performance-management.svg'),
+    "icon": Activity,
     "colors": {
       "primary": "purple",
       "bg": "bg-purple-50",
@@ -199,7 +248,7 @@ export const hr_challenges = [
     "id": "compliance-regulations",
     "title": "Compliance with Regulations",
     "description": "Adhering to labor laws and regulatory requirements is essential but often complex and time-consuming. Organizations must stay updated with changing regulations across multiple jurisdictions and ensure consistent compliance.",
-    // "image": require('@assets/hr/compliance.svg'),
+    "icon": FileText,
     "colors": {
       "primary": "red",
       "bg": "bg-red-50",
@@ -216,7 +265,7 @@ export const hr_challenges = [
     "id": "payroll-benefits",
     "title": "Payroll and Benefits Management",
     "description": "Managing payroll, taxes, and employee benefits efficiently requires robust and secure systems. Manual processes are prone to errors and can lead to compliance issues and employee dissatisfaction.",
-    // "image": require('@assets/hr/payroll-benefits.svg'),
+    "icon": Calculator,
     "colors": {
       "primary": "orange",
       "bg": "bg-orange-50",
@@ -233,7 +282,7 @@ export const hr_challenges = [
     "id": "training-development",
     "title": "Employee Training and Development",
     "description": "Providing ongoing learning opportunities and skill development is crucial for employee growth and retention. Organizations need scalable platforms to deliver personalized learning experiences that align with career goals.",
-    // "image": require('@assets/hr/training-development.svg'),
+    "icon": BookOpen,
     "colors": {
       "primary": "teal",
       "bg": "bg-teal-50",
@@ -250,7 +299,7 @@ export const hr_challenges = [
     "id": "data-security-privacy",
     "title": "Data Security and Privacy",
     "description": "Protecting sensitive employee data while ensuring compliance with data protection laws is a significant challenge. HR systems contain personal information that requires the highest levels of security and privacy protection.",
-    // "image": require('@assets/hr/data-security.svg'),
+    "icon": ShieldCheck,
     "colors": {
       "primary": "indigo",
       "bg": "bg-indigo-50",
@@ -267,7 +316,7 @@ export const hr_challenges = [
     "id": "workforce-analytics",
     "title": "Workforce Analytics",
     "description": "Gaining actionable insights from workforce data for better decision-making can be difficult without the right tools. Organizations need advanced analytics to understand trends, predict outcomes, and optimize HR strategies.",
-    // "image": require('@assets/hr/workforce-analytics.svg'),
+    "icon": PieChart,
     "colors": {
       "primary": "pink",
       "bg": "bg-pink-50",
@@ -282,63 +331,61 @@ export const hr_challenges = [
   }
 ];
 
-
-
 export const hr_services_stack = {
   "Talent Management": [
-    { name: "Recruitment Platforms", image: "" },
-    { name: "AI-Based Candidate Screening", image: "" },
-    { name: "Applicant Tracking Systems", image: "" },
-    { name: "Interview Management Tools", image: "" },
-    { name: "Onboarding Automation", image: "" },
-    { name: "Talent Pipeline Management", image: "" },
+    { name: "Recruitment Platforms", icon: Users },
+    { name: "AI-Based Candidate Screening", icon: Brain },
+    { name: "Applicant Tracking Systems", icon: UserCheck },
+    { name: "Interview Management Tools", icon: Video },
+    { name: "Onboarding Automation", icon: UserPlus },
+    { name: "Talent Pipeline Management", icon: GitBranch },
   ],
   "Employee Engagement": [
-    { name: "Feedback and Survey Tools", image: "" },
-    { name: "Recognition and Rewards Systems", image: "" },
-    { name: "Employee Pulse Surveys", image: "" },
-    { name: "Internal Communication Platforms", image: "" },
+    { name: "Feedback and Survey Tools", icon: MessageSquare },
+    { name: "Recognition and Rewards Systems", icon: Award },
+    { name: "Employee Pulse Surveys", icon: BarChart },
+    { name: "Internal Communication Platforms", icon: MessageCircle },
   ],
   "Performance Management": [
-    { name: "Goal Setting and Tracking", image: "" },
-    { name: "360-Degree Feedback Systems", image: "" },
-    { name: "Continuous Performance Monitoring", image: "" },
-    { name: "Performance Review Automation", image: "" },
+    { name: "Goal Setting and Tracking", icon: Target },
+    { name: "360-Degree Feedback Systems", icon: RotateCcw },
+    { name: "Continuous Performance Monitoring", icon: Activity },
+    { name: "Performance Review Automation", icon: CheckCircle },
   ],
   "Workforce Analytics": [
-    { name: "Productivity Analysis", image: "" },
-    { name: "Attrition Prediction", image: "" },
-    { name: "Workforce Planning Tools", image: "" },
-    { name: "HR Metrics Dashboard", image: "" },
+    { name: "Productivity Analysis", icon: TrendingUp },
+    { name: "Attrition Prediction", icon: AlertTriangle },
+    { name: "Workforce Planning Tools", icon: Calendar },
+    { name: "HR Metrics Dashboard", icon: BarChart3 },
   ],
   "Compliance Management": [
-    { name: "Automated Labor Law Adherence", image: "" },
-    { name: "Compliance Reporting Tools", image: "" },
-    { name: "Policy Management Systems", image: "" },
-    { name: "Audit Trail Management", image: "" },
+    { name: "Automated Labor Law Adherence", icon: Scale },
+    { name: "Compliance Reporting Tools", icon: FileText },
+    { name: "Policy Management Systems", icon: BookOpen },
+    { name: "Audit Trail Management", icon: History },
   ],
   "Payroll and Benefits": [
-    { name: "Payroll Automation Systems", image: "" },
-    { name: "Benefits Management Tools", image: "" },
-    { name: "Tax Calculation and Filing", image: "" },
-    { name: "Expense Management", image: "" },
+    { name: "Payroll Automation Systems", icon: DollarSign },
+    { name: "Benefits Management Tools", icon: Gift },
+    { name: "Tax Calculation and Filing", icon: Calculator },
+    { name: "Expense Management", icon: Receipt },
   ],
   "Training and Development": [
-    { name: "E-Learning Platforms", image: "" },
-    { name: "Employee Certification Systems", image: "" },
-    { name: "Skill Assessment Tools", image: "" },
-    { name: "Career Development Planning", image: "" },
+    { name: "E-Learning Platforms", icon: Monitor },
+    { name: "Employee Certification Systems", icon: Award },
+    { name: "Skill Assessment Tools", icon: CheckSquare },
+    { name: "Career Development Planning", icon: TrendingUp },
   ],
   "Remote Work Solutions": [
-    { name: "Virtual Time Tracking", image: "" },
-    { name: "Remote Collaboration Tools", image: "" },
-    { name: "Digital Onboarding Systems", image: "" },
-    { name: "Remote Performance Management", image: "" },
+    { name: "Virtual Time Tracking", icon: Clock },
+    { name: "Remote Collaboration Tools", icon: Users },
+    { name: "Digital Onboarding Systems", icon: Smartphone },
+    { name: "Remote Performance Management", icon: Monitor },
   ],
   "Employee Self-Service": [
-    { name: "Personal Information Management", image: "" },
-    { name: "Leave Management Systems", image: "" },
-    { name: "Payslip Access Portals", image: "" },
-    { name: "Benefits Enrollment Tools", image: "" },
+    { name: "Personal Information Management", icon: User },
+    { name: "Leave Management Systems", icon: Calendar },
+    { name: "Payslip Access Portals", icon: FileText },
+    { name: "Benefits Enrollment Tools", icon: Settings },
   ],
 };

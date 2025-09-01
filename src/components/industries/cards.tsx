@@ -6,17 +6,20 @@ export const Card1 = ({ index, item }: {
 }) => {
     return <article
         key={index}
-        className={`group flex flex-1 border border-border transition-all duration-300 ease-in-out hover:shadow-lg p-6 rounded-lg flex-col gap-4 bg-white dark:bg-card hover:border-${item.colors.primary}-300 h-full min-h-[320px]`}
+        className={`group  flex flex-1 border border-border transition-all duration-300 ease-in-out hover:shadow-lg p-6 rounded-lg flex-col gap-4 bg-white dark:bg-background hover:dark:bg-card hover:border-${item.colors.primary}-300 h-full min-h-[320px]`}
     >
         {/* Simple icon */}
         <div className={`w-12 h-12 ${item.colors.bg} rounded-lg flex items-center justify-center`}>
-            <Image
-                src={item.image}
-                alt={item.title}
-                height={20}
-                width={20}
-                className={`${item.colors.icon}`}
-            />
+            {item.icon ? <item.icon className={`h-6 w-6 ${item.colors.icon}`} /> : null}
+            {item.image &&
+                <Image
+                    src={item.image!}
+                    alt={item.title}
+                    height={20}
+                    width={20}
+                    className={`${item.colors.icon}`}
+                />
+            }
         </div>
 
         {/* Content */}
@@ -36,7 +39,7 @@ export const Card1 = ({ index, item }: {
 
 import { useState } from 'react';
 
-export const Card2 = ({item, idx, variant = 'default', showBadge = false, clickable = false}:{
+export const Card2 = ({ item, idx, variant = 'default', showBadge = false, clickable = false }: {
     item: any;
     idx: number;
     variant?: 'default' | 'premium' | 'minimal' | 'colored';
@@ -46,17 +49,17 @@ export const Card2 = ({item, idx, variant = 'default', showBadge = false, clicka
     const [isHovered, setIsHovered] = useState(false);
 
     const variantStyles = {
-        default: 'border-gray-100 bg-white hover:border-gray-200 hover:shadow-lg',
-        premium: 'border-gray-200 bg-gradient-to-br from-white to-gray-50 hover:border-blue-200 hover:shadow-xl hover:from-blue-50/30 hover:to-white',
-        minimal: 'border-transparent bg-gray-50 hover:bg-white hover:border-gray-100 hover:shadow-md',
-        colored: 'border-blue-100 bg-blue-50/30 hover:border-blue-200 hover:bg-blue-50/50 hover:shadow-lg'
+        default: 'border-border bg-card hover:bg-background hover:border-accent/20 hover:shadow-lg dark:hover:shadow-accent/10',
+        premium: 'border-border bg-primary hover:border-accent/30 hover:shadow-xl hover:bg-background dark:hover:shadow-accent/20',
+        minimal: 'border-transparent bg-muted hover:bg-card hover:border-border hover:shadow-md dark:hover:shadow-accent/10',
+        colored: 'border-accent/20 bg-accent/10 hover:border-accent/30 hover:bg-accent/20 hover:shadow-lg dark:hover:shadow-accent/20'
     };
 
     const iconBgStyles = {
-        default: 'bg-gray-50 group-hover:bg-blue-50',
-        premium: 'bg-gradient-to-br from-blue-100 to-purple-100 group-hover:from-blue-200 group-hover:to-purple-200',
-        minimal: 'bg-white group-hover:bg-blue-50 border border-gray-200',
-        colored: 'bg-blue-100 group-hover:bg-blue-200'
+        default: 'bg-muted group-hover:bg-accent/10',
+        premium: 'bg-gradient-to-br from-accent/20 to-primary/10 group-hover:from-accent/30 group-hover:to-primary/20',
+        minimal: 'bg-card group-hover:bg-accent/10 border border-border',
+        colored: 'bg-accent/20 group-hover:bg-accent/30'
     };
 
     return (
@@ -76,12 +79,12 @@ export const Card2 = ({item, idx, variant = 'default', showBadge = false, clicka
         >
             {/* Background decoration for premium variant */}
             {variant === 'premium' && (
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-blue-100/40 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-accent/20 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-accent/10" />
             )}
 
             {/* Badge */}
             {showBadge && (
-                <div className="absolute top-4 right-4 px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="absolute top-4 right-4 px-2 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     New
                 </div>
             )}
@@ -92,27 +95,32 @@ export const Card2 = ({item, idx, variant = 'default', showBadge = false, clicka
                 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3
                 ${iconBgStyles[variant]}
             `}>
-                <Image
-                    alt={item.title}
-                    className="transition-all duration-300 group-hover:scale-125"
-                    height={24}
-                    src={item.image}
-                    width={24}
-                />
+                {item.icon ? (
+                    <item.icon className="h-6 w-6 transition-all text-muted-foreground group-hover:text-accent-foreground duration-300 group-hover:scale-125" />
+                ) : null}
+                {item.image && (
+                    <Image
+                        alt={item.title}
+                        className="transition-all duration-300 h-6 w-6 group-hover:scale-125"
+                        height={24}
+                        src={item.image}
+                        width={24}
+                    />
+                )}
             </figure>
 
             {/* Content */}
             <div className="flex flex-col items-start gap-3 flex-grow relative z-10">
-                <h5 className="text-xl font-semibold text-primary group-hover:text-accent-foreground transition-colors duration-300 line-clamp-2 leading-tight">
+                <h5 className="text-xl font-semibold text-foreground group-hover:text-accent-foreground transition-colors duration-300 line-clamp-2 leading-tight">
                     {item.title}
                 </h5>
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 group-hover:text-foreground/80 transition-colors duration-300">
                     {item.description}
                 </p>
-                
+
                 {/* Progress indicator or additional info */}
                 <div className="flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <div className="w-8 h-1 bg-accent-foreground/50 rounded-full overflow-hidden">
+                    <div className="w-8 h-1 bg-muted rounded-full overflow-hidden">
                         <div className="w-full h-full bg-accent-foreground rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 delay-200" />
                     </div>
                     <span className="text-xs text-accent-foreground font-medium">Learn more</span>
@@ -121,14 +129,13 @@ export const Card2 = ({item, idx, variant = 'default', showBadge = false, clicka
 
             {/* Enhanced arrow indicator */}
             <div className="lg:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden">
-                <div className="w-10 h-10 rounded-full text-muted-foreground flex items-center justify-center   transition-colors duration-300">
-                    <ChevronRight/>
+                <div className="w-10 h-10 rounded-full text-muted-foreground group-hover:text-accent-foreground flex items-center justify-center transition-colors duration-300">
+                    <ChevronRight />
                 </div>
             </div>
 
-            {/* Bottom accent line */}
-            {/* <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl" /> */}
+            {/* Bottom accent line - uncommented and updated */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-foreground to-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl opacity-60" />
         </article>
     );
-
-}
+};
