@@ -33,7 +33,7 @@ const page = () => {
                 description="Explore the major challenges faced by the healthcare sector and their impact on patient care, operations, and overall efficiency."
                 processes={healthcare_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -44,7 +44,7 @@ const page = () => {
                 description='We provide healthcare technology solutions designed to improve patient care, streamline operations, and enhance collaboration across the healthcare ecosystem.'
                 content={healthcare_content}
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 item={item} key={idx} />
                 )}
                 subSection={false}
                 className=''

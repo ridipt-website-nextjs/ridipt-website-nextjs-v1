@@ -28,7 +28,7 @@ const page = () => {
                 description="Explore the major challenges faced by financial institutions and their impact on operations, customer experience, and regulatory compliance."
                 processes={fintech_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -39,7 +39,7 @@ const page = () => {
                 description='We provide comprehensive FinTech solutions designed to modernize financial services, enhance customer experiences, and ensure regulatory compliance across the financial ecosystem.'
                 content={fintech_content}
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 item={item} key={idx} />
                 )}
                 subSection={false}
                 className=''

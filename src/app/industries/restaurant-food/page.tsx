@@ -28,7 +28,7 @@ const page = () => {
                 description="Explore the major challenges faced by restaurants, food delivery, and grocery businesses and their impact on operations, customer satisfaction, and profitability."
                 processes={restaurant_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -39,7 +39,7 @@ const page = () => {
                 description='We provide comprehensive food industry solutions designed to streamline restaurant operations, optimize delivery logistics, and enhance customer experiences across the entire food ecosystem.'
                 content={restaurant_content}
                 CustomCard={(item, idx) => (
-                    <Card2 variant="premium" item={item} idx={idx} />
+                    <Card2 variant="premium" item={item} key={idx} />
                 )}
                 subSection={false}
                 className=''

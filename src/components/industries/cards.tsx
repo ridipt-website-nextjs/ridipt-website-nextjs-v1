@@ -1,11 +1,11 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image"
 
-export const Card1 = ({ index, item }: {
-    item: any, index: number
+export const Card1 = ({ item }: {
+    item: any
 }) => {
+    // console.log(index)
     return <article
-        key={index}
         className={`group  flex flex-1 border border-border transition-all duration-300 ease-in-out hover:shadow-lg p-6 rounded-lg flex-col gap-4 bg-white dark:bg-background hover:dark:bg-card hover:border-${item.colors.primary}-300 h-full min-h-[320px]`}
     >
         {/* Simple icon */}
@@ -39,9 +39,8 @@ export const Card1 = ({ index, item }: {
 
 import { useState } from 'react';
 
-export const Card2 = ({ item, idx, variant = 'default', showBadge = false, clickable = false }: {
+export const Card2 = ({ item,  variant = 'default', showBadge = false, clickable = false }: {
     item: any;
-    idx: number;
     variant?: 'default' | 'premium' | 'minimal' | 'colored';
     showBadge?: boolean;
     clickable?: boolean;
@@ -64,7 +63,6 @@ export const Card2 = ({ item, idx, variant = 'default', showBadge = false, click
 
     return (
         <article
-            key={idx}
             className={`
                 group relative overflow-hidden cursor-pointer
                 transition-all duration-300 ease-out

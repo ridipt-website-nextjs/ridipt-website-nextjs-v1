@@ -28,7 +28,7 @@ const page = () => {
                 description="Explore the major challenges faced by social media platforms and their impact on user engagement, platform security, and business sustainability."
                 processes={social_media_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -39,7 +39,7 @@ const page = () => {
                 description='We provide comprehensive social media solutions designed to create engaging platforms, facilitate meaningful connections, and drive user growth across diverse communities and audiences.'
                 content={social_media_content}
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 item={item} key={idx} />
                 )}
                 subSection={false}
                 className=''

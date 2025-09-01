@@ -27,7 +27,7 @@ const page = () => {
                 description="Explore the major challenges faced by logistics and supply chain businesses and their impact on operational efficiency, cost optimization, and customer satisfaction."
                 processes={logistics_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -37,7 +37,7 @@ const page = () => {
                 subheading='Innovative Technology for Optimized Operations'
                 description='We provide comprehensive logistics and supply chain solutions designed to streamline operations, enhance visibility, and drive efficiency across the entire supply chain ecosystem.'
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 item={item} key={idx} />
                 )}
                 content={logistics_content}
                 subSection={false}

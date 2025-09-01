@@ -27,7 +27,7 @@ const page = () => {
                 description="Explore the major challenges that off-the-shelf software cannot address and discover how our custom solutions overcome these business hurdles."
                 processes={custom_software_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 key={index} item={item} />
                 )}
             />
 
@@ -37,7 +37,7 @@ const page = () => {
                 subheading='Innovative Technology for Unique Business Needs'
                 description='We provide comprehensive custom software development services designed to address unique business challenges, streamline operations, and drive digital transformation across various industries.'
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 key={idx} item={item} />
                 )}
                 content={custom_software_content}
                 subSection={false}

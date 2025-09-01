@@ -30,7 +30,7 @@ const page = () => {
                 description="Explore the major challenges faced by educational institutions and their impact on learning outcomes, administration, and overall educational excellence."
                 processes={education_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -40,7 +40,7 @@ const page = () => {
                 subheading='Innovative Technology for Better Learning'
                 description='We provide comprehensive education technology solutions designed to enhance learning experiences, streamline administrative processes, and foster collaboration across the educational ecosystem.'
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 item={item} key={idx} />
                 )}
                 content={education_content}
                 subSection={false}

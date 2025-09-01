@@ -28,7 +28,7 @@ const page = () => {
                 description="Explore the major challenges faced by retail and e-commerce businesses and their impact on operations, customer satisfaction, and profitability."
                 processes={retail_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -39,7 +39,7 @@ const page = () => {
                 description='We provide comprehensive retail and e-commerce solutions designed to streamline operations, enhance customer experiences, and drive sales growth across all channels.'
                 content={retail_content}
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 item={item} key={idx} />
                 )}
                 subSection={false}
                 className=''

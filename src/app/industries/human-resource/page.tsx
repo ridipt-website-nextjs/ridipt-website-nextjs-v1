@@ -28,7 +28,7 @@ const page = () => {
                 description="Explore the major challenges faced by HR departments and their impact on workforce management, employee satisfaction, and organizational productivity."
                 processes={hr_challenges}
                 customCard={(item, index) => (
-                    <Card1 item={item} index={index} />
+                    <Card1 item={item} key={index} />
                 )}
             />
 
@@ -39,7 +39,7 @@ const page = () => {
                 description='We provide comprehensive HR solutions designed to streamline recruitment, enhance employee engagement, optimize performance management, and ensure regulatory compliance across the entire employee lifecycle.'
                 content={hr_content}
                 CustomCard={(item, idx) => (
-                    <Card2 item={item} idx={idx} />
+                    <Card2 item={item} key={idx} />
                 )}
                 subSection={false}
                 className=''

@@ -1,3 +1,4 @@
+'use client';
 import { linePoint, technologyIcons } from "@/assests/technology_icons";
 import { CardStack } from "@/components/card-stack";
 import { HeroParallaxDemo } from "@/components/hero-parallax";
@@ -18,6 +19,7 @@ import ContactSession from '@/components/contact-sestion';
 import { shuffleArray } from "@/config/utils";
 import Image from "next/image";
 import { industries, partners } from "@/config/constant";
+import { FeatureItem } from "@/config/interface";
 
 
 export default function Home() {
@@ -37,7 +39,7 @@ export default function Home() {
       <PortofolioHighlight />
       <TechnologyContainer />
 
-      <IndusterySection industry={industries} />
+      <IndusterySection industry={industries as FeatureItem[]} />
 
       <PartnerSection companies={partners} />
       <div className="flex flex-col items-center justify-center">
@@ -104,31 +106,29 @@ const TechnologyIcons = ({ direction, speed }: { direction?: "left" | "right" | 
 
     <InfiniteMovingCards
       items={shuffleArray(technologyIcons)}
-      component={<>
-        {technologyIcons.map((item, idx) => (
-          <HoverBorderGradient
-            key={idx}
-            containerClassName="rounded-2xl p-0 group" // group class add karo
-            className="p-0"
-          >
-            <li
-              className="relative flex justify-center p-0 items-center max-w-full shrink-0 rounded-2xl border border-b-0  bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-6 py-4 dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]
+      component={(item, idx) => <>
+        <HoverBorderGradient
+          key={idx}
+          containerClassName="rounded-2xl p-0 group" // group class add karo
+          className="p-0"
+        >
+          <li
+            className="relative flex justify-center p-0 items-center max-w-full shrink-0 rounded-2xl border border-b-0  bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-6 py-4 dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]
     transition-all duration-300 ease-in-out group-hover:shadow-lg 
     group-hover:border-accent 
     group-hover:ring-2 group-hover:ring-ring
     cursor-pointer"
-              key={idx}
-            >
-              <Image
-                src={item.icon}
-                alt={item.name}
-                width={60}
-                height={60}
-                className="h-14 w-14 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-300 ease-in-out"
-              />
-            </li>
-          </HoverBorderGradient>
-        ))}
+            key={idx}
+          >
+            <Image
+              src={item.icon}
+              alt={item.name}
+              width={60}
+              height={60}
+              className="h-14 w-14 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-300 ease-in-out"
+            />
+          </li>
+        </HoverBorderGradient>
       </>}
       direction={direction}
       speed={speed}

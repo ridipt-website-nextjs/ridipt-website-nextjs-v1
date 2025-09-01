@@ -16,7 +16,7 @@ export const InfiniteMovingCards = ({
     name: string;
     icon: string;
   }[];
-  component?: React.ReactNode;
+  component?: (item: any, idx: number) => React.ReactNode;
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -87,21 +87,26 @@ export const InfiniteMovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
-        {component ?? items.map((item, idx) => (
-          <li
-            className="relative  justify-center items-center max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6  dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
-            key={idx}
-          >
-            {/* {item.icon} */}
-            <Image
-              src={item.icon}
-              alt={item.name}
-              width={50}
-              height={50}
-              className="h-12 w-12"
-            />
-          </li>
-        ))}
+        {items.map((item, idx) => {
+          if (component) {
+            return component(item, idx);
+          }
+          return (
+            <li
+              className="relative  justify-center items-center max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6  dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
+              key={idx}
+            >
+              {/* {item.icon} */}
+              <Image
+                src={item.icon}
+                alt={item.name}
+                width={50}
+                height={50}
+                className="h-12 w-12"
+              />
+            </li>
+          )
+        })}
       </ul>
     </div>
   );

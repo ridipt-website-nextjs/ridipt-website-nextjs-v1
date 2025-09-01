@@ -58,7 +58,8 @@ const PartnersSection: React.FC<PartnersProps> = ({ companies }) => {
               "animate-scroll xl:animate-none" // Add auto-scroll animation
             )}>
               <InfiniteMovingCards
-                component={companies?.map((company, idx) => (
+                items={companies as any[]}
+                component={(company, idx) => (
                   <div
                     key={idx}
                     className={clsx(
@@ -91,7 +92,7 @@ const PartnersSection: React.FC<PartnersProps> = ({ companies }) => {
                       </span>
                     </div>
                   </div>
-                ))}
+                )}
                 direction="left"
                 speed='slow'
                 pauseOnHover={true}

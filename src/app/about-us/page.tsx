@@ -7,6 +7,7 @@ import { StickyScrollRevealDemo as TechService } from "@/components/tech-service
 import IndusterySection from '@/components/industry-section';
 import PortofolioHighlight from '@/components/portfolio-highlights-section';
 import { menifesto, vision } from '@/config/constant';
+import { FeatureItem } from '@/config/interface';
 
 
 const page = () => {
@@ -85,7 +86,7 @@ const page = () => {
 
             {/* Industry section */}
             <IndusterySection
-                industry={menifesto}
+                industry={menifesto as FeatureItem[]}
                 heading='Our Manifesto'
             />
 
