@@ -84,7 +84,6 @@ const ServicesGrid = () => {
 
             {/* Services Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                {/* Services Categories */}
                 <div className="lg:col-span-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {services.map((service, index) => (
@@ -93,17 +92,11 @@ const ServicesGrid = () => {
                                 className="group justify-between flex flex-col bg-card/50 border border-border/50 rounded-xl p-6 hover:shadow-lg hover:shadow-primary/5 hover:border-accent-foreground transition-all duration-300 hover:-translate-y-1"
                             >
                                 <div>
-
-                                    {/* Category Header */}
                                     <div className="mb-5">
                                         <Link
                                             href={service.link}
                                             className="inline-flex items-center gap-2 text-lg font-semibold text-accent-foreground group-hover:text-accent-foreground transition-colors duration-200"
                                         >
-                                            {/* Icon placeholder - you can add actual icons here */}
-                                            {/* <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-200">
-                                                <div className="w-4 h-4 bg-primary rounded-sm"></div>
-                                            </div> */}
                                             {service.name}
                                             <svg
                                                 className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
@@ -116,7 +109,6 @@ const ServicesGrid = () => {
                                         </Link>
                                     </div>
 
-                                    {/* Service Items */}
                                     <div className="space-y-3 flex flex-col gap-5">
                                         {service.items.map((item, itemIndex) => (
                                             <Link
@@ -124,16 +116,9 @@ const ServicesGrid = () => {
                                                 href={item.link}
                                                 className="group/item flex items-center gap-3 p-2 -m-2 rounded-lg hover:bg-primary/5 transition-all duration-200"
                                             >
-                                                {/* Modern bullet point */}
-                                                {/* <div className="w-6 h-6 bg-gradient-to-br from-muted to-muted/50 rounded-full flex-shrink-0 flex items-center justify-center group-hover/item:from-primary/20 group-hover/item:to-primary/10 transition-all duration-200">
-                                                    <div className="w-2 h-2 bg-muted-foreground rounded-full group-hover/item:bg-primary transition-colors duration-200"></div>
-                                                </div> */}
-
                                                 <span className="text-muted-foreground group-hover/item:text-accent-foreground/70 transition-colors duration-200 text-sm font-medium flex-1">
                                                     {item.name}
                                                 </span>
-
-                                                {/* Arrow indicator */}
                                                 <svg
                                                     className="w-3 h-3 text-muted-foreground/40 group-hover/item:text-accent-foreground/70 group-hover/item:translate-x-0.5 transition-all duration-200"
                                                     fill="none"
@@ -147,8 +132,6 @@ const ServicesGrid = () => {
                                     </div>
                                 </div>
 
-
-                                {/* Optional: View All Link */}
                                 <div className="mt-4 pt-4 border-t border-border/30">
                                     <Link
                                         href={service.link}
@@ -168,6 +151,8 @@ const ServicesGrid = () => {
         </div>
     );
 };
+
+
 
 
 export const navItems = [

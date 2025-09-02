@@ -83,12 +83,11 @@ const Footer = () => {
           <div>
             <h3 className='text-lg font-semibold text-primary mb-6'>Services</h3>
             <ul className='space-y-3'>
-              <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Mobile App Development</Link></li>
-              <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Web App Development</Link></li>
-              <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Cloud Solutions</Link></li>
-              <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>AI & Machine Learning</Link></li>
-              <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Digital Transformation</Link></li>
-              <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Consulting</Link></li>
+              <li><Link href='/services/mobile-development' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Mobile App Development</Link></li>
+              <li><Link href='/services/web-development' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Web App Development</Link></li>
+              <li><Link href='/services/emerging-technology/devops' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Cloud Solutions</Link></li>
+              <li><Link href='/services/emerging-technology/ai-ml-genai' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>AI & Machine Learning</Link></li>
+              {/* <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Digital Transformation</Link></li> */}
             </ul>
           </div>
 
@@ -175,7 +174,7 @@ const Footer = () => {
             <div>
               <h4 className='text-sm font-medium text-primary mb-3'>Company</h4>
               <ul className='space-y-2'>
-                <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>About Us</Link></li>
+                <li><Link href='/about-us' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>About Us</Link></li>
                 <li><Link href='/careers' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Careers</Link></li>
                 <li><Link href='#' className='text-muted-foreground hover:text-primary transition-colors duration-300 text-sm'>Blog</Link></li>
               </ul>

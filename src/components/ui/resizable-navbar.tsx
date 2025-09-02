@@ -120,6 +120,11 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
+  // Function to close dropdown
+  const closeDropdown = () => {
+    setHovered(null);
+  };
+
   return (
     <motion.div
       onMouseLeave={() => setHovered(null)}
@@ -130,10 +135,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     >
       {items.map((item, idx) => (
         item.items ? (
-          <div
-            key={`nav-item-${idx}`}
-            className="relative group"
-          >
+          <div key={`nav-item-${idx}`} className="relative group">
             <span
               className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 hover:text-popover-foreground"
               onMouseEnter={() => setHovered(idx)}
@@ -159,6 +161,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                     key={`sub-item-${subIdx}`}
                     href={subItem.link!}
                     className="block px-4 py-2 text-popover-foreground hover:text-popover hover:bg-popover-foreground transition-all ease-in-out duration-200"
+                    onClick={closeDropdown}
                   >
                     {subItem.name}
                   </Link>
@@ -167,10 +170,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             )}
           </div>
         ) : item.content ? (
-          <div
-            key={`nav-item-${idx}`}
-            className="relative group"
-          >
+          <div key={`nav-item-${idx}`} className="relative group">
             <span
               className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 hover:text-popover-foreground"
               onMouseEnter={() => setHovered(idx)}
@@ -189,13 +189,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {hovered === idx && (
               <motion.div
                 layoutId="hovered"
-                className="absolute bg-card left-1/2 transform translate-y-2 -translate-x-1/2 top-full mt-3 overflow-hidden w-[950px]  overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
-                style={{
-                  bottom: "auto",
-                  // maxHeight: "calc(100vh - 200px)" // Screen height minus some margin
-                }}
+                className="absolute bg-card left-1/2 transform translate-y-2 -translate-x-1/2 top-full mt-3 overflow-hidden w-[950px] overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
               >
-                <div className="p-6">
+                <div className="p-6" onClick={closeDropdown}>
                   {item.content}
                 </div>
               </motion.div>
@@ -222,6 +218,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     </motion.div>
   );
 };
+
 
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
@@ -419,7 +416,7 @@ export const MobileNavItems = ({ items, className, onItemClick }: NavItemsProps)
                               key={`mobile-sub-item-${subIdx}`}
                               href={subItem.link}
                               className="block px-4 py-2 text-sm text-popover-foreground/70 hover:bg-popover-foreground/10 hover:text-popover-foreground rounded-md transition-colors duration-200"
-                              onClick={onItemClick}
+                              onClick={onItemClick} // Close mobile navbar
                             >
                               {subItem.name}
                             </Link>
@@ -433,7 +430,16 @@ export const MobileNavItems = ({ items, className, onItemClick }: NavItemsProps)
                           )
                         ))
                       ) : (
-                        <div className="px-4 py-2">
+                        <div 
+                          className="px-4 py-2"
+                          onClick={(e) => {
+                            // Check if clicked element is a link
+                            const target = e.target as HTMLElement;
+                            if (target.tagName === 'A' || target.closest('a')) {
+                              onItemClick?.(); // Close mobile navbar when any link is clicked
+                            }
+                          }}
+                        >
                           {item.content}
                         </div>
                       )}
@@ -447,7 +453,7 @@ export const MobileNavItems = ({ items, className, onItemClick }: NavItemsProps)
               <Link
                 href={item.link}
                 className="block px-4 py-3 text-popover-foreground hover:bg-popover-foreground/10 rounded-md transition-colors duration-200 font-medium"
-                onClick={onItemClick}
+                onClick={onItemClick} // Close mobile navbar
               >
                 {item.name}
               </Link>
@@ -469,6 +475,7 @@ export const MobileNavItems = ({ items, className, onItemClick }: NavItemsProps)
     </div>
   );
 };
+
 
 
 export const MobileNavToggle = ({
