@@ -3,13 +3,14 @@ import React from 'react'
 import Header from './section-heading';
 import { FeatureItem } from '@/config/interface';
 
-const page = ({ industry, heading, subheading, description, className, cardStyling }: {
+const page = ({ industry, heading, subheading, description, className, cardStyling, CustomCard }: {
     industry: FeatureItem[],
     heading?: string;
     subheading?: string;
     description?: string;
     className?: string;
     cardStyling?: string
+    CustomCard?: (item: FeatureItem, idx: number) => React.JSX.Element
 }) => {
     return (
         <section className='my-20  '>
@@ -47,42 +48,47 @@ const page = ({ industry, heading, subheading, description, className, cardStyli
                 <div
                     className={`grid w-full grid-cols-1 ${industry[0].subtitle ? 'gap-6' : 'gap-4'} lg:grid-cols-3 lg:gap-5`}
                 >
-                    {industry.map((item, idx) => (
+                    {industry.map((item, idx) => {
+                        if (CustomCard) {
+                            return CustomCard(item, idx)
+                        }
+                        return (
 
-                        <article
-                            key={idx}
-                            className={`${cardStyling} group flex duration-300 hover:shadow-md transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] ${item.subtitle && '!pb-10 relative'}`}
-                        >
-                            <figure
-                                className='flex size-9 items-center justify-center rounded-full border border-[--border] p-2 dark:border-[--dark-border] bg-card'
+                            <article
+                                key={idx}
+                                className={`${cardStyling} group flex duration-300 hover:shadow-md transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] ${item.subtitle && '!pb-10 relative'}`}
                             >
-                                {item.icon ? <item.icon className={`h-6 text-primary w-6 transition-all duration-300 group-hover:scale-125`} /> : null}
-                                {item.image &&
-                                    <Image
-                                        alt={item.title}
-                                        className="dark:invert"
-                                        height={24}
-                                        src={item.image}
-                                        width={24}
-                                    />}
-                            </figure>
-                            <div
-                                className='flex flex-col items-start gap-1'
-                            >
-                                <h5 className="text-lg font-medium text-accent-foreground">{item.title}</h5>
-                                <p className="text-pretty text-muted-foreground">{item.description}</p>
-                            </div>
-
-                            {item.subtitle && (
-                                <div
-                                    className='absolute group-hover:shadow-lg opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-300 flex transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-2 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] right-[.7rem] bg-card truncate -bottom-[1rem] max-w-[300px]'
+                                <figure
+                                    className='flex size-9 items-center justify-center rounded-full border border-[--border] p-2 dark:border-[--dark-border] bg-card'
                                 >
-                                    <h3 className='truncate font-medium text-muted-foreground'>{item.subtitle}</h3>
+                                    {item.icon ? <item.icon className={`h-6 text-primary w-6 transition-all duration-300 group-hover:scale-125`} /> : null}
+                                    {item.image &&
+                                        <Image
+                                            alt={item.title}
+                                            className="dark:invert"
+                                            height={24}
+                                            src={item.image}
+                                            width={24}
+                                        />}
+                                </figure>
+                                <div
+                                    className='flex flex-col items-start gap-1'
+                                >
+                                    <h5 className="text-lg font-medium text-accent-foreground">{item.title}</h5>
+                                    <p className="text-pretty text-muted-foreground">{item.description}</p>
                                 </div>
-                            )}
-                        </article>
 
-                    ))}
+                                {item.subtitle && (
+                                    <div
+                                        className='absolute group-hover:shadow-lg opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-300 flex transition-all ease-in-out flex-col gap-4 rounded-lg border border-[--border] p-2 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] right-[.7rem] bg-card truncate -bottom-[1rem] max-w-[300px]'
+                                    >
+                                        <h3 className='truncate font-medium text-muted-foreground'>{item.subtitle}</h3>
+                                    </div>
+                                )}
+                            </article>
+
+                        )
+                    })}
                 </div>
             </section>
             <section

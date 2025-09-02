@@ -63,7 +63,8 @@ export const TechServices = ({
               className={clsx(
                 "flex flex-col gap-10",
                 // Apply sticky only for array content, not JSX content
-                isArrayContent && "sticky bottom-0 top-[calc(var(--header-height)+40px)]"
+                "sticky bottom-0 top-[calc(var(--header-height)+40px)]"
+                // isArrayContent && "sticky bottom-0 top-[calc(var(--header-height)+40px)]"
               )}
             >
               <Header
