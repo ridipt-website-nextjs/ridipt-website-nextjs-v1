@@ -4,7 +4,7 @@ import { Moon, Sun, Monitor } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from 'next/link';
 
-const industries: { name: string; link: string }[] = [
+export const industries: { name: string; link: string }[] = [
   { name: "Healthcare", link: "/industries/healthcare" },
   { name: "Fintech", link: "/industries/fintech" },
   { name: "E-commerce", link: "/industries/ecommerce" },
@@ -14,7 +14,10 @@ const industries: { name: string; link: string }[] = [
   { name: "Social Media", link: "/industries/social-media" },
   { name: "Custom Solution", link: "/industries/custom-solution" },
   { name: "Logistics & Supply Chain", link: "/industries/logistics-supply-chain" },
-];
+].map(item => ({
+  ...item,
+  id: item.link.split("/").pop() || ""   
+}));
 
 
 const Footer = () => {

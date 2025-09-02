@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 export const CareerCard = ({ job }: {
     job: {
+        id: string;
         name: string;
         icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
         title: string;
@@ -89,15 +90,15 @@ export const CareerCard = ({ job }: {
                 <span className="font-medium">{job.location}</span>
             </div>
 
-            <Button
-                size="sm"
+            <Link href={`/careers/${job.id}`} passHref
+                // size="sm"
                 className="group/btn relative overflow-hidden bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent border border-accent/20 hover:border-accent-foreground rounded-full px-6 py-2 font-semibold transition-all duration-300 hover:scale-105"
             >
                 <span className="relative z-10 flex items-center gap-2">
                     Apply Now
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </span>
-            </Button>
+            </Link>
         </div>
 
         {/* Hover Effect Gradient Border */}
@@ -159,7 +160,7 @@ export const HeroCard = ({ items }: { items: typeof socialMediaCards }) => {
                                         transition-all duration-300
                                     `}>
                                         <span className="text-2xl group-hover:text-white transition-colors duration-300">
-                                            <item.icon className='text-muted-foreground group-hover:text-foreground'/>
+                                            <item.icon className='text-muted-foreground group-hover:text-foreground' />
                                         </span>
                                     </div>
 

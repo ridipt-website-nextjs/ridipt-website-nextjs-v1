@@ -56,19 +56,21 @@ const page = () => {
 
 
             {/* Application Form Section */}
-            <ApplicationFormSection
-                heading="Didn’t find a role that fits you?"
-                subheading="We’d still love to hear from you!"
-                description="Share your details and upload your CV. Even if the current openings don’t match your profile, we’ll keep your application on file and reach out when a suitable opportunity becomes available."
-                content={<>
-                    <ApplicationForm
-                        applicationFormFields={applicationFormFields as any[]}
-                        onSubmit={handleFormSubmit}
-                    />
-                </>}
-                subSection={false}
-                className="!mt-0 mb-10"
-            />
+            <Section id='application-form' >
+                <ApplicationFormSection
+                    heading="Didn’t find a role that fits you?"
+                    subheading="We’d still love to hear from you!"
+                    description="Share your details and upload your CV. Even if the current openings don’t match your profile, we’ll keep your application on file and reach out when a suitable opportunity becomes available."
+                    content={<>
+                        <ApplicationForm
+                            applicationFormFields={applicationFormFields as any[]}
+                            onSubmit={handleFormSubmit}
+                        />
+                    </>}
+                    subSection={false}
+                    className="!mt-0 mb-10"
+                />
+            </Section>
 
             {/* This is how we work */}
             <ProcessCardsSection
