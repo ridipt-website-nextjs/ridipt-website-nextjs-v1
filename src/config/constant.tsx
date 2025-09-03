@@ -120,7 +120,7 @@ export const vision = [
     {
         title: "Societal Contribution",
         description: "We continue to contribute to the society through several means as an expression of gratitude. We offer Industrial Training to college students while offering them exposure to various industry niches, along with blood donation camps on a periodic basis.",
-        image: require("@/assests/vision/Societal Contribution.jpg"),
+        image: require("@/assests/about-us/social.jpg"),
         isAnimation: false,
         highlights: [
             "Industrial Training Programs",

@@ -10,8 +10,8 @@ const portfolioData = [
         title: "E-Commerce Mobile App",
         description:
             "A seamless mobile shopping experience with secure payments and intuitive navigation.",
-        image: require('@assets/animations/animation1.json'),
-        isAnimation: true,
+        image: require('@assets/home/ecommerce.jpg'),
+        isAnimation: false,
         highlights: [
             "Cross-platform (iOS & Android) support",
             "Integrated secure payment gateway",
@@ -22,8 +22,8 @@ const portfolioData = [
         title: "Healthcare Appointment Platform",
         description:
             "A platform to book and manage doctor appointments with integrated telemedicine features.",
-        image: require('@assets/animations/animation1.json'),
-        isAnimation: true,
+        image: require('@assets/home/healthcare.jpg'),
+        isAnimation: false,
         highlights: [
             "Video consultation support",
             "Automated appointment reminders",
@@ -34,7 +34,7 @@ const portfolioData = [
         title: "Travel Booking Website",
         description:
             "User-friendly website for booking flights, hotels, and holiday packages.",
-        image: require('@assets/backgrounds/bg1.jpg'),
+        image: require('@assets/home/travel.jpg'),
         isAnimation: false,
         highlights: [
             "Advanced search & filtering",

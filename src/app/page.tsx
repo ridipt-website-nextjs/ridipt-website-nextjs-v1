@@ -19,6 +19,7 @@ import { shuffleArray } from "@/config/utils";
 import Image from "next/image";
 import { industries, partners } from "@/config/constant";
 import { FeatureItem } from "@/config/interface";
+import Testimonial from "@/components/testimonials";
 
 
 export default function Home() {
@@ -43,9 +44,9 @@ export default function Home() {
       <IndusterySection industry={industries as FeatureItem[]} />
 
       <PartnerSection companies={partners} />
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-center">
         <div
-          className="flex relative items-center my-8 flex-col gap-0 justify-start w-full max-w-7xl mx-auto mb-[1rem]"
+          className="flex  relative items-center my-8 flex-col gap-0 justify-start w-full max-w-7xl mx-auto mb-[1rem]"
         >
           {/* <div className="absolute inset-0 -z-1  [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
             <GridPattern />
@@ -58,10 +59,11 @@ export default function Home() {
           />
         </div>
 
-        <AnimatedTestimonialsDemo />
-        <ContactSession />
+        {/* <AnimatedTestimonialsDemo /> */}
 
       </div>
+      <Testimonial />
+      <ContactSession />
     </>
   );
 }
