@@ -43,11 +43,12 @@ interface CaptchaFormField extends BaseFormField {
     type: 'captcha';
 }
 
-type FormField = TextFormField | SelectFormField | TextareaFormField | FileFormField | CaptchaFormField;
+export type FormField = TextFormField | SelectFormField | TextareaFormField | FileFormField | CaptchaFormField;
 
 interface ApplicationFormProps {
     applicationFormFields: FormField[];
     onSubmit: (formData: FormData) => Promise<void>;
+    className?: string;
 }
 
 interface FormErrors {
@@ -60,7 +61,8 @@ interface FormDataState {
 
 const ApplicationForm: React.FC<ApplicationFormProps> = ({
     applicationFormFields,
-    onSubmit
+    onSubmit,
+    className
 }) => {
     const [formData, setFormData] = useState<FormDataState>({});
     const [errors, setErrors] = useState<FormErrors>({});
@@ -404,7 +406,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
     };
 
     return (
-        <div className="w-full  mx-auto p-6 bg-card rounded-xl shadow-lg">
+        <div className={`${className} w-full  mx-auto p-6 bg-card rounded-xl shadow-lg`}>
             {/* <div className="text-center mb-8">
         <h2 className="text-3xl font-semibold text-gray-800 mb-2 truncate">
           Job Application Form

@@ -23,15 +23,67 @@ interface FormField {
   withCountryCode?: boolean;
 }
 
+const formFeildsDefault: FormField[] = [
+  {
+    name: 'firstName',
+    placeholder: 'First Name',
+    type: 'text',
+    required: true,
+    gridSpan: 'col-span-12 sm:col-span-6'
+  },
+  {
+    name: 'lastName',
+    placeholder: 'Last Name',
+    type: 'text',
+    required: true,
+    gridSpan: 'col-span-12 sm:col-span-6'
+  },
+  {
+    name: 'phone',
+    placeholder: 'Phone Number',
+    type: 'tel',
+    required: true,
+    withCountryCode: true,
+    gridSpan: 'col-span-12'
+  },
+  {
+    name: 'email',
+    placeholder: 'Email',
+    type: 'email',
+    required: true,
+    gridSpan: 'col-span-12'
+  },
+  {
+    name: 'company',
+    placeholder: 'Company (Optional)',
+    type: 'text',
+    required: false,
+    gridSpan: 'col-span-12'
+  },
+  {
+    name: 'projectDetails',
+    placeholder: 'Project Details',
+    type: 'textarea',
+    required: true,
+    gridSpan: 'col-span-12'
+  }
+]
+
 // Component props interface
 interface ContactSectionProps {
   className?: string;
   onSubmit?: (data: FormData) => void;
+  formFields?: FormField[];
+  showHeader?: boolean;
+  cardStyling?: string;
 }
 
-const ContactSection: React.FC<ContactSectionProps> = ({ 
+const ContactSection: React.FC<ContactSectionProps> = ({
   className = '',
-  onSubmit 
+  onSubmit,
+  formFields = formFeildsDefault,
+  showHeader = true,
+  cardStyling
 }) => {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
@@ -43,59 +95,12 @@ const ContactSection: React.FC<ContactSectionProps> = ({
     privacyAccepted: false
   });
 
-  // Form fields array with proper typing
-  const formFields: FormField[] = [
-    {
-      name: 'firstName',
-      placeholder: 'First Name',
-      type: 'text',
-      required: true,
-      gridSpan: 'col-span-12 sm:col-span-6'
-    },
-    {
-      name: 'lastName',
-      placeholder: 'Last Name',
-      type: 'text',
-      required: true,
-      gridSpan: 'col-span-12 sm:col-span-6'
-    },
-    {
-      name: 'phone',
-      placeholder: 'Phone Number',
-      type: 'tel',
-      required: true,
-      withCountryCode: true,
-      gridSpan: 'col-span-12'
-    },
-    {
-      name: 'email',
-      placeholder: 'Email',
-      type: 'email',
-      required: true,
-      gridSpan: 'col-span-12'
-    },
-    {
-      name: 'company',
-      placeholder: 'Company (Optional)',
-      type: 'text',
-      required: false,
-      gridSpan: 'col-span-12'
-    },
-    {
-      name: 'projectDetails',
-      placeholder: 'Project Details',
-      type: 'textarea',
-      required: true,
-      gridSpan: 'col-span-12'
-    }
-  ];
-
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
-    
+
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
@@ -104,7 +109,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    
+
     if (onSubmit) {
       onSubmit(formData);
     } else {
@@ -177,7 +182,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   };
 
   return (
-    <section className={`py-20 w-full relative overflow-hidden ${className}`}>
+    <section className={`py-20 px-4 w-full relative overflow-hidden ${className}`}>
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 ease-in-out transition-all bg-blue-200/30 dark:bg-blue-800/30 rounded-full blur-xl animate-pulse"></div>
@@ -185,15 +190,15 @@ const ContactSection: React.FC<ContactSectionProps> = ({
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-blue-200/20 to-purple-200/20 dark:from-blue-800/20 dark:to-purple-800/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto  relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <Header
+          {showHeader && <Header
             className='mb-12 '
             heading='Contact Us'
             subheading='Get in touch with us for any queries or concerns.'
             description={`Ready to transform your business? Let's discuss your project requirements and explore innovative solutions together.`}
-          />
+          />}
 
           {/* <div className="text-center flex flex-col gap-2 mb-12">
             <h4 className="text-pretty text-3xl  text-primary font-medium md:text-4xl">
@@ -203,9 +208,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({
               Ready to transform your business? Let's discuss your project requirements and explore innovative solutions together.
             </p>
           </div> */}
-          
+
           {/* Form Container */}
-          <div className="bg-card backdrop-blur-xl border border-muted rounded-3xl p-1 shadow-2xl">
+          <div className={`${cardStyling} bg-card backdrop-blur-xl border border-muted rounded-3xl p-1 shadow-2xl`}>
             <div className="bg-card backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-white/20">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Dynamic Form Fields */}
@@ -225,8 +230,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                   />
                   <label className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                     By sending this form I confirm that I have read and accept the{' '}
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="text-primary hover:text-primary/80 font-medium underline decoration-primary/30 hover:decoration-primary/60 transition-all"
                     >
                       Privacy Policy

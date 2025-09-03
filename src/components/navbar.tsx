@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { ModeToggle } from "./mode-toggle";
+import { useRouter } from "next/navigation";
 
 const services = [
     {
@@ -182,6 +183,7 @@ export const navItems = [
 
 export function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const router = useRouter();
 
     return (
         <div className="sticky top-0 z-50 w-full">
@@ -197,10 +199,11 @@ export function Navbar() {
                         </div>
 
                         <NavbarButton
-                            className="bg-secondary text-secondary-foreground hover:text-secondary hover:bg-secondary-foreground transition-all duration-300 ease-in-out"
+                            className="bg-secondary capitalize text-secondary-foreground hover:text-secondary hover:bg-secondary-foreground transition-all duration-300 ease-in-out"
                             variant="primary"
+                            onClick={()=>router.push('/get-in-touch')}
                         >
-                            Contact us
+                            get a quote
                         </NavbarButton>
                     </div>
                 </NavBody>
@@ -223,11 +226,11 @@ export function Navbar() {
 
                         <div className="flex w-full flex-col gap-4">
                             <NavbarButton
-                                onClick={() => setIsMobileMenuOpen(false)}
+                                onClick={()=>router.push('/get-in-touch')}
                                 variant="secondary"
-                                className="w-full"
+                                className="w-full capitalize"
                             >
-                                Contact us
+                                get a quote
                             </NavbarButton>
                         </div>
                     </MobileNavMenu>

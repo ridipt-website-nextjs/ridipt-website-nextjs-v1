@@ -27,6 +27,7 @@ const PartnersSection: React.FC<PartnersProps> = ({ companies }) => {
         {/* Header */}
         <Headers
           heading='Trusted Partners'
+          className='mx-auto'
           subheading='Technology Partners'
           description='We collaborate with industry leaders to deliver cutting-edge solutions and ensure the highest quality standards.'
         />

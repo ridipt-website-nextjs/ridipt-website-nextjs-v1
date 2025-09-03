@@ -36,7 +36,8 @@ export const TechServices = ({
   subheading,
   description,
   subSection = true,
-  CustomCard
+  CustomCard,
+  isAnimationShow = false
 
 }: {
   content: ContentItem[] | React.ReactNode;
@@ -46,6 +47,7 @@ export const TechServices = ({
   CustomCard?: (item: any, idx: any) => JSX.Element
   description?: string;
   subSection?: boolean;
+  isAnimationShow?: boolean;
 }) => {
   // Check if content is JSX or array
   const isArrayContent = Array.isArray(content);
@@ -142,24 +144,27 @@ export const TechServices = ({
             className="relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border border-border bg-card p-6 "
           >
             {/* Lines and bg  */}
-            <div
-              className={clsx(
-                "bg-linear-to-l absolute left-0 top-10 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
-                s.line,
-              )}
-            />
-            <div
-              className={clsx(
-                "bg-linear-to-l absolute bottom-[72px] left-0 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
-                s.line,
-              )}
-            />
-            <div
-              className={clsx(
-                "bg-linear-to-l absolute bottom-7 left-0 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
-                s.line,
-              )}
-            />
+            {isAnimationShow && <>
+              <div
+                className={clsx(
+                  "bg-linear-to-l absolute left-0 top-10 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
+                  s.line,
+                )}
+              />
+              <div
+                className={clsx(
+                  "bg-linear-to-l absolute bottom-[72px] left-0 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
+                  s.line,
+                )}
+              />
+              <div
+                className={clsx(
+                  "bg-linear-to-l absolute bottom-7 left-0 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
+                  s.line,
+                )}
+              />
+            </>
+            }
             <div className="absolute left-0 top-0 z-10 h-full w-full bg-card blur-3xl filter " />
             {/* -------- */}
             <div className="relative z-20 flex flex-col items-center gap-2 text-center">

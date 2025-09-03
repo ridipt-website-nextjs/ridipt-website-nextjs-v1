@@ -14,7 +14,6 @@ import IndusterySection from '@/components/industry-section';
 import PartnerSection from '@/components/partner-section';
 import PortofolioHighlight from '@/components/portfolio-highlights-section';
 import Header from '@/components/section-heading';
-import Footer from '@/components/footer';
 import ContactSession from '@/components/contact-sestion';
 import { shuffleArray } from "@/config/utils";
 import Image from "next/image";
@@ -36,7 +35,9 @@ export default function Home() {
       {/* <TabStack /> */}
 
 
-      <PortofolioHighlight />
+      <div className="w-full ">
+        <PortofolioHighlight />
+      </div>
       <TechnologyContainer />
 
       <IndusterySection industry={industries as FeatureItem[]} />
@@ -106,7 +107,7 @@ const TechnologyIcons = ({ direction, speed }: { direction?: "left" | "right" | 
 
     <InfiniteMovingCards
       items={shuffleArray(technologyIcons)}
-      component={(item, idx) => <>
+      component={(item, idx) =>
         <HoverBorderGradient
           key={idx}
           containerClassName="rounded-2xl p-0 group" // group class add karo
@@ -129,7 +130,7 @@ const TechnologyIcons = ({ direction, speed }: { direction?: "left" | "right" | 
             />
           </li>
         </HoverBorderGradient>
-      </>}
+      }
       direction={direction}
       speed={speed}
       className=""
