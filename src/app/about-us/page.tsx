@@ -10,7 +10,6 @@ import PortofolioHighlight from '@/components/portfolio-highlights-section';
 import { menifesto, vision } from '@/config/constant';
 import { FeatureItem } from '@/config/interface';
 
-
 const page = () => {
     return (
         <Structure>
