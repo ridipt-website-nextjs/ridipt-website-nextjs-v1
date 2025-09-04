@@ -13,7 +13,6 @@ import { FeatureItem } from '@/config/interface';
 const page = () => {
     return (
         <Structure>
-
             {/* About section */}
             <div className='w-full   mx-auto mb-12'>
                 <Section>
