@@ -84,7 +84,7 @@ export const vision = [
     {
         title: "Consistent Growth",
         description: "We have built a company that facilitates consistent growth for each employee, client, and the overall company in terms of monetary gains, knowledge, and solutions.",
-        image: require('@assets/vision/growth.jpg'),
+        image: require("@/assests/about-us/growth.jpg"),
         isAnimation: false,
         highlights: [
             "Employee Growth & Development",
@@ -96,8 +96,8 @@ export const vision = [
     {
         title: "Work Culture",
         description: "We aspire to provide a conducive work environment for our employees to encourage innovation and creativity in their ideas and execution. We believe in providing a holistic approach for the team so that they can refresh their energies and reinvigorate their creativity from time to time.",
-        image: require('@assets/animations/vision/work-culture.json'),
-        isAnimation: true,
+        image: require("@/assests/about-us/work-culture-1.jpg"),
+        isAnimation: false,
         highlights: [
             "Innovation & Creativity",
             "Collaborative Environment",
@@ -108,7 +108,7 @@ export const vision = [
     {
         title: "Customer Satisfaction",
         description: "We aspire to create and retain customers for the foreseeable future with effective communication and proper resolution of their issues. We extend reliable and flexible services to ensure utmost satisfaction for our end clients.",
-        image: require('@assets/vision/feedback.jpg'),
+        image: require("@/assests/about-us/customer-satisfaction-1.jpg"),
         isAnimation: false,
         highlights: [
             "Effective Communication",
@@ -120,7 +120,7 @@ export const vision = [
     {
         title: "Societal Contribution",
         description: "We continue to contribute to the society through several means as an expression of gratitude. We offer Industrial Training to college students while offering them exposure to various industry niches, along with blood donation camps on a periodic basis.",
-        image: require("@/assests/about-us/social.jpg"),
+        image: require("@/assests/about-us/Social-contribution-1.png"),
         isAnimation: false,
         highlights: [
             "Industrial Training Programs",
@@ -137,7 +137,7 @@ export const web_dev_services = [
         title: "E commerce Web Apps and Portal Development",
         description:
             "Our E commerce solutions like Shopify and magento development help you build a positive brand perception and effectively streamlining your business efficiency and expanding it across various geographies.",
-        image: require('@assets/our_services/web development/e-commerce.jpg'),
+        image: require('@assets/our_services/web development/ecommerce.png'),
         isAnimation: false,
         highlights: ["Shopify", "Magento Development", "Business Efficiency", "Brand Perception"]
     },
@@ -145,7 +145,7 @@ export const web_dev_services = [
         title: "Front End Development Services",
         description:
             "Integrate highly-responsive, smooth and user-friendly visual experience to your web apps with our development expertise providing you with sustainable business growth.",
-        image: require('@assets/our_services/web development/frontend.jpg'),
+        image: require('@assets/our_services/web development/Frontend.webp'),
         isAnimation: false,
         highlights: ["Highly-responsive", "User-friendly", "Visual Experience", "Sustainable Growth"]
     },
@@ -153,7 +153,7 @@ export const web_dev_services = [
         title: "Custom Website Development Services",
         description:
             "A convenient web application that is designed by analyzing your requirements and integration empowering technologies. We help you meet your unique solutions.",
-        image: require('@assets/our_services/web development/custom-development.jpg'),
+        image: require('@assets/our_services/web development/Custom.png'),
         isAnimation: false,
         highlights: ["Custom Web Apps", "Requirement Analysis", "Integration", "Unique Solutions"]
     },
@@ -161,7 +161,7 @@ export const web_dev_services = [
         title: "Back End Development Services",
         description:
             "Our scalable backend development services help you achieve enterprise level operational proficiency. Hire the best and reliable back end developers at Yudiz.",
-        image: require('@assets/our_services/web development/backend.jpg'),
+        image: require('@assets/our_services/web development/Back-end-1.webp'),
         isAnimation: false,
         highlights: ["Scalable Backend", "Operational Proficiency", "Reliable Developers", "Enterprise-level"]
     },
@@ -169,7 +169,7 @@ export const web_dev_services = [
         title: "Progressive Web app Development Services",
         description:
             "Deliver the best user experience through our top-notch progressive web app solutions and enable the user conversion ratio for your next-gen business.",
-        image: require('@assets/our_services/web development/Progressive.jpg'),
+        image: require('@assets/our_services/web development/pwa.png'),
         isAnimation: false,
         highlights: ["Progressive Web Apps", "User Experience", "Next-gen Business", "User Conversion"]
     },
@@ -177,7 +177,7 @@ export const web_dev_services = [
         title: "SaaS App Development Services",
         description:
             "A scaling service that eliminates the high cost operation for your business at the same time delivering a high-security wide network functionality.",
-        image: require('@assets/our_services/web development/SaaS.jpeg'),
+        image: require('@assets/our_services/web development/Saas-2.webp'),
         isAnimation: false,
         highlights: ["SaaS", "Cost-effective", "High Security", "Scalable Services"]
     }
