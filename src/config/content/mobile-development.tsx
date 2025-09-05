@@ -51,7 +51,7 @@ export const mobile_app_services = [
         title: "E-commerce Mobile Apps and Marketplace Development",
         description:
             "Our e-commerce mobile solutions help you build powerful shopping apps with seamless payment integration, inventory management, and user-friendly interfaces that drive sales and enhance customer loyalty across mobile platforms.",
-        image: require('@assets/our_services/mobile development/uiux_files/flat-design-ui-ux-background_23-2149093995.jpg'),
+        image: require('@assets/our_services/mobile development/uiux_files/E-commerce Mobile Apps -2.png'),
         isAnimation: false,
         highlights: ["Mobile Commerce", "Payment Integration", "User-friendly Interface", "Customer Loyalty"]
     },
@@ -59,7 +59,7 @@ export const mobile_app_services = [
         title: "Native Mobile App Development Services",
         description:
             "Leverage platform-specific capabilities with our native iOS and Android development expertise, delivering high-performance mobile applications with optimal user experience and seamless device integration.",
-        image: require('@assets/our_services/mobile development/hybrid-apps.jpg'),
+        image: require('@assets/our_services/mobile development/Nativee.webp'),
         isAnimation: false,
         highlights: ["Native iOS & Android", "High Performance", "Device Integration", "Optimal UX"]
     },
@@ -67,7 +67,7 @@ export const mobile_app_services = [
         title: "Custom Mobile App Development Services",
         description:
             "Transform your unique business requirements into powerful mobile applications. We analyze your specific needs and create tailored mobile solutions that give you a competitive advantage in the app marketplace.",
-        image: require('@assets/our_services/mobile development/native.jpg'),
+        image: require('@assets/our_services/mobile development/custom.png'),
         isAnimation: false,
         highlights: ["Custom Mobile Apps", "Business Requirements", "Tailored Solutions", "Competitive Advantage"]
     },
@@ -75,7 +75,7 @@ export const mobile_app_services = [
         title: "Cross-Platform Mobile Development Services",
         description:
             "Maximize your reach with our React Native and Flutter development expertise. Build once, deploy everywhere - cost-effective mobile solutions that work seamlessly across iOS and Android platforms.",
-        image: require('@assets/our_services/mobile development/testing_files/young-man-is-developing-mobile-application-data-collection-flat-2d-character-concept_130740-1744.jpg'),
+        image: require('@assets/our_services/mobile development/cross-platform.png'),
         isAnimation: false,
         highlights: ["React Native & Flutter", "Cross-platform", "Cost-effective", "iOS & Android"]
     },
@@ -83,7 +83,7 @@ export const mobile_app_services = [
         title: "Enterprise Mobile App Development Services",
         description:
             "Empower your workforce with robust enterprise mobile applications featuring advanced security, offline capabilities, and seamless integration with existing business systems for enhanced productivity.",
-        image: require('@assets/our_services/mobile development/Enterprise.jpg'),
+        image: require('@assets/our_services/mobile development/Enterprise Mobile App-1.jpg'),
         isAnimation: false,
         highlights: ["Enterprise Apps", "Advanced Security", "Offline Capabilities", "Business Integration"]
     },
@@ -91,7 +91,7 @@ export const mobile_app_services = [
         title: "Mobile App UI/UX Design Services",
         description:
             "Create engaging mobile experiences with our expert UI/UX design services. We craft intuitive, visually stunning interfaces that drive user engagement, retention, and positive app store ratings.",
-        image: require('@assets/our_services/mobile development/testing_files/young-people-stand-near-mobile-phone-screen-testing-program-mobile-application-flat-character-concept-web-design_130740-689.jpg'),
+        image: require('@assets/our_services/mobile development/Mobile App ui-1.jpg'),
         isAnimation: false,
         highlights: ["Mobile UI/UX", "Intuitive Design", "User Engagement", "App Store Ratings"]
     }
