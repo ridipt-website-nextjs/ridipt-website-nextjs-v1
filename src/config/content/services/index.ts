@@ -40,7 +40,8 @@ const servicesData = {
       subheading: 'Your Premier Website Development Partner',
       description: 'At Ridipt Technologies, we are a leading website development company with a team of skilled web developers dedicated to delivering outstanding solutions. We specialize in creating e-commerce platforms, web applications, and social networks that provide a seamless user experience—all delivered on time. Our commitment to best-in-class functionality and our ability to provide tailored solutions make us the ideal partner for your web development needs.',
       image: require('@assets/service/wev-dev new.webp'),
-      imageAlt: 'Web Development'
+      imageAlt: 'Web Development',
+        
     },
     servicesSection: {
       heading: 'Empowering Your Digital Presence',

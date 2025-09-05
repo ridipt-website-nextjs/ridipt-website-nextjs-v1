@@ -27,21 +27,21 @@ export const emerging_tech_services = [
     {
         title: "Data Science Solutions",
         description: "Turn data into actionable insights with advanced data science solutions. Our expertise lies in leveraging big data, predictive analytics, and machine learning to drive smarter decision-making and fuel business growth.",
-        image: require('@assets/our_services/emerging technology/data-science.jpg'),
+        image: require('@assets/our_services/emerging technology/Data-sci-1.png'),
         isAnimation: false,
         highlights: ["Big Data Analytics", "Predictive Analytics", "Business Intelligence", "Data-driven Decisions"]
     },
     {
         title: "Cloud Computing Solutions",
         description: "Transform your infrastructure with scalable cloud computing solutions. We provide comprehensive cloud migration, architecture design, and optimization services to ensure your business operates efficiently in the digital age.",
-        image: require('@assets/our_services/emerging technology/cloud-computing.jpg'),
+        image: require('@assets/our_services/emerging technology/Cloud Computing -1.png'),
         isAnimation: false,
         highlights: ["Cloud Migration", "Scalable Infrastructure", "Architecture Design", "Performance Optimization"]
     },
     {
         title: "IoT Development Services",
         description: "Connect your devices and systems with our comprehensive IoT development services. We create intelligent ecosystems that enable real-time monitoring, automation, and data collection for enhanced operational efficiency.",
-        image: require('@assets/our_services/emerging technology/iot.jpg'),
+        image: require('@assets/our_services/emerging technology/iot-img.png'),
         isAnimation: false,
         highlights: ["Device Connectivity", "Real-time Monitoring", "Smart Automation", "Data Collection"]
     }
