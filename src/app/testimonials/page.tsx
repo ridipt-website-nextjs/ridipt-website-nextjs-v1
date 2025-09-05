@@ -20,8 +20,9 @@ const page = () => {
                             <p className="text-pretty text-justify text-sm sm:text-base md:text-lg lg:text-xl font-light text-muted-foreground leading-relaxed space-y-4">
                                 Our clients' success stories speak volumes about our commitment to excellence. We are dedicated to providing top-notch services that drive real results. Here's what some of our valued clients have to say about their experience working with us.
                             </p>
-                            <Button variant={'ghost'}
-                                className='items-start mt-3 py-2 px-5 h-auto text-center transition-all ease-in-out capitalize rounded-2xl duration-300 whitespace-nowrap shadow bg-primary text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-border border border-primary '
+                            <Button 
+                                // variant={'ghost'}
+                                className='items-start mt-3 py-2 px-5 h-auto text-center transition-all ease-in-out capitalize rounded-2xl duration-300 whitespace-nowrap shadow  '
 
                             >Read more</Button>
                         </>}

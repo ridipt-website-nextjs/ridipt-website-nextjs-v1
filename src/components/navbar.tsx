@@ -199,9 +199,9 @@ export function Navbar() {
                         </div>
 
                         <NavbarButton
-                            className="bg-secondary capitalize text-secondary-foreground hover:text-secondary hover:bg-secondary-foreground transition-all duration-300 ease-in-out"
+                            className="dark:bg-secondary bg-accent-foreground capitalize text-secondary dark:text-secondary-foreground hover:dark:text-secondary hover:text-accent-foreground  hover:bg-secondary transition-all duration-300 ease-in-out"
                             variant="primary"
-                            onClick={()=>router.push('/get-in-touch')}
+                            onClick={() => router.push('/get-in-touch')}
                         >
                             get a quote
                         </NavbarButton>
@@ -209,7 +209,9 @@ export function Navbar() {
                 </NavBody>
 
                 {/* Mobile Navigation */}
-                <MobileNav>
+                <MobileNav
+                    className="!sticky top-0 !w-full"
+                >
                     <MobileNavHeader>
                         <NavbarLogo />
                         <MobileNavToggle
@@ -226,7 +228,7 @@ export function Navbar() {
 
                         <div className="flex w-full flex-col gap-4">
                             <NavbarButton
-                                onClick={()=>router.push('/get-in-touch')}
+                                onClick={() => router.push('/get-in-touch')}
                                 variant="secondary"
                                 className="w-full capitalize"
                             >

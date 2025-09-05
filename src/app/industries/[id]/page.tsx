@@ -39,6 +39,7 @@ const IndustryPage = () => {
                 heading={data.heroSection.heading}
                 subheading={data.heroSection.subheading}
                 description={data.heroSection.description}
+                imageURL={data.heroSection.image}
             />
 
             {/* Key Challenges Section */}
