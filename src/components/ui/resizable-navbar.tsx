@@ -137,14 +137,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         item.items ? (
           <div key={`nav-item-${idx}`} className="relative group">
             <span
-              className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 hover:text-popover-foreground"
+              className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 group-hover:text-accent-foreground/70"
               onMouseEnter={() => setHovered(idx)}
               onClick={onItemClick}
             >
               {item.name}
               <ChevronDown
                 size={20}
-                className="text-popover-foreground/60 transition-transform duration-300"
+                className="text-popover-foreground/60 group-hover:text-accent-foreground/70 transition-all duration-300"
                 style={{
                   transform: hovered === idx ? "rotate(180deg)" : "rotate(0deg)",
                   transition: "transform 0.3s ease"
@@ -160,7 +160,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                   <Link
                     key={`sub-item-${subIdx}`}
                     href={subItem.link!}
-                    className="block px-4 py-2 text-popover-foreground hover:text-popover hover:bg-popover-foreground transition-all ease-in-out duration-200"
+                    className="block px-4 py-2 text-popover-foreground hover:text-accent-foreground/70 hover:bg-primary/5 transition-all ease-in-out duration-200"
                     onClick={closeDropdown}
                   >
                     {subItem.name}
@@ -172,14 +172,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         ) : item.content ? (
           <div key={`nav-item-${idx}`} className="relative group">
             <span
-              className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 hover:text-popover-foreground"
+              className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 group-hover:text-accent-foreground/70"
               onMouseEnter={() => setHovered(idx)}
               onClick={onItemClick}
             >
               {item.name}
               <ChevronDown
                 size={20}
-                className="text-popover-foreground/60 transition-transform duration-300"
+                className="text-popover-foreground/60 group-hover:text-accent-foreground/70 transition-all duration-300"
                 style={{
                   transform: hovered === idx ? "rotate(180deg)" : "rotate(0deg)",
                   transition: "transform 0.3s ease"
@@ -189,7 +189,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {hovered === idx && (
               <motion.div
                 layoutId="hovered"
-                className="absolute bg-card left-1/2 transform translate-y-2 -translate-x-1/2 top-full mt-3 overflow-hidden w-[950px] overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
+                className="absolute bg-card left-1/2 transform translate-y-2 -translate-x-1/2 top-full overflow-hidden w-[950px] overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
               >
                 <div className="p-6" onClick={closeDropdown}>
                   {item.content}
@@ -201,7 +201,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           <Link
             onMouseEnter={() => setHovered(idx)}
             onClick={onItemClick}
-            className="relative px-4 py-2 text-popover-foreground/80 hover:text-popover-foreground"
+            className="relative px-4 py-2 text-popover-foreground/80 hover:text-accent-foreground/70 transition-all duration-300 ease-in-out"
             key={`link-${idx}`}
             href={item.link!}
           >
@@ -226,14 +226,14 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
     <motion.div
       animate={{
         backdropFilter: visible ? "blur(10px)" : "none",
-        // boxShadow: visible
-        //   ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-        //   : "none",
-        // width: visible ? "90%" : "100%",
+        boxShadow: visible
+          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
+          : "none",
+        width: visible ? "90%" : "100%",
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
         borderRadius: visible ? "4px" : "2rem",
-        // y: visible ? 20 : 0,
+        y: visible ? 20 : 0,
       }}
       transition={{
         type: "spring",
@@ -495,7 +495,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <a
-      href="#"
+      href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-popover-foreground"
     >
       <Image
@@ -504,7 +504,7 @@ export const NavbarLogo = () => {
         width={40}
         height={40}
       />
-      <span className="font-bold text-lg text-popover-foreground">RIDIPT</span>
+      <span className="font-bold text-lg text-popover-foreground hover:text-accent-foreground transition-all duration-300 ease-in-out">RIDIPT</span>
     </a>
   );
 };

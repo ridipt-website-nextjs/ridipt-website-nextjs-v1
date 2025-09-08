@@ -17,7 +17,7 @@ export const ServiceCard = ({ item, index: idx }: {
       key={idx}
       className='flex items-center gap-8 md:odd:flex-row-reverse my-10'
     >
-      <div className='relative z-10 flex h-16 w-16 shrink-0 items-center justify-center border border-border/50 bg-card'>
+      <div className='relative hidden lg:flex z-10  h-16 w-16 shrink-0 items-center justify-center border border-border/50 bg-card'>
         <span className='text-xl font-serif text-accent-foreground'>{idx + 1}</span>
       </div>
       <div className='grid md:grid-cols-2 gap-8 md:odd:flex-row-reverse border border-border/50 hover:border-border hover:shadow-lg transition-all duration-300 ease-in-out bg-card p-6'>

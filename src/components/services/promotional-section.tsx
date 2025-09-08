@@ -1,6 +1,7 @@
 import Section from '@/components/section-structure';
 import { NavbarButton } from '../ui/resizable-navbar';
 import Lottie from 'lottie-react';
+import { Button } from '../ui/button';
 
 // Promotional Section Component
 interface PromotionalSectionProps {
@@ -41,9 +42,9 @@ export const PromotionalSection: React.FC<PromotionalSectionProps> = ({
               <p className="text-lg text-muted-foreground lg:text-xl">{description}</p>
             </div>
             <div className='mt-5 align-bottom'>
-              <NavbarButton className="bg-primary text-secondary rounded-lg p-3 px-4 transition-all hover:text-primary hover:bg-secondary hover:border-primary border-2 border-[transparent] duration-300 ease-in-out" variant="primary">
+              <Button className="rounded-lg p-3 px-4 transition-all hover:border-accent-foreground border-2 border-[transparent] duration-300 ease-in-out" >
                 {buttonText}
-              </NavbarButton>
+              </Button>
             </div>
           </div>
           <div className='flex flex-1 mt-4 md:mt-0'>

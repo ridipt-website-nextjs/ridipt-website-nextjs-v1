@@ -142,11 +142,11 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
   position,
 }) => {
   return (
-    <div className="relative bg-white rounded-2xl p-8 m-5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+    <div className="relative bg-background rounded-2xl p-8 m-5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border">
       {/* Quote Icon */}
-      <div className="absolute -top-4 left-8 bg-blue-500 rounded-full p-3 shadow-lg">
+      <div className="absolute -top-4 left-8 bg-accent-foreground rounded-full p-3 shadow-lg">
         <svg 
-          className="w-6 h-6 text-white" 
+          className="w-6 h-6 text-secondary" 
           fill="currentColor" 
           viewBox="0 0 24 24"
         >
@@ -156,14 +156,14 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
 
       {/* Testimonial Text */}
       <div className="mt-8 mb-6">
-        <p className="text-gray-700 text-lg italic leading-relaxed text-center">
+        <p className="text-muted-foreground text-lg italic leading-relaxed text-center">
           "{details}"
         </p>
       </div>
 
       {/* Author Section */}
-      <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-        <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-200 flex-shrink-0">
+      <div className="flex items-center gap-4 pt-6 border-t border-border">
+        <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border flex-shrink-0">
           <Image 
             src={image} 
             alt={name}
@@ -173,8 +173,8 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
           />
         </div>
         <div className="flex-1">
-          <h4 className="font-semibold text-lg text-gray-900">{name}</h4>
-          <p className="text-sm text-gray-500">{position}</p>
+          <h4 className="font-semibold text-lg text-accent-foreground">{name}</h4>
+          <p className="text-sm text-muted-foreground">{position}</p>
         </div>
       </div>
     </div>
@@ -195,7 +195,7 @@ export const TestimonialsCard2: React.FC<SingleTestimonialProps> = ({
         
         {/* Left Section - Company Card */}
         <div className="flex-shrink-0 lg:w-80">
-          <div className="bg-gradient-to-br dark:bg-none dark:bg-secondary from-gray-50 to-gray-100 rounded-lg p-6 border-l-4 border-blue-500 relative">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:!bg-none dark:!bg-background rounded-lg p-6 border-l-4 border-blue-500 relative">
             {/* Logo Container */}
             <div className="w-20 h-20 bg-card rounded-lg shadow-sm flex items-center justify-center mb-4 border">
               <img 

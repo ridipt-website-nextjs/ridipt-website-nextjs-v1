@@ -36,7 +36,7 @@ const page = ({
         className={`relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border border-border bg-card p-6 ${className}`}
       >
         {/* Lines and bg */}
-        <div
+        {/* <div
           className={clsx(
             "bg-linear-to-l absolute left-0 top-10 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
             s.line,
@@ -53,7 +53,7 @@ const page = ({
             "bg-linear-to-l absolute bottom-7 left-0 h-px w-full from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
             s.line,
           )}
-        />
+        /> */}
         <div className="absolute left-0 top-0 z-10 h-full w-full bg-card blur-3xl filter " />
         {/* -------- */}
 

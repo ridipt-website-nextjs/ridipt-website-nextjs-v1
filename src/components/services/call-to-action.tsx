@@ -1,3 +1,4 @@
+import { Button } from "../ui/button";
 import { NavbarButton } from "../ui/resizable-navbar";
 
 interface CallToActionContentProps {
@@ -24,13 +25,13 @@ export const CallToActionContent: React.FC<CallToActionContentProps> = ({
             <h5 className="text-lg text-muted-foreground lg:text-xl">{subheading}</h5>
           </div>
           <div className="mt-5 align-bottom items-center flex flex-1 justify-center">
-            <NavbarButton
-              className="bg-primary text-secondary rounded-lg p-3 px-4 transition-all hover:text-primary hover:bg-secondary hover:border-primary border-2 border-[transparent] duration-300 ease-in-out"
-              variant="primary"
+            <Button
+              className=" rounded-lg p-3 px-4 transition-all hover:border-accent-foreground border-2 border-[transparent] duration-300 ease-in-out"
+              // variant="primary"
               onClick={onButtonClick}
             >
               {buttonText}
-            </NavbarButton>
+            </Button>
           </div>
         </div>
       </div>
