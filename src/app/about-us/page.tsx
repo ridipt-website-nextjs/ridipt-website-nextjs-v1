@@ -89,7 +89,6 @@ const page = () => {
                 heading='Our Manifesto'
             />
 
-
         </Structure>
     )
 }

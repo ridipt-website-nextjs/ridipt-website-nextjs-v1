@@ -6,42 +6,42 @@ export const emerging_tech_services = [
     {
         title: "DevOps Solutions",
         description: "Hiring our DevOps experts ensures a seamless and flexible process tailored to your needs. We embrace an agile approach to craft high-quality solutions that proficiently integrate software development and IT operations, enabling faster delivery cycles and enhanced collaboration.",
-        image: require('@assets/our_services/emerging technology/devOps.jpg'),
+        image: require('@assets/our_services/emerging technology/Devops-1.webp'),
         isAnimation: false,
         highlights: ["Software Development Integration", "IT Operations", "Faster Delivery Cycles", "Enhanced Collaboration"]
     },
     {
         title: "AI/ML Solutions",
         description: "Leverage the power of Artificial Intelligence and Machine Learning to transform your business into a faster, smarter, and more efficient enterprise. We utilize these revolutionary technologies to deliver data-driven insights and automate processes.",
-        image: require('@assets/our_services/emerging technology/ai.jpg'),
+        image: require('@assets/our_services/emerging technology/Ai-Ml.png'),
         isAnimation: false,
         highlights: ["Data-driven Insights", "Process Automation", "Predictive Analytics", "Smart Decision Making"]
     },
     {
         title: "Blockchain Solutions", 
         description: "Security, scalability, and transparency are the cornerstones of modern organizational success. We specialize in delivering cutting-edge blockchain solutions including smart contracts, decentralized systems, and secure transaction platforms.",
-        image: require('@assets/our_services/emerging technology/blockchain.jpg'),
+        image: require('@assets/our_services/emerging technology/Blockchaing solution.png'),
         isAnimation: false,
         highlights: ["Smart Contracts", "Decentralized Systems", "Security & Transparency", "Transaction Platforms"]
     },
     {
         title: "Data Science Solutions",
         description: "Turn data into actionable insights with advanced data science solutions. Our expertise lies in leveraging big data, predictive analytics, and machine learning to drive smarter decision-making and fuel business growth.",
-        image: require('@assets/our_services/emerging technology/data-science.jpg'),
+        image: require('@assets/our_services/emerging technology/Data-sci-1.png'),
         isAnimation: false,
         highlights: ["Big Data Analytics", "Predictive Analytics", "Business Intelligence", "Data-driven Decisions"]
     },
     {
         title: "Cloud Computing Solutions",
         description: "Transform your infrastructure with scalable cloud computing solutions. We provide comprehensive cloud migration, architecture design, and optimization services to ensure your business operates efficiently in the digital age.",
-        image: require('@assets/our_services/emerging technology/cloud-computing.jpg'),
+        image: require('@assets/our_services/emerging technology/Cloud Computing -1.png'),
         isAnimation: false,
         highlights: ["Cloud Migration", "Scalable Infrastructure", "Architecture Design", "Performance Optimization"]
     },
     {
         title: "IoT Development Services",
         description: "Connect your devices and systems with our comprehensive IoT development services. We create intelligent ecosystems that enable real-time monitoring, automation, and data collection for enhanced operational efficiency.",
-        image: require('@assets/our_services/emerging technology/iot.jpg'),
+        image: require('@assets/our_services/emerging technology/iot-img.png'),
         isAnimation: false,
         highlights: ["Device Connectivity", "Real-time Monitoring", "Smart Automation", "Data Collection"]
     }
