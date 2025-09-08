@@ -79,14 +79,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our AI/ML development process covers the complete journey — from data strategy and model design to deployment and continuous learning. With agile methodologies, we ensure intelligent, scalable, and high-performance AI/ML solutions tailored to your business needs.",
       processes: ai_ml_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "AI/ML Development Lifecycle",
       subheading: "Agile, Intelligent & Future-Ready",
       description: "Our AI/ML development process ensures accuracy, scalability, and long-term success. From data planning and model development to deployment and ongoing optimization, we follow a streamlined approach to build AI/ML solutions that adapt and evolve with your business.",
       processes: ai_ml_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -141,14 +141,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our blockchain development process covers the complete journey — from architecture design and smart contract development to deployment and continuous support. With agile methodologies, we ensure secure, scalable, and high-performance blockchain solutions tailored to your business needs.",
       processes: blockchain_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "Blockchain Development Lifecycle",
       subheading: "Agile, Secure & Future-Ready",
       description: "Our blockchain development process ensures security, scalability, and long-term success. From planning and smart contract development to deployment and ongoing support, we follow a streamlined approach to build blockchain solutions that adapt and evolve with your business.",
       processes: blockchain_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -203,14 +203,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our data science development process covers the complete journey — from data strategy and analytics design to model deployment and continuous insights generation. With agile methodologies, we ensure intelligent, scalable, and high-performance data science solutions tailored to your business needs.",
       processes: data_science_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "Data Science Development Lifecycle",
       subheading: "Agile, Intelligent & Future-Ready",
       description: "Our data science development process ensures accuracy, scalability, and long-term success. From data planning and model development to deployment and ongoing optimization, we follow a streamlined approach to build data science solutions that adapt and evolve with your business.",
       processes: data_science_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -265,14 +265,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our DevOps transformation process covers the complete journey — from infrastructure assessment and automation design to full-scale implementation and continuous support. With agile methodologies, we ensure efficient, secure, and scalable DevOps solutions tailored to your business needs.",
       processes: devops_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "DevOps Implementation Lifecycle",
       subheading: "Agile, Scalable & Future-Ready",
       description: "Our DevOps implementation process ensures efficiency, security, and long-term success. From planning and infrastructure-as-code to deployment automation and ongoing support, we follow a streamlined approach to build DevOps practices that adapt and grow with your business.",
       processes: devops_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -327,14 +327,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our Android app development process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure innovative, secure, and high-performance mobile applications tailored to your business needs.",
       processes: android_app_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "Android App Development Lifecycle",
       subheading: "Agile, Scalable & Future-Ready",
       description: "Our Android app development process ensures efficiency, scalability, and long-term success. From planning and coding to deployment and ongoing support, we follow a streamlined approach to build mobile applications that adapt and grow with your business.",
       processes: android_app_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -389,14 +389,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our Flutter app development process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure innovative, scalable, and high-performance cross-platform applications tailored to your business needs.",
       processes: flutter_app_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "Flutter App Development Lifecycle",
       subheading: "Agile, Scalable & Cross-Platform Ready",
       description: "Our Flutter app development process ensures efficiency, scalability, and long-term success. From planning and coding to deployment and ongoing support, we follow a streamlined approach to build cross-platform applications that adapt and grow with your business.",
       processes: flutter_app_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -451,14 +451,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our iOS app development process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure innovative, secure, and high-performance iOS applications tailored to your business needs.",
       processes: ios_app_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "iOS App Development Lifecycle",
       subheading: "Premium, Secure & Apple-Compliant",
       description: "Our iOS app development process ensures efficiency, security, and long-term success in Apple's ecosystem. From planning and coding to App Store deployment and ongoing support, we follow a streamlined approach to build iOS applications that adapt and grow with your business.",
       processes: ios_app_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -513,14 +513,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our React Native app development process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure innovative, scalable, and high-performance cross-platform applications tailored to your business needs.",
       processes: react_native_app_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "React Native App Development Lifecycle",
       subheading: "Agile, Scalable & Cross-Platform Ready",
       description: "Our React Native app development process ensures efficiency, scalability, and long-term success. From planning and coding to deployment and ongoing support, we follow a streamlined approach to build cross-platform applications that adapt and grow with your business.",
       processes: react_native_app_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -575,14 +575,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our static website development process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure fast, secure, and user-friendly websites tailored to your business needs.",
       processes: static_website_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "Static Website Development Lifecycle",
       subheading: "Efficient, Secure & Cost-Effective",
       description: "Our static website development process ensures efficiency, security, and long-term success. From planning and coding to deployment and ongoing support, we follow a streamlined approach to build websites that deliver exceptional performance.",
       processes: static_website_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -637,14 +637,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our MEAN/MERN process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure scalable, secure, and future-ready applications tailored to your business needs.",
       processes: mern_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "MERN Development Lifecycle",
       subheading: "Agile, Scalable & Future-Ready",
       description: "Our MERN development process ensures efficiency, scalability, and long-term success. From planning and coding to deployment and ongoing support, we follow a streamlined approach to build applications that adapt and grow with your business.",
       processes: mern_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -699,14 +699,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our Next.js process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure scalable, secure, and future-ready applications tailored to your business needs.",
       processes: nextjs_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "Next.js Development Lifecycle",
       subheading: "Agile, Scalable & Future-Ready",
       description: "Our Next.js development process ensures efficiency, scalability, and long-term success. From planning and coding to deployment and ongoing support, we follow a streamlined approach to build applications that adapt and grow with your business.",
       processes: nextjs_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
@@ -761,14 +761,14 @@ const technologyData = {
       subheading: "From Research to Scalable Growth",
       description: "Our WordPress development process covers the complete journey — from research and design to full-cycle development and continuous support. With agile methodologies, we ensure user-friendly, scalable, and secure WordPress websites tailored to your business needs.",
       processes: wordpress_streamlining_development,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.red.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
     },
     businessProcessSection: {
       heading: "WordPress Development Lifecycle",
       subheading: "Efficient, Scalable & User-Friendly",
       description: "Our WordPress development process ensures efficiency, scalability, and long-term success. From planning and coding to deployment and ongoing support, we follow a streamlined approach to build WordPress websites that adapt and grow with your business.",
       processes: wordpress_business_process,
-      className: 'p-4 bg-[radial-gradient(circle,white,theme(colors.cyan.50),theme(colors.white),white)] dark:!bg-none dark:!bg-background'
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
     },
     faqSection: {
       header: {
