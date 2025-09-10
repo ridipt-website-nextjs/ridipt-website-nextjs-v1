@@ -76,7 +76,6 @@ export const CareerCard = ({ job }: {
                 )}
             </ul>
         </div>
-
         {/* Perks Preview */}
         <div className="mb-6">
             <h5 className="text-sm font-semibold text-foreground mb-2">Perks & Benefits:</h5>
