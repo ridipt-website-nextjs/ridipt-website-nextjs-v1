@@ -1,15 +1,18 @@
 
 import { Button } from '@/components/ui/button';
 import { socialMediaCards } from '@/config/content/careers';
-import { ArrowRight, LucideProps, MapPin } from 'lucide-react';
+import { ArrowRight, Briefcase, LucideProps, MapPin } from 'lucide-react';
 import Image from "next/image";
 import Link from 'next/link';
+import { AVAILABLE_ICONS as ICON_COMPONENTS } from '@/config/constant';
+
+
 
 export const CareerCard = ({ job }: {
     job: {
-        id: string;
+        job_id: string;
         name: string;
-        icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
+        icon?: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>> | string;
         title: string;
         description: string;
         type: string;
@@ -20,13 +23,21 @@ export const CareerCard = ({ job }: {
         perks: string[];
     }
 }) => {
+    let IconComponent;
+    if (typeof job.icon === 'string') {
+        IconComponent = ICON_COMPONENTS[job.icon as keyof typeof ICON_COMPONENTS] || ICON_COMPONENTS.Briefcase;
+    }
     return <div
         className="group relative bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:border-accent/50 hover:-translate-y-2"
     >
         {/* Header with Icon and Title */}
         <div className="flex items-start gap-4 mb-4">
             <div className="flex items-center justify-center w-14 h-14 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors duration-300">
-                <job.icon className="w-7 h-7 text-accent-foreground" />
+                {job.icon ?
+                    (typeof job.icon === 'string' && IconComponent) ?
+                        <IconComponent className="w-7 h-7 text-accent-foreground" />
+                        : <job.icon className="w-7 h-7 text-accent-foreground" /> :
+                    <Briefcase className="w-7 h-7 text-accent-foreground" />}
             </div>
             <div className="flex-1">
                 <h4 className="text-xl font-bold text-foreground group-hover:text-accent-foreground transition-colors duration-300 mb-2">
@@ -90,7 +101,7 @@ export const CareerCard = ({ job }: {
                 <span className="font-medium">{job.location}</span>
             </div>
 
-            <Link href={`/careers/${job.id}`} passHref
+            <Link href={`/careers/${job.job_id}`} passHref
                 // size="sm"
                 className="group/btn relative overflow-hidden bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent border border-accent/20 hover:border-accent-foreground rounded-full px-6 py-2 font-semibold transition-all duration-300 hover:scale-105"
             >

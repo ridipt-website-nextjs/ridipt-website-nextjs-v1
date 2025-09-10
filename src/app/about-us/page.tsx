@@ -4,11 +4,49 @@ import Section from '@/components/section-structure';
 import Header from '@/components/section-heading';
 import { LinkPreview } from '@/components/ui/link-preview';
 import Structure from '@/components/common/page-structure';
-import { StickyScrollRevealDemo as TechService } from "@/components/tech-services";
+import { TechServices } from "@/components/ui/sticky-scroll-reveal";
 import IndusterySection from '@/components/industry-section';
 import PortofolioHighlight from '@/components/portfolio-highlights-section';
 import { menifesto, vision } from '@/config/constant';
 import { FeatureItem } from '@/config/interface';
+
+import web from '@/assests/our_services/web.svg';
+import android from "@/assests/our_services/android.svg";
+import cloud from "@/assests/our_services/cloud.svg";
+import ai from "@/assests/our_services/ai.svg";
+import automation from '@/assests/our_services/automation.svg';
+const content = [
+    {
+        title: "Mobile App Development",
+        description:
+            "Build performant, scalable, and secure mobile applications for iOS and Android that meet your unique business needs.",
+        image: android,
+    },
+    {
+        title: "Web Application Development",
+        description:
+            "Create custom software tailored for your unique needs, including front-end and back-end solutions that drive results.",
+        image: web,
+    },
+    {
+        title: "Automation Testing",
+        description:
+            "Automate test case execution, compare actual and expected results, and ensure high-quality software releases.",
+        image: automation,
+    },
+    {
+        title: "AI and ML",
+        description:
+            "Use leading AI, machine learning, and data engineering technologies to unlock insights and drive innovation.",
+        image: ai,
+    },
+    {
+        title: "Cloud Services & DevOps",
+        description:
+            "Optimize your software development and deployment with our proficient cloud and DevOps services.",
+        image: cloud,
+    },
+];
 
 const page = () => {
     return (
@@ -66,7 +104,11 @@ const page = () => {
 
             {/* Services section */}
             <div className="relative  w-full ">
-                <TechService />
+                <TechServices
+                    content={content}
+                    heading="Tech Services"
+                    subSection={false}
+                />
             </div>
 
             {/* vision and mission */}

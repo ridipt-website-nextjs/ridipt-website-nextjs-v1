@@ -10,7 +10,7 @@ import { TestimonialsCard2, testimonialsData } from '@/components/testimonials';
 const page = () => {
     return (
         <Structure className=''>
-            <div className='flex flex-wrap-reverse !justify-start items-end pt-10 !container px-3 !flex-row !gap-20 !md:gap-60'>
+            <div className='flex flex-wrap-reverse !justify-start items-end pt-10 !container px-3 !flex-row !gap-1 !md:gap-60'>
                 <div className='flex-10 relative justify-baseline'>
                     <Header
                         heading='testimonials'

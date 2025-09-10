@@ -48,7 +48,7 @@ const ServicePage = () => {
                 subheading={data.heroSection.subheading}
                 description={data.heroSection.description}
                 content={
-                    <div className='relative overflow-hidden'>
+                    <div className='relative hidden md:flex overflow-hidden'>
                         <Image
                             src={data.heroSection.image}
                             alt={data.heroSection.imageAlt}

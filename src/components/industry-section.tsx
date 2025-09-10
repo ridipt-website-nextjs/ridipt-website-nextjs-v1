@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react'
 import Header from './section-heading';
 import { FeatureItem } from '@/config/interface';
+import Section from '@/components/section-structure';
 
 const page = ({ industry, heading, subheading, description, className, cardStyling, CustomCard }: {
     industry: FeatureItem[],
@@ -13,9 +14,9 @@ const page = ({ industry, heading, subheading, description, className, cardStyli
     CustomCard?: (item: FeatureItem, idx: number) => React.JSX.Element
 }) => {
     return (
-        <section className='my-20  '>
-            <section
-                className={`${className} flex flex-col  items-center justify-center w-full container mx-auto my-10 gap-10`}
+        <Section className='!gap-2  '>
+            <Section
+                className={`${className} flex flex-col  items-center justify-center w-full container mx-auto  gap-5`}
             >
 
                 {/* heading section */}
@@ -90,9 +91,9 @@ const page = ({ industry, heading, subheading, description, className, cardStyli
                         )
                     })}
                 </div>
-            </section>
-            <section
-                className='flex flex-col items-center justify-center my-3 mb-5  w-full container mx-auto  gap-10'
+            </Section>
+            <Section
+                className='flex flex-col items-center justify-center !my-0 !mb-0  w-full container mx-auto  gap-10'
             >
                 <article
                     className='flex flex-col justify-center gap-9 self-stretch rounded-xl bg-[rgba(var(--accent-500),0.1)] p-6 dark:bg-[rgba(var(--accent-600),0.1)] lg:flex-row lg:justify-between lg:p-1'
@@ -106,8 +107,8 @@ const page = ({ industry, heading, subheading, description, className, cardStyli
 
                     </div>
                 </article>
-            </section>
-        </section>
+            </Section>
+        </Section>
 
     )
 }

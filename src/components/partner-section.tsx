@@ -60,6 +60,7 @@ const PartnersSection: React.FC<PartnersProps> = ({ companies }) => {
             )}>
               <InfiniteMovingCards
                 items={companies as any[]}
+                className=''
                 component={(company, idx) => (
                   <div
                     key={idx}
@@ -76,7 +77,7 @@ const PartnersSection: React.FC<PartnersProps> = ({ companies }) => {
                         alt={`${company.name} logo`}
                         src={company.image}
                         width={128}
-                        height={80}
+                        height={100}
                         className={clsx(
                           "object-contain transition-all duration-300",
                           "opacity-70 group-hover:opacity-100",

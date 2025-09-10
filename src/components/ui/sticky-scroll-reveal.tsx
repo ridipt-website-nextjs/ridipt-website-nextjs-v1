@@ -54,7 +54,7 @@ export const TechServices = ({
   const isJSXContent = !isArrayContent;
 
   return (
-    <Section className={`mt-20 sm:mt-10 !w-full !relative  ${className}`}>
+    <Section className={`mt-8 sm:mt-8 !w-full !relative  ${className}`}>
       <div className="!w-full !relative">
 
         <div
@@ -138,7 +138,7 @@ export const TechServices = ({
         </div>
 
         {subSection && <section
-          className="py-10  md:py-[72px] flex flex-col items-center gap-10 relative container mx-auto px-6"
+          className="py-8  md:py-[50px] flex flex-col items-center gap-10 relative container mx-auto px-6"
         >
           <article
             className="relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border border-border bg-card p-6 "

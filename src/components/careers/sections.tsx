@@ -5,8 +5,9 @@ import { Button } from '@/components/ui/button';
 import {  ArrowRight, MapPin } from 'lucide-react';
 import { CareerCard } from './cards';
 import { careerJobs } from '@/config/content/careers';
+import { JobData } from '@/config/interface';
 
-export const CareerSection = ({ items }: { items: typeof careerJobs }) => {
+export const CareerSection = ({ items }: { items: JobData[] }) => {
     return (
         <Section className='!p-0 !m-0 !pt-10 !pb-10'>
             <Header

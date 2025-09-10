@@ -36,14 +36,14 @@ const TechnologyPage = () => {
     }
 
     return (
-        <Structure className=''>
+        <Structure className='!p-0'>
             {/* Hero Section */}
             <HeroSection
                 heading={data.heroSection.heading}
                 subheading={data.heroSection.subheading}
                 description={data.heroSection.description}
                 content={
-                    <div className='relative flex-1 overflow-hidden'>
+                    <div className='relative flex-1 hidden md:flex overflow-hidden'>
                         <Image
                             src={data.heroSection.image}
                             alt={data.heroSection.imageAlt}
@@ -53,7 +53,7 @@ const TechnologyPage = () => {
                         />
                     </div>
                 }
-                className={data.heroSection.className}
+                className={`!max-w-none w-full ${data.heroSection.className}`}
                 subSection={false}
             />
 
@@ -69,10 +69,10 @@ const TechnologyPage = () => {
 
             {/* Call to Action Section */}
             <MessageSection
-                className={data.ctaSection.className}
+                className={` !my-0 ${data.ctaSection.className}`}
                 content={
                     <CallToActionContent
-                        className=''
+                        className='!my-0'
                         heading={data.ctaSection.heading}
                         subheading={data.ctaSection.subheading}
                         buttonText={data.ctaSection.buttonText}

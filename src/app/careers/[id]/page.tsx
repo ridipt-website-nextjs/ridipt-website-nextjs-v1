@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Structure from '@/components/common/page-structure';
 import { useParams, useRouter } from 'next/navigation';
 import { careerJobs } from '@/config/content/careers';
@@ -21,6 +21,7 @@ import JobSidebar from '@/components/job-detail/job-sidebar-section';
 import ApplicationForm from '@/components/careers/form';
 import { TechServices as ApplicationFormSection } from '@/components/ui/sticky-scroll-reveal';
 import { applicationFormFields } from '@/components/careers/content/form';
+import { adminApi } from '@/lib/admin-api-client';
 
 interface JobDetailsPageParams {
     id: string;
@@ -29,13 +30,39 @@ interface JobDetailsPageParams {
 const JobDetailsPage: React.FC = () => {
     const { id } = useParams();
     const [isOpen, setIsOpen] = useState(false)
+    const [job, setJob] = useState<JobData>()
+
     const router = useRouter();
-    const data: JobData | undefined = careerJobs.find((job: JobData) => job.id === id);
 
     const handleApplyNow = (): void => {
         setIsOpen(true);
         router.push('#application-form');
     };
+
+
+    const deleteJob = async () => {
+        try {
+            await adminApi.delete(`/jobs/${id}`);
+            router.back();
+        } catch (error) {
+            console.error("Failed to delete job:", error);
+        }
+    };
+
+
+
+    const fetchJobs = async () => {
+        const data = await adminApi.get(`/jobs/${id}`) as JobData
+        setJob(data)
+    }
+
+    useEffect(() => {
+        fetchJobs()
+    }, [])
+
+    const data: JobData | undefined = job || careerJobs.find((job: JobData) => job.job_id === id);
+
+
 
     const handleFormSubmit = async (formData: FormData): Promise<void> => {
         try {
@@ -90,7 +117,7 @@ const JobDetailsPage: React.FC = () => {
                 </Button>
 
                 {/* Header Section */}
-                <HeaderSection data={data} onApplyNow={handleApplyNow} />
+                <HeaderSection data={data} deleteJob={deleteJob} onApplyNow={handleApplyNow} />
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

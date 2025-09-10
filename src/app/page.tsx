@@ -1,25 +1,62 @@
 'use client';
 import { linePoint, technologyIcons } from "@/assests/technology_icons";
-import { CardStack } from "@/components/card-stack";
 import { HeroParallaxDemo } from "@/components/hero-parallax";
 import { SubHeading } from "@/components/sub-heading";
-import { TabStack } from "@/components/tabs-stack";
-import { StickyScrollRevealDemo as TechService } from "@/components/tech-services";
-import { AnimatedTestimonialsDemo } from "@/components/testemonials";
+import { TechServices } from "@/components/ui/sticky-scroll-reveal";
 import { FlipWords } from "@/components/ui/flip-words";
-import { GridPattern } from "@/components/ui/grid-pattern";
 import { HoverBorderGradient } from "@/components/ui/hover-border-beam";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import IndusterySection from '@/components/industry-section';
 import PartnerSection from '@/components/partner-section';
 import PortofolioHighlight from '@/components/portfolio-highlights-section';
 import Header from '@/components/section-heading';
+import MessageSection from '@/components/message-section';
 import ContactSession from '@/components/contact-sestion';
 import { shuffleArray } from "@/config/utils";
 import Image from "next/image";
 import { industries, partners } from "@/config/constant";
 import { FeatureItem } from "@/config/interface";
 import Testimonial from "@/components/testimonials";
+
+import web from '@/assests/our_services/web.svg';
+import android from "@/assests/our_services/android.svg";
+import cloud from "@/assests/our_services/cloud.svg";
+import ai from "@/assests/our_services/ai.svg";
+import automation from '@/assests/our_services/automation.svg';
+import { CallToActionContent } from "@/components/services";
+
+const content = [
+  {
+    title: "Mobile App Development",
+    description:
+      "Build performant, scalable, and secure mobile applications for iOS and Android that meet your unique business needs.",
+    image: android,
+  },
+  {
+    title: "Web Application Development",
+    description:
+      "Create custom software tailored for your unique needs, including front-end and back-end solutions that drive results.",
+    image: web,
+  },
+  {
+    title: "Automation Testing",
+    description:
+      "Automate test case execution, compare actual and expected results, and ensure high-quality software releases.",
+    image: automation,
+  },
+  {
+    title: "AI and ML",
+    description:
+      "Use leading AI, machine learning, and data engineering technologies to unlock insights and drive innovation.",
+    image: ai,
+  },
+  {
+    title: "Cloud Services & DevOps",
+    description:
+      "Optimize your software development and deployment with our proficient cloud and DevOps services.",
+    image: cloud,
+  },
+];
 
 
 export default function Home() {
@@ -28,9 +65,24 @@ export default function Home() {
       <HeroParallaxDemo />
       <div className="relative">
         {/* tech service we provided */}
-        <TechService />
+        <TechServices
+          content={content}
+          heading="Tech Services"
+          subSection={false}
+        />
 
-        {/* <CardStack /> */}
+        <MessageSection
+          className={`!bg-gradient-to-br from-blue-50 via-rose-50 to-orange-50 dark:!bg-none dark:!bg-card`}
+          content={
+            <CallToActionContent
+              className=''
+              heading={`Transforming Ideas into Success Stories`}
+              subheading={`We take pride in empowering businesses to thrive and distinguish themselves on the App Store, Google Play, and across their online presence.`}
+              buttonText={`Contact us`}
+              onButtonClick={() => alert("Button clicked!")}
+            />
+          }
+        />
       </div>
 
       {/* <TabStack /> */}

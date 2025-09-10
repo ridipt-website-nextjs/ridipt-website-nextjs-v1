@@ -1,5 +1,5 @@
 'use client';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Structure from '@/components/common/page-structure';
 import Section from '@/components/section-structure';
 import { CareerSection } from '@/components/careers/sections';
@@ -13,12 +13,15 @@ import { howWeWork } from '@/config/content/careers/how-we-work.content';
 import { perks_benefits } from '@/config/content/careers/perk.content';
 import { careerJobs, } from '@/config/content/careers';
 import { CareerHero } from '@/components/careers/hero-section';
+import { adminApi } from '@/lib/admin-api-client';
+import { JobData } from '@/config/interface';
 
 
 
 
 
 const page = () => {
+    const [jobs, setJobs] = useState<JobData[]>([])
     const handleFormSubmit = async (formData: FormData): Promise<void> => {
         try {
             console.log('Form data:', formData);
@@ -38,6 +41,16 @@ const page = () => {
             alert('Error submitting application. Please try again.');
         }
     };
+
+
+    const fetchJobs = async () => {
+        const data = await adminApi.get('/jobs/') as typeof careerJobs
+        setJobs([...data,...careerJobs])
+    }
+    useEffect(() => {
+        fetchJobs()
+    }, [])
+
     return (
         <Structure>
             {/* hero section */}
@@ -50,7 +63,7 @@ const page = () => {
             {/* Career Jobs Section */}
             <Section className="py-16">
                 <div className="container">
-                    <CareerSection items={careerJobs} />
+                    <CareerSection items={[...jobs]} />
                 </div>
             </Section>
 

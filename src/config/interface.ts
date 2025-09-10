@@ -56,9 +56,9 @@ export interface JobWorkEnvironment {
 }
 
 export interface JobData {
-  id: string;
+  job_id: string;
   name: string;
-  icon: LucideIcon;
+  icon: LucideIcon | string;
   title: string;
   description: string;
   detailedDescription: string;

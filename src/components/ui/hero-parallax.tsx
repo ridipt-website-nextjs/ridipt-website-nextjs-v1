@@ -8,6 +8,8 @@ import {
   MotionValue,
 } from "motion/react";
 import { FlipWords } from "./flip-words";
+import { Button } from "./button";
+import bgImage from '@assets/backgrounds/bg7.jpg'
 
 
 
@@ -56,10 +58,20 @@ export const HeroParallax = ({
     springConfig
   );
   return (
+    // pt-[calc(var(--header-height)+120px)] !-top-[calc(var(--header-height)+16px)] 
     <div
       ref={ref}
-      className="h-auto md:h-[100vh] py-40 pb-30 overflow-hidden  antialiased relative flex flex-col self-auto  [transform-style:preserve-3d]"
+      className="h-auto md:h-[100vh]  py-40  pb-30 overflow-hidden antialiased relative flex flex-col self-auto  [transform-style:preserve-3d]"
     >
+      {/* image container */}
+      <div
+        style={{
+          '--bg-image': `url(${bgImage.src || bgImage})`
+        } as React.CSSProperties}
+        className="bg-[image:var(--bg-image)] bg-cover mix-blend-color-burn bg-center absolute -inset-3"
+      />
+      {/* <div className="absolute left-0 top-0 z-10 h-full w-full blur-3xl filter " /> */}
+
       <Header />
       {/* <motion.div
         style={{
@@ -104,8 +116,8 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 items-baseline justify-start md:items-center md:justify-center flex flex-col md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold text-primary text-start md:text-center">
+    <div className="max-w-7xl relative mx-auto py-20 items-start justify-center flex flex-col  px-4 w-full  left-0 top-0 ">
+      <h1 className="text-2xl md:text-7xl font-bold text-secondary text-start ">
         Welcome to the Future of Application Development: <br />  <FlipWords
           words={[
             "Serverless Architecture",
@@ -116,9 +128,12 @@ export const Header = () => {
           className="!text-accent-foreground mt-3 !ml-0 !pl-0"
         />
       </h1>
-      <p className="max-w-2xl text-start md:text-center text-base md:text-xl mt-8 text-muted-foreground">
+      <p className="max-w-2xl text-start text-base md:text-xl mt-8 text-secondary/70">
         Revolutionize your applications with Ridipt Technologies. Build, deploy, and innovate without worrying about infrastructure.
       </p>
+      <Button
+        className="mt-10 p-6 rounded-full px-10"
+      >Share Your Idea</Button>
     </div>
   );
 };

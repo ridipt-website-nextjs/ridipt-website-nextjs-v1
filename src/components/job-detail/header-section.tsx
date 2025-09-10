@@ -1,16 +1,36 @@
 
-import React from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Clock, MapPin, Building2, Calendar, DollarSign } from 'lucide-react';
+import { Clock, MapPin, Building2, Calendar, DollarSign, Briefcase } from 'lucide-react';
 import { JobData } from '@/config/interface';
+import { AVAILABLE_ICONS as ICON_COMPONENTS } from '@/config/constant';
+import { isAdminUser } from '@/lib/helper-functions';
+
 
 interface HeaderSectionProps {
-  data: JobData;
-  onApplyNow: () => void;
+    data: JobData;
+    onApplyNow: () => void;
+    deleteJob: () => Promise<void>
 }
 
-const HeaderSection: React.FC<HeaderSectionProps> = ({ data, onApplyNow }) => {
+const HeaderSection: React.FC<HeaderSectionProps> = ({ data, onApplyNow, deleteJob}) => {
+    const [isAdmin, setIsAdmin] = useState(false)
+    let IconComponent;
+    if (typeof data.icon === 'string') {
+        IconComponent = ICON_COMPONENTS[data.icon as keyof typeof ICON_COMPONENTS] || ICON_COMPONENTS.Briefcase;
+    }
+
+    useEffect(() => {
+        const checkAdminStatus = async () => {
+            const data = await isAdminUser();
+            setIsAdmin(data);
+        };
+        checkAdminStatus();
+    }, []);
+
+
     return (
         <div className="bg-card rounded-2xl border border-border/50 p-8 mb-8 relative overflow-hidden">
             {/* Background Pattern */}
@@ -21,7 +41,12 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ data, onApplyNow }) => {
                     <div className='flex-6 flex gap-6'>
                         {/* Icon */}
                         <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20">
-                            <data.icon className="w-8 h-8 text-primary" />
+                            {data.icon ?
+                                (typeof data.icon === 'string' && IconComponent) ?
+                                    <IconComponent className="w-8 h-8 text-primary" />
+                                    : <data.icon className="w-8 h-8 text-primary" /> :
+                                <Briefcase className="w-8 h-8 text-primary" />}
+                            {/* <data.icon className="w-8 h-8 text-primary" /> */}
                         </div>
 
                         {/* Title and Meta */}
@@ -76,6 +101,14 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ data, onApplyNow }) => {
                     >
                         Apply Now
                     </Button>
+                    {isAdmin && <Button
+                        variant={'destructive'}
+                        onClick={deleteJob}
+                        className="px-8 py-3 flex-1  text-base font-medium"
+                        size="lg"
+                    >
+                        Delete
+                    </Button>}
                 </div>
 
                 {/* Description */}

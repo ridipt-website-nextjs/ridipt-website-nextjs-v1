@@ -71,7 +71,7 @@ const page = ({
 }: ServicesProps) => {
     return (
         <div className="w-full overflow-hidden">
-            <section className='flex flex-col items-center justify-center w-full container mx-auto my-20 gap-10 px-4'>
+            <section className='flex flex-col items-center justify-center w-full container mx-auto my-10 gap-10 px-4'>
                 <Header
                     heading={heading || 'Portfolio Highlights'}
                     subheading={subheading || 'Building Success Together'}

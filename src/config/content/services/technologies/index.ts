@@ -44,7 +44,7 @@ const technologyData = {
       image: require('@assets/service/technology/AI-ml.png'),
       imageAlt: 'AI/ML Solutions & Generative AI Services',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -108,7 +108,7 @@ const technologyData = {
       image: require('@assets/service/technology/blockchain-emerging.jpg'),
       imageAlt: 'Blockchain Development Services',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
       
     },
     servicesSection: {
@@ -172,7 +172,7 @@ const technologyData = {
       image: require('@assets/service/technology/Data Science Solutions -1.jpg'),
       imageAlt: 'Data Science Solutions & Services',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -236,7 +236,7 @@ const technologyData = {
       image: require('@assets/service/technology/Devops.png'),
       imageAlt: 'DevOps Consulting Services',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-            className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+            className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -300,7 +300,7 @@ const technologyData = {
       image: require('@assets/service/Android App Developers-1.png'),
       imageAlt: 'Android App Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -364,7 +364,7 @@ const technologyData = {
       image: require('@assets/service/technology/Flutter-1.png'),
       imageAlt: 'Flutter App Development',
       // className: '!mt-0 relative !w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -428,7 +428,7 @@ const technologyData = {
       image: require('@assets/service/technology/Ios.png'),
       imageAlt: 'iOS App Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -492,7 +492,7 @@ const technologyData = {
       image: require('@assets/service/technology/React-Neww.jpg'),
       imageAlt: 'React Native App Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -556,7 +556,7 @@ const technologyData = {
       image: require('@assets/service/html-css.jpg'),
       imageAlt: 'Static Website Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -620,7 +620,7 @@ const technologyData = {
       image: require('@assets/service/mean-mern.jpg'),
       imageAlt: 'Web Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
     },
     servicesSection: {
       heading: 'Our Services',
@@ -683,7 +683,7 @@ const technologyData = {
       image: require('@assets/service/Next Js.jpg'),
       imageAlt: 'Next.js Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {
@@ -747,7 +747,7 @@ const technologyData = {
       image: require('@assets/service/WordPress-3.webp'),
       imageAlt: 'WordPress Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
-      className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
 
     },
     servicesSection: {

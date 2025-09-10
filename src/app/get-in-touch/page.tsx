@@ -43,9 +43,31 @@ const page = () => {
     const router = useRouter();
 
     const handleSubmit = async (data: any) => {
-        console.log("Form Data Submitted: ", data);
-        alert("Form submitted successfully!");
-    }
+        try {
+            console.log(data)
+            const res = await fetch("/api/leads", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json();
+                alert(`Error: ${errorData.message || "Failed to submit form"}`);
+                return;
+            }
+
+            const result = await res.json();
+            console.log("Form submitted successfully:", result);
+            alert("Form submitted successfully!");
+        } catch (error: any) {
+            console.error("Error submitting form:", error);
+            alert("Something went wrong. Please try again.");
+        }
+    };
+
 
     const handleCareerClick = () => {
         router.push('/careers'); // Redirect to careers page
@@ -67,43 +89,43 @@ const page = () => {
                                         question, a business requirement, or need more information about our
                                         services, we're here to help you.
                                     </p>
-                                    
+
                                     {/* Tab Buttons */}
                                     <div className="flex items-center gap-1 w-fit bg-muted/50 p-1 rounded-lg border border-border/50">
                                         <button
                                             className="flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-medium bg-background text-foreground shadow-sm border border-border/50"
                                         >
-                                            <svg 
-                                                className="w-4 h-4" 
-                                                fill="none" 
-                                                stroke="currentColor" 
+                                            <svg
+                                                className="w-4 h-4"
+                                                fill="none"
+                                                stroke="currentColor"
                                                 viewBox="0 0 24 24"
                                             >
-                                                <path 
-                                                    strokeLinecap="round" 
-                                                    strokeLinejoin="round" 
-                                                    strokeWidth={2} 
-                                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" 
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                                                 />
                                             </svg>
                                             Business inquiry
                                         </button>
-                                        
+
                                         <button
                                             onClick={handleCareerClick}
                                             className="flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-all duration-200"
                                         >
-                                            <svg 
-                                                className="w-4 h-4" 
-                                                fill="none" 
-                                                stroke="currentColor" 
+                                            <svg
+                                                className="w-4 h-4"
+                                                fill="none"
+                                                stroke="currentColor"
                                                 viewBox="0 0 24 24"
                                             >
-                                                <path 
-                                                    strokeLinecap="round" 
-                                                    strokeLinejoin="round" 
-                                                    strokeWidth={2} 
-                                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M8 6v10a2 2 0 002 2h4a2 2 0 002-2V6" 
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M8 6v10a2 2 0 002 2h4a2 2 0 002-2V6"
                                                 />
                                             </svg>
                                             Career
@@ -129,7 +151,7 @@ const page = () => {
                         className="items-start !max-w-none !mt-0 !pt-0 text-left"
                     />
                 </div>
-                
+
                 <div className='flex-1 basis-[300px] min-w-0 h-auto w-auto overflow-hidden'>
                     <h3 className="text-lg font-semibold text-foreground mb-4">Our Locations</h3>
 

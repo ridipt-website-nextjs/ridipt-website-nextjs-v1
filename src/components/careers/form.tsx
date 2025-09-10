@@ -24,6 +24,11 @@ interface TextFormField extends BaseFormField {
     type: 'text' | 'email';
 }
 
+interface PhoneFormField extends BaseFormField {
+    type: 'phone';
+    placeholder?: string;
+}
+
 interface SelectFormField extends BaseFormField {
     type: 'select';
     options: string[];
@@ -43,11 +48,11 @@ interface CaptchaFormField extends BaseFormField {
     type: 'captcha';
 }
 
-export type FormField = TextFormField | SelectFormField | TextareaFormField | FileFormField | CaptchaFormField;
+export type FormField = TextFormField | PhoneFormField | SelectFormField | TextareaFormField | FileFormField | CaptchaFormField;
 
 interface ApplicationFormProps {
     applicationFormFields: FormField[];
-    onSubmit: (formData: FormData) => Promise<void>;
+    onSubmit: (formData: FormData | any) => Promise<void>;
     className?: string;
 }
 
@@ -77,6 +82,30 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     };
 
+    // Phone number formatting function
+    const formatPhoneNumber = (value: string): string => {
+        // Remove all non-digits
+        const phoneNumber = value.replace(/\D/g, '');
+        
+        // Limit to 10 digits for Indian numbers
+        const limitedPhoneNumber = phoneNumber.slice(0, 10);
+        
+        // Format as XXX-XXX-XXXX
+        if (limitedPhoneNumber.length >= 6) {
+            return `${limitedPhoneNumber.slice(0, 3)}-${limitedPhoneNumber.slice(3, 6)}-${limitedPhoneNumber.slice(6)}`;
+        } else if (limitedPhoneNumber.length >= 3) {
+            return `${limitedPhoneNumber.slice(0, 3)}-${limitedPhoneNumber.slice(3)}`;
+        }
+        return limitedPhoneNumber;
+    };
+
+    // Phone number validation
+    const validatePhoneNumber = (phone: string): boolean => {
+        const phoneRegex = /^[6-9]\d{9}$/; // Indian mobile number pattern
+        const cleanPhone = phone.replace(/\D/g, '');
+        return phoneRegex.test(cleanPhone);
+    };
+
     const handleFileRemove = (name: string): void => {
         setFormData(prev => ({
             ...prev,
@@ -88,6 +117,21 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
         setFormData(prev => ({
             ...prev,
             [name]: value
+        }));
+
+        if (errors[name]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: ''
+            }));
+        }
+    };
+
+    const handlePhoneChange = (name: string, value: string): void => {
+        const formattedValue = formatPhoneNumber(value);
+        setFormData(prev => ({
+            ...prev,
+            [name]: formattedValue
         }));
 
         if (errors[name]) {
@@ -140,6 +184,12 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                 }
             }
 
+            if (field.type === 'phone' && fieldValue && typeof fieldValue === 'string') {
+                if (!validatePhoneNumber(fieldValue)) {
+                    newErrors[field.name] = 'Please enter a valid 10-digit mobile number';
+                }
+            }
+
             if (field.name === 'captcha' && field.required && !captchaVerified) {
                 newErrors[field.name] = 'Please verify that you are human';
             }
@@ -164,11 +214,16 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                 if (value instanceof File) {
                     submitData.append(key, value);
                 } else if (typeof value === 'string' && value.trim()) {
-                    submitData.append(key, value);
+                    // Clean phone number before submitting (remove dashes)
+                    const cleanValue = key.includes('phone') || key.includes('mobile') 
+                        ? value.replace(/\D/g, '') 
+                        : value;
+                    submitData.append(key, cleanValue);
                 }
             });
 
-            await onSubmit(submitData);
+            // For now passing formData, but can switch to submitData later
+            await onSubmit(formData);
         } catch (error) {
             console.error('Form submission error:', error);
         } finally {
@@ -200,10 +255,49 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                             id={name}
                             type={type}
                             value={value}
-                            onChange={(e: { target: { value: string; }; }) => handleInputChange(name, e.target.value)}
+                            onChange={(e) => handleInputChange(name, e.target.value)}
                             placeholder={`Enter ${label.toLowerCase()}`}
                             className={`w-full text-foreground ${error ? 'border-destructive focus-visible:ring-destructive' : ''}`}
                         />
+                        {error && (
+                            <p className="text-sm text-red-600 mt-1 truncate w-full" title={error}>
+                                {error}
+                            </p>
+                        )}
+                    </div>
+                );
+
+            case 'phone':
+                const phoneField = field as PhoneFormField;
+                return (
+                    <div key={name} className="w-full min-w-0">
+                        <Label
+                            htmlFor={name}
+                            className="block text-sm font-medium text-primary mb-2 truncate w-full"
+                            title={label}
+                        >
+                            <span className="truncate max-w-[200px] inline-block">
+                                {label}
+                            </span>
+                            {required && <span className="text-destructive ml-1">*</span>}
+                        </Label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span className="text-gray-500 text-sm">+91</span>
+                            </div>
+                            <Input
+                                id={name}
+                                type="tel"
+                                value={value}
+                                onChange={(e) => handlePhoneChange(name, e.target.value)}
+                                placeholder={phoneField.placeholder || "XXX-XXX-XXXX"}
+                                className={`w-full pl-12 text-foreground ${error ? 'border-destructive focus-visible:ring-destructive' : ''}`}
+                                maxLength={12} // XXX-XXX-XXXX format
+                            />
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                            Enter 10-digit mobile number (starting with 6-9)
+                        </p>
                         {error && (
                             <p className="text-sm text-red-600 mt-1 truncate w-full" title={error}>
                                 {error}
@@ -277,7 +371,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                         <Textarea
                             id={name}
                             value={value}
-                            onChange={(e: { target: { value: string; }; }) => handleInputChange(name, e.target.value)}
+                            onChange={(e) => handleInputChange(name, e.target.value)}
                             placeholder={`Enter ${label.toLowerCase()}`}
                             className={`w-full text-foreground min-h-[100px] resize-y ${error ? 'border-destructive focus-visible:ring-destructive' : ''}`}
                             rows={4}
@@ -361,7 +455,6 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                     </div>
                 );
 
-
             case 'captcha':
                 return (
                     <div key={name} className="w-full min-w-0">
@@ -376,10 +469,10 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                         </Label>
                         <div
                             className={`flex items-center space-x-3 p-4 border rounded-lg cursor-pointer transition-colors w-full max-w-[280px] ${captchaVerified
-                                    ? 'bg-green-50 border-green-200'
-                                    : error
-                                        ? 'bg-red-50 border-destructive'
-                                        : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                                ? 'bg-green-50 border-green-200'
+                                : error
+                                    ? 'bg-red-50 border-destructive'
+                                    : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
                                 }`}
                             onClick={() => setCaptchaVerified(!captchaVerified)}
                         >
@@ -406,16 +499,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
     };
 
     return (
-        <div className={`${className} w-full  mx-auto p-6 bg-card rounded-xl shadow-lg`}>
-            {/* <div className="text-center mb-8">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-2 truncate">
-          Job Application Form
-        </h2>
-        <p className="text-sm text-gray-600 truncate px-4">
-          Please fill out all required fields marked with an asterisk (*)
-        </p>
-      </div> */}
-
+        <div className={`${className} w-full mx-auto p-6 bg-card rounded-xl shadow-lg`}>
             <form onSubmit={handleSubmit} className="w-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {applicationFormFields.map(field => {

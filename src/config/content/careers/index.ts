@@ -26,7 +26,7 @@ export const socialMediaCards = [
 
 export const careerJobs = [
   {
-    id: "social-media-manager",
+    job_id: "social-media-manager",
     name: "instagram",
     icon: Instagram,
     title: "Social Media Manager",
@@ -150,7 +150,7 @@ export const careerJobs = [
   },
   
   {
-    id: "business-development-manager",
+    job_id: "business-development-manager",
     name: "linkedin",
     icon: Briefcase,
     title: "Business Development Manager",
@@ -274,7 +274,7 @@ export const careerJobs = [
   },
   
   {
-    id: "frontend-developer",
+    job_id: "frontend-developer",
     name: "developer",
     icon: Code,
     title: "Frontend Developer",
@@ -399,7 +399,7 @@ export const careerJobs = [
   },
   
   {
-    id: "ui-ux-designer",
+    job_id: "ui-ux-designer",
     name: "designer",
     icon: PenTool,
     title: "UI/UX Designer",
@@ -522,7 +522,7 @@ export const careerJobs = [
   },
   
   {
-    id: "hr-talent-acquisition-specialist",
+    job_id: "hr-talent-acquisition-specialist",
     name: "hr",
     icon: Users,
     title: "HR & Talent Acquisition Specialist",

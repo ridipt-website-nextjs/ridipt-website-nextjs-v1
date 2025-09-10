@@ -30,7 +30,7 @@ const page = ({
 }: PageProps) => {
   return (
     <Section
-      className="py-10 flex flex-col items-center gap-10 relative container mx-auto px-6"
+      className=" flex flex-col items-center gap-10 relative container mx-auto px-6"
     >
       <article
         className={`relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border border-border bg-card p-6 ${className}`}
