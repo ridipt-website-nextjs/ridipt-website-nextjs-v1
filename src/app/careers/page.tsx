@@ -24,19 +24,23 @@ const page = () => {
     const [jobs, setJobs] = useState<JobData[]>([])
     const handleFormSubmit = async (formData: FormData): Promise<void> => {
         try {
-            console.log('Form data:', formData);
+            console.log('Form data:', typeof formData);
+            // const plainFormData = Object.fromEntries(formData.entries());
 
             // Submit to your API
-            // const response = await fetch('/api/applications', {
-            //     method: 'POST',
-            //     body: formData,
-            // });
+            const response = await fetch('/api/applications', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-            // if (response.ok) {
-            //     alert('Application submitted successfully!');
-            // } else {
-            //     throw new Error('Submission failed');
-            // }
+            if (response.ok) {
+                alert('Application submitted successfully!');
+            } else {
+                throw new Error('Submission failed');
+            }
         } catch (error) {
             alert('Error submitting application. Please try again.');
         }
@@ -45,7 +49,7 @@ const page = () => {
 
     const fetchJobs = async () => {
         const data = await adminApi.get('/jobs/') as typeof careerJobs
-        setJobs([...data,...careerJobs])
+        setJobs([...data, ...careerJobs])
     }
     useEffect(() => {
         fetchJobs()
@@ -69,7 +73,7 @@ const page = () => {
 
 
             {/* Application Form Section */}
-            <Section id='application-form' >
+            <Section id='application-form' className='!px-0' >
                 <ApplicationFormSection
                     heading="Didn’t find a role that fits you?"
                     subheading="We’d still love to hear from you!"
@@ -78,10 +82,11 @@ const page = () => {
                         <ApplicationForm
                             applicationFormFields={applicationFormFields as any[]}
                             onSubmit={handleFormSubmit}
+                            className='!my-5 w-full'
                         />
                     </>}
                     subSection={false}
-                    className="!mt-0 mb-10"
+                    className="!mt-0 mb-5 !px-0"
                 />
             </Section>
 

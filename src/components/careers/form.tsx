@@ -21,7 +21,7 @@ interface BaseFormField {
 }
 
 interface TextFormField extends BaseFormField {
-    type: 'text' | 'email';
+    type: 'text' | 'email' | 'number';
 }
 
 interface PhoneFormField extends BaseFormField {
@@ -239,6 +239,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
         switch (type) {
             case 'text':
             case 'email':
+            case 'number':
                 return (
                     <div key={name} className="w-full min-w-0">
                         <Label
@@ -499,7 +500,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
     };
 
     return (
-        <div className={`${className} w-full mx-auto p-6 bg-card rounded-xl shadow-lg`}>
+        <div className={`${className} my-5 w-full mx-auto p-6 bg-card rounded-xl shadow-lg`}>
             <form onSubmit={handleSubmit} className="w-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {applicationFormFields.map(field => {

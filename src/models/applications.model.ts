@@ -13,7 +13,7 @@ export interface IApplication extends Document {
     | "HR & Talent Acquisition Specialist"
     | "Other";
   experience: "Fresher" | "0-1 years" | "1-3 years" | "3-5 years" | "5-10 years" | "10+ years";
-  cv: string; // File path / URL
+  cv?: string; // File path / URL
   companyName?: string;
   currentCTC?: string;
   expectedCTC?: string;
@@ -55,7 +55,7 @@ const applicationSchema: Schema = new Schema(
       enum: ["Fresher", "0-1 years", "1-3 years", "3-5 years", "5-10 years", "10+ years"],
     },
 
-    cv: { type: String, required: true }, // store file path / URL
+    // cv: { type: String, required: true }, // store file path / URL
 
     companyName: { type: String, required: false, trim: true },
     currentCTC: { type: String, required: false, trim: true },

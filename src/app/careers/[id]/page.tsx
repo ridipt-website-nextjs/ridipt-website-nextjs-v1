@@ -66,19 +66,23 @@ const JobDetailsPage: React.FC = () => {
 
     const handleFormSubmit = async (formData: FormData): Promise<void> => {
         try {
-            console.log('Form data:', formData);
+            console.log('Form data:', typeof formData);
+            // const plainFormData = Object.fromEntries(formData.entries());
 
             // Submit to your API
-            // const response = await fetch('/api/applications', {
-            //     method: 'POST',
-            //     body: formData,
-            // });
+            const response = await fetch('/api/applications', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-            // if (response.ok) {
-            //     alert('Application submitted successfully!');
-            // } else {
-            //     throw new Error('Submission failed');
-            // }
+            if (response.ok) {
+                alert('Application submitted successfully!');
+            } else {
+                throw new Error('Submission failed');
+            }
         } catch (error) {
             alert('Error submitting application. Please try again.');
         }

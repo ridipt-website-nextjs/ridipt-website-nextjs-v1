@@ -53,7 +53,7 @@ const page = () => {
         <Structure>
             {/* About section */}
             <div className='w-full   mx-auto mb-12'>
-                <Section>
+                <Section className='!w-full !relative !container !px-2'>
                     <Header
                         heading="About Us"
                         subheading="Who We Are"
@@ -97,7 +97,7 @@ const page = () => {
                                 </p>
                             </div>
                         }
-                        className="items-start text-left "
+                        className="items-start text-left !px-15 !max-w-none !container  "
                     />
                 </Section>
             </div>

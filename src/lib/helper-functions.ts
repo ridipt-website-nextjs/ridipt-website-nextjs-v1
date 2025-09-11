@@ -1,5 +1,5 @@
 'use server';
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 
 export const setCookie = async (key: string, token: string) => {
@@ -21,8 +21,25 @@ export const setCookie = async (key: string, token: string) => {
     }
 }
 
+export const getOrigin = async () => {
+    const headersList = await headers();
+
+    // Get host from headers
+    const host = headersList.get('host') ;
+    const protocol = headersList.get('x-forwarded-proto');
+
+    // Parse host
+    const [hostname, port] = host?.split(':')!;
+
+    const origin = `${protocol}://${host}`;
+    const baseUrl = origin;
+    console.log("baseUrl",baseUrl)
+    return baseUrl;
+}
+
 export const getCookie = async (key: string) => {
     const cookieStore = await cookies();
+
     const cookie = cookieStore.get(key);
     if (cookie) {
         return cookie.value

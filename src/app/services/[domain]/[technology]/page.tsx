@@ -76,7 +76,7 @@ const TechnologyPage = () => {
                         heading={data.ctaSection.heading}
                         subheading={data.ctaSection.subheading}
                         buttonText={data.ctaSection.buttonText}
-                        onButtonClick={() => alert("Button clicked!")}
+                        onButtonClick={() => router.push('/get-in-touch')}
                     />
                 }
             />
@@ -97,6 +97,7 @@ const TechnologyPage = () => {
                 subtitle={data.promotionalSection.subtitle}
                 description={data.promotionalSection.description}
                 buttonText={data.promotionalSection.buttonText}
+                onClick={() => router.push('/get-in-touch')}
                 animationData={data.promotionalSection.animationData}
             />
 

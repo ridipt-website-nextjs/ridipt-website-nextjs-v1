@@ -1,20 +1,21 @@
 // 'use server'
 
-import { getCookie } from "./helper-functions";
+import { getCookie, getOrigin } from "./helper-functions";
 
 class AdminApiClient {
     private baseURL: string;
     constructor(url: string) {
         // Fallback value provide करें
-        const baseUrl = process.env.APP_URL || 'http://localhost:3000';
-        this.baseURL = `${baseUrl}/api${url}`;
-        console.log(this.baseURL);
-    }
+        // const baseUrl = process.env.APP_URL || 'http://localhost:3000';
 
+        this.baseURL = `/api${url}`;
+    }
 
     private async request(endpoint: string, options: RequestInit = {}) {
         // Cookie 
         const token = await getCookie('adminToken');
+        const origin = await getOrigin();
+
 
         const headers: Record<string, string> = {
             "Content-Type": "application/json",
@@ -25,7 +26,7 @@ class AdminApiClient {
             headers["Authorization"] = `Bearer ${token}`;
         }
 
-        const response = await fetch(`${this.baseURL}${endpoint}`, {
+        const response = await fetch(`${origin}${this.baseURL}${endpoint}`, {
             ...options,
             headers,
             credentials: "include", // cookie भी जाएगी

@@ -2,6 +2,7 @@ import Section from '@/components/section-structure';
 import { NavbarButton } from '../ui/resizable-navbar';
 import Lottie from 'lottie-react';
 import { Button } from '../ui/button';
+import { MouseEventHandler } from 'react';
 
 // Promotional Section Component
 interface PromotionalSectionProps {
@@ -12,6 +13,7 @@ interface PromotionalSectionProps {
   buttonText: string;
   animationData: any;
   className?: string;
+  onClick: MouseEventHandler<HTMLButtonElement> | undefined
 }
 
 export const PromotionalSection: React.FC<PromotionalSectionProps> = ({
@@ -21,7 +23,8 @@ export const PromotionalSection: React.FC<PromotionalSectionProps> = ({
   description,
   buttonText,
   animationData,
-  className = ''
+  className = '',
+  onClick
 }) => {
   return (
     <Section className={className}>
@@ -42,7 +45,7 @@ export const PromotionalSection: React.FC<PromotionalSectionProps> = ({
               <p className="text-lg text-muted-foreground lg:text-xl">{description}</p>
             </div>
             <div className='mt-5 align-bottom'>
-              <Button className="rounded-lg p-3 px-4 transition-all hover:border-accent-foreground border-2 border-[transparent] duration-300 ease-in-out" >
+              <Button onClick={onClick} className="rounded-lg p-3 px-4 transition-all hover:border-accent-foreground border-2 border-[transparent] duration-300 ease-in-out" >
                 {buttonText}
               </Button>
             </div>

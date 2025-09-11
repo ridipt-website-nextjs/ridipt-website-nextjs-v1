@@ -223,3 +223,13 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
 }
+
+/* globals.css या component CSS में add करें */
+.testimonial-swiper .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
+
+.testimonial-swiper .swiper-wrapper {
+  align-items: stretch !important;
+}

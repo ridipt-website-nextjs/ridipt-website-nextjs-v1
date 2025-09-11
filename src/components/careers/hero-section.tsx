@@ -10,7 +10,7 @@ export const CareerHero = ({ heading, subheading, description }: {
 }) => {
     return <Section className={`relative !pt-0 !mt-0 !py-5 !pb-10 mb-0 max-w-none md:mt-5`}>
         <div className='container px-3 !flex flex-wrap !justify-start items-end !flex-row !gap-10 md:!gap-20'>
-            <div className='flex-1 relative pt-10 pl-8 basis-[500px] min-w-0'>
+            <div className='flex-1 relative pt-10 pl-0  basis-[500px] min-w-0'>
                 <Header
                     heading={heading}
                     subheading={subheading}

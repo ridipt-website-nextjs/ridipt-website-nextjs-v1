@@ -25,36 +25,19 @@ interface SingleTestimonialProps {
 // Testimonials data array
 export const testimonialsData: TestimonialData[] = [
   {
-    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", // business professional
-    details: "Working with this team has been absolutely incredible. Their attention to detail and commitment to excellence is unmatched. They delivered beyond our expectations!",
-    name: "Larry Diamond",
-    position: "Chief Executive Officer"
+    image: "https://img.icons8.com/3d-fluency/512/user-male-circle.png", // cartoon male avatar
+    details: "We partnered with Ridipt to build our healthcare web application's front end, and the results were outstanding. Their team demonstrated deep technical expertise, delivering a sleek, user-friendly interface that enhanced our platform's usability. The intuitive design improved patient engagement, while seamless navigation empowered healthcare providers to manage data efficiently. Ridipt's dedication to quality, timely delivery, and clear communication made the entire process stress-free. Highly recommended for anyone seeking top-notch web development services not only in the healthcare sector but also in other sectors!",
+    name: "Tarun Wanderer",
+    position: "Founder & CEO, Carer.ai"
   },
   {
-    image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39", // woman portrait
-    details: "The professionalism and expertise shown throughout our project was remarkable. They transformed our vision into reality with precision and creativity.",
-    name: "Sarah Johnson",
-    position: "Product Manager"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d", // man portrait
-    details: "Outstanding service from start to finish. The team's dedication and innovative approach helped us achieve results we never thought possible.",
-    name: "Michael Chen",
-    position: "Founder & CTO"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e", // woman smiling
-    details: "Exceptional quality and timely delivery. Their technical expertise combined with excellent communication made our collaboration seamless and productive.",
-    name: "Emily Rodriguez",
-    position: "Marketing Director"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e", // man smiling
-    details: "The level of innovation and problem-solving capabilities demonstrated by this team is truly impressive. They exceeded every milestone we set.",
-    name: "David Thompson",
-    position: "Operations Manager"
+    image: "https://img.icons8.com/3d-fluency/512/user-male-circle.png", // cartoon male avatar
+    details: "We used Ridipt as our off-shore Software Development team. Their work was professional and on time and within budget. Business team was a pleasure to deal with. Highly recommend!",
+    name: "Bharat Anadure",
+    position: "Founder & CEO, GreenVue"
   }
 ];
+
 
 
 const Testimonial: React.FC = () => {
@@ -80,6 +63,8 @@ const Testimonial: React.FC = () => {
           spaceBetween={20}
           loop={true}
           loopAdditionalSlides={2}
+          watchSlidesProgress={true}
+          autoHeight={false}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
@@ -94,7 +79,8 @@ const Testimonial: React.FC = () => {
               spaceBetween: 40,
             },
           }}
-          className="testimonial-swiper"
+          className="testimonial-swiper !pb-4"
+          style={{ minHeight: '400px' }}
         >
           {testimonialsData.map((testimonial, index) => (
             <SwiperSlide key={index}>
@@ -142,21 +128,21 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
   position,
 }) => {
   return (
-    <div className="relative bg-background rounded-2xl p-8 m-5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border">
+    <div className="relative flex flex-col justify-between bg-background rounded-2xl p-8 m-5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border">
       {/* Quote Icon */}
       <div className="absolute -top-4 left-8 bg-accent-foreground rounded-full p-3 shadow-lg">
-        <svg 
-          className="w-6 h-6 text-secondary" 
-          fill="currentColor" 
+        <svg
+          className="w-6 h-6 text-secondary"
+          fill="currentColor"
           viewBox="0 0 24 24"
         >
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
         </svg>
       </div>
 
       {/* Testimonial Text */}
-      <div className="mt-8 mb-6">
-        <p className="text-muted-foreground text-lg italic leading-relaxed text-center">
+      <div className="mt-8 mb-6 flex flex-1">
+        <p className="text-muted-foreground self-center text-lg italic leading-relaxed text-center">
           "{details}"
         </p>
       </div>
@@ -164,8 +150,8 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
       {/* Author Section */}
       <div className="flex items-center gap-4 pt-6 border-t border-border">
         <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border flex-shrink-0">
-          <Image 
-            src={image} 
+          <Image
+            src={image}
             alt={name}
             width={56}
             height={56}
@@ -182,29 +168,29 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
 };
 
 
-export const TestimonialsCard2: React.FC<SingleTestimonialProps> = ({ 
-  image, 
-  details, 
-  name, 
+export const TestimonialsCard2: React.FC<SingleTestimonialProps> = ({
+  image,
+  details,
+  name,
   position,
   className
 }) => {
   return (
     <div className={`"${className} bg-card rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-8 max-w-5xl mx-auto border border-primary/10`}>
       <div className="flex flex-col lg:flex-row gap-10 items-start">
-        
+
         {/* Left Section - Company Card */}
         <div className="flex-shrink-0 lg:w-80">
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:!bg-none dark:!bg-background rounded-lg p-6 border-l-4 border-blue-500 relative">
             {/* Logo Container */}
             <div className="w-20 h-20 bg-card rounded-lg shadow-sm flex items-center justify-center mb-4 border">
-              <img 
-                src={image} 
+              <img
+                src={image}
                 alt={name}
                 className="w-16 h-16 object-contain"
               />
             </div>
-            
+
             {/* Company Info */}
             <h3 className="text-2xl font-bold text-accent-foreground uppercase tracking-wider mb-2">
               {name}
@@ -212,7 +198,7 @@ export const TestimonialsCard2: React.FC<SingleTestimonialProps> = ({
             <p className="text-muted-foreground text-sm font-medium">
               {position}
             </p>
-            
+
             {/* Decorative Pattern */}
             <div className="absolute top-4 right-4 opacity-10">
               <div className="grid grid-cols-6 gap-1">
@@ -227,14 +213,14 @@ export const TestimonialsCard2: React.FC<SingleTestimonialProps> = ({
         {/* Right Section - Quote */}
         <div className="flex-1 relative py-4">
           {/* Opening Quote */}
-          <svg 
+          <svg
             className="absolute -top-2 -left-2 w-12 h-12 text-teal-400 opacity-50"
-            viewBox="0 0 24 24" 
+            viewBox="0 0 24 24"
             fill="currentColor"
           >
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
           </svg>
-          
+
           <div className="pl-8 pr-4">
             <p className="text-muted-foreground text-xl leading-relaxed font-light">
               {details}

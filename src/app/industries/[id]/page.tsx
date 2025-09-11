@@ -79,6 +79,7 @@ const IndustryPage = () => {
                 subtitle={data.ctaSection.subtitle}
                 description={data.ctaSection.description}
                 buttonText={data.ctaSection.buttonText}
+                onClick={() => router.push('/get-in-touch')}
                 animationData={data.ctaSection.animationData}
             />
 

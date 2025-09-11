@@ -10,6 +10,7 @@ import {
 import { FlipWords } from "./flip-words";
 import { Button } from "./button";
 import bgImage from '@assets/backgrounds/bg7.jpg'
+import Link from "next/link";
 
 
 
@@ -117,7 +118,7 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 items-start justify-center flex flex-col  px-4 w-full  left-0 top-0 ">
-      <h1 className="text-2xl md:text-7xl font-bold text-secondary text-start ">
+      <h1 className="text-2xl md:text-7xl font-bold text-secondary dark:text-primary text-start ">
         Welcome to the Future of Application Development: <br />  <FlipWords
           words={[
             "Serverless Architecture",
@@ -128,12 +129,13 @@ export const Header = () => {
           className="!text-accent-foreground mt-3 !ml-0 !pl-0"
         />
       </h1>
-      <p className="max-w-2xl text-start text-base md:text-xl mt-8 text-secondary/70">
+      <p className="max-w-2xl text-start text-base md:text-xl mt-8 text-secondary/70 dark:text-primary/70">
         Revolutionize your applications with Ridipt Technologies. Build, deploy, and innovate without worrying about infrastructure.
       </p>
-      <Button
+      <Link
+        href={'/get-in-touch'}
         className="mt-10 p-6 rounded-full px-10"
-      >Share Your Idea</Button>
+      >Share Your Idea</Link>
     </div>
   );
 };

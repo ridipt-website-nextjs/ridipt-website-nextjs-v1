@@ -88,7 +88,7 @@ const ServicePage = () => {
                         heading={data.ctaSection.heading}
                         subheading={data.ctaSection.subheading}
                         buttonText={data.ctaSection.buttonText}
-                        onButtonClick={() => alert("CTA button clicked!")}
+                        onButtonClick={() => router.push('/get-in-touch')}
                     />
                 }
             />
@@ -109,6 +109,7 @@ const ServicePage = () => {
                 description={data.promotionalSection.description}
                 buttonText={data.promotionalSection.buttonText}
                 animationData={data.promotionalSection.animationData}
+                onClick={() => router.push('/get-in-touch')}
             />
 
             {/* Process Cards Section */}
