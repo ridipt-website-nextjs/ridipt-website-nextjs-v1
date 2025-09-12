@@ -1,6 +1,5 @@
 import { Instagram,  Mail, Phone, Users, Briefcase,  Code, PenTool,  Building2 } from 'lucide-react';
 
-
 export const socialMediaCards = [
   {
     name: "glassdoor",
