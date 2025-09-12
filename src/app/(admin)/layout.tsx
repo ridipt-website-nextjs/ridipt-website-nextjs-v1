@@ -2,6 +2,8 @@
 import { redirect, RedirectType } from 'next/navigation'
 import { isAdminUser } from '@/lib/helper-functions'   // <- must stay async-/server-safe
 
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
 
 export default async function Layout({
     children,
