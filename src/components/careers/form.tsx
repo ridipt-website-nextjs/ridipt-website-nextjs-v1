@@ -54,6 +54,7 @@ interface ApplicationFormProps {
     applicationFormFields: FormField[];
     onSubmit: (formData: FormData | any) => Promise<void>;
     className?: string;
+    autoFilledData?: FormDataState
 }
 
 interface FormErrors {
@@ -67,9 +68,10 @@ interface FormDataState {
 const ApplicationForm: React.FC<ApplicationFormProps> = ({
     applicationFormFields,
     onSubmit,
-    className
+    className,
+    autoFilledData = {}
 }) => {
-    const [formData, setFormData] = useState<FormDataState>({});
+    const [formData, setFormData] = useState<FormDataState>(autoFilledData);
     const [errors, setErrors] = useState<FormErrors>({});
     const [loading, setLoading] = useState<boolean>(false);
     const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
@@ -86,10 +88,10 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
     const formatPhoneNumber = (value: string): string => {
         // Remove all non-digits
         const phoneNumber = value.replace(/\D/g, '');
-        
+
         // Limit to 10 digits for Indian numbers
         const limitedPhoneNumber = phoneNumber.slice(0, 10);
-        
+
         // Format as XXX-XXX-XXXX
         if (limitedPhoneNumber.length >= 6) {
             return `${limitedPhoneNumber.slice(0, 3)}-${limitedPhoneNumber.slice(3, 6)}-${limitedPhoneNumber.slice(6)}`;
@@ -215,8 +217,8 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                     submitData.append(key, value);
                 } else if (typeof value === 'string' && value.trim()) {
                     // Clean phone number before submitting (remove dashes)
-                    const cleanValue = key.includes('phone') || key.includes('mobile') 
-                        ? value.replace(/\D/g, '') 
+                    const cleanValue = key.includes('phone') || key.includes('mobile')
+                        ? value.replace(/\D/g, '')
                         : value;
                     submitData.append(key, cleanValue);
                 }
@@ -224,6 +226,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
 
             // For now passing formData, but can switch to submitData later
             await onSubmit(formData);
+            setFormData(autoFilledData)
         } catch (error) {
             console.error('Form submission error:', error);
         } finally {
@@ -255,6 +258,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                         <Input
                             id={name}
                             type={type}
+                            disabled={!!autoFilledData?.[name]}
                             value={value}
                             onChange={(e) => handleInputChange(name, e.target.value)}
                             placeholder={`Enter ${label.toLowerCase()}`}
@@ -290,6 +294,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                                 id={name}
                                 type="tel"
                                 value={value}
+                                disabled={!!autoFilledData?.[name]}
                                 onChange={(e) => handlePhoneChange(name, e.target.value)}
                                 placeholder={phoneField.placeholder || "XXX-XXX-XXXX"}
                                 className={`w-full pl-12 text-foreground ${error ? 'border-destructive focus-visible:ring-destructive' : ''}`}
@@ -316,12 +321,14 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                             title={label}
                         >
                             <span className="truncate max-w-[200px] inline-block">
+                                { }
                                 {label}
                             </span>
                             {required && <span className="text-destructive ml-1">*</span>}
                         </Label>
                         <Select
                             value={value}
+                            disabled={!!autoFilledData?.[name]}
                             onValueChange={(selectedValue: string) => handleInputChange(name, selectedValue)}
                         >
                             <SelectTrigger
@@ -336,16 +343,20 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                                 />
                             </SelectTrigger>
                             <SelectContent>
-                                {selectField.options.map((option, index) => (
-                                    <SelectItem key={index} value={option}>
-                                        <span
-                                            className="truncate text-foreground max-w-[250px] inline-block"
-                                            title={option}
-                                        >
-                                            {option}
-                                        </span>
-                                    </SelectItem>
-                                ))}
+                                {[
+                                    ...selectField.options,
+                                    ...(autoFilledData?.[name] ? [autoFilledData[name] as string] : [])
+                                ]
+                                    .map((option, index) => (
+                                        <SelectItem key={index} value={option}>
+                                            <span
+                                                className="truncate text-foreground max-w-[250px] inline-block"
+                                                title={option}
+                                            >
+                                                {option}
+                                            </span>
+                                        </SelectItem>
+                                    ))}
                             </SelectContent>
                         </Select>
                         {error && (
@@ -371,6 +382,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                         </Label>
                         <Textarea
                             id={name}
+                            disabled={!!autoFilledData?.[name]}
                             value={value}
                             onChange={(e) => handleInputChange(name, e.target.value)}
                             placeholder={`Enter ${label.toLowerCase()}`}
@@ -406,6 +418,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                             <Input
                                 id={name}
                                 type="file"
+                                disabled={!!autoFilledData?.[name]}
                                 accept={fileField.accept}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFileChange(name, e.target.files?.[0] || null)}
                                 className={`w-full cursor-pointer ${error ? 'border-red-500 focus-visible:ring-red-500' : ''}`}

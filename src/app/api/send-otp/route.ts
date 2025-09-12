@@ -127,7 +127,7 @@ export async function POST(req: Request) {
     // 📩 Send OTP via Email
     try {
       const emailService = new EmailService();
-      const htmlContent = emailService.generateOTPEmailHTML(otp, normalizedEmail,email.name);
+      const htmlContent = emailService.generateOTPEmailHTML(otp, normalizedEmail,admin.name);
 
       await emailService.sendEmail({
         to: normalizedEmail,

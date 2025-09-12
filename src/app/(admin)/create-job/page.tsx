@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Structure from '@/components/common/page-structure';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,19 +28,296 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import Header from '@/components/section-heading';
-import { 
+import {
     Plus, X, Briefcase, MapPin, DollarSign, GraduationCap, Users, Award, Check, ChevronsUpDown,
 } from 'lucide-react';
 import { adminApi } from '@/lib/admin-api-client';
 import { AVAILABLE_ICONS } from '@/config/constant';
 
+// ✅ Form Fields Configuration
+const jobFormFields = [
+    // Basic Information Section
+    {
+        section: "basic",
+        name: "name",
+        label: "Department/Brand",
+        type: "text",
+        required: true,
+        value: 'Ridipt Technology',
+        disabled: true,
+        placeholder: "e.g., Instagram",
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "basic",
+        name: "icon",
+        label: "Job Icon",
+        type: "icon-select",
+        required: true,
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "basic",
+        name: "title",
+        label: "Job Title",
+        type: "text",
+        required: true,
+        placeholder: "e.g., Social Media Manager",
+        gridCols: "md:col-span-2"
+    },
+    {
+        section: "basic",
+        name: "description",
+        label: "Short Description",
+        type: "textarea",
+        required: true,
+        placeholder: "Brief, engaging job summary...",
+        rows: 3,
+        gridCols: "md:col-span-2"
+    },
+    {
+        section: "basic",
+        name: "detailedDescription",
+        label: "Detailed Description",
+        type: "textarea",
+        required: true,
+        placeholder: "Comprehensive job overview with key responsibilities and what makes this role exciting...",
+        rows: 6,
+        gridCols: "md:col-span-2"
+    },
 
+    // Job Details Section
+    {
+        section: "details",
+        name: "type",
+        label: "Job Type",
+        type: "select",
+        required: true,
+        options: ["Full-time", "Part-time", "Contract", "Internship"],
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "details",
+        name: "location",
+        label: "Location",
+        type: "text",
+        required: true,
+        placeholder: "Remote / Hybrid / On-site",
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "details",
+        name: "department",
+        label: "Department",
+        type: "text",
+        required: true,
+        placeholder: "e.g., Marketing",
+        gridCols: "md:col-span-1"
+    },
 
-// Job data interface with icon field
+    // Salary Section
+    {
+        section: "salary",
+        name: "salary.min",
+        label: "Minimum Salary",
+        type: "number",
+        required: true,
+        placeholder: "40000",
+        gridCols: "lg:col-span-1"
+    },
+    {
+        section: "salary",
+        name: "salary.max",
+        label: "Maximum Salary",
+        type: "number",
+        required: true,
+        placeholder: "60000",
+        gridCols: "lg:col-span-1"
+    },
+    {
+        section: "salary",
+        name: "salary.currency",
+        label: "Currency",
+        type: "select",
+        required: true,
+        options: [
+            { value: "USD", label: "USD ($)" },
+            { value: "INR", label: "INR (₹)" },
+            { value: "EUR", label: "EUR (€)" }
+        ],
+        gridCols: "lg:col-span-1"
+    },
+    {
+        section: "salary",
+        name: "salary.period",
+        label: "Period",
+        type: "select",
+        required: true,
+        options: ["annually", "monthly", "hourly"],
+        gridCols: "lg:col-span-1"
+    },
+
+    // Experience Section
+    {
+        section: "experience",
+        name: "experience.level",
+        label: "Experience Level",
+        type: "select",
+        required: true,
+        options: ["Entry-level", "Mid-level", "Senior-level"],
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "experience",
+        name: "experience.yearsRequired",
+        label: "Years Required",
+        type: "select",
+        required: true,
+        options: [
+            "Fresher",
+            "0-1 years",
+            "1-3 years",
+            "3-5 years",
+            "5-10 years",
+            "10+ years",
+        ],
+        gridCols: "md:col-span-1"
+    },
+
+    // Education Section
+    {
+        section: "education",
+        name: "education.degree",
+        label: "Required Degree",
+        type: "text",
+        required: true,
+        placeholder: "e.g., Bachelor's degree",
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "education",
+        name: "education.alternatives",
+        label: "Education Alternatives",
+        type: "text",
+        required: false,
+        placeholder: "Equivalent experience or certifications",
+        gridCols: "md:col-span-1"
+    },
+
+    // Work Environment Section
+    {
+        section: "workEnvironment",
+        name: "workEnvironment.culture",
+        label: "Company Culture",
+        type: "text",
+        required: false,
+        placeholder: "e.g., Creative, collaborative, fast-paced",
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "workEnvironment",
+        name: "workEnvironment.teamSize",
+        label: "Team Size",
+        type: "text",
+        required: false,
+        placeholder: "e.g., 5-8 members",
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "workEnvironment",
+        name: "workEnvironment.reportingTo",
+        label: "Reports To",
+        type: "text",
+        required: false,
+        placeholder: "e.g., Marketing Director",
+        gridCols: "md:col-span-1"
+    },
+    {
+        section: "workEnvironment",
+        name: "workEnvironment.workStyle",
+        label: "Work Style",
+        type: "text",
+        required: false,
+        placeholder: "e.g., Hybrid with flexible hours",
+        gridCols: "md:col-span-1"
+    }
+];
+
+// ✅ Array Fields Configuration
+const jobArrayFields = [
+    {
+        section: "experience",
+        name: "experience.specificExperience",
+        label: "Specific Experience Requirements",
+        placeholder: "Add specific experience requirement"
+    },
+    {
+        section: "education",
+        name: "education.fields",
+        label: "Relevant Education Fields",
+        placeholder: "Add relevant education field"
+    },
+    {
+        section: "skills",
+        name: "responsibilities",
+        label: "Key Responsibilities",
+        placeholder: "Add job responsibility"
+    },
+    {
+        section: "skills",
+        name: "requiredSkills",
+        label: "Required Skills",
+        placeholder: "Add required skill"
+    },
+    {
+        section: "skills",
+        name: "technicalSkills",
+        label: "Technical Skills",
+        placeholder: "Add technical skill"
+    },
+    {
+        section: "skills",
+        name: "qualifications",
+        label: "Additional Qualifications",
+        placeholder: "Add qualification"
+    },
+    {
+        section: "benefits",
+        name: "benefits",
+        label: "Employee Benefits",
+        placeholder: "Add benefit"
+    },
+    {
+        section: "benefits",
+        name: "perks",
+        label: "Company Perks",
+        placeholder: "Add perk"
+    },
+    {
+        section: "benefits",
+        name: "growthOpportunities",
+        label: "Growth Opportunities",
+        placeholder: "Add growth opportunity"
+    },
+    {
+        section: "benefits",
+        name: "challenges",
+        label: "Key Challenges",
+        placeholder: "Add challenge"
+    },
+    {
+        section: "workEnvironment",
+        name: "workEnvironment.collaboratesWith",
+        label: "Collaborates With",
+        placeholder: "Add team or department"
+    }
+];
+
+// ✅ Job Data Interface
 interface JobData {
     job_id: string;
     name: string;
-    icon: string; // Icon name as string
+    icon: string;
     title: string;
     description: string;
     detailedDescription: string;
@@ -80,95 +357,148 @@ interface JobData {
     challenges: string[];
 }
 
+const defaultValue = {
+    job_id: '',
+    name: '',
+    icon: 'Briefcase',
+    title: '',
+    description: '',
+    detailedDescription: '',
+    type: '',
+    location: '',
+    department: '',
+    salary: {
+        min: 0,
+        max: 0,
+        currency: 'USD',
+        period: 'annually'
+    },
+    experience: {
+        level: '',
+        yearsRequired: '',
+        specificExperience: []
+    },
+    education: {
+        degree: '',
+        fields: [],
+        alternatives: ''
+    },
+    responsibilities: [],
+    requiredSkills: [],
+    technicalSkills: [],
+    qualifications: [],
+    workEnvironment: {
+        culture: '',
+        teamSize: '',
+        reportingTo: '',
+        collaboratesWith: [],
+        workStyle: ''
+    },
+    growthOpportunities: [],
+    benefits: [],
+    perks: [],
+    challenges: []
+}
+
 const CreateJobPage = () => {
-    const [jobData, setJobData] = useState<JobData>({
-        job_id: '',
-        name: '',
-        icon: 'Briefcase', // Default icon
-        title: '',
-        description: '',
-        detailedDescription: '',
-        type: '',
-        location: '',
-        department: '',
-        salary: {
-            min: 0,
-            max: 0,
-            currency: 'USD',
-            period: 'annually'
-        },
-        experience: {
-            level: '',
-            yearsRequired: '',
-            specificExperience: []
-        },
-        education: {
-            degree: '',
-            fields: [],
-            alternatives: ''
-        },
-        responsibilities: [],
-        requiredSkills: [],
-        technicalSkills: [],
-        qualifications: [],
-        workEnvironment: {
-            culture: '',
-            teamSize: '',
-            reportingTo: '',
-            collaboratesWith: [],
-            workStyle: ''
-        },
-        growthOpportunities: [],
-        benefits: [],
-        perks: [],
-        challenges: []
-    });
+    const [jobData, setJobData] = useState<JobData>(defaultValue);
 
     const [loading, setLoading] = useState(false);
     const [iconOpen, setIconOpen] = useState(false);
 
-    // Handle input changes
-    const handleInputChange = (field: string, value: string | number) => {
-        setJobData(prev => ({
-            ...prev,
-            [field]: value
-        }));
-    };
+    // ✅ Auto-generate job_id from title
+    useEffect(() => {
+        if (jobData.title) {
+            const autoJobId = `${jobData.title
+                .toLowerCase()
+                .replace(/[^a-z0-9\s]/g, '')
+                .replace(/\s+/g, '-')
+                .trim()}-${jobData.name
+                    .toLowerCase()
+                    .replace(/[^a-z0-9\s]/g, '')
+                    .replace(/\s+/g, '-')
+                    .trim()}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
 
-    // Handle nested object changes
-    const handleNestedChange = (section: string, field: string, value: string | number) => {
-        setJobData(prev => ({
-            ...prev,
-            [section]: {
-                ...((prev[section as keyof JobData] as object) || {}),
-                [field]: value
-            }
-        }));
-    };
-
-    // Handle array changes
-    const handleArrayChange = (field: string, values: string[]) => {
-        setJobData(prev => ({
-            ...prev,
-            [field]: values
-        }));
-    };
-
-    // Add item to array
-    const addArrayItem = (field: string, value: string) => {
-        if (value.trim()) {
-            const currentArray = jobData[field as keyof JobData] as string[];
-            handleArrayChange(field, [...currentArray, value.trim()]);
+            setJobData(prev => ({
+                ...prev,
+                job_id: autoJobId
+            }));
         }
+    }, [jobData.title]);
+
+    // ✅ ADDED - Form को default values से initialize करने के लिए
+    useEffect(() => {
+        const initializeFormWithDefaults = () => {
+            const initialData = { ...defaultValue };
+
+            // Field configurations से values populate करता है
+            jobFormFields.forEach(field => {
+                if ('value' in field && field.value !== undefined) {
+                    if (field.name.includes('.')) {
+                        // Handle nested properties like salary.currency
+                        const keys = field.name.split('.');
+                        let current = initialData as any;
+
+                        for (let i = 0; i < keys.length - 1; i++) {
+                            if (!current[keys[i]]) current[keys[i]] = {};
+                            current = current[keys[i]];
+                        }
+
+                        current[keys[keys.length - 1]] = field.value;
+                    } else {
+                        // Handle direct properties
+                        (initialData as any)[field.name] = field.value;
+                    }
+                }
+            });
+
+            setJobData(initialData);
+        };
+
+        initializeFormWithDefaults();
+    }, []); 
+
+
+    // ✅ Helper Functions
+    const getNestedValue = (obj: any, path: string) => {
+        return path.split('.').reduce((current, key) => current?.[key], obj);
     };
 
-    // Remove item from array
-    const removeArrayItem = (field: string, index: number) => {
-        const currentArray = jobData[field as keyof JobData] as string[];
-        handleArrayChange(field, currentArray.filter((_, i) => i !== index));
+    const handleDynamicChange = (fieldName: string, value: any) => {
+        // ✅ Find field configuration to check if disabled
+        const fieldConfig = jobFormFields.find(field => field.name === fieldName);
+
+        // ✅ Skip update if field is disabled
+        if (fieldConfig?.disabled) {
+            return;
+        }
+
+        if (fieldName.includes('.')) {
+            const keys = fieldName.split('.');
+            setJobData(prev => {
+                const newData = { ...prev };
+                let current: any = newData;
+
+                for (let i = 0; i < keys.length - 1; i++) {
+                    if (!current[keys[i]]) current[keys[i]] = {};
+                    current = current[keys[i]];
+                }
+
+                current[keys[keys.length - 1]] = fieldName.includes('salary') && (fieldName.includes('min') || fieldName.includes('max'))
+                    ? parseInt(value) || 0
+                    : value;
+                return newData;
+            });
+        } else {
+            setJobData(prev => ({
+                ...prev,
+                [fieldName]: value
+            }));
+        }
+        console.log(jobData)
     };
 
-    // Helper function to get nested array data
+    // ✅ Array Helper Functions
     const getArrayData = (field: string): string[] => {
         if (field.includes('.')) {
             const [section, subField] = field.split('.');
@@ -178,7 +508,6 @@ const CreateJobPage = () => {
         return jobData[field as keyof JobData] as string[] || [];
     };
 
-    // Helper function to add nested array item
     const addNestedArrayItem = (field: string, value: string) => {
         if (value.trim()) {
             if (field.includes('.')) {
@@ -194,12 +523,15 @@ const CreateJobPage = () => {
                     }
                 }));
             } else {
-                addArrayItem(field, value);
+                const currentArray = jobData[field as keyof JobData] as string[];
+                setJobData(prev => ({
+                    ...prev,
+                    [field]: [...currentArray, value.trim()]
+                }));
             }
         }
     };
 
-    // Helper function to remove nested array item
     const removeNestedArrayItem = (field: string, index: number) => {
         if (field.includes('.')) {
             const [section, subField] = field.split('.');
@@ -214,16 +546,20 @@ const CreateJobPage = () => {
                 }
             }));
         } else {
-            removeArrayItem(field, index);
+            const currentArray = jobData[field as keyof JobData] as string[];
+            setJobData(prev => ({
+                ...prev,
+                [field]: currentArray.filter((_, i) => i !== index)
+            }));
         }
     };
 
-    // Get current selected icon component
+    // ✅ Get current selected icon component
     const getCurrentIcon = () => {
         return AVAILABLE_ICONS[jobData.icon as keyof typeof AVAILABLE_ICONS] || Briefcase;
     };
 
-    // Section title component
+    // ✅ Section title component
     const SectionTitle = ({ icon: Icon, children }: { icon: any; children: React.ReactNode }) => (
         <CardTitle className="flex items-center gap-3 text-xl font-semibold text-primary">
             <Icon className="w-6 h-6" />
@@ -231,10 +567,10 @@ const CreateJobPage = () => {
         </CardTitle>
     );
 
-    // Icon selector component
+    // ✅ Icon Selector Component
     const IconSelector = () => {
         const [searchTerm, setSearchTerm] = useState('');
-        
+
         const filteredIcons = useMemo(() => {
             if (!searchTerm) return Object.keys(AVAILABLE_ICONS);
             return Object.keys(AVAILABLE_ICONS).filter(iconName =>
@@ -246,7 +582,7 @@ const CreateJobPage = () => {
 
         return (
             <div className="space-y-2">
-                <Label className="text-sm font-medium">Job Icon</Label>
+                <Label className="text-sm font-medium">Job Icon *</Label>
                 <Popover open={iconOpen} onOpenChange={setIconOpen}>
                     <PopoverTrigger asChild>
                         <Button
@@ -264,8 +600,8 @@ const CreateJobPage = () => {
                     </PopoverTrigger>
                     <PopoverContent className="w-full p-0" align="start">
                         <Command>
-                            <CommandInput 
-                                placeholder="Search icons..." 
+                            <CommandInput
+                                placeholder="Search icons..."
                                 value={searchTerm}
                                 onValueChange={setSearchTerm}
                             />
@@ -279,7 +615,7 @@ const CreateJobPage = () => {
                                                 key={iconName}
                                                 value={iconName}
                                                 onSelect={() => {
-                                                    handleInputChange('icon', iconName);
+                                                    handleDynamicChange('icon', iconName);
                                                     setIconOpen(false);
                                                     setSearchTerm('');
                                                 }}
@@ -288,9 +624,8 @@ const CreateJobPage = () => {
                                                 <IconComponent className="w-4 h-4" />
                                                 <span>{iconName}</span>
                                                 <Check
-                                                    className={`ml-auto h-4 w-4 ${
-                                                        jobData.icon === iconName ? "opacity-100" : "opacity-0"
-                                                    }`}
+                                                    className={`ml-auto h-4 w-4 ${jobData.icon === iconName ? "opacity-100" : "opacity-0"
+                                                        }`}
                                                 />
                                             </CommandItem>
                                         );
@@ -304,7 +639,7 @@ const CreateJobPage = () => {
         );
     };
 
-    // Array input component
+    // ✅ Array Input Component
     const ArrayInput = ({
         field,
         label,
@@ -370,7 +705,100 @@ const CreateJobPage = () => {
         );
     };
 
-    // Handle form submission
+    // ✅ Dynamic Form Field Renderer
+    const renderFormField = (field: any) => {
+        const value = field.value || getNestedValue(jobData, field.name);
+
+        switch (field.type) {
+            case 'text':
+            case 'number':
+                return (
+                    <div key={field.name} className={`space-y-2 ${field.gridCols || ''}`}>
+                        <Label className="text-sm font-medium">
+                            {field.label} {field.required && '*'}
+                        </Label>
+                        <Input
+                            type={field.type}
+                            disabled={!!field.disabled}
+                            value={value || ''}
+                            onChange={(e) => handleDynamicChange(field.name, e.target.value)}
+                            placeholder={field.placeholder}
+                            className="w-full"
+                            required={field.required}
+                        />
+                    </div>
+                );
+
+            case 'textarea':
+                return (
+                    <div key={field.name} className={`space-y-2 ${field.gridCols || ''}`}>
+                        <Label className="text-sm font-medium">
+                            {field.label} {field.required && '*'}
+                        </Label>
+                        <Textarea
+                            value={value || ''}
+                            onChange={(e) => handleDynamicChange(field.name, e.target.value)}
+                            placeholder={field.placeholder}
+                            rows={field.rows || 3}
+                            className="w-full resize-y"
+                            required={field.required}
+                        />
+                    </div>
+                );
+
+            case 'select':
+                return (
+                    <div key={field.name} className={`space-y-2 ${field.gridCols || ''}`}>
+                        <Label className="text-sm font-medium">
+                            {field.label} {field.required && '*'}
+                        </Label>
+                        <Select
+                            value={value || ''}
+                            onValueChange={(selectedValue) => handleDynamicChange(field.name, selectedValue)}
+                        >
+                            <SelectTrigger className="w-full">
+                                <SelectValue placeholder={`Select ${field.label.toLowerCase()}`} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {field.options?.map((option: any) => (
+                                    <SelectItem
+                                        key={typeof option === 'string' ? option : option.value}
+                                        value={typeof option === 'string' ? option : option.value}
+                                    >
+                                        {typeof option === 'string' ? option : option.label}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
+                );
+
+            case 'icon-select':
+                return (
+                    <div key={field.name} className={`${field.gridCols || ''}`}>
+                        <IconSelector />
+                    </div>
+                );
+
+            default:
+                return null;
+        }
+    };
+
+    // ✅ Group Fields by Section
+    const groupedFields = jobFormFields.reduce((acc, field) => {
+        if (!acc[field.section]) acc[field.section] = [];
+        acc[field.section].push(field);
+        return acc;
+    }, {} as Record<string, any[]>);
+
+    const groupedArrayFields = jobArrayFields.reduce((acc, field) => {
+        if (!acc[field.section]) acc[field.section] = [];
+        acc[field.section].push(field);
+        return acc;
+    }, {} as Record<string, any[]>);
+
+    // ✅ Handle Form Submission
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
@@ -386,6 +814,7 @@ const CreateJobPage = () => {
             alert('Error creating job');
         } finally {
             setLoading(false);
+            setJobData(defaultValue)
         }
     };
 
@@ -393,284 +822,87 @@ const CreateJobPage = () => {
         <Structure>
             <div className="mx-auto w-full max-w-6xl px-4 py-8 space-y-8">
                 <Header
-                    heading="Create New Job"
-                    subheading="Fill in the details below to create a comprehensive job posting"
-                    description="Make sure to provide clear job requirements, responsibilities, and qualifications so applicants understand the role fully."
+                    heading="Create Job Posting"
+                    subheading="Fill out the details to share your job with potential candidates"
+                    description="A well-written job post helps you reach and engage the right talent."
                     align="left"
                 />
 
+
                 <form onSubmit={handleSubmit} className="space-y-8">
-                    {/* Basic Information */}
+                    {/* ✅ Basic Information */}
                     <Card className="shadow-sm">
                         <CardHeader className="pb-4">
                             <SectionTitle icon={Briefcase}>Basic Information</SectionTitle>
                         </CardHeader>
-                        <CardContent className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="job_id" className="text-sm font-medium">Job ID *</Label>
-                                    <Input
-                                        id="job_id"
-                                        value={jobData.job_id}
-                                        onChange={(e) => handleInputChange('job_id', e.target.value)}
-                                        placeholder="e.g., social-media-manager"
-                                        className="w-full"
-                                        required
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="name" className="text-sm font-medium">Department/Brand *</Label>
-                                    <Input
-                                        id="name"
-                                        value={jobData.name}
-                                        onChange={(e) => handleInputChange('name', e.target.value)}
-                                        placeholder="e.g., Instagram"
-                                        className="w-full"
-                                        required
-                                    />
-                                </div>
-                                
-                                {/* Icon Selector */}
-                                <IconSelector />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="title" className="text-sm font-medium">Job Title *</Label>
-                                <Input
-                                    id="title"
-                                    value={jobData.title}
-                                    onChange={(e) => handleInputChange('title', e.target.value)}
-                                    placeholder="e.g., Social Media Manager"
-                                    className="w-full"
-                                    required
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="description" className="text-sm font-medium">Short Description *</Label>
-                                <Textarea
-                                    id="description"
-                                    value={jobData.description}
-                                    onChange={(e) => handleInputChange('description', e.target.value)}
-                                    placeholder="Brief, engaging job summary..."
-                                    rows={3}
-                                    className="w-full resize-y"
-                                    required
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="detailedDescription" className="text-sm font-medium">Detailed Description *</Label>
-                                <Textarea
-                                    id="detailedDescription"
-                                    value={jobData.detailedDescription}
-                                    onChange={(e) => handleInputChange('detailedDescription', e.target.value)}
-                                    placeholder="Comprehensive job overview with key responsibilities and what makes this role exciting..."
-                                    rows={6}
-                                    className="w-full resize-y"
-                                    required
-                                />
+                        <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {groupedFields.basic?.map(field => renderFormField(field))}
                             </div>
                         </CardContent>
                     </Card>
 
-                    {/* Job Details */}
+                    {/* ✅ Job Details */}
                     <Card className="shadow-sm">
                         <CardHeader className="pb-4">
                             <SectionTitle icon={MapPin}>Job Details</SectionTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div className="space-y-2">
-                                    <Label className="text-sm font-medium">Job Type *</Label>
-                                    <Select
-                                        value={jobData.type}
-                                        onValueChange={(value) => handleInputChange('type', value)}
-                                    >
-                                        <SelectTrigger className="w-full">
-                                            <SelectValue placeholder="Select type" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="Full-time">Full-time</SelectItem>
-                                            <SelectItem value="Part-time">Part-time</SelectItem>
-                                            <SelectItem value="Contract">Contract</SelectItem>
-                                            <SelectItem value="Internship">Internship</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="location" className="text-sm font-medium">Location *</Label>
-                                    <Input
-                                        id="location"
-                                        value={jobData.location}
-                                        onChange={(e) => handleInputChange('location', e.target.value)}
-                                        placeholder="Remote / Hybrid / On-site"
-                                        className="w-full"
-                                        required
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="department" className="text-sm font-medium">Department *</Label>
-                                    <Input
-                                        id="department"
-                                        value={jobData.department}
-                                        onChange={(e) => handleInputChange('department', e.target.value)}
-                                        placeholder="e.g., Marketing"
-                                        className="w-full"
-                                        required
-                                    />
-                                </div>
+                                {groupedFields.details?.map(field => renderFormField(field))}
                             </div>
                         </CardContent>
                     </Card>
 
-                    {/* Salary Information */}
+                    {/* ✅ Salary Information */}
                     <Card className="shadow-sm">
                         <CardHeader className="pb-4">
                             <SectionTitle icon={DollarSign}>Salary Information</SectionTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="salaryMin" className="text-sm font-medium">Minimum Salary *</Label>
-                                    <Input
-                                        id="salaryMin"
-                                        type="number"
-                                        value={jobData.salary.min || ''}
-                                        onChange={(e) => handleNestedChange('salary', 'min', parseInt(e.target.value) || 0)}
-                                        placeholder="40000"
-                                        className="w-full"
-                                        required
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="salaryMax" className="text-sm font-medium">Maximum Salary *</Label>
-                                    <Input
-                                        id="salaryMax"
-                                        type="number"
-                                        value={jobData.salary.max || ''}
-                                        onChange={(e) => handleNestedChange('salary', 'max', parseInt(e.target.value) || 0)}
-                                        placeholder="60000"
-                                        className="w-full"
-                                        required
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label className="text-sm font-medium">Currency</Label>
-                                    <Select
-                                        value={jobData.salary.currency}
-                                        onValueChange={(value) => handleNestedChange('salary', 'currency', value)}
-                                    >
-                                        <SelectTrigger className="w-full">
-                                            <SelectValue />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="USD">USD ($)</SelectItem>
-                                            <SelectItem value="INR">INR (₹)</SelectItem>
-                                            <SelectItem value="EUR">EUR (€)</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label className="text-sm font-medium">Period</Label>
-                                    <Select
-                                        value={jobData.salary.period}
-                                        onValueChange={(value) => handleNestedChange('salary', 'period', value)}
-                                    >
-                                        <SelectTrigger className="w-full">
-                                            <SelectValue />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="annually">Annually</SelectItem>
-                                            <SelectItem value="monthly">Monthly</SelectItem>
-                                            <SelectItem value="hourly">Hourly</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
+                                {groupedFields.salary?.map(field => renderFormField(field))}
                             </div>
                         </CardContent>
                     </Card>
 
-                    {/* Experience & Education */}
+                    {/* ✅ Experience & Education */}
                     <Card className="shadow-sm">
                         <CardHeader className="pb-4">
                             <SectionTitle icon={GraduationCap}>Experience & Education</SectionTitle>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Label className="text-sm font-medium">Experience Level</Label>
-                                    <Select
-                                        value={jobData.experience.level}
-                                        onValueChange={(value) => handleNestedChange('experience', 'level', value)}
-                                    >
-                                        <SelectTrigger className="w-full">
-                                            <SelectValue placeholder="Select level" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="Entry-level">Entry-level</SelectItem>
-                                            <SelectItem value="Mid-level">Mid-level</SelectItem>
-                                            <SelectItem value="Senior-level">Senior-level</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="yearsRequired" className="text-sm font-medium">Years Required</Label>
-                                    <Input
-                                        id="yearsRequired"
-                                        value={jobData.experience.yearsRequired}
-                                        onChange={(e) => handleNestedChange('experience', 'yearsRequired', e.target.value)}
-                                        placeholder="e.g., 2-4 years"
-                                        className="w-full"
-                                    />
-                                </div>
+                                {groupedFields.experience?.map(field => renderFormField(field))}
                             </div>
 
-                            <ArrayInput
-                                field="experience.specificExperience"
-                                label="Specific Experience Requirements"
-                                placeholder="Add specific experience requirement"
-                            />
+                            {/* Array fields for experience */}
+                            {groupedArrayFields.experience?.map(field => (
+                                <ArrayInput
+                                    key={field.name}
+                                    field={field.name}
+                                    label={field.label}
+                                    placeholder={field.placeholder}
+                                />
+                            ))}
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="degree" className="text-sm font-medium">Required Degree</Label>
-                                    <Input
-                                        id="degree"
-                                        value={jobData.education.degree}
-                                        onChange={(e) => handleNestedChange('education', 'degree', e.target.value)}
-                                        placeholder="e.g., Bachelor's degree"
-                                        className="w-full"
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="alternatives" className="text-sm font-medium">Education Alternatives</Label>
-                                    <Input
-                                        id="alternatives"
-                                        value={jobData.education.alternatives}
-                                        onChange={(e) => handleNestedChange('education', 'alternatives', e.target.value)}
-                                        placeholder="Equivalent experience or certifications"
-                                        className="w-full"
-                                    />
-                                </div>
+                                {groupedFields.education?.map(field => renderFormField(field))}
                             </div>
 
-                            <ArrayInput
-                                field="education.fields"
-                                label="Relevant Education Fields"
-                                placeholder="Add relevant education field"
-                            />
+                            {/* Array fields for education */}
+                            {groupedArrayFields.education?.map(field => (
+                                <ArrayInput
+                                    key={field.name}
+                                    field={field.name}
+                                    label={field.label}
+                                    placeholder={field.placeholder}
+                                />
+                            ))}
                         </CardContent>
                     </Card>
 
-                    {/* Skills & Requirements + Benefits & Growth */}
+                    {/* ✅ Skills & Benefits (Side by side) */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <Card className="shadow-sm">
                             <CardHeader className="pb-4">
@@ -680,26 +912,14 @@ const CreateJobPage = () => {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-6">
-                                <ArrayInput
-                                    field="responsibilities"
-                                    label="Key Responsibilities"
-                                    placeholder="Add job responsibility"
-                                />
-                                <ArrayInput
-                                    field="requiredSkills"
-                                    label="Required Skills"
-                                    placeholder="Add required skill"
-                                />
-                                <ArrayInput
-                                    field="technicalSkills"
-                                    label="Technical Skills"
-                                    placeholder="Add technical skill"
-                                />
-                                <ArrayInput
-                                    field="qualifications"
-                                    label="Additional Qualifications"
-                                    placeholder="Add qualification"
-                                />
+                                {groupedArrayFields.skills?.map(field => (
+                                    <ArrayInput
+                                        key={field.name}
+                                        field={field.name}
+                                        label={field.label}
+                                        placeholder={field.placeholder}
+                                    />
+                                ))}
                             </CardContent>
                         </Card>
 
@@ -711,91 +931,41 @@ const CreateJobPage = () => {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-6">
-                                <ArrayInput
-                                    field="benefits"
-                                    label="Employee Benefits"
-                                    placeholder="Add benefit"
-                                />
-                                <ArrayInput
-                                    field="perks"
-                                    label="Company Perks"
-                                    placeholder="Add perk"
-                                />
-                                <ArrayInput
-                                    field="growthOpportunities"
-                                    label="Growth Opportunities"
-                                    placeholder="Add growth opportunity"
-                                />
-                                <ArrayInput
-                                    field="challenges"
-                                    label="Key Challenges"
-                                    placeholder="Add challenge"
-                                />
+                                {groupedArrayFields.benefits?.map(field => (
+                                    <ArrayInput
+                                        key={field.name}
+                                        field={field.name}
+                                        label={field.label}
+                                        placeholder={field.placeholder}
+                                    />
+                                ))}
                             </CardContent>
                         </Card>
                     </div>
 
-                    {/* Work Environment */}
+                    {/* ✅ Work Environment */}
                     <Card className="shadow-sm">
                         <CardHeader className="pb-4">
                             <SectionTitle icon={Users}>Work Environment</SectionTitle>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="culture" className="text-sm font-medium">Company Culture</Label>
-                                    <Input
-                                        id="culture"
-                                        value={jobData.workEnvironment.culture}
-                                        onChange={(e) => handleNestedChange('workEnvironment', 'culture', e.target.value)}
-                                        placeholder="e.g., Creative, collaborative, fast-paced"
-                                        className="w-full"
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="teamSize" className="text-sm font-medium">Team Size</Label>
-                                    <Input
-                                        id="teamSize"
-                                        value={jobData.workEnvironment.teamSize}
-                                        onChange={(e) => handleNestedChange('workEnvironment', 'teamSize', e.target.value)}
-                                        placeholder="e.g., 5-8 members"
-                                        className="w-full"
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="reportingTo" className="text-sm font-medium">Reports To</Label>
-                                    <Input
-                                        id="reportingTo"
-                                        value={jobData.workEnvironment.reportingTo}
-                                        onChange={(e) => handleNestedChange('workEnvironment', 'reportingTo', e.target.value)}
-                                        placeholder="e.g., Marketing Director"
-                                        className="w-full"
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="workStyle" className="text-sm font-medium">Work Style</Label>
-                                    <Input
-                                        id="workStyle"
-                                        value={jobData.workEnvironment.workStyle}
-                                        onChange={(e) => handleNestedChange('workEnvironment', 'workStyle', e.target.value)}
-                                        placeholder="e.g., Hybrid with flexible hours"
-                                        className="w-full"
-                                    />
-                                </div>
+                                {groupedFields.workEnvironment?.map(field => renderFormField(field))}
                             </div>
 
-                            <ArrayInput
-                                field="workEnvironment.collaboratesWith"
-                                label="Collaborates With"
-                                placeholder="Add team or department"
-                            />
+                            {/* Array fields for work environment */}
+                            {groupedArrayFields.workEnvironment?.map(field => (
+                                <ArrayInput
+                                    key={field.name}
+                                    field={field.name}
+                                    label={field.label}
+                                    placeholder={field.placeholder}
+                                />
+                            ))}
                         </CardContent>
                     </Card>
 
-                    {/* Submit Button */}
+                    {/* ✅ Submit Button */}
                     <div className="flex justify-center pt-8 border-t border-border">
                         <Button
                             type="submit"

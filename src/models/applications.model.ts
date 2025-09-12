@@ -39,20 +39,11 @@ const applicationSchema: Schema = new Schema(
     position: {
       type: String,
       required: true,
-      enum: [
-        "Social Media Manager",
-        "Business Development Manager",
-        "Frontend Developer",
-        "UI/UX Designer",
-        "HR & Talent Acquisition Specialist",
-        "Other",
-      ],
     },
 
     experience: {
       type: String,
-      required: true,
-      enum: ["Fresher", "0-1 years", "1-3 years", "3-5 years", "5-10 years", "10+ years"],
+      required: true
     },
 
     // cv: { type: String, required: true }, // store file path / URL

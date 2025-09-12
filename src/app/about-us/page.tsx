@@ -120,7 +120,7 @@ const page = () => {
                     className='!border-transparent'
                     content={vision}
                     heading='Our Culture'
-                    subheading='vision and mission'
+                    subheading='Vision and Mission'
 
                 />
             </div>

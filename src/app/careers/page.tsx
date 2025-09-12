@@ -65,7 +65,7 @@ const page = () => {
             />
 
             {/* Career Jobs Section */}
-            <Section className="py-16">
+            <Section className="py-8 pb-0">
                 <div className="container">
                     <CareerSection items={[...jobs]} />
                 </div>
