@@ -58,8 +58,10 @@ export const isAdminUser = async (): Promise<boolean> => {
             return false; // No token means not an admin
         }
 
+        const origin = await getOrigin()
+
         // Call API to verify admin token
-        const res = await fetch(`${process.env.APP_URL}/api/verify-admin-token`, {
+        const res = await fetch(`${origin}/api/verify-admin-token`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json", // Tell server we are sending JSON

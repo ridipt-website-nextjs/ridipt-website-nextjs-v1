@@ -12,10 +12,9 @@ import { isAdminUser } from '@/lib/helper-functions';
 interface HeaderSectionProps {
     data: JobData;
     onApplyNow: () => void;
-    deleteJob: () => Promise<void>
 }
 
-const HeaderSection: React.FC<HeaderSectionProps> = ({ data, onApplyNow, deleteJob}) => {
+const HeaderSection: React.FC<HeaderSectionProps> = ({ data, onApplyNow, }) => {
     const [isAdmin, setIsAdmin] = useState(false)
     let IconComponent;
     if (typeof data.icon === 'string') {
@@ -101,14 +100,6 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ data, onApplyNow, deleteJ
                     >
                         Apply Now
                     </Button>
-                    {isAdmin && <Button
-                        variant={'destructive'}
-                        onClick={deleteJob}
-                        className="px-8 py-3 flex-1  text-base font-medium"
-                        size="lg"
-                    >
-                        Delete
-                    </Button>}
                 </div>
 
                 {/* Description */}

@@ -57,6 +57,14 @@ class AdminApiClient {
         });
     }
 
+    // PATCH for partial updates
+    public patch(endpoint: string, body: any) {
+        return this.request(endpoint, {
+            method: "PATCH",
+            body: JSON.stringify(body),
+        });
+    }
+
     public delete(endpoint: string) {
         return this.request(endpoint, { method: "DELETE" });
     }

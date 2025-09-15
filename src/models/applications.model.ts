@@ -64,6 +64,6 @@ const applicationSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-const Application = mongoose.model<IApplication>("Application", applicationSchema);
+const Application = mongoose.models.Application || mongoose.model<IApplication>("Application", applicationSchema);
 
 export default Application;

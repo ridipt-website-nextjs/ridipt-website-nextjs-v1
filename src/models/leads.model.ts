@@ -21,7 +21,6 @@ const leadSchema: Schema = new Schema(
       type: String,
       required: true,
       lowercase: true,
-      unique: true,
     },
     country: {
       type: String,
@@ -44,6 +43,6 @@ const leadSchema: Schema = new Schema(
   }
 );
 
-const Lead = mongoose.model<ILead>("Lead", leadSchema);
+const Lead = mongoose.models.Leads || mongoose.model<ILead>("Lead", leadSchema);
 
 export default Lead;

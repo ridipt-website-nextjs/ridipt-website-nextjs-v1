@@ -66,6 +66,67 @@ export async function GET(req: Request, { params }: { params: any}) {
     }
 }
 
+// ✅ PATCH - Partial update job by custom ID
+export async function PATCH(req: Request, { params }: { params: any}) {
+    try {
+        await dbConnect();
+        await verifyAdminToken(req);
+
+        if (!params.job_id || params.job_id.trim() === '') {
+            return NextResponse.json(
+                { error: "Invalid job ID" }, 
+                { status: 400 }
+            );
+        }
+
+        const body = await req.json();
+
+        // ✅ Prevent job_id changes
+        if (body.job_id && body.job_id !== params.job_id) {
+            return NextResponse.json(
+                { error: "Cannot change job ID" }, 
+                { status: 400 }
+            );
+        }
+
+        // ✅ Partial update - only update provided fields
+        const updatedJob = await Job.findOneAndUpdate(
+            { job_id: params.job_id },
+            { $set: body }, // ✅ $set ensures only provided fields are updated
+            { 
+                new: true, 
+                runValidators: true,
+                // ✅ Don't upsert - only update existing documents
+                upsert: false
+            }
+        );
+
+        if (!updatedJob) {
+            return NextResponse.json(
+                { error: "Job not found" }, 
+                { status: 404 }
+            );
+        }
+
+        return NextResponse.json(updatedJob, { status: 200 });
+
+    } catch (error: any) {
+        if (error.message.includes("Token") || error.message.includes("Unauthorized")) {
+            return NextResponse.json({ error: error.message }, { status: 401 });
+        }
+        
+        if (error.code === 11000) {
+            return NextResponse.json(
+                { error: "Job ID already exists" }, 
+                { status: 409 }
+            );
+        }
+        
+        return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+}
+
+
 // 📌 PUT - Update job by custom ID
 export async function PUT(req: Request, { params }: { params: any}) {
     try {

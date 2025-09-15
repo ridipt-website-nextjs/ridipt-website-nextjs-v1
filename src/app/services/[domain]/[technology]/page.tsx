@@ -83,7 +83,7 @@ const TechnologyPage = () => {
 
             {/* Service Detail Section */}
             <ServiceDetailSection
-                cardStyling={data.serviceDetailSection.cardStyling}
+                cardStyling={`hover:bg-accent-foreground/5 ${data.serviceDetailSection.cardStyling}`}
                 heading={data.serviceDetailSection.heading}
                 subheading={data.serviceDetailSection.subheading}
                 description={data.serviceDetailSection.description}

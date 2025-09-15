@@ -43,15 +43,6 @@ const JobDetailsPage: React.FC = () => {
         router.push('#application-form');
     };
 
-    const deleteJob = async () => {
-        try {
-            await adminApi.delete(`/jobs/${id}`);
-            router.back();
-        } catch (error) {
-            console.error("Failed to delete job:", error);
-        }
-    };
-
     const fetchJobs = async () => {
         try {
             setIsLoading(true);
@@ -159,7 +150,7 @@ const JobDetailsPage: React.FC = () => {
                 </Button>
 
                 {/* Header Section */}
-                <HeaderSection data={data} deleteJob={deleteJob} onApplyNow={handleApplyNow} />
+                <HeaderSection data={data} onApplyNow={handleApplyNow} />
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

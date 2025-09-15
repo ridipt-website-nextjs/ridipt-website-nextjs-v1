@@ -78,6 +78,7 @@ const ServicePage = () => {
                 subheading={data.serviceDetailSection.subheading}
                 description={data.serviceDetailSection.description}
                 industry={data.serviceDetailSection.industry}
+                cardStyling='hover:bg-accent-foreground/5'
             />
 
             {/* Call to Action Section */}

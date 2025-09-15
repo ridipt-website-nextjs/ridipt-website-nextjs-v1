@@ -133,9 +133,18 @@ export const Header = () => {
         Revolutionize your applications with Ridipt Technologies. Build, deploy, and innovate without worrying about infrastructure.
       </p>
       <Link
-        href={'/get-in-touch'}
-        className="mt-10 p-6 rounded-full px-10"
-      >Share Your Idea</Link>
+        href="/get-in-touch"
+        className="
+    mt-10 p-4 px-10 rounded-full 
+    text-secondary bg-accent-foreground 
+    transition-all duration-300  border-2  hover:border-accent-foreground border-transparent
+    hover:bg-accent hover:text-accent-foreground 
+    hover:scale-105 hover:shadow-lg
+  "
+      >
+        Share Your Idea
+      </Link>
+
     </div>
   );
 };
