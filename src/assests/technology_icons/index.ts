@@ -1,17 +1,17 @@
-import reactIcon from './react.svg';
+import reactIcon from './React-iconn.svg';
 import nextIcon from './angular.svg';
 import angularIcon from './angular.svg';
 import vuejsIcon from './vuejs.svg';
-import chakraUiIcon from './chakraui.svg';
+import chakraUiIcon from './chakra.svg';
 import tailwindCssIcon from './tailwind.svg';
 import materialUiIcon from './material.svg';
-import sassIcon from './sass.svg';
-import css3Icon from './css3.svg';
-import html5Icon from './html5.svg';
+import sassIcon from './saas-icons.svg';
+import css3Icon from './CSS-iconn.svg';
+import html5Icon from './html-iconn.svg';
 import nodejsIcon from './node.svg';
 import expressjsIcon from './express.svg';
-import DockerIcon from './docxker.svg';
-import kubernetesIcon from './kubernetes.svg';
+import DockerIcon from './docker-icons.svg';
+import kubernetesIcon from './Kubernetes_icons.svg';
 import linePoint from './Group.svg';
 
 
