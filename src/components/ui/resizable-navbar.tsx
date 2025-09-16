@@ -137,7 +137,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         item.items ? (
           <div key={`nav-item-${idx}`} className="relative group">
             <span
-              className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 group-hover:text-accent-foreground/70"
+              className="cursor-pointer flex px-4 py-2 text-lg gap-1 items-center justify-center text-popover-foreground/80 group-hover:text-accent-foreground/70"
               onMouseEnter={() => setHovered(idx)}
               onClick={onItemClick}
             >
@@ -172,7 +172,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         ) : item.content ? (
           <div key={`nav-item-${idx}`} className="relative group">
             <span
-              className="cursor-pointer flex px-4 py-2 gap-1 items-center justify-center text-popover-foreground/80 group-hover:text-accent-foreground/70"
+              className="cursor-pointer flex px-4 py-2 text-lg gap-1 items-center justify-center text-popover-foreground/80 group-hover:text-accent-foreground/70"
               onMouseEnter={() => setHovered(idx)}
               onClick={onItemClick}
             >
@@ -201,7 +201,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           <Link
             onMouseEnter={() => setHovered(idx)}
             onClick={onItemClick}
-            className="relative px-4 py-2 text-popover-foreground/80 hover:text-accent-foreground/70 transition-all duration-300 ease-in-out"
+            className="relative px-4 py-2 text-lg text-popover-foreground/80 hover:text-accent-foreground/70 transition-all duration-300 ease-in-out"
             key={`link-${idx}`}
             href={item.link!}
           >

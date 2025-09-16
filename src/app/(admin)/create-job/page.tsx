@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Structure from '@/components/common/page-structure';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,11 +30,10 @@ import {
 } from "@/components/ui/popover";
 import Header from '@/components/section-heading';
 import {
-    Plus, X, Briefcase, MapPin, DollarSign, GraduationCap, Users, Award, Check, ChevronsUpDown, Edit, Save,
+    Plus, X, Briefcase, MapPin, DollarSign, GraduationCap, Users, Award, Check, ChevronsUpDown,
 } from 'lucide-react';
 import { adminApi } from '@/lib/admin-api-client';
 import { AVAILABLE_ICONS } from '@/config/constant';
-import { useSearchParams, useRouter } from 'next/navigation';
 
 // ✅ Form Fields Configuration
 const jobFormFields = [
@@ -86,7 +86,6 @@ const jobFormFields = [
         rows: 6,
         gridCols: "md:col-span-2"
     },
-
     // Job Details Section
     {
         section: "details",
@@ -115,24 +114,23 @@ const jobFormFields = [
         placeholder: "e.g., Marketing",
         gridCols: "md:col-span-1"
     },
-
     // Salary Section
     {
         section: "salary",
         name: "salary.min",
         label: "Minimum Salary",
-        type: "number",
+        type: "text",
         required: true,
-        placeholder: "40000",
+        placeholder: "40,000 / 40k / Negotiable",
         gridCols: "lg:col-span-1"
     },
     {
         section: "salary",
         name: "salary.max",
         label: "Maximum Salary",
-        type: "number",
+        type: "text",
         required: true,
-        placeholder: "60000",
+        placeholder: "60,000 / 60k / Based on Experience",
         gridCols: "lg:col-span-1"
     },
     {
@@ -157,7 +155,6 @@ const jobFormFields = [
         options: ["annually", "monthly", "hourly"],
         gridCols: "lg:col-span-1"
     },
-
     // Experience Section
     {
         section: "experience",
@@ -184,7 +181,6 @@ const jobFormFields = [
         ],
         gridCols: "md:col-span-1"
     },
-
     // Education Section
     {
         section: "education",
@@ -204,7 +200,6 @@ const jobFormFields = [
         placeholder: "Equivalent experience or certifications",
         gridCols: "md:col-span-1"
     },
-
     // Work Environment Section
     {
         section: "workEnvironment",
@@ -326,8 +321,8 @@ interface JobData {
     location: string;
     department: string;
     salary: {
-        min: number;
-        max: number;
+        min: string;
+        max: string;
         currency: string;
         period: string;
     };
@@ -360,7 +355,7 @@ interface JobData {
 
 const defaultValue: JobData = {
     job_id: '',
-    name: '',
+    name: 'Ridipt Technology',
     icon: 'Briefcase',
     title: '',
     description: '',
@@ -369,8 +364,8 @@ const defaultValue: JobData = {
     location: '',
     department: '',
     salary: {
-        min: 0,
-        max: 0,
+        min: '',
+        max: '',
         currency: 'USD',
         period: 'annually'
     },
@@ -403,18 +398,25 @@ const defaultValue: JobData = {
 
 const CreateJobPage = () => {
     const [jobData, setJobData] = useState<JobData>(defaultValue);
-    const [originalJobData, setOriginalJobData] = useState<JobData | null>(null);
-    const [changedFields, setChangedFields] = useState<Set<string>>(new Set());
     const [loading, setLoading] = useState(false);
-    const [fetchingJob, setFetchingJob] = useState(false);
     const [iconOpen, setIconOpen] = useState(false);
+
+    // ✅ Edit Mode States
+    const [fetchingJob, setFetchingJob] = useState(false);
+    const [originalJobData, setOriginalJobData] = useState<JobData | null>(null);
+    const [changedFields, setChangedFields] = useState(new Set<string>());
+    const [isEditMode, setIsEditMode] = useState(false);
 
     const searchParams = useSearchParams();
     const router = useRouter();
     const job_id = searchParams.get('job_id');
-    const isEditMode = Boolean(job_id);
 
-    // ✅ Fetch job data for editing
+    // ✅ Initialize Edit Mode
+    useEffect(() => {
+        setIsEditMode(!!job_id);
+    }, [job_id]);
+
+    // ✅ Fetch Job for Editing
     const fetchJobForEdit = async () => {
         if (!job_id) return;
 
@@ -433,43 +435,14 @@ const CreateJobPage = () => {
         }
     };
 
-    // ✅ Initialize form with default values or fetch job data
+    // ✅ Fetch Job Data on Component Mount
     useEffect(() => {
-        if (isEditMode) {
+        if (job_id) {
             fetchJobForEdit();
-        } else {
-            // Initialize with default values only for create mode
-            const initializeFormWithDefaults = () => {
-                const initialData = { ...defaultValue };
-
-                jobFormFields.forEach(field => {
-                    if ('value' in field && field.value !== undefined) {
-                        if (field.name.includes('.')) {
-                            const keys = field.name.split('.');
-                            let current = initialData as any;
-
-                            for (let i = 0; i < keys.length - 1; i++) {
-                                if (!current[keys[i]]) current[keys[i]] = {};
-                                current = current[keys[i]];
-                            }
-
-                            current[keys[keys.length - 1]] = field.value;
-                        } else {
-                            (initialData as any)[field.name] = field.value;
-                        }
-                    }
-                });
-
-                setJobData(initialData);
-                setOriginalJobData(null);
-                setChangedFields(new Set());
-            };
-
-            initializeFormWithDefaults();
         }
-    }, [isEditMode, job_id]);
+    }, [job_id]);
 
-    // ✅ Auto-generate job_id only for create mode
+    // ✅ Auto-generate job_id from title - Only for new jobs
     useEffect(() => {
         if (!isEditMode && jobData.title && jobData.name) {
             const autoJobId = `${jobData.title
@@ -481,26 +454,57 @@ const CreateJobPage = () => {
                     .replace(/[^a-z0-9\s]/g, '')
                     .replace(/\s+/g, '-')
                     .trim()}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
-
             setJobData(prev => ({
                 ...prev,
                 job_id: autoJobId
             }));
         }
-    }, [isEditMode, jobData.title, jobData.name]);
+    }, [jobData.title, jobData.name, isEditMode]);
+
+    // ✅ Initialize Form with Default Values - Only for new jobs
+    useEffect(() => {
+        if (!isEditMode) {
+            const initializeFormWithDefaults = () => {
+                const initialData = { ...defaultValue };
+                jobFormFields.forEach(field => {
+                    if ('value' in field && field.value !== undefined) {
+                        if (field.name.includes('.')) {
+                            const keys = field.name.split('.');
+                            let current = initialData as any;
+                            for (let i = 0; i < keys.length - 1; i++) {
+                                if (!current[keys[i]]) current[keys[i]] = {};
+                                current = current[keys[i]];
+                            }
+                            current[keys[keys.length - 1]] = field.value;
+                        } else {
+                            (initialData as any)[field.name] = field.value;
+                        }
+                    }
+                });
+                setJobData(initialData);
+            };
+            initializeFormWithDefaults();
+        }
+    }, [isEditMode]);
 
     // ✅ Helper Functions
     const getNestedValue = (obj: any, path: string) => {
         return path.split('.').reduce((current, key) => current?.[key], obj);
     };
 
-    // ✅ Track changes for edit mode
-    const trackFieldChange = (fieldName: string, newValue: any) => {
+    const handleDynamicChange = (fieldName: string, value: any) => {
+        // Find field configuration to check if disabled
+        const fieldConfig = jobFormFields.find(field => field.name === fieldName);
+
+        // Skip update if field is disabled
+        if (fieldConfig?.disabled) {
+            return;
+        }
+
+        // Track changes for edit mode
         if (isEditMode && originalJobData) {
             const originalValue = getNestedValue(originalJobData, fieldName);
-
-            // Deep comparison for arrays and objects
-            if (JSON.stringify(originalValue) !== JSON.stringify(newValue)) {
+            if (originalValue !== value) {
                 setChangedFields(prev => new Set(prev).add(fieldName));
             } else {
                 setChangedFields(prev => {
@@ -510,71 +514,28 @@ const CreateJobPage = () => {
                 });
             }
         }
-    };
-
-    // ✅ Updated handleDynamicChange with proper nested object handling
-    const handleDynamicChange = (fieldName: string, value: any) => {
-        const fieldConfig = jobFormFields.find(field => field.name === fieldName);
-
-        if (fieldConfig?.disabled) {
-            return;
-        }
 
         if (fieldName.includes('.')) {
-            // ✅ Handle nested objects like salary.min, salary.max, etc.
             const keys = fieldName.split('.');
             setJobData(prev => {
-                // ✅ Deep clone the entire state first
-                const newData = JSON.parse(JSON.stringify(prev));
-
-                // ✅ Navigate to nested object
-                let current = newData;
+                const newData = { ...prev };
+                let current: any = newData;
                 for (let i = 0; i < keys.length - 1; i++) {
-                    if (!current[keys[i]]) {
-                        current[keys[i]] = {};
-                    }
+                    if (!current[keys[i]]) current[keys[i]] = {};
                     current = current[keys[i]];
                 }
-
-                // ✅ Handle different data types properly
-                let finalValue = value;
-
-                if (fieldName.includes('salary') && (fieldName.includes('min') || fieldName.includes('max'))) {
-                    // Convert salary min/max to numbers
-                    finalValue = value === '' ? 0 : parseInt(value) || 0;
-                } else if (fieldName.includes('salary') && (fieldName.includes('currency') || fieldName.includes('period'))) {
-                    // Keep salary currency/period as strings
-                    finalValue = value;
-                } else {
-                    // Default string handling
-                    finalValue = value;
-                }
-
-                current[keys[keys.length - 1]] = finalValue;
-
-                // ✅ Track the change
-                trackFieldChange(fieldName, finalValue);
-
-                console.log('Updated nested field:', fieldName, 'with value:', finalValue);
-                console.log('Full jobData:', newData);
-
+                current[keys[keys.length - 1]] = value;
                 return newData;
             });
         } else {
-            // ✅ Handle direct properties
-            setJobData(prev => {
-                const newData = { ...prev, [fieldName]: value };
-                trackFieldChange(fieldName, value);
-
-                console.log('Updated direct field:', fieldName, 'with value:', value);
-
-                return newData;
-            });
+            setJobData(prev => ({
+                ...prev,
+                [fieldName]: value
+            }));
         }
     };
 
-
-    // ✅ Array Helper Functions with proper change tracking
+    // ✅ Array Helper Functions
     const getArrayData = (field: string): string[] => {
         if (field.includes('.')) {
             const [section, subField] = field.split('.');
@@ -586,39 +547,28 @@ const CreateJobPage = () => {
 
     const addNestedArrayItem = (field: string, value: string) => {
         if (value.trim()) {
-            const newArrayValue = value.trim();
-
             if (field.includes('.')) {
                 const [section, subField] = field.split('.');
                 const currentArray = getArrayData(field);
-                const newArray = [...currentArray, newArrayValue];
-
-                setJobData(prev => {
-                    const newData = {
-                        ...prev,
-                        [section]: {
-                            ...((prev[section as keyof JobData] as object) || {}),
-                            [subField]: newArray
-                        }
-                    };
-
-                    // Track array change
-                    trackFieldChange(field, newArray);
-
-                    return newData;
-                });
+                const newArray = [...currentArray, value.trim()];
+                setJobData(prev => ({
+                    ...prev,
+                    [section]: {
+                        ...((prev[section as keyof JobData] as object) || {}),
+                        [subField]: newArray
+                    }
+                }));
             } else {
                 const currentArray = jobData[field as keyof JobData] as string[];
-                const newArray = [...currentArray, newArrayValue];
+                setJobData(prev => ({
+                    ...prev,
+                    [field]: [...currentArray, value.trim()]
+                }));
+            }
 
-                setJobData(prev => {
-                    const newData = { ...prev, [field]: newArray };
-
-                    // Track array change
-                    trackFieldChange(field, newArray);
-
-                    return newData;
-                });
+            // Track changes for edit mode
+            if (isEditMode) {
+                setChangedFields(prev => new Set(prev).add(field));
             }
         }
     };
@@ -628,33 +578,24 @@ const CreateJobPage = () => {
             const [section, subField] = field.split('.');
             const currentArray = getArrayData(field);
             const newArray = currentArray.filter((_, i) => i !== index);
-
-            setJobData(prev => {
-                const newData = {
-                    ...prev,
-                    [section]: {
-                        ...((prev[section as keyof JobData] as object) || {}),
-                        [subField]: newArray
-                    }
-                };
-
-                // Track array change
-                trackFieldChange(field, newArray);
-
-                return newData;
-            });
+            setJobData(prev => ({
+                ...prev,
+                [section]: {
+                    ...((prev[section as keyof JobData] as object) || {}),
+                    [subField]: newArray
+                }
+            }));
         } else {
             const currentArray = jobData[field as keyof JobData] as string[];
-            const newArray = currentArray.filter((_, i) => i !== index);
+            setJobData(prev => ({
+                ...prev,
+                [field]: currentArray.filter((_, i) => i !== index)
+            }));
+        }
 
-            setJobData(prev => {
-                const newData = { ...prev, [field]: newArray };
-
-                // Track array change
-                trackFieldChange(field, newArray);
-
-                return newData;
-            });
+        // Track changes for edit mode
+        if (isEditMode) {
+            setChangedFields(prev => new Set(prev).add(field));
         }
     };
 
@@ -674,7 +615,6 @@ const CreateJobPage = () => {
     // ✅ Icon Selector Component
     const IconSelector = () => {
         const [searchTerm, setSearchTerm] = useState('');
-
         const filteredIcons = useMemo(() => {
             if (!searchTerm) return Object.keys(AVAILABLE_ICONS);
             return Object.keys(AVAILABLE_ICONS).filter(iconName =>
@@ -728,7 +668,8 @@ const CreateJobPage = () => {
                                                 <IconComponent className="w-4 h-4" />
                                                 <span>{iconName}</span>
                                                 <Check
-                                                    className={`ml-auto h-4 w-4 ${jobData.icon === iconName ? "opacity-100" : "opacity-0"}`}
+                                                    className={`ml-auto h-4 w-4 ${jobData.icon === iconName ? "opacity-100" : "opacity-0"
+                                                        }`}
                                                 />
                                             </CommandItem>
                                         );
@@ -810,7 +751,7 @@ const CreateJobPage = () => {
 
     // ✅ Dynamic Form Field Renderer
     const renderFormField = (field: any) => {
-        const value = getNestedValue(jobData, field.name);
+        const value = field.value || getNestedValue(jobData, field.name);
 
         switch (field.type) {
             case 'text':
@@ -901,73 +842,58 @@ const CreateJobPage = () => {
         return acc;
     }, {} as Record<string, any[]>);
 
-    // ✅ Prepare data for submission
-    const getSubmissionData = () => {
-        if (!isEditMode || !originalJobData) {
-            // Create mode - return complete jobData
-            console.log('Create mode - sending full data:', jobData);
-            return jobData;
-        }
-
-        // Edit mode - return only changed fields
-        const changedData: any = {};
-
-        changedFields.forEach(fieldPath => {
-            const value = getNestedValue(jobData, fieldPath);
-
-            if (fieldPath.includes('.')) {
-                const keys = fieldPath.split('.');
-                let current = changedData;
-
-                for (let i = 0; i < keys.length - 1; i++) {
-                    if (!current[keys[i]]) current[keys[i]] = {};
-                    current = current[keys[i]];
-                }
-
-                current[keys[keys.length - 1]] = value;
-            } else {
-                changedData[fieldPath] = value;
-            }
-        });
-
-        console.log('Edit mode - sending changed data:', changedData);
-        return changedData;
-    };
-
     // ✅ Handle Form Submission
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
 
         try {
-            if (isEditMode) {
-                // Update mode - send only changed fields
-                if (changedFields.size === 0) {
-                    alert('No changes to save!');
-                    return;
-                }
+            let data;
 
-                const changedData = getSubmissionData();
-                console.log('Updating job with changed data:', changedData);
+            if (isEditMode && job_id) {
+                const existingData = await adminApi.get(`/jobs/${job_id}`);
 
-                const response = await adminApi.patch(`/jobs/${job_id}`, changedData);
+                // Safe comparison with proper null/undefined checks
+                const changedFields = Object.fromEntries(
+                    Object.entries(jobData)
+                        .filter(([key, value]) => {
+                            const existingValue = existingData?.data?.[key];
 
-                if (response) {
-                    alert('Job updated successfully!');
-                    setChangedFields(new Set());
-                    setOriginalJobData(jobData);
+                            // Handle null/undefined cases
+                            if (value === undefined || value === null) {
+                                return false; // Skip undefined/null values
+                            }
+
+                            // Deep comparison for objects/arrays
+                            if (typeof value === 'object' && value !== null) {
+                                return JSON.stringify(existingValue) !== JSON.stringify(value);
+                            }
+
+                            // Simple comparison for primitive values
+                            return existingValue !== value;
+                        })
+                        .filter(([key, value]) => value !== undefined && value !== null) // Extra safety
+                );
+
+                console.log('Changed fields:', changedFields);
+
+                if (Object.keys(changedFields).length > 0) {
+                    data = await adminApi.patch(`/jobs/${job_id}`, changedFields);
+                    if (data) {
+                        alert('Job updated successfully!');
+                        router.push('/jobs');
+                    }
+                } else {
+                    alert('No changes detected!');
                     router.push('/jobs');
                 }
             } else {
-                // Create mode - send full data
-                const fullData = getSubmissionData();
-                console.log('Creating new job with full data:', fullData);
-
-                const response = await adminApi.post('/jobs/', fullData);
-
-                if (response) {
+                // Create New Job
+                data = await adminApi.post('/jobs/', jobData);
+                if (data) {
                     alert('Job created successfully!');
-                    router.push('/jobs');
+                    setJobData(defaultValue);
+                    setChangedFields(new Set());
                 }
             }
         } catch (error) {
@@ -978,14 +904,14 @@ const CreateJobPage = () => {
         }
     };
 
-    // ✅ Loading state for fetching job data
+    // ✅ Loading State for Fetching Job
     if (fetchingJob) {
         return (
             <Structure>
-                <div className="flex items-center justify-center min-h-[60vh]">
-                    <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-                        <p className="mt-4 text-muted-foreground">Loading job details...</p>
+                <div className="mx-auto w-full max-w-6xl px-4 py-8 flex items-center justify-center min-h-[400px]">
+                    <div className="flex items-center gap-3 text-lg">
+                        <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                        Loading job details...
                     </div>
                 </div>
             </Structure>
@@ -995,41 +921,30 @@ const CreateJobPage = () => {
     return (
         <Structure>
             <div className="mx-auto w-full max-w-6xl px-4 py-8 space-y-8">
+                {/* ✅ Dynamic Header */}
                 <Header
                     heading={isEditMode ? "Edit Job Posting" : "Create Job Posting"}
                     subheading={isEditMode
-                        ? "Update job details and requirements"
+                        ? "Update the job details to keep your posting current"
                         : "Fill out the details to share your job with potential candidates"
                     }
                     description={isEditMode
-                        ? `Editing: ${jobData.title || 'Job'}`
+                        ? "Make changes to improve your job post and attract the right candidates."
                         : "A well-written job post helps you reach and engage the right talent."
                     }
                     align="left"
                 />
 
-                {/* ✅ Show edit mode indicator */}
-                {isEditMode && (
-                    <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950 dark:border-blue-800">
-                        <CardContent className="pt-6">
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                    <Edit className="w-4 h-4 text-blue-600" />
-                                    <span className="text-sm font-medium text-blue-900 dark:text-blue-100">
-                                        Edit Mode Active
-                                    </span>
-                                </div>
-                                <Badge variant="secondary">
-                                    {changedFields.size} field{changedFields.size !== 1 ? 's' : ''} changed
-                                </Badge>
-                            </div>
-                            {changedFields.size > 0 && (
-                                <p className="text-xs text-blue-700 dark:text-blue-300 mt-2">
-                                    Only changed fields will be updated when you save.
-                                </p>
-                            )}
-                        </CardContent>
-                    </Card>
+                {/* ✅ Changed Fields Indicator in Edit Mode */}
+                {isEditMode && changedFields.size > 0 && (
+                    <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                        <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <span className="text-sm font-medium">
+                                {changedFields.size} field{changedFields.size > 1 ? 's' : ''} modified
+                            </span>
+                        </div>
+                    </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-8">
@@ -1078,7 +993,7 @@ const CreateJobPage = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {groupedFields.experience?.map(field => renderFormField(field))}
                             </div>
-
+                            {/* Array fields for experience */}
                             {groupedArrayFields.experience?.map(field => (
                                 <ArrayInput
                                     key={field.name}
@@ -1087,11 +1002,10 @@ const CreateJobPage = () => {
                                     placeholder={field.placeholder}
                                 />
                             ))}
-
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {groupedFields.education?.map(field => renderFormField(field))}
                             </div>
-
+                            {/* Array fields for education */}
                             {groupedArrayFields.education?.map(field => (
                                 <ArrayInput
                                     key={field.name}
@@ -1103,7 +1017,7 @@ const CreateJobPage = () => {
                         </CardContent>
                     </Card>
 
-                    {/* ✅ Skills & Benefits */}
+                    {/* ✅ Skills & Benefits (Side by side) */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <Card className="shadow-sm">
                             <CardHeader className="pb-4">
@@ -1153,7 +1067,7 @@ const CreateJobPage = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {groupedFields.workEnvironment?.map(field => renderFormField(field))}
                             </div>
-
+                            {/* Array fields for work environment */}
                             {groupedArrayFields.workEnvironment?.map(field => (
                                 <ArrayInput
                                     key={field.name}
@@ -1180,17 +1094,8 @@ const CreateJobPage = () => {
                                 </div>
                             ) : (
                                 <div className="flex items-center gap-2">
-                                    {isEditMode ? (
-                                        <>
-                                            <Save className="w-5 h-5" />
-                                            Update Job ({changedFields.size} changes)
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Briefcase className="w-5 h-5" />
-                                            Create Job
-                                        </>
-                                    )}
+                                    <Briefcase className="w-5 h-5" />
+                                    {isEditMode ? 'Update Job' : 'Create Job'}
                                 </div>
                             )}
                         </Button>

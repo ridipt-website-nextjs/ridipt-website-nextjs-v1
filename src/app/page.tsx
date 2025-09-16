@@ -23,7 +23,8 @@ import android from "@/assests/our_services/android.svg";
 import cloud from "@/assests/our_services/cloud.svg";
 import ai from "@/assests/our_services/ai.svg";
 import automation from '@/assests/our_services/automation.svg';
-import { CallToActionContent } from "@/components/services";
+import { CallToActionContent, PromotionalSection } from "@/components/services";
+import { useRouter } from "next/navigation";
 
 const content = [
   {
@@ -60,6 +61,7 @@ const content = [
 
 
 export default function Home() {
+  const router = useRouter()
   return (
     <>
       <HeroParallaxDemo />
@@ -92,6 +94,18 @@ export default function Home() {
         <PortofolioHighlight />
       </div>
       <TechnologyContainer />
+      <PromotionalSection
+        title="Building Solutions, Delivering Excellence!"
+        highlightText="Your Vision, Our Innovation"
+        subtitle="Ridipt Technologies"
+        description="At Ridipt Technologies, we don’t just build software — we craft digital experiences that empower your business to grow, scale, and stand out. From cutting-edge game development to enterprise-grade applications, our award-winning team blends creativity with technology to deliver solutions that are secure, scalable, and future-ready. Driven by innovation and guided by our core values, we ensure every product we deliver creates lasting impact and measurable value."
+        buttonText="Let’s Work Together"
+        className="!my-10 !mt-20"
+        onClick={() => router.push('/get-in-touch')}
+        animationData={require('@assets/animations/bg-animation1.json')} // Static VR image path
+      />
+
+
 
       <IndusterySection industry={industries as FeatureItem[]} />
 

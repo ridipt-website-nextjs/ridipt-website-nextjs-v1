@@ -218,7 +218,7 @@ function JobsList() {
                 <div className="flex items-center gap-2">
                     <DollarSign className="w-4 h-4 text-muted-foreground" />
                     <span className="text-sm">
-                        {value.currency} {value.min.toLocaleString()} - {value.max.toLocaleString()}
+                        {value.currency} {value.min?.toLocaleString()} - {value.max?.toLocaleString()}
                         <br />
                         <span className="text-muted-foreground">/{value.period}</span>
                     </span>
