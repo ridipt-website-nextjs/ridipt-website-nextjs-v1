@@ -105,7 +105,7 @@ const technologyData = {
       heading: 'Blockchain Development Services',
       subheading: 'Empower Your Business with Blockchain Innovation',
       description: 'Transform your operations with state-of-the-art blockchain solutions. Leverage our expertise to unlock the potential of decentralization, enhancing security and transparency in your business processes. Our customized blockchain services empower businesses across industries to streamline operations, improve efficiency, and drive new opportunities through innovative, decentralized technologies.',
-      image: require('@assets/service/technology/blockchain-emerging.jpg'),
+      image: require('@assets/service/technology/Blockchain.png'),
       imageAlt: 'Blockchain Development Services',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
       className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
@@ -169,7 +169,7 @@ const technologyData = {
       heading: 'Data Science Solutions & Services',
       subheading: 'Empower Your Business with Data-Driven Insights',
       description: 'Harness the power of data with our advanced data science services. Leverage robust analytics and machine learning techniques to gain valuable insights that drive business growth and innovation. We deliver tailored data science solutions globally, enabling organizations to make informed decisions and enhance their operational efficiency through data-driven strategies.',
-      image: require('@assets/service/technology/Data Science Solutions -1.jpg'),
+      image: require('@assets/service/technology/Data-sci 1.png'),
       imageAlt: 'Data Science Solutions & Services',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
       className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
@@ -489,7 +489,7 @@ const technologyData = {
       heading: 'React Native App Development',
       subheading: 'Leading React Native App Development Company',
       description: 'As a prominent React Native app development company in India, we specialize in delivering tailored cross-platform app development services for a diverse range of clients, from innovative startups to large enterprises. Hire our experienced React Native developers, who possess extensive knowledge across various industry niches, to create high-quality apps that perfectly align with your development requirements.',
-      image: require('@assets/service/technology/React-Neww.jpg'),
+      image: require('@assets/service/technology/React-Neww.png'),
       imageAlt: 'React Native App Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
       className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
@@ -553,7 +553,7 @@ const technologyData = {
       heading: 'Static Website Development',
       subheading: 'Your Trusted Partner for Static Website Development',
       description: 'At Ridipt, we specialize in crafting elegant and high-performing static websites using HTML5, CSS3, and JavaScript. Our solutions are designed to provide a seamless user experience, ensuring that your online presence is not only visually appealing but also functionally robust. With a focus on responsiveness and speed, we empower businesses to effectively communicate their message to the world.',
-      image: require('@assets/service/html-css.jpg'),
+      image: require('@assets/service/Htmlcssjs.png'),
       imageAlt: 'Static Website Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
       className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
@@ -617,7 +617,7 @@ const technologyData = {
       heading: 'MEAN/MERN Stack',
       subheading: 'Your Reliable MEAN/MERN Stack Development Partner',
       description: 'At Ridipt, we specialize in delivering powerful web applications built using the MEAN (MongoDB, Express.js, Angular, Node.js) and MERN (MongoDB, Express.js, React, Node.js) stacks. With expertise in crafting scalable, secure, and high-performance solutions, we help businesses achieve their digital transformation goals. Our development process focuses on innovation, user-centric designs, and seamless functionality to ensure applications that exceed expectations.',
-      image: require('@assets/service/mean-mern.jpg'),
+      image: require('@assets/service/mean-mern.png'),
       imageAlt: 'Web Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
       className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
@@ -680,7 +680,7 @@ const technologyData = {
       heading: 'Next.js Development',
       subheading: 'Your Trusted Next.js Development Partner',
       description: 'At Ridipt, we specialize in delivering cutting-edge web applications powered by Next.js. With expertise in building high-performance, SEO-optimized, and scalable solutions, we empower businesses to stand out in the competitive digital landscape. Our development process is rooted in innovation, seamless user experiences, and robust functionality, ensuring we exceed your expectations.',
-      image: require('@assets/service/Next Js.jpg'),
+      image: require('@assets/service/NextJs.png'),
       imageAlt: 'Next.js Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
       className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
@@ -744,7 +744,7 @@ const technologyData = {
       heading: 'WordPress Development',
       subheading: 'Your Trusted Partner for WordPress Development',
       description: 'At Ridipt, we specialize in creating dynamic and visually appealing websites using WordPress. With a robust content management system (CMS) at its core, our WordPress solutions empower businesses to manage their online presence effortlessly. We focus on user-friendly designs and seamless functionality, ensuring your website effectively communicates your brand\'s message and engages your audience.',
-      image: require('@assets/service/WordPress-3.webp'),
+      image: require('@assets/service/wordpress-new.png'),
       imageAlt: 'WordPress Development',
       // className: '!mt-0 relative w-full dark:!bg-none bg-gradient-to-b from-amber-50 via-green-50 to-white-50 pb-20 dark:bg-background !flex-wrap-reverse'
       className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 to-sky-200 pb-20 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'

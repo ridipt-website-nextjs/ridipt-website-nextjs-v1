@@ -39,7 +39,7 @@ const servicesData = {
       heading: 'Web Development',
       subheading: 'Your Premier Website Development Partner',
       description: 'At Ridipt Technologies, we are a leading website development company with a team of skilled web developers dedicated to delivering outstanding solutions. We specialize in creating e-commerce platforms, web applications, and social networks that provide a seamless user experience—all delivered on time. Our commitment to best-in-class functionality and our ability to provide tailored solutions make us the ideal partner for your web development needs.',
-      image: require('@assets/service/wev-dev new.webp'),
+      image: require('@assets/service/web-dev11.png'),
       imageAlt: 'Web Development',
         
     },
@@ -99,7 +99,7 @@ const servicesData = {
       heading: 'Mobile Application Development',
       subheading: 'Empowering Your Business with Cutting-Edge Mobile Apps',
       description: 'In today\'s digital-first world, a powerful mobile application isn\'t just a luxury—it\'s a necessity. At Ridipt Technologies, we specialize in building innovative, high-performance mobile apps that drive growth, boost engagement, and optimize efficiency. Whether you\'re a startup looking to make an impact or an enterprise aiming to scale, we are your trusted partner in mobile app development.',
-      image: require('@assets/service/Mobile dev.jpg'),
+      image: require('@assets/service/mobile-dev22.png'),
       imageAlt: 'Mobile App Development'
     },
     servicesSection: {
@@ -158,7 +158,7 @@ const servicesData = {
       heading: 'Emerging Technologies Services & Solutions',
       subheading: 'Emerging Technologies Services & Solutions',
       description: 'At Ridipt, we harness cutting-edge technologies and exceptional resources to deliver transformative emerging technology services and solutions. Our comprehensive approach ensures that every client demand is meticulously addressed. We empower businesses to embrace sustained innovation, enabling them to stay ahead in a rapidly evolving technological landscape. With Ridipt, you can hire top-tier experts in Cloud, DevOps, Blockchain, and Data Science, who integrate futuristic, tech-enabled solutions designed to unlock your full potential and drive measurable growth.',
-      image: require('@assets/service/Emerging Technologies Services -11.webp'),
+      image: require('@assets/service/Emerging Technologies Services -11.png'),
       imageAlt: 'Emerging Technologies Services'
     },
     servicesSection: {

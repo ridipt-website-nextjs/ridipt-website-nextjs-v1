@@ -36,7 +36,8 @@ export const partners = [
     }, {
         name: 'azure',
         image: require('@/assests/partners/azure.svg')
-    }
+    },
+   
 ]
 
 
@@ -234,8 +235,8 @@ export const services_tech_stack = {
     // image: require("@assets/icons/web-dev.svg"),
     items: {
       frontend: [
-        { name: "HTML5", image: require("@assets/technology_icons/html5.svg") },
-        { name: "CSS3", image: require("@assets/technology_icons/css3.svg") },
+        { name: "HTML5", image: require("@assets/technology_icons/html-iconn.svg") },
+        { name: "CSS3", image: require("@assets/technology_icons/CSS-iconn.svg") },
         { name: "JavaScript", image: require("@assets/technology_icons/js.svg") },
         { name: "TypeScript", image: require("@assets/technology_icons/ts.svg") },
         { name: "React.js", image: require("@assets/technology_icons/react.svg") },
@@ -244,12 +245,12 @@ export const services_tech_stack = {
         { name: "Vue.js", image: require("@assets/technology_icons/vuejs.svg") },
         { name: "Svelte", image: require("@assets/technology_icons/svelte.svg") },
         { name: "Tailwind CSS", image: require("@assets/technology_icons/tailwind.svg") },
-        { name: "Bootstrap", image: require("@assets/technology_icons/bootstrap.svg") },
+        { name: "Bootstrap", image: require("@assets/technology_icons/boostrap-icon.svg") },
         { name: "Material UI", image: require("@assets/technology_icons/material.svg") }
       ],
       backend: [
         { name: "Node.js", image: require("@assets/technology_icons/node.svg") },
-        { name: "Express.js", image: require("@assets/technology_icons/express.svg") },
+        { name: "Express.js", image: require("@assets/technology_icons/Express-icon.svg") },
         { name: "PHP", image: require("@assets/technology_icons/php.svg") },
         { name: "Laravel", image: require("@assets/technology_icons/laravel.svg") },
         { name: "Python", image: require("@assets/technology_icons/python.svg") },
