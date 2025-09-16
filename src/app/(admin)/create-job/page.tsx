@@ -33,7 +33,7 @@ import {
     Plus, X, Briefcase, MapPin, DollarSign, GraduationCap, Users, Award, Check, ChevronsUpDown,
 } from 'lucide-react';
 import { adminApi } from '@/lib/admin-api-client';
-import { AVAILABLE_ICONS } from '@/config/constant';
+import { AVAILABLE_ICONS, deepEqual, isEmpty } from '@/config/constant';
 
 // ✅ Form Fields Configuration
 const jobFormFields = [
@@ -851,32 +851,32 @@ const CreateJobPage = () => {
             let data;
 
             if (isEditMode && job_id) {
-                const existingData = await adminApi.get(`/jobs/${job_id}`);
+                const existingJob:JobData = await adminApi.get(`/jobs/${job_id}`);
 
-                // Safe comparison with proper null/undefined checks
+                if (!existingJob) {
+                    throw new Error(`Job with ID ${job_id} not found`);
+                }
+
+                // Filter out empty/null/undefined values from jobData
+                const cleanJobData = Object.fromEntries(
+                    Object.entries(jobData).filter(([_, value]) => !isEmpty(value))
+                );
+
+                // Compare fields and find changes
                 const changedFields = Object.fromEntries(
-                    Object.entries(jobData)
-                        .filter(([key, value]) => {
-                            const existingValue = existingData?.data?.[key];
+                    Object.entries(cleanJobData)
+                        .filter(([key, newValue]) => {
+                            const existingValue = existingJob[key as keyof JobData];
 
-                            // Handle null/undefined cases
-                            if (value === undefined || value === null) {
-                                return false; // Skip undefined/null values
-                            }
+                            // Skip if the field doesn't exist in existing data
+                            if (existingValue === undefined) return true;
 
-                            // Deep comparison for objects/arrays
-                            if (typeof value === 'object' && value !== null) {
-                                return JSON.stringify(existingValue) !== JSON.stringify(value);
-                            }
-
-                            // Simple comparison for primitive values
-                            return existingValue !== value;
+                            // Use deep comparison for complex types
+                            return !deepEqual(existingValue, newValue);
                         })
-                        .filter(([key, value]) => value !== undefined && value !== null) // Extra safety
                 );
 
                 console.log('Changed fields:', changedFields);
-
                 if (Object.keys(changedFields).length > 0) {
                     data = await adminApi.patch(`/jobs/${job_id}`, changedFields);
                     if (data) {
