@@ -95,7 +95,7 @@ export async function PATCH(req: Request, { params }: { params: any}) {
             { $set: body }, // ✅ $set ensures only provided fields are updated
             { 
                 new: true, 
-                runValidators: true,
+                // runValidators: true,
                 // ✅ Don't upsert - only update existing documents
                 upsert: false
             }

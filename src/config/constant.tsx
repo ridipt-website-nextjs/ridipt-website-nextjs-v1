@@ -1,31 +1,31 @@
 
 
 export const industries = [
-    {
-        title: "Retail & E-commerce",
-        description: "Omnichannel Solutions, Inventory Management, Customer Analytics",
-        image: require('@/assests/industry/ecommerce.svg')
-    },
-    {
-        title: "Healthcare & Wellness",
-        description: "Telehealth, Medical Records, Wellness Apps",
-        image: require('@/assests/industry/healthcare.svg')
-    },
-    {
-        title: "EdTech & E-Learning",
-        description: "Virtual Classrooms, Student Analytics, Learning Management Systems",
-        image: require('@/assests/industry/elearning.svg')
-    },
-    {
-        title: "Fintech",
-        description: "Digital Banking, Investment Platforms, Fraud Detection",
-        image: require('@/assests/industry/banking.svg')
-    },
-    {
-        title: "Logistics & Transportation",
-        description: "Fleet Management, Route Optimization, Supply Chain Analytics",
-        image: require('@/assests/industry/logistics.svg')
-    }
+  {
+    title: "Retail & E-commerce",
+    description: "Omnichannel Solutions, Inventory Management, Customer Analytics",
+    image: require('@/assests/industry/ecommerce.svg')
+  },
+  {
+    title: "Healthcare & Wellness",
+    description: "Telehealth, Medical Records, Wellness Apps",
+    image: require('@/assests/industry/healthcare.svg')
+  },
+  {
+    title: "EdTech & E-Learning",
+    description: "Virtual Classrooms, Student Analytics, Learning Management Systems",
+    image: require('@/assests/industry/elearning.svg')
+  },
+  {
+    title: "Fintech",
+    description: "Digital Banking, Investment Platforms, Fraud Detection",
+    image: require('@/assests/industry/banking.svg')
+  },
+  {
+    title: "Logistics & Transportation",
+    description: "Fleet Management, Route Optimization, Supply Chain Analytics",
+    image: require('@/assests/industry/logistics.svg')
+  }
 ];
 
 
@@ -55,146 +55,146 @@ export const partners = [
 
 
 export const menifesto = [
-    {
-        title: "Purpose-Driven",
-        description:
-            "Every project we undertake is designed to solve real challenges, create lasting value, and help businesses thrive.",
-        image: require("@/assests/menifesto/target.svg"),
-    },
-    {
-        title: "Innovation at Heart",
-        description:
-            "We embrace the latest technologies and creative approaches to craft solutions that are as unique as your vision.",
-        image: require("@/assests/menifesto/inovation.svg"),
-    },
-    {
-        title: "Excellence in Every Detail",
-        description:
-            "We focus on the finer details because they drive the big-picture success of every project.",
-        image: require("@/assests/menifesto/trophy.svg"),
-    },
-    {
-        title: "Collaboration Over Competition",
-        description:
-            "Your success is our success. We work side-by-side with our clients to achieve extraordinary results.",
-        image: require("@/assests/menifesto/collaboration.svg"),
-    },
-    {
-        title: "Agility and Adaptability",
-        description:
-            "In a world of constant change, we evolve and innovate with speed and precision to meet your needs.",
-        image: require("@/assests/menifesto/agile.svg"),
-    },
-    {
-        title: "Human-Centric Approach",
-        description:
-            "Technology serves people. Every solution we create is built with the end user’s experience in mind.",
-        image: require("@/assests/menifesto/person.svg"),
-    },
+  {
+    title: "Purpose-Driven",
+    description:
+      "Every project we undertake is designed to solve real challenges, create lasting value, and help businesses thrive.",
+    image: require("@/assests/menifesto/target.svg"),
+  },
+  {
+    title: "Innovation at Heart",
+    description:
+      "We embrace the latest technologies and creative approaches to craft solutions that are as unique as your vision.",
+    image: require("@/assests/menifesto/inovation.svg"),
+  },
+  {
+    title: "Excellence in Every Detail",
+    description:
+      "We focus on the finer details because they drive the big-picture success of every project.",
+    image: require("@/assests/menifesto/trophy.svg"),
+  },
+  {
+    title: "Collaboration Over Competition",
+    description:
+      "Your success is our success. We work side-by-side with our clients to achieve extraordinary results.",
+    image: require("@/assests/menifesto/collaboration.svg"),
+  },
+  {
+    title: "Agility and Adaptability",
+    description:
+      "In a world of constant change, we evolve and innovate with speed and precision to meet your needs.",
+    image: require("@/assests/menifesto/agile.svg"),
+  },
+  {
+    title: "Human-Centric Approach",
+    description:
+      "Technology serves people. Every solution we create is built with the end user’s experience in mind.",
+    image: require("@/assests/menifesto/person.svg"),
+  },
 ];
 
 
 export const vision = [
-    {
-        title: "Consistent Growth",
-        description: "We have built a company that facilitates consistent growth for each employee, client, and the overall company in terms of monetary gains, knowledge, and solutions.",
-        image: require("@/assests/about-us/growth.jpg"),
-        isAnimation: false,
-        highlights: [
-            "Employee Growth & Development",
-            "Client Success & Retention",
-            "Revenue Growth",
-            "Knowledge Expansion"
-        ]
-    },
-    {
-        title: "Work Culture",
-        description: "We aspire to provide a conducive work environment for our employees to encourage innovation and creativity in their ideas and execution. We believe in providing a holistic approach for the team so that they can refresh their energies and reinvigorate their creativity from time to time.",
-        image: require("@/assests/about-us/work-culture-1.jpg"),
-        isAnimation: false,
-        highlights: [
-            "Innovation & Creativity",
-            "Collaborative Environment",
-            "Work-Life Balance",
-            "Team Building Activities"
-        ]
-    },
-    {
-        title: "Customer Satisfaction",
-        description: "We aspire to create and retain customers for the foreseeable future with effective communication and proper resolution of their issues. We extend reliable and flexible services to ensure utmost satisfaction for our end clients.",
-        image: require("@/assests/about-us/customer-satisfaction-1.jpg"),
-        isAnimation: false,
-        highlights: [
-            "Effective Communication",
-            "Quick Issue Resolution",
-            "Reliable Services",
-            "Long-term Relationships"
-        ]
-    },
-    {
-        title: "Societal Contribution",
-        description: "We continue to contribute to the society through several means as an expression of gratitude. We offer Industrial Training to college students while offering them exposure to various industry niches, along with blood donation camps on a periodic basis.",
-        image: require("@/assests/about-us/Social-contribution-1.png"),
-        isAnimation: false,
-        highlights: [
-            "Industrial Training Programs",
-            "College Student Mentorship",
-            "Blood Donation Drives",
-            "Community Engagement"
-        ]
-    }
+  {
+    title: "Consistent Growth",
+    description: "We have built a company that facilitates consistent growth for each employee, client, and the overall company in terms of monetary gains, knowledge, and solutions.",
+    image: require("@/assests/about-us/growth.jpg"),
+    isAnimation: false,
+    highlights: [
+      "Employee Growth & Development",
+      "Client Success & Retention",
+      "Revenue Growth",
+      "Knowledge Expansion"
+    ]
+  },
+  {
+    title: "Work Culture",
+    description: "We aspire to provide a conducive work environment for our employees to encourage innovation and creativity in their ideas and execution. We believe in providing a holistic approach for the team so that they can refresh their energies and reinvigorate their creativity from time to time.",
+    image: require("@/assests/about-us/work-culture-1.jpg"),
+    isAnimation: false,
+    highlights: [
+      "Innovation & Creativity",
+      "Collaborative Environment",
+      "Work-Life Balance",
+      "Team Building Activities"
+    ]
+  },
+  {
+    title: "Customer Satisfaction",
+    description: "We aspire to create and retain customers for the foreseeable future with effective communication and proper resolution of their issues. We extend reliable and flexible services to ensure utmost satisfaction for our end clients.",
+    image: require("@/assests/about-us/customer-satisfaction-1.jpg"),
+    isAnimation: false,
+    highlights: [
+      "Effective Communication",
+      "Quick Issue Resolution",
+      "Reliable Services",
+      "Long-term Relationships"
+    ]
+  },
+  {
+    title: "Societal Contribution",
+    description: "We continue to contribute to the society through several means as an expression of gratitude. We offer Industrial Training to college students while offering them exposure to various industry niches, along with blood donation camps on a periodic basis.",
+    image: require("@/assests/about-us/Social-contribution-1.png"),
+    isAnimation: false,
+    highlights: [
+      "Industrial Training Programs",
+      "College Student Mentorship",
+      "Blood Donation Drives",
+      "Community Engagement"
+    ]
+  }
 ];
 
 
 export const web_dev_services = [
-    {
-        title: "E commerce Web Apps and Portal Development",
-        description:
-            "Our E commerce solutions like Shopify and magento development help you build a positive brand perception and effectively streamlining your business efficiency and expanding it across various geographies.",
-        image: require('@assets/our_services/web development/ecommerce.png'),
-        isAnimation: false,
-        highlights: ["Shopify", "Magento Development", "Business Efficiency", "Brand Perception"]
-    },
-    {
-        title: "Front End Development Services",
-        description:
-            "Integrate highly-responsive, smooth and user-friendly visual experience to your web apps with our development expertise providing you with sustainable business growth.",
-        image: require('@assets/our_services/web development/Frontend.webp'),
-        isAnimation: false,
-        highlights: ["Highly-responsive", "User-friendly", "Visual Experience", "Sustainable Growth"]
-    },
-    {
-        title: "Custom Website Development Services",
-        description:
-            "A convenient web application that is designed by analyzing your requirements and integration empowering technologies. We help you meet your unique solutions.",
-        image: require('@assets/our_services/web development/Custom.png'),
-        isAnimation: false,
-        highlights: ["Custom Web Apps", "Requirement Analysis", "Integration", "Unique Solutions"]
-    },
-    {
-        title: "Back End Development Services",
-        description:
-            "Our scalable backend development services help you achieve enterprise level operational proficiency. Hire the best and reliable back end developers at Yudiz.",
-        image: require('@assets/our_services/web development/Back-end-1.webp'),
-        isAnimation: false,
-        highlights: ["Scalable Backend", "Operational Proficiency", "Reliable Developers", "Enterprise-level"]
-    },
-    {
-        title: "Progressive Web app Development Services",
-        description:
-            "Deliver the best user experience through our top-notch progressive web app solutions and enable the user conversion ratio for your next-gen business.",
-        image: require('@assets/our_services/web development/pwa.png'),
-        isAnimation: false,
-        highlights: ["Progressive Web Apps", "User Experience", "Next-gen Business", "User Conversion"]
-    },
-    {
-        title: "SaaS App Development Services",
-        description:
-            "A scaling service that eliminates the high cost operation for your business at the same time delivering a high-security wide network functionality.",
-        image: require('@assets/our_services/web development/Saas-2.webp'),
-        isAnimation: false,
-        highlights: ["SaaS", "Cost-effective", "High Security", "Scalable Services"]
-    }
+  {
+    title: "E commerce Web Apps and Portal Development",
+    description:
+      "Our E commerce solutions like Shopify and magento development help you build a positive brand perception and effectively streamlining your business efficiency and expanding it across various geographies.",
+    image: require('@assets/our_services/web development/ecommerce.png'),
+    isAnimation: false,
+    highlights: ["Shopify", "Magento Development", "Business Efficiency", "Brand Perception"]
+  },
+  {
+    title: "Front End Development Services",
+    description:
+      "Integrate highly-responsive, smooth and user-friendly visual experience to your web apps with our development expertise providing you with sustainable business growth.",
+    image: require('@assets/our_services/web development/Frontend.webp'),
+    isAnimation: false,
+    highlights: ["Highly-responsive", "User-friendly", "Visual Experience", "Sustainable Growth"]
+  },
+  {
+    title: "Custom Website Development Services",
+    description:
+      "A convenient web application that is designed by analyzing your requirements and integration empowering technologies. We help you meet your unique solutions.",
+    image: require('@assets/our_services/web development/Custom.png'),
+    isAnimation: false,
+    highlights: ["Custom Web Apps", "Requirement Analysis", "Integration", "Unique Solutions"]
+  },
+  {
+    title: "Back End Development Services",
+    description:
+      "Our scalable backend development services help you achieve enterprise level operational proficiency. Hire the best and reliable back end developers at Yudiz.",
+    image: require('@assets/our_services/web development/Back-end-1.webp'),
+    isAnimation: false,
+    highlights: ["Scalable Backend", "Operational Proficiency", "Reliable Developers", "Enterprise-level"]
+  },
+  {
+    title: "Progressive Web app Development Services",
+    description:
+      "Deliver the best user experience through our top-notch progressive web app solutions and enable the user conversion ratio for your next-gen business.",
+    image: require('@assets/our_services/web development/pwa.png'),
+    isAnimation: false,
+    highlights: ["Progressive Web Apps", "User Experience", "Next-gen Business", "User Conversion"]
+  },
+  {
+    title: "SaaS App Development Services",
+    description:
+      "A scaling service that eliminates the high cost operation for your business at the same time delivering a high-security wide network functionality.",
+    image: require('@assets/our_services/web development/Saas-2.webp'),
+    isAnimation: false,
+    highlights: ["SaaS", "Cost-effective", "High Security", "Scalable Services"]
+  }
 ];
 
 export const web_dev_services_second_section = [
@@ -379,13 +379,13 @@ export const streamlining_development = [
   },
   {
     "id": "innovation-and-design",
-    "title": "Innovation and Design", 
+    "title": "Innovation and Design",
     "description": "We help our clients uncover the most effective design and innovation strategies, enhancing their market presence. By focusing on user experience and aesthetic appeal, we create solutions that resonate with audiences and strengthen our clients' competitive edge.",
     "image": require('@assets/menifesto/collaboration.svg'),
     "colors": {
       "primary": "purple",
       "bg": "bg-purple-50",
-      "border": "border-purple-500", 
+      "border": "border-purple-500",
       "text": "text-purple-900",
       "subtitle": "text-purple-700",
       "icon": "text-purple-600",
@@ -403,7 +403,7 @@ export const streamlining_development = [
       "primary": "green",
       "bg": "bg-green-50",
       "border": "border-green-500",
-      "text": "text-green-900", 
+      "text": "text-green-900",
       "subtitle": "text-green-700",
       "icon": "text-green-600",
       "accent": "bg-green-100",
@@ -421,7 +421,7 @@ export const streamlining_development = [
       "bg": "bg-orange-50",
       "border": "border-orange-500",
       "text": "text-orange-900",
-      "subtitle": "text-orange-700", 
+      "subtitle": "text-orange-700",
       "icon": "text-orange-600",
       "accent": "bg-orange-100",
       "hover": "hover:bg-orange-100",
@@ -430,7 +430,7 @@ export const streamlining_development = [
   }
 ]
 
- 
+
 
 export const business_process = [
   {
@@ -572,103 +572,140 @@ export const business_process = [
 ]
 
 
-import { 
-    Plus, X, Briefcase, MapPin, DollarSign, GraduationCap, Users, Award, Check, ChevronsUpDown,
-    // All popular Lucide icons for job categories
-    Code, Palette, Calculator, Megaphone, Shield, Truck, Heart, Wrench, Camera, 
-    Globe, Smartphone, Database, Cloud, Lock, Zap, Target, TrendingUp, BookOpen,
-    Headphones, Coffee, Lightbulb, Rocket, Settings, Star, Trophy, Music, Video,
-    PenTool, Scissors, Printer, Monitor, Keyboard, Mouse, Wifi, Battery, Cpu,
-    HardDrive, Network, Server, Layers, Package, Box, ShoppingCart, CreditCard,
-    BarChart, PieChart, LineChart, Activity, Calendar, Clock, Mail, Phone, MessageSquare,
-    Search, Filter, Eye, Edit, Save, Download, Upload, Share, Link, Home, Building,
-    MapPinIcon as MapPinAlt, Compass, Flag, Gift, Crown, Diamond, Gem, Gamepad2,
-    Puzzle, Handshake, ThumbsUp, Smile, Sun, Moon, Umbrella, Flame, Snowflake
+import {
+  Plus, X, Briefcase, MapPin, DollarSign, GraduationCap, Users, Award, Check, ChevronsUpDown,
+  // All popular Lucide icons for job categories
+  Code, Palette, Calculator, Megaphone, Shield, Truck, Heart, Wrench, Camera,
+  Globe, Smartphone, Database, Cloud, Lock, Zap, Target, TrendingUp, BookOpen,
+  Headphones, Coffee, Lightbulb, Rocket, Settings, Star, Trophy, Music, Video,
+  PenTool, Scissors, Printer, Monitor, Keyboard, Mouse, Wifi, Battery, Cpu,
+  HardDrive, Network, Server, Layers, Package, Box, ShoppingCart, CreditCard,
+  BarChart, PieChart, LineChart, Activity, Calendar, Clock, Mail, Phone, MessageSquare,
+  Search, Filter, Eye, Edit, Save, Download, Upload, Share, Link, Home, Building,
+  MapPinIcon as MapPinAlt, Compass, Flag, Gift, Crown, Diamond, Gem, Gamepad2,
+  Puzzle, Handshake, ThumbsUp, Smile, Sun, Moon, Umbrella, Flame, Snowflake
 } from 'lucide-react';
 
 // All available icons for job categories
 export const AVAILABLE_ICONS = {
-    // Default & Common
-    'Briefcase': Briefcase,
-    'Code': Code,
-    'Palette': Palette,
-    'Calculator': Calculator,
-    'Megaphone': Megaphone,
-    'Shield': Shield,
-    'Truck': Truck,
-    'Heart': Heart,
-    'Wrench': Wrench,
-    'Camera': Camera,
-    'Globe': Globe,
-    'Smartphone': Smartphone,
-    'Database': Database,
-    'Cloud': Cloud,
-    'Lock': Lock,
-    'Zap': Zap,
-    'Target': Target,
-    'TrendingUp': TrendingUp,
-    'BookOpen': BookOpen,
-    'Headphones': Headphones,
-    'Coffee': Coffee,
-    'Lightbulb': Lightbulb,
-    'Rocket': Rocket,
-    'Settings': Settings,
-    'Star': Star,
-    'Trophy': Trophy,
-    'Music': Music,
-    'Video': Video,
-    'PenTool': PenTool,
-    'Scissors': Scissors,
-    'Printer': Printer,
-    'Monitor': Monitor,
-    'Keyboard': Keyboard,
-    'Mouse': Mouse,
-    'Wifi': Wifi,
-    'Battery': Battery,
-    'Cpu': Cpu,
-    'HardDrive': HardDrive,
-    'Network': Network,
-    'Server': Server,
-    'Layers': Layers,
-    'Package': Package,
-    'Box': Box,
-    'ShoppingCart': ShoppingCart,
-    'CreditCard': CreditCard,
-    'BarChart': BarChart,
-    'PieChart': PieChart,
-    'LineChart': LineChart,
-    'Activity': Activity,
-    'Calendar': Calendar,
-    'Clock': Clock,
-    'Mail': Mail,
-    'Phone': Phone,
-    'MessageSquare': MessageSquare,
-    'Search': Search,
-    'Filter': Filter,
-    'Eye': Eye,
-    'Edit': Edit,
-    'Save': Save,
-    'Download': Download,
-    'Upload': Upload,
-    'Share': Share,
-    'Link': Link,
-    'Home': Home,
-    'Building': Building,
-    'MapPin': MapPin,
-    'Compass': Compass,
-    'Flag': Flag,
-    'Gift': Gift,
-    'Crown': Crown,
-    'Diamond': Diamond,
-    'Gem': Gem,
-    'Gamepad2': Gamepad2,
-    'Puzzle': Puzzle,
-    'Handshake': Handshake,
-    'ThumbsUp': ThumbsUp,
-    'Smile': Smile,
-    'Sun': Sun,
-    'Moon': Moon,
-    'Umbrella': Umbrella,
-    'Flame': Flame,
-    'Snowflake': Snowflake,
+  // Default & Common
+  'Briefcase': Briefcase,
+  'Code': Code,
+  'Palette': Palette,
+  'Calculator': Calculator,
+  'Megaphone': Megaphone,
+  'Shield': Shield,
+  'Truck': Truck,
+  'Heart': Heart,
+  'Wrench': Wrench,
+  'Camera': Camera,
+  'Globe': Globe,
+  'Smartphone': Smartphone,
+  'Database': Database,
+  'Cloud': Cloud,
+  'Lock': Lock,
+  'Zap': Zap,
+  'Target': Target,
+  'TrendingUp': TrendingUp,
+  'BookOpen': BookOpen,
+  'Headphones': Headphones,
+  'Coffee': Coffee,
+  'Lightbulb': Lightbulb,
+  'Rocket': Rocket,
+  'Settings': Settings,
+  'Star': Star,
+  'Trophy': Trophy,
+  'Music': Music,
+  'Video': Video,
+  'PenTool': PenTool,
+  'Scissors': Scissors,
+  'Printer': Printer,
+  'Monitor': Monitor,
+  'Keyboard': Keyboard,
+  'Mouse': Mouse,
+  'Wifi': Wifi,
+  'Battery': Battery,
+  'Cpu': Cpu,
+  'HardDrive': HardDrive,
+  'Network': Network,
+  'Server': Server,
+  'Layers': Layers,
+  'Package': Package,
+  'Box': Box,
+  'ShoppingCart': ShoppingCart,
+  'CreditCard': CreditCard,
+  'BarChart': BarChart,
+  'PieChart': PieChart,
+  'LineChart': LineChart,
+  'Activity': Activity,
+  'Calendar': Calendar,
+  'Clock': Clock,
+  'Mail': Mail,
+  'Phone': Phone,
+  'MessageSquare': MessageSquare,
+  'Search': Search,
+  'Filter': Filter,
+  'Eye': Eye,
+  'Edit': Edit,
+  'Save': Save,
+  'Download': Download,
+  'Upload': Upload,
+  'Share': Share,
+  'Link': Link,
+  'Home': Home,
+  'Building': Building,
+  'MapPin': MapPin,
+  'Compass': Compass,
+  'Flag': Flag,
+  'Gift': Gift,
+  'Crown': Crown,
+  'Diamond': Diamond,
+  'Gem': Gem,
+  'Gamepad2': Gamepad2,
+  'Puzzle': Puzzle,
+  'Handshake': Handshake,
+  'ThumbsUp': ThumbsUp,
+  'Smile': Smile,
+  'Sun': Sun,
+  'Moon': Moon,
+  'Umbrella': Umbrella,
+  'Flame': Flame,
+  'Snowflake': Snowflake,
 };
+
+
+
+
+// for update thing 
+// Deep equality comparison function
+export function deepEqual(obj1: any, obj2: any): boolean {
+  if (obj1 === obj2) return true;
+
+  if (obj1 == null || obj2 == null) return obj1 === obj2;
+
+  if (Array.isArray(obj1) && Array.isArray(obj2)) {
+    if (obj1.length !== obj2.length) return false;
+    return obj1.every((item, index) => deepEqual(item, obj2[index]));
+  }
+
+  if (typeof obj1 === 'object' && typeof obj2 === 'object') {
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    if (keys1.length !== keys2.length) return false;
+
+    return keys1.every(key =>
+      keys2.includes(key) && deepEqual(obj1[key], obj2[key])
+    );
+  }
+
+  return false;
+}
+
+// Function to check if a value is empty (null, undefined, empty string, empty array, empty object)
+export function isEmpty(value: any): boolean {
+  if (value === null || value === undefined || value === '') return true;
+  if (Array.isArray(value)) return value.length === 0;
+  if (typeof value === 'object') return Object.keys(value).length === 0;
+  return false;
+}

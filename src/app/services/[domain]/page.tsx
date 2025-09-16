@@ -44,6 +44,7 @@ const ServicePage = () => {
         <Structure className='!p-0 !-top-[var(--header-height)]'>
             {/* Hero Section */}
             <HeroSection
+                btnData={true}
                 heading={data.heroSection.heading}
                 subheading={data.heroSection.subheading}
                 description={data.heroSection.description}

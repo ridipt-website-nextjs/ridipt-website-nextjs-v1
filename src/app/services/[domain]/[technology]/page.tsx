@@ -39,6 +39,7 @@ const TechnologyPage = () => {
         <Structure className='!p-0'>
             {/* Hero Section */}
             <HeroSection
+                btnData={true}
                 heading={data.heroSection.heading}
                 subheading={data.heroSection.subheading}
                 description={data.heroSection.description}

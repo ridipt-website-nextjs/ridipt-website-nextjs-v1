@@ -4,6 +4,8 @@ import s from './styles/sticky-scroll-reveal.module.css';
 import Header from '../section-heading';
 import Section from '@/components/section-structure';
 import { JSX } from "react";
+import { Button } from "./button";
+import Link from "next/link";
 
 
 // Base interface for common properties
@@ -38,6 +40,7 @@ export const TechServices = ({
   subSection = true,
   CustomCard,
   isAnimationShow = false
+  , btnData
 
 }: {
   content: ContentItem[] | React.ReactNode;
@@ -47,6 +50,10 @@ export const TechServices = ({
   CustomCard?: (item: any, idx: any) => JSX.Element
   description?: string;
   subSection?: boolean;
+  btnData?: {
+    title?: string;
+    url?: string
+  } | boolean;
   isAnimationShow?: boolean;
 }) => {
   // Check if content is JSX or array
@@ -60,12 +67,12 @@ export const TechServices = ({
         <div
           className="relative lg:container lg:mx-auto lg:!flex-row bg-[] flex flex-col lg:gap-1 lg:p-15"
         >
-          <div className="container mb-10 relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
+          <div className="container mb-10 relative top-0 mx-auto flex gap-5 flex-col shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
             <div
               className={clsx(
-                "flex flex-col gap-10",
+                "flex flex-col gap-8",
                 // Apply sticky only for array content, not JSX content
-                "sticky bottom-0 top-[calc(var(--header-height)+40px)]"
+                "sticky bottom-0 justify-start items-start top-[calc(var(--header-height)+40px)]"
                 // isArrayContent && "sticky bottom-0 top-[calc(var(--header-height)+40px)]"
               )}
             >
@@ -91,6 +98,16 @@ export const TechServices = ({
               <p className="max-w-screen-md text-pretty text-lg font-light text-muted-foreground  md:text-xl text-left">Are you ready to elevate your business with cutting-edge technology? Partner with us! We empower you to reach your objectives with our bespoke mobile app and web app development services.</p>
             </div> */}
 
+
+              {/* for services and domain */}
+              {
+                btnData &&
+                <Link
+                  href={typeof btnData === 'object' && btnData.url || '/get-in-touch'}
+                  className="dark:bg-primary bg-accent-foreground text-primary-foreground shadow-xs hover:bg-primary-foreground  hover:text-accent-foreground border border-border !m-0 !mt-0 !grow-0 max-w-3xl  rounded-lg p-2 px-4"
+
+                >{typeof btnData === 'object' && btnData.title || `Get in Touch`}</Link>
+              }
             </div>
           </div>
 
