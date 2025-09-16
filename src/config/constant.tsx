@@ -36,7 +36,20 @@ export const partners = [
     }, {
         name: 'azure',
         image: require('@/assests/partners/azure.svg')
-    },
+    }, {
+       name:'Google Cloud Platform',
+       image: require('@assets/partners/GCP.svg')
+    }, {
+       name:"Oracle",
+      image: require('@assets/partners/oracle-cloud.svg')
+    }, {
+      name:"Linode",
+      image : require("@assets/partners/linode.svg")
+    },{
+      name:"IBM Cloud",
+      image : require("@assets/partners/IBM cloud.svg")
+    }
+    
    
 ]
 
