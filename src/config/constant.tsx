@@ -36,6 +36,21 @@ export const partners = [
   }, {
     name: 'azure',
     image: require('@/assests/partners/azure.svg')
+  },{
+    name: 'Google Cloud Platform',
+    image: require('@/assests/partners/GCP.svg')
+  },{
+    name: 'Linode',
+    image: require('@/assests/partners/linode.svg')
+  },{
+    name: 'IBM Cloud',
+    image: require('@/assests/partners/IBM cloud.svg')
+  },{
+    name: 'Oracle Cloud',
+    image: require('@/assests/partners/oracle-cloud.svg')
+  },{
+    name: 'DigitalOcean',
+    image: require('@/assests/partners/DigitalOcean.svg')
   },
 
 ]
