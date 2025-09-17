@@ -55,7 +55,8 @@ const ServicePage = () => {
                             alt={data.heroSection.imageAlt}
                             width={500}
                             height={500}
-                            className='shadow-lg z-20 block aspect-square h-[500px] w-full object-cover'
+                            className='shadow-lg z-20 block aspect-square h-[500px] w-full object-contain'
+                            // className='shadow-lg z-20 block aspect-square h-[500px] w-full object-cover' // old design
                         />
                     </div>
                 }

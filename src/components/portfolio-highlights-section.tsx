@@ -77,7 +77,7 @@ const page = ({
                     subheading={subheading || 'Building Success Together'}
                     description={description || `We are committed to addressing our clients' evolving business requirements, helping them stand out on the App Store, Google Play, and their websites.`}
                 />
-                <div className='flex flex-col gap-6 w-full max-w-7xl'>
+                <div className='flex flex-col gap-15 md:gap-20 w-full max-w-7xl'>
                     {content.map((item, idx) => (
                         CustomCard ? (
                             <CustomCard key={idx} item={item} index={idx} />

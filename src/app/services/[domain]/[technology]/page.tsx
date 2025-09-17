@@ -50,7 +50,7 @@ const TechnologyPage = () => {
                             alt={data.heroSection.imageAlt}
                             width={500}
                             height={500}
-                            className='flex-1 shadow-lg z-20 block aspect-square h-[500px] w-full object-cover'
+                            className='flex-1 shadow-lg z-20 block aspect-square h-[500px] w-full object-contain'
                         />
                     </div>
                 }

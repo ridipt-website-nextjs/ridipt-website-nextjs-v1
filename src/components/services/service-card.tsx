@@ -15,7 +15,7 @@ export const ServiceCard = ({ item, index: idx }: {
   return (
     <article
       key={idx}
-      className='flex items-center gap-8 md:odd:flex-row-reverse my-10'
+      className='flex items-center gap-8 md:odd:flex-row-reverse '
     >
       <div className='relative hidden lg:flex z-10  h-16 w-16 shrink-0 items-center justify-center border border-border/50 bg-card'>
         <span className='text-xl font-serif text-accent-foreground'>{idx + 1}</span>

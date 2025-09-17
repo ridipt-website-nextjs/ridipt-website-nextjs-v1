@@ -23,45 +23,45 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = products?.slice(0, 5);
-  const secondRow = products?.slice(5, 10);
-  const thirdRow = products?.slice(10, 15);
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+  // const firstRow = products?.slice(0, 5);
+  // const secondRow = products?.slice(5, 10);
+  // const thirdRow = products?.slice(10, 15);
+  // const ref = React.useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start start", "end start"],
+  // });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  // const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
-    springConfig
-  );
+  // const translateX = useSpring(
+  //   useTransform(scrollYProgress, [0, 1], [0, 1000]),
+  //   springConfig
+  // );
+  // const translateXReverse = useSpring(
+  //   useTransform(scrollYProgress, [0, 1], [0, -1000]),
+  //   springConfig
+  // );
+  // const rotateX = useSpring(
+  //   useTransform(scrollYProgress, [0, 0.2], [15, 0]),
+  //   springConfig
+  // );
+  // const opacity = useSpring(
+  //   useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+  //   springConfig
+  // );
+  // const rotateZ = useSpring(
+  //   useTransform(scrollYProgress, [0, 0.2], [20, 0]),
+  //   springConfig
+  // );
+  // const translateY = useSpring(
+  //   useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+  //   springConfig
+  // );
   return (
     // pt-[calc(var(--header-height)+120px)] !-top-[calc(var(--header-height)+16px)] 
     <div
-      ref={ref}
+      // ref={ref}
       className="h-auto md:h-[100vh]  py-40  pb-30 overflow-hidden antialiased relative flex flex-col self-auto  [transform-style:preserve-3d]"
     >
       {/* image container */}
@@ -135,9 +135,9 @@ export const Header = () => {
       <Link
         href="/get-in-touch"
         className="
-    mt-10 p-4 px-10 rounded-full 
+    mt-10 p-2 px-8 rounded-full 
     text-secondary bg-accent-foreground 
-    transition-all duration-300  border-2  hover:border-accent-foreground border-transparent
+    transition-all duration-300  border-2 dark:text-primary  hover:border-accent-foreground border-transparent
     hover:bg-accent hover:text-accent-foreground 
     hover:scale-105 hover:shadow-lg
   "
@@ -149,44 +149,44 @@ export const Header = () => {
   );
 };
 
-export const ProductCard = ({
-  product,
-  translate,
-}: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
-}) => {
-  return (
-    <motion.div
-      style={{
-        x: translate,
-      }}
-      whileHover={{
-        y: -20,
-      }}
-      key={product.title}
-      className="group/product h-96 w-[30rem] relative shrink-0"
-    >
-      <a
-        href={product.link}
-        className="block group-hover/product:shadow-2xl "
-      >
-        <img
-          src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={product.title}
-        />
-      </a>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
-      </h2>
-    </motion.div>
-  );
-};
+// export const ProductCard = ({
+//   product,
+//   translate,
+// }: {
+//   product: {
+//     title: string;
+//     link: string;
+//     thumbnail: string;
+//   };
+//   translate: MotionValue<number>;
+// }) => {
+//   return (
+//     <motion.div
+//       style={{
+//         x: translate,
+//       }}
+//       whileHover={{
+//         y: -20,
+//       }}
+//       key={product.title}
+//       className="group/product h-96 w-[30rem] relative shrink-0"
+//     >
+//       <a
+//         href={product.link}
+//         className="block group-hover/product:shadow-2xl "
+//       >
+//         <img
+//           src={product.thumbnail}
+//           height="600"
+//           width="600"
+//           className="object-cover object-left-top absolute h-full w-full inset-0"
+//           alt={product.title}
+//         />
+//       </a>
+//       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+//       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+//         {product.title}
+//       </h2>
+//     </motion.div>
+//   );
+// };
