@@ -1,0 +1,90 @@
+<div id="ctl00_ContentPlaceHolder1_PanelPrintPhase3">
+	
+                                            <table style="width: 100%; display: none;">
+                                                <tr>
+                                                    <td align="right"><b>A.2 House progress against the target financial year</b></td>
+                                                    <td align="right"><span><b>As On:</b> 21/12/2024 16:44:16</span></td>
+                                                </tr>
+                                            </table>
+                                            <div>
+                                                <div class="pdf-excel-cls">
+                                                    <a id="ctl00_ContentPlaceHolder1_btnExportPhase3" class="btn btn-info-excel" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btnExportPhase3&#39;,&#39;&#39;)"><i class="fa fa-file-excel" aria-hidden="true"></i> </a>
+                                                    <a id="ctl00_ContentPlaceHolder1_btnExportPdfPhase3" class="btn btn-info-pdf" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btnExportPdfPhase3&#39;,&#39;&#39;)"><i class="fa fa-file-pdf" aria-hidden="true"></i> </a>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive" style="height: 500px; overflow-y: auto">
+                                                <div>
+		<table class="table table-bordered" cellspacing="0" rules="all" align="center" border="1" id="ctl00_ContentPlaceHolder1_gridPhase3" style="font-weight:normal;height:100%;width:100%;border-collapse:collapse;">
+			<tr class="GridViewScrollHeader " style="color:White;background-color:#78662F;font-weight:bold;">
+				<th scope="col">
+                                                                #SNo
+                                                            </th><th scope="col" style="font-weight:bold;">Village</th><th scope="col">Reg. No.</th><th scope="col">Beneficiary Name</th><th scope="col">Father&#39;s Name</th><th scope="col">House Alloted To</th><th scope="col">Sanction No.</th><th scope="col">Sanctioned Amount</th><th scope="col">Installment Paid</th><th scope="col">Amount Released</th><th scope="col">House Status</th>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl02_lblRowNumberPhase3" style="font-weight:bold;">1</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751197</td><td class="GridViewScrollItemCommon" align="left">SUNIL YASHWANT SONWANE</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>3</td><td>100000</td><td class="GridViewScrollItemCommon" align="left">Lintel Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl03_lblRowNumberPhase3" style="font-weight:bold;">2</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751198</td><td class="GridViewScrollItemCommon" align="left">VIJAY RAJU WAGH</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>2</td><td>60000</td><td class="GridViewScrollItemCommon" align="left">Lintel Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl04_lblRowNumberPhase3" style="font-weight:bold;">3</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751199</td><td class="GridViewScrollItemCommon" align="left">RAMSING DIWAN PAWAR</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>1</td><td>15000</td><td class="GridViewScrollItemCommon" align="left">House Sanctioned</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl05_lblRowNumberPhase3" style="font-weight:bold;">4</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751200</td><td class="GridViewScrollItemCommon" align="left">RANI RAMU BHIL</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>1</td><td>15000</td><td class="GridViewScrollItemCommon" align="left">Below Foundation Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl06_lblRowNumberPhase3" style="font-weight:bold;">5</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751201</td><td class="GridViewScrollItemCommon" align="left">BHARATI SURESH BAGUL</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>3</td><td>100000</td><td class="GridViewScrollItemCommon" align="left">Lintel Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl07_lblRowNumberPhase3" style="font-weight:bold;">6</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751202</td><td class="GridViewScrollItemCommon" align="left">PUSHPA KRUSHNA SONWANE</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>3</td><td>100000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl08_lblRowNumberPhase3" style="font-weight:bold;">7</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751203</td><td class="GridViewScrollItemCommon" align="left">POPAT TARASING THAKARE</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>1</td><td>15000</td><td class="GridViewScrollItemCommon" align="left">House Sanctioned</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl09_lblRowNumberPhase3" style="font-weight:bold;">8</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751204</td><td class="GridViewScrollItemCommon" align="left">MANGAL NHANBHAU DHANGAR</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>3</td><td>100000</td><td class="GridViewScrollItemCommon" align="left">Lintel Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl10_lblRowNumberPhase3" style="font-weight:bold;">9</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751205</td><td class="GridViewScrollItemCommon" align="left">BAPU MOHAN PAWAR</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>1</td><td>15000</td><td class="GridViewScrollItemCommon" align="left">House Sanctioned</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl11_lblRowNumberPhase3" style="font-weight:bold;">10</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751206</td><td class="GridViewScrollItemCommon" align="left">RATNA RAVINDRA BARDE</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>3</td><td>100000</td><td class="GridViewScrollItemCommon" align="left">Lintel Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl12_lblRowNumberPhase3" style="font-weight:bold;">11</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751207</td><td class="GridViewScrollItemCommon" align="left">PAWBHA SADANAND BALID</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>1</td><td>15000</td><td class="GridViewScrollItemCommon" align="left">Below Foundation Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl13_lblRowNumberPhase3" style="font-weight:bold;">12</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751208</td><td class="GridViewScrollItemCommon" align="left">KALUSING SUBHASH PAWAR</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>2</td><td>60000</td><td class="GridViewScrollItemCommon" align="left">Below Foundation Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl14_lblRowNumberPhase3" style="font-weight:bold;">13</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751209</td><td class="GridViewScrollItemCommon" align="left">RAYSING HARSING BHIL (MORE)</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>2</td><td>60000</td><td class="GridViewScrollItemCommon" align="left">Below Foundation Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl15_lblRowNumberPhase3" style="font-weight:bold;">14</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751210</td><td class="GridViewScrollItemCommon" align="left">AAPA ZAMRU BHIL (SONWANE)</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>3</td><td>100000</td><td class="GridViewScrollItemCommon" align="left">Lintel Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl16_lblRowNumberPhase3" style="font-weight:bold;">15</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH-31-005-054-001/SAY751211</td><td class="GridViewScrollItemCommon" align="left">MOTILAL RAMJI SONWANE</td><td class="GridViewScrollItemCommon" align="left">&nbsp;</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">SHD_30[13-03-2024]</td><td>120000</td><td>1</td><td>15000</td><td class="GridViewScrollItemCommon" align="left">House Sanctioned</td>
+			</tr>
+		</table>
+	</div>
+                                                <b>
+                                                    </b>
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$hidTAB3" id="ctl00_ContentPlaceHolder1_hidTAB3" value="image" />
+                                            </div>
+                                        
+</div>
