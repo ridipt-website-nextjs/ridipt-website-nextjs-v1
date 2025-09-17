@@ -1,0 +1,106 @@
+<div id="ctl00_ContentPlaceHolder1_PanelPrintPhase3">
+	
+                                            <table style="width: 100%; display: none;">
+                                                <tr>
+                                                    <td align="right"><b>A.2 House progress against the target financial year</b></td>
+                                                    <td align="right"><span><b>As On:</b> 22/03/2025 17:13:20</span></td>
+                                                </tr>
+                                            </table>
+                                            <div>
+                                                <div class="pdf-excel-cls">
+                                                    <a id="ctl00_ContentPlaceHolder1_btnExportPhase3" class="btn btn-info-excel" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btnExportPhase3&#39;,&#39;&#39;)"><i class="fa fa-file-excel" aria-hidden="true"></i> </a>
+                                                    <a id="ctl00_ContentPlaceHolder1_btnExportPdfPhase3" class="btn btn-info-pdf" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btnExportPdfPhase3&#39;,&#39;&#39;)"><i class="fa fa-file-pdf" aria-hidden="true"></i> </a>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive" style="height: 500px; overflow-y: auto">
+                                                <div>
+		<table class="table table-bordered" cellspacing="0" rules="all" align="center" border="1" id="ctl00_ContentPlaceHolder1_gridPhase3" style="font-weight:normal;height:100%;width:100%;border-collapse:collapse;">
+			<tr class="GridViewScrollHeader " style="color:White;background-color:#78662F;font-weight:bold;">
+				<th scope="col">
+                                                                #SNo
+                                                            </th><th scope="col" style="font-weight:bold;">Village</th><th scope="col">Reg. No.</th><th scope="col">Beneficiary Name</th><th scope="col">Father&#39;s/Mother&#39;s Name</th><th scope="col">House Alloted To</th><th scope="col">Sanction No.</th><th scope="col">Sanctioned Amount</th><th scope="col">Installment Paid</th><th scope="col">Amount Released</th><th scope="col">House Status</th>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl02_lblRowNumberPhase3" style="font-weight:bold;">1</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2243551</td><td class="GridViewScrollItemCommon" align="left">Ishawar Budha sonvane</td><td class="GridViewScrollItemCommon" align="left">budha sonvane[SINDHUBAI SONVANE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1572[15-11-2018]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl03_lblRowNumberPhase3" style="font-weight:bold;">2</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2243567</td><td class="GridViewScrollItemCommon" align="left">KALU TIRYA WAGH</td><td class="GridViewScrollItemCommon" align="left">TIRYA  N WAGH[IJABAI T WAGH]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl04_lblRowNumberPhase3" style="font-weight:bold;">3</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2243569</td><td class="GridViewScrollItemCommon" align="left">dilip ranga sonvane</td><td class="GridViewScrollItemCommon" align="left">ranga sonvane[SUPDIBAI SONVANE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl05_lblRowNumberPhase3" style="font-weight:bold;">4</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2243570</td><td class="GridViewScrollItemCommon" align="left">dipu vijya sonvane</td><td class="GridViewScrollItemCommon" align="left">vijya sonvane[FULABAI SONVANE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/2283[20-09-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl06_lblRowNumberPhase3" style="font-weight:bold;">5</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2243572</td><td class="GridViewScrollItemCommon" align="left">motiram bhkatya thakare</td><td class="GridViewScrollItemCommon" align="left">bhkatya thakare[RANGABAI THAKARE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl07_lblRowNumberPhase3" style="font-weight:bold;">6</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2243586</td><td class="GridViewScrollItemCommon" align="left">DIWAN  FULSING MORE</td><td class="GridViewScrollItemCommon" align="left">FULSING  D MORE[VANI  F MORE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1572[15-11-2018]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl08_lblRowNumberPhase3" style="font-weight:bold;">7</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2243589</td><td class="GridViewScrollItemCommon" align="left">BHIMA RAJARAM THAKRE</td><td class="GridViewScrollItemCommon" align="left">RAJABHAU U THAKRE[GANGUBAI  R THAKRE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl09_lblRowNumberPhase3" style="font-weight:bold;">8</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2257043</td><td class="GridViewScrollItemCommon" align="left">PANDU MOTIRAM THAKRE</td><td class="GridViewScrollItemCommon" align="left">MOTIRAM  D THAKRE[LLAKSHMIBAI  M THAKRE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1572[15-11-2018]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl10_lblRowNumberPhase3" style="font-weight:bold;">9</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2257121</td><td class="GridViewScrollItemCommon" align="left">PINTYA SUBHASH PAWAR</td><td class="GridViewScrollItemCommon" align="left">SUKAR  K PAWAR[INDU  S PAWAR]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1572[15-11-2018]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl11_lblRowNumberPhase3" style="font-weight:bold;">10</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2257258</td><td class="GridViewScrollItemCommon" align="left">BABURAO LAKSHMAN SONAVNE</td><td class="GridViewScrollItemCommon" align="left">LAXMAN U SONAVNE[SAYJA L SONAVNE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1589[15-11-2018]</td><td>120000</td><td>3</td><td>100000</td><td class="GridViewScrollItemCommon" align="left">Lintel Level</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl12_lblRowNumberPhase3" style="font-weight:bold;">11</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2260961</td><td class="GridViewScrollItemCommon" align="left">RAVINDRA SUKALAL  MUSALDE</td><td class="GridViewScrollItemCommon" align="left">SUKLAL ZIPA MUSLADE[FULABAI SUKLAL MUSLADE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl13_lblRowNumberPhase3" style="font-weight:bold;">12</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2399713</td><td class="GridViewScrollItemCommon" align="left">Pawba Babu Sonawane</td><td class="GridViewScrollItemCommon" align="left">Babu Zhipa Sonawane[SITABAI NATHA THAKARE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/2365[03-04-2020]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl14_lblRowNumberPhase3" style="font-weight:bold;">13</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2434514</td><td class="GridViewScrollItemCommon" align="left">BHIMSING JAMSING MUSALDE</td><td class="GridViewScrollItemCommon" align="left">JAMSING A MUSALDE[ZURKABAI J MUSALDE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl15_lblRowNumberPhase3" style="font-weight:bold;">14</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2434520</td><td class="GridViewScrollItemCommon" align="left">MANGIBAI SURLING THAKRE</td><td class="GridViewScrollItemCommon" align="left">SUKSING  F MORE[BAJAN  S MORE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>1</td><td>15000</td><td class="GridViewScrollItemCommon" align="left">House Sanctioned</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl16_lblRowNumberPhase3" style="font-weight:bold;">15</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2443361</td><td class="GridViewScrollItemCommon" align="left">BHARAT SUJYA THAKARE</td><td class="GridViewScrollItemCommon" align="left">SURYA BHURYA THAKARE[MANGALBAI SURYA THAKARE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl17_lblRowNumberPhase3" style="font-weight:bold;">16</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2443467</td><td class="GridViewScrollItemCommon" align="left">TIRSING BHIKA  PAWAR</td><td class="GridViewScrollItemCommon" align="left">KIRAN  B PAWAR[RAKUYABAI  B PAWAR]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/2365[03-04-2020]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl18_lblRowNumberPhase3" style="font-weight:bold;">17</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2446386</td><td class="GridViewScrollItemCommon" align="left">RAJU MANSARAM MAHALE</td><td class="GridViewScrollItemCommon" align="left">MANSRAM R MAHALE[LILABAI  M MAHALE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl19_lblRowNumberPhase3" style="font-weight:bold;">18</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2454926</td><td class="GridViewScrollItemCommon" align="left">MANGILAL POSU WAGH</td><td class="GridViewScrollItemCommon" align="left">P OSU   K WAGH[MULKAND POSU WAGH]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr><tr class="GridViewScrollItem" align="left">
+				<td class="GridViewScrollItemCommon" align="left">
+                                                                <span id="ctl00_ContentPlaceHolder1_gridPhase3_ctl20_lblRowNumberPhase3" style="font-weight:bold;">19</span>
+                                                            </td><td class="GridViewScrollItemCommon" align="left" style="font-weight:bold;">DONGARGAON</td><td class="GridViewScrollItemCommon" align="left">MH2455119</td><td class="GridViewScrollItemCommon" align="left">KALUSINGH JAGU THAKRE</td><td class="GridViewScrollItemCommon" align="left">JAGU MANGU THAKRE[BANIBAI JAGU THAKRE]</td><td class="GridViewScrollItemCommon" align="left">Joint(Husband and Wife)</td><td class="GridViewScrollItemCommon" align="left">MH31005/1/1695[04-06-2019]</td><td>120000</td><td>4</td><td>120000</td><td class="GridViewScrollItemCommon" align="left">Completed</td>
+			</tr>
+		</table>
+	</div>
+                                                <b>
+                                                    </b>
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$hidTAB3" id="ctl00_ContentPlaceHolder1_hidTAB3" value="image" />
+                                            </div>
+                                        
+</div>

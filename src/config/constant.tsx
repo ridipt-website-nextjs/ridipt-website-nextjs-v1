@@ -161,7 +161,7 @@ export const web_dev_services = [
     title: "Front End Development Services",
     description:
       "Integrate highly-responsive, smooth and user-friendly visual experience to your web apps with our development expertise providing you with sustainable business growth.",
-    image: require('@assets/our_services/web development/Frontend.webp'),
+    image: require('@assets/our_services/web development/frontend.png'),
     isAnimation: false,
     highlights: ["Highly-responsive", "User-friendly", "Visual Experience", "Sustainable Growth"]
   },
@@ -176,8 +176,8 @@ export const web_dev_services = [
   {
     title: "Back End Development Services",
     description:
-      "Our scalable backend development services help you achieve enterprise level operational proficiency. Hire the best and reliable back end developers at Yudiz.",
-    image: require('@assets/our_services/web development/Back-end-1.webp'),
+      "Our scalable backend development services help you achieve enterprise level operational proficiency. Hire the best and reliable back end developers at Ridipt.",
+    image: require('@assets/our_services/web development/Back-end-1.png'),
     isAnimation: false,
     highlights: ["Scalable Backend", "Operational Proficiency", "Reliable Developers", "Enterprise-level"]
   },
@@ -193,7 +193,7 @@ export const web_dev_services = [
     title: "SaaS App Development Services",
     description:
       "A scaling service that eliminates the high cost operation for your business at the same time delivering a high-security wide network functionality.",
-    image: require('@assets/our_services/web development/Saas-2.webp'),
+    image: require('@assets/our_services/web development/Saas-2.png'),
     isAnimation: false,
     highlights: ["SaaS", "Cost-effective", "High Security", "Scalable Services"]
   }
