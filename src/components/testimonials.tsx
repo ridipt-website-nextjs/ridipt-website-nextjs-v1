@@ -6,6 +6,7 @@ import { Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import Image from "next/image";
 import Section from '@/components/section-structure';
+import Link from "next/link";
 // Types
 interface TestimonialData {
   image: string;
@@ -64,7 +65,7 @@ const Testimonial: React.FC = () => {
           loop={true}
           loopAdditionalSlides={2}
           watchSlidesProgress={true}
-          autoHeight={false}
+          // autoHeight={false}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
@@ -80,7 +81,7 @@ const Testimonial: React.FC = () => {
             },
           }}
           className="testimonial-swiper !pb-4"
-          style={{ minHeight: '400px' }}
+          style={{ minHeight: '400px', maxHeight: '500px' }}
         >
           {testimonialsData.map((testimonial, index) => (
             <SwiperSlide key={index}>
@@ -128,7 +129,7 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
   position,
 }) => {
   return (
-    <div className="relative flex flex-col justify-between bg-background rounded-2xl p-8 m-5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border">
+    <Link href={'/testimonials'} className="relative flex flex-col justify-between bg-background rounded-2xl p-8 m-5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border max-h-[420px]">
       {/* Quote Icon */}
       <div className="absolute -top-4 left-8 bg-accent-foreground rounded-full p-3 shadow-lg">
         <svg
@@ -140,15 +141,35 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
         </svg>
       </div>
 
-      {/* Testimonial Text */}
-      <div className="mt-8 mb-6 flex flex-1">
-        <p className="text-muted-foreground self-center text-lg italic leading-relaxed text-center">
-          "{details}"
-        </p>
+      {/* Testimonial Text with Clamp */}
+      <div className="mt-8 mb-6 flex flex-1 relative">
+        <div className="text-container relative w-full">
+          <p
+            className="text-muted-foreground self-center text-lg italic leading-relaxed text-center line-clamp-8 overflow-hidden"
+            style={{
+              display: '-webkit-box',
+              WebkitLineClamp: 8,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              maxHeight: '200px' // Roughly 8 lines max
+            }}
+          >
+            "{details}"
+          </p>
+
+          {/* Fade effect for long text */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background to-transparent pointer-events-none opacity-75"
+            style={{
+              display: details.length > 300 ? 'block' : 'none'
+            }}
+          />
+        </div>
       </div>
 
       {/* Author Section */}
-      <div className="flex items-center gap-4 pt-6 border-t border-border">
+      <div className="flex items-center gap-4 pt-6 border-t border-border mt-auto">
         <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border flex-shrink-0">
           <Image
             src={image}
@@ -158,12 +179,12 @@ export const SingleTestimonial: React.FC<SingleTestimonialProps> = ({
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex-1">
-          <h4 className="font-semibold text-lg text-accent-foreground">{name}</h4>
-          <p className="text-sm text-muted-foreground">{position}</p>
+        <div className="flex-1 min-w-0">
+          <h4 className="font-semibold text-lg text-accent-foreground truncate">{name}</h4>
+          <p className="text-sm text-muted-foreground truncate">{position}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

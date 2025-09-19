@@ -11,6 +11,7 @@ import { FlipWords } from "./flip-words";
 import { Button } from "./button";
 import bgImage from '@assets/backgrounds/bg7.jpg'
 import Link from "next/link";
+import Image from "next/image";
 
 
 
@@ -65,12 +66,23 @@ export const HeroParallax = ({
       className="h-auto md:h-[100vh]  py-40  pb-30 overflow-hidden antialiased relative flex flex-col self-auto  [transform-style:preserve-3d]"
     >
       {/* image container */}
-      <div
+      <Image
+        src={bgImage}
+        alt="Background"
+        fill
+        className="object-cover object-center"
+        style={{
+          mixBlendMode: 'color-burn'
+        }}
+        placeholder="blur" // Automatic blur placeholder for static imports
+        sizes="100vw"
+      />
+      {/* <div
         style={{
           '--bg-image': `url(${bgImage.src || bgImage})`
         } as React.CSSProperties}
         className="bg-[image:var(--bg-image)] bg-cover mix-blend-color-burn bg-center absolute -inset-3"
-      />
+        /> */}
       {/* <div className="absolute left-0 top-0 z-10 h-full w-full blur-3xl filter " /> */}
 
       <Header />

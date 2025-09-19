@@ -225,10 +225,10 @@
 }
 
 /* globals.css या component CSS में add करें */
-.testimonial-swiper .swiper-slide {
+/* .testimonial-swiper .swiper-slide {
   height: auto !important;
   display: flex !important;
-}
+} */
 
 .testimonial-swiper .swiper-wrapper {
   align-items: stretch !important;
