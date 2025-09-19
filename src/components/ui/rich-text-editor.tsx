@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import { useEditor, EditorContent } from '@tiptap/react';
+import { useEditor, EditorContent, ReactNodeViewRenderer } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
@@ -9,6 +9,8 @@ import OrderedList from '@tiptap/extension-ordered-list';
 import ListItem from '@tiptap/extension-list-item';
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import { Markdown } from 'tiptap-markdown';
+import { NodeViewWrapper } from '@tiptap/react';
+import { X } from 'lucide-react';
 
 // Fixed lowlight imports
 import { createLowlight } from 'lowlight';
@@ -47,22 +49,22 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 const lowlight = createLowlight();
 
 // Register languages
-lowlight.register({ 
-    javascript, 
-    typescript, 
-    python, 
-    java, 
-    cpp, 
-    css, 
+lowlight.register({
+    javascript,
+    typescript,
+    python,
+    java,
+    cpp,
+    css,
     html: xml,
-    json, 
-    php, 
-    sql, 
-    bash, 
-    go, 
-    rust, 
-    swift, 
-    kotlin 
+    json,
+    php,
+    sql,
+    bash,
+    go,
+    rust,
+    swift,
+    kotlin
 });
 
 // TypeScript interface for Markdown storage - FIXED
@@ -80,6 +82,13 @@ interface RichTextEditorProps {
     value: string;
     onChange: (value: string) => void;
     placeholder?: string;
+}
+
+// TypeScript interface for CustomImage options
+interface CustomImageOptions {
+    HTMLAttributes: Record<string, any>;
+    allowBase64: boolean;
+    inline: boolean;
 }
 
 const PROGRAMMING_LANGUAGES = [
@@ -100,6 +109,34 @@ const PROGRAMMING_LANGUAGES = [
     { value: 'kotlin', label: 'Kotlin', icon: '🎯' },
     { value: 'plaintext', label: 'Plain Text', icon: '📝' },
 ];
+
+// Global variable to store the delete function reference
+let globalDeleteImageFn: ((key: string) => Promise<void>) | null = null;
+
+export const ImageView: React.FC<any> = ({ node, deleteNode }) => {
+    const { src, alt, dataKey } = node.attrs;
+    const key = dataKey || alt; // md fallback
+
+    const handleClick = async () => {
+        if (key && globalDeleteImageFn) {
+            await globalDeleteImageFn(key); // call parent callback
+        }
+        deleteNode(); // remove from editor
+    };
+
+    return (
+        <NodeViewWrapper className="relative inline-block img-wrap">
+            <img src={src} alt={alt} className="max-w-full h-auto rounded-lg" />
+            <button
+                type="button"
+                onClick={handleClick}
+                className="absolute -top-2 -right-2 bg-destructive text-white rounded-full p-1 opacity-0 hover:opacity-100 transition-opacity"
+            >
+                <X className="w-3 h-3" />
+            </button>
+        </NodeViewWrapper>
+    );
+};
 
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
     value,
@@ -131,7 +168,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
     // Clean content function
     const cleanContent = (content: string) => {
-        return content.replace(/^\[html\]\s*|^\[md\]\s*/i, '').trim();
+        return content?.replace(/^\[html\]\s*|^\[md\]\s*/i, '').trim();
     };
 
     // Add prefix function
@@ -144,12 +181,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     // Safe markdown content getter - FIXED
     const getMarkdownContent = () => {
         if (!editor) return '';
-        
+
         const storage = editor.storage as CustomEditorStorage;
         if (storage.markdown && typeof storage.markdown.getMarkdown === 'function') {
             return storage.markdown.getMarkdown();
         }
-        
+
         // Fallback: try direct access with type assertion
         try {
             return (editor.storage as any).markdown?.getMarkdown?.() || '';
@@ -159,8 +196,48 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         }
     };
 
+    // MOVED handleDeleteImage BEFORE CustomImage definition
+    const handleDeleteImage = async (key: string) => {
+        if (key) {
+            await fetch(`/api/files/delete?key=${encodeURIComponent(key)}`, { method: 'DELETE' });
+        }
+    };
+
+    // Set global reference for the ImageView component
+    globalDeleteImageFn = handleDeleteImage;
+
+    // FIXED CustomImage extension with proper TypeScript typing
+    const CustomImage = Image.extend<CustomImageOptions>({
+        name: 'customImage',
+
+        addOptions() {
+            return {
+                ...this.parent?.(),
+                HTMLAttributes: {},
+                allowBase64: true,
+                inline: false,
+            };
+        },
+
+        addAttributes() {
+            return {
+                ...this.parent?.(),
+                dataKey: {
+                    default: null,
+                    parseHTML: (element) => element.getAttribute('data-key'),
+                    renderHTML: (attributes) => attributes.dataKey ? { 'data-key': attributes.dataKey } : {},
+                },
+            };
+        },
+
+        addNodeView() {
+            return ReactNodeViewRenderer(ImageView);
+        },
+    });
+
     const editor = useEditor({
         extensions: [
+            CustomImage,
             StarterKit.configure({
                 bulletList: false,
                 orderedList: false,
@@ -216,12 +293,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         autofocus: true,
         onUpdate: ({ editor }) => {
             updateFormatState();
-            
+
             // Safe content retrieval - FIXED
-            const content = mode === 'html' 
-                ? editor.getHTML() 
+            const content = mode === 'html'
+                ? editor.getHTML()
                 : getMarkdownContent();
-            
+
             const prefixedContent = addPrefix(content);
             onChange(prefixedContent);
         },
@@ -258,8 +335,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
     useEffect(() => {
         if (editor && value) {
-            const currentContent = mode === 'html' 
-                ? editor.getHTML() 
+            const currentContent = mode === 'html'
+                ? editor.getHTML()
                 : getMarkdownContent();
             const prefixedContent = addPrefix(currentContent);
             onChange(prefixedContent);
@@ -324,36 +401,52 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 })
                 .run();
         }
-        
+
         setCodeModalOpen(false);
         setCodeContent('');
         setSelectedLanguage('javascript');
     };
 
-    const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                const base64 = reader.result as string;
-                editor.chain().focus().setImage({ 
-                    src: base64, 
-                    alt: imageAlt || file.name 
-                }).run();
-                setImageModalOpen(false);
-                setImageUrl('');
-                setImageAlt('');
-            };
-            reader.readAsDataURL(file);
+    const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        const fd = new FormData();
+        fd.append('file', file);
+
+        const res = await fetch('/api/files/upload', { method: 'POST', body: fd });
+        const { url, key, success } = await res.json();
+
+        if (!success) return;
+
+        if (mode === 'markdown') {
+            editor.chain().focus().setImage({ src: url, alt: key }).run(); // alt = key
+        } else {
+            // Use CustomImage extension for custom attribute
+            editor
+                .chain()
+                .focus()
+                .insertContent({
+                    type: 'customImage',
+                    attrs: { src: url, alt: file.name, dataKey: key }
+                })
+                .run();
         }
     };
 
     const handleImageUrl = () => {
         if (imageUrl) {
-            editor.chain().focus().setImage({ 
-                src: imageUrl, 
-                alt: imageAlt || 'Image' 
-            }).run();
+            if (mode === 'markdown') {
+                editor.chain().focus().setImage({
+                    src: imageUrl,
+                    alt: imageAlt || 'Image'
+                }).run();
+            } else {
+                editor.chain().focus().insertContent({
+                    type: 'customImage',
+                    attrs: { src: imageUrl, alt: imageAlt || 'Image', dataKey: null }
+                }).run();
+            }
             setImageModalOpen(false);
             setImageUrl('');
             setImageAlt('');
@@ -364,7 +457,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         if (linkUrl) {
             const { from, to } = editor.state.selection;
             const hasSelection = from !== to;
-            
+
             if (linkText) {
                 editor.chain()
                     .focus()
@@ -381,7 +474,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                     .insertContent(`<a href="${linkUrl}">${linkUrl}</a>`)
                     .run();
             }
-            
+
             setLinkModalOpen(false);
             setLinkUrl('');
             setLinkText('');
@@ -413,7 +506,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                         </Button>
                     </div>
                 </div>
-                
+
                 <Badge variant="secondary" className="text-xs">
                     {mode === 'html' ? '[html] HTML Mode' : '[md] Markdown Mode'}
                 </Badge>
@@ -506,7 +599,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                 Add a code block with syntax highlighting
                             </DialogDescription>
                         </DialogHeader>
-                        
+
                         <div className="space-y-4 flex-1 overflow-hidden flex flex-col">
                             <div className="space-y-2">
                                 <Label htmlFor="language-select">Programming Language</Label>
@@ -526,7 +619,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                     </SelectContent>
                                 </Select>
                             </div>
-                            
+
                             <div className="space-y-2 flex-1 flex flex-col">
                                 <Label htmlFor="code-content">Code (Optional)</Label>
                                 <textarea
@@ -540,7 +633,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                     Leave empty to create an empty code block
                                 </p>
                             </div>
-                            
+
                             <Button
                                 type="button"
                                 onClick={handleInsertCodeBlock}
@@ -572,13 +665,13 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                 Upload an image file or provide an image URL
                             </DialogDescription>
                         </DialogHeader>
-                        
+
                         <Tabs defaultValue="upload" className="w-full">
                             <TabsList className="grid w-full grid-cols-2">
                                 <TabsTrigger value="upload">Upload File</TabsTrigger>
                                 <TabsTrigger value="url">Image URL</TabsTrigger>
                             </TabsList>
-                            
+
                             <TabsContent value="upload" className="space-y-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="image-upload">Select Image</Label>
@@ -600,7 +693,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                         Choose File
                                     </Button>
                                 </div>
-                                
+
                                 <div className="space-y-2">
                                     <Label htmlFor="image-alt-upload">Alt Text (Optional)</Label>
                                     <Input
@@ -611,7 +704,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                     />
                                 </div>
                             </TabsContent>
-                            
+
                             <TabsContent value="url" className="space-y-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="image-url">Image URL</Label>
@@ -622,7 +715,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                         placeholder="https://example.com/image.jpg"
                                     />
                                 </div>
-                                
+
                                 <div className="space-y-2">
                                     <Label htmlFor="image-alt-url">Alt Text (Optional)</Label>
                                     <Input
@@ -632,7 +725,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                         placeholder="Image description"
                                     />
                                 </div>
-                                
+
                                 <Button
                                     type="button"
                                     onClick={handleImageUrl}
@@ -666,7 +759,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                 Add a hyperlink to your content
                             </DialogDescription>
                         </DialogHeader>
-                        
+
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <Label htmlFor="link-url">URL *</Label>
@@ -677,7 +770,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                     placeholder="https://example.com"
                                 />
                             </div>
-                            
+
                             <div className="space-y-2">
                                 <Label htmlFor="link-text">Link Text (Optional)</Label>
                                 <Input
@@ -690,7 +783,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                     Leave empty to use URL as link text, or apply to selected text
                                 </p>
                             </div>
-                            
+
                             <Button
                                 type="button"
                                 onClick={handleAddLink}

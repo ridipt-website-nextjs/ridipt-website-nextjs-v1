@@ -26,6 +26,15 @@ const formFields: FormField[] = [
         options: ["United States", "India", "United Kingdom", "Canada"],
     },
     {
+        name: "attachment",
+        label: "Attachment",
+        required: false,
+        type: "file",
+        accept: ".pdf,.doc,.docx,.ppt,.pptx",
+        maxSizeMB: 1,
+        path: '/get-in-touch/attachments'
+    },
+    {
         name: "phone",
         label: "Phone Number",
         required: true,

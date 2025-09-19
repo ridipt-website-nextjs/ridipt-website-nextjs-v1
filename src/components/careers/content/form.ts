@@ -58,14 +58,15 @@ export const applicationFormFields = [
       "10+ years",
     ],
   },
-  // {
-  //   name: "cv",
-  //   label: "Upload CV",
-  //   type: "file",
-  //   required: true,
-  //   accept: ".pdf,.doc,.docx,.ppt,.pptx",
-  //   maxSizeMB: 1,
-  // },
+  {
+    name: "cv",
+    label: "Upload CV",
+    type: "file",
+    required: true,
+    accept: ".pdf,.doc,.docx,.ppt,.pptx",
+    maxSizeMB: 1,
+    path: 'applications/cv'
+  },
   {
     name: "companyName",
     label: "Company Name",
@@ -110,10 +111,10 @@ export const applicationFormFields = [
     type: "textarea",
     required: false,
   },
-//   {
-//     name: "captcha",
-//     label: "Verify you are human",
-//     type: "captcha",
-//     required: true,
-//   },
+  //   {
+  //     name: "captcha",
+  //     label: "Verify you are human",
+  //     type: "captcha",
+  //     required: true,
+  //   },
 ];

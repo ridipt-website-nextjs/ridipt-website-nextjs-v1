@@ -42,6 +42,7 @@ interface FileFormField extends BaseFormField {
     type: 'file';
     accept: string;
     maxSizeMB: number;
+    path: string;
 }
 
 interface CaptchaFormField extends BaseFormField {
@@ -62,7 +63,7 @@ interface FormErrors {
 }
 
 interface FormDataState {
-    [key: string]: string | File | null;
+    [key: string]: string | File | null | object;
 }
 
 const ApplicationForm: React.FC<ApplicationFormProps> = ({
@@ -75,6 +76,16 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
     const [errors, setErrors] = useState<FormErrors>({});
     const [loading, setLoading] = useState<boolean>(false);
     const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
+
+
+    // Restore the form Data
+    React.useEffect(() => {
+        const stored = localStorage.getItem('applicationFormMeta');
+        if (stored) {
+            setFormData(JSON.parse(stored));
+        }
+    }, []);
+
 
     const formatFileSize = (bytes: number): string => {
         if (bytes === 0) return '0 Bytes';
@@ -108,12 +119,39 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
         return phoneRegex.test(cleanPhone);
     };
 
-    const handleFileRemove = (name: string): void => {
+    const handleFileRemove = async (name: string) => {
+        const uploaded = formData[name] as { url?: string; key?: string; name?: string; size?: number; type?: string } | null;
+
+        // URL/key extract karo: key response ya URL ke saath aayi hogi (assume kiya hai s3.uploadFile API response mein key bhi tha)
+        let key = uploaded?.key;
+        if (!key && uploaded?.url) {
+            // Agar key direct nahi hai toh url se extract karo (assume S3 public URL format - modify if needed)
+            // Example: https://bucket.s3.amazonaws.com/uploads/images/filename.pdf
+            const parts = uploaded.url.split('/');
+            key = parts.slice(-2).join('/'); // e.g., uploads/images/filename.pdf
+        }
+
+        if (key) {
+            try {
+                await fetch(`/api/files/delete?key=${encodeURIComponent(key)}`, { method: 'DELETE' });
+            } catch (e) {
+                // Optional: error message show karo
+            }
+        }
+
+        // Form data se hatao
         setFormData(prev => ({
             ...prev,
             [name]: null
         }));
+
+        // Local Storage update karo
+        saveMetaToLocalStorage({
+            ...formData,
+            [name]: null
+        });
     };
+
 
     const handleInputChange = (name: string, value: string): void => {
         setFormData(prev => ({
@@ -144,7 +182,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
         }
     };
 
-    const handleFileChange = (name: string, file: File | null): void => {
+    const handleFileChange = async (name: string, file: File | null, path: string): Promise<void> => {
         const field = applicationFormFields.find(f => f.name === name) as FileFormField;
         const maxSize = field?.maxSizeMB || 1;
 
@@ -156,18 +194,64 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
             return;
         }
 
-        setFormData(prev => ({
-            ...prev,
-            [name]: file
-        }));
+        if (file) {
+            try {
+                // create formDate to send the file to s3 bucket
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('path', path)
 
-        if (errors[name]) {
-            setErrors(prev => ({
+                // API call to upload file
+                const res = await fetch('/api/files/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const data = await res.json();
+
+                if (data.success && data.url) {
+                    setFormData(prev => ({
+                        ...prev,
+                        [name]: {
+                            url: data.url,
+                            name: file.name,
+                            key: data.key,
+                            size: file.size,
+                            type: file.type,
+                        }
+                    }));
+                    setErrors(prev => ({
+                        ...prev,
+                        [name]: ''
+                    }));
+
+                    // save to local storage
+                    saveMetaToLocalStorage({
+                        ...formData,
+                        [name]: {
+                            url: data.url,
+                            name: file.name,
+                            key: data.key,
+                            size: file.size,
+                            type: file.type,
+                        }
+                    });
+                } else {
+                    throw new Error(data.error || 'Upload failed');
+                }
+            } catch (error: any) {
+                setErrors(prev => ({
+                    ...prev,
+                    [name]: error.message || 'Upload failed'
+                }));
+            }
+        } else {
+            setFormData(prev => ({
                 ...prev,
-                [name]: ''
+                [name]: null
             }));
         }
     };
+
 
     const validateForm = (): boolean => {
         const newErrors: FormErrors = {};
@@ -200,6 +284,10 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
+    const saveMetaToLocalStorage = (formData: FormDataState) => {
+        localStorage.setItem('applicationFormMeta', JSON.stringify(formData));
+    };
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
@@ -227,6 +315,8 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
             // For now passing formData, but can switch to submitData later
             await onSubmit(formData);
             setFormData(autoFilledData)
+            localStorage.removeItem('applicationFormMeta');
+
         } catch (error) {
             console.error('Form submission error:', error);
         } finally {
@@ -420,7 +510,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                                 type="file"
                                 disabled={!!autoFilledData?.[name]}
                                 accept={fileField.accept}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFileChange(name, e.target.files?.[0] || null)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFileChange(name, e.target.files?.[0] || null, fileField.path)}
                                 className={`w-full cursor-pointer ${error ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
                             />
                         ) : (

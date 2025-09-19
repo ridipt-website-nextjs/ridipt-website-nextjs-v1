@@ -169,6 +169,10 @@ export const navItems = [
         }, {
             name: 'Portfolio',
             link: "/portfolio"
+        },{
+            name: 'Blogs',
+            link: "/blogs"
+
         }]
     },
     {
