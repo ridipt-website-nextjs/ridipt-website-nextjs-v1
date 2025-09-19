@@ -33,7 +33,7 @@ const industriesData = {
         heroSection: {
             heading: 'Healthcare',
             subheading: 'Transforming Healthcare Through Technology',
-            image:require('@assets/industry/Healthcare.webp'),
+            image:require('@assets/industry/Healthcare.png'),
             description: 'At Ridipt, we understand the unique challenges faced by the healthcare industry. Our innovative solutions leverage the latest technologies to enhance patient care, streamline operations, and improve overall healthcare delivery. With our expertise, we empower healthcare providers to focus on what they do best: delivering exceptional patient care.',
         },
         processSection: {
@@ -139,7 +139,7 @@ const industriesData = {
         heroSection: {
             heading: 'Retail and E-Commerce',
             subheading: 'Redefining Retail and E-Commerce with Technology',
-            image:require('@assets/industry/Retailers-1.jpg'),
+            image:require('@assets/industry/Retailers-1.png'),
             description: 'At Ridipt, we understand the rapidly evolving retail and e-commerce landscape. Our innovative solutions are designed to help businesses streamline operations, enhance customer experiences, and maximize revenue. Whether you operate a physical store, an online platform, or a hybrid model, we empower you with the tools to stay ahead in a competitive market.',
         },
         processSection: {
@@ -192,7 +192,7 @@ const industriesData = {
         heroSection: {
             heading: 'Education',
             subheading: 'Transforming Education Through Innovation',
-            image:require('@assets/industry/Education-3.jpg'),
+            image:require('@assets/industry/edu.png'),
             description: 'At Ridipt, we recognize the evolving challenges in the education sector. From modernizing learning experiences to streamlining administrative processes, our technology-driven solutions empower educational institutions to deliver better learning outcomes. Our expertise ensures a seamless integration of technology with your education goals.',
         },
         processSection: {
@@ -245,7 +245,7 @@ const industriesData = {
         heroSection: {
             heading: 'Restaurant & Food Industry',
             subheading: 'Revolutionizing Food & Delivery Services Through Technology',
-            image:require('@assets/industry/Restaurant & Food Industry-1.jpeg'),
+            image:require('@assets/industry/Restaurant & Food Industry-1.png'),
             description: 'At Ridipt, we empower restaurants, food delivery platforms, grocery services, and dairy businesses with cutting-edge technology to streamline operations and meet modern consumer demands. Whether you\'re a restaurant owner, an online grocery provider, or a milk delivery startup, our custom solutions enhance efficiency, boost customer satisfaction, and help you stay ahead in a competitive market.',
         },
         processSection: {
@@ -298,7 +298,7 @@ const industriesData = {
         heroSection: {
             heading: 'Human Resource Management',
             subheading: 'Revolutionizing Human Resource Management Through Technology',
-            image:require('@assets/industry/Human Resource -1.jpg'),
+            image:require('@assets/industry/Human Resource -1.png'),
             description: 'At Ridipt, we empower businesses with innovative human resource solutions that simplify workforce management, improve employee engagement, and streamline HR operations. With our expertise, we help organizations focus on building stronger teams and achieving their goals through advanced HR technology solutions.',
         },
         processSection: {
@@ -351,7 +351,7 @@ const industriesData = {
         heroSection: {
             heading: 'Social Media Solutions',
             subheading: 'Empowering Social Connections Through Technology',
-            image:require('@assets/industry/Social Media -4.jpg'),
+            image:require('@assets/industry/Social Media -4.png'),
             description: 'At Ridipt, we design and develop cutting-edge solutions for social media platforms that inspire meaningful interactions, boost engagement, and create unforgettable user experiences. Our expertise enables businesses and brands to connect with their audiences on a deeper level through innovative social technologies.',
         },
         processSection: {
@@ -404,7 +404,7 @@ const industriesData = {
         heroSection: {
             heading: 'Custom Software Solutions',
             subheading: 'Transform Your Vision Into Reality with Custom Software Solutions',
-            image:require('@assets/industry/Custom Software Solutions-3.jpg'),
+            image:require('@assets/industry/Custom Software Solutions-3.png'),
             description: 'At Ridipt, we specialize in crafting tailored software solutions designed to meet the unique needs of your business. Our expertise lies in understanding your challenges, leveraging the latest technologies, and delivering solutions that drive efficiency, innovation, and growth.',
         },
         processSection: {
@@ -457,7 +457,7 @@ const industriesData = {
         heroSection: {
             heading: 'Logistics & Supply Chain',
             subheading: 'Driving Efficiency and Innovation in Logistics & Supply Chain',
-            image:require('@assets/industry/Logistics & Supply Chain-1.png'),
+            image:require('@assets/industry/Logistics & Supply Chain-1.jpg'),
             description: 'At Ridipt, we deliver transformative logistics and supply chain solutions to enhance operational efficiency, optimize resource utilization, and improve visibility. With advanced technologies, we enable businesses to streamline processes, reduce costs, and achieve seamless coordination across the supply chain.',
         },
         processSection: {

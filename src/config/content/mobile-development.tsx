@@ -59,7 +59,7 @@ export const mobile_app_services = [
         title: "Native Mobile App Development Services",
         description:
             "Leverage platform-specific capabilities with our native iOS and Android development expertise, delivering high-performance mobile applications with optimal user experience and seamless device integration.",
-        image: require('@assets/our_services/mobile development/Nativee.webp'),
+        image: require('@assets/our_services/mobile development/Nativee.png'),
         isAnimation: false,
         highlights: ["Native iOS & Android", "High Performance", "Device Integration", "Optimal UX"]
     },
@@ -83,7 +83,7 @@ export const mobile_app_services = [
         title: "Enterprise Mobile App Development Services",
         description:
             "Empower your workforce with robust enterprise mobile applications featuring advanced security, offline capabilities, and seamless integration with existing business systems for enhanced productivity.",
-        image: require('@assets/our_services/mobile development/Enterprise Mobile App-1.jpg'),
+        image: require('@assets/our_services/mobile development/Enterprise Mobile App-1.png'),
         isAnimation: false,
         highlights: ["Enterprise Apps", "Advanced Security", "Offline Capabilities", "Business Integration"]
     },
@@ -91,7 +91,7 @@ export const mobile_app_services = [
         title: "Mobile App UI/UX Design Services",
         description:
             "Create engaging mobile experiences with our expert UI/UX design services. We craft intuitive, visually stunning interfaces that drive user engagement, retention, and positive app store ratings.",
-        image: require('@assets/our_services/mobile development/Mobile App ui-1.jpg'),
+        image: require('@assets/our_services/mobile development/Mobile App ui-1.png'),
         isAnimation: false,
         highlights: ["Mobile UI/UX", "Intuitive Design", "User Engagement", "App Store Ratings"]
     }

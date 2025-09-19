@@ -66,7 +66,6 @@ class EmailService {
       </html>
     `;
   }
-
   // Original OTP template (unchanged)
   generateOTPEmailHTML(otp: string, email: string, name: string): string {
     return `
