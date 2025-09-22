@@ -79,7 +79,7 @@ export const CareerSection = ({ items }: { items: JobData[] }) => {
                     <div className="text-center pt-8">
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             {/* View All Positions Button */}
-                            <Button
+                            {/* <Button
                                 variant="outline"
                                 className="group relative text-accent-foreground overflow-hidden border border-border hover:border-accent/30 rounded-full px-8 py-3 transition-all duration-300 hover:shadow-md"
                             >
@@ -87,7 +87,7 @@ export const CareerSection = ({ items }: { items: JobData[] }) => {
                                     View All Positions
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                                 </span>
-                            </Button>
+                            </Button> */}
 
                             {/* Apply Now Button */}
                             <Button

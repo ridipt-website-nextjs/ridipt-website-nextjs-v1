@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import { adminApi } from '@/lib/admin-api-client';
 import { AVAILABLE_ICONS, deepEqual, isEmpty } from '@/config/constant';
+import { getChangedFields } from '@/config/utils';
 
 // ✅ Form Fields Configuration
 const jobFormFields = [
@@ -857,24 +858,9 @@ const CreateJobPage = () => {
                     throw new Error(`Job with ID ${job_id} not found`);
                 }
 
-                // Filter out empty/null/undefined values from jobData
-                const cleanJobData = Object.fromEntries(
-                    Object.entries(jobData).filter(([_, value]) => !isEmpty(value))
-                );
-
                 // Compare fields and find changes
-                const changedFields = Object.fromEntries(
-                    Object.entries(cleanJobData)
-                        .filter(([key, newValue]) => {
-                            const existingValue = existingJob[key as keyof JobData];
-
-                            // Skip if the field doesn't exist in existing data
-                            if (existingValue === undefined) return true;
-
-                            // Use deep comparison for complex types
-                            return !deepEqual(existingValue, newValue);
-                        })
-                );
+                const changedFields = getChangedFields(jobData,existingJob)
+                
 
                 console.log('Changed fields:', changedFields);
                 if (Object.keys(changedFields).length > 0) {

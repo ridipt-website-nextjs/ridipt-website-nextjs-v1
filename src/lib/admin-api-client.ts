@@ -70,6 +70,7 @@ class AdminApiClient {
     }
 }
 export const adminApi = new AdminApiClient('/admin');
+export const userApiForAdmin = new AdminApiClient('')
 
 
 export default AdminApiClient

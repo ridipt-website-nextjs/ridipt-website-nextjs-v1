@@ -27,100 +27,137 @@ export const CareerCard = ({ job }: {
     if (typeof job.icon === 'string') {
         IconComponent = ICON_COMPONENTS[job.icon as keyof typeof ICON_COMPONENTS] || ICON_COMPONENTS.Briefcase;
     }
-    return <div
-        className="group relative bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:border-accent/50 hover:-translate-y-2"
-    >
-        {/* Header with Icon and Title */}
-        <div className="flex items-start gap-4 mb-4">
-            <div className="flex items-center justify-center w-14 h-14 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors duration-300">
-                {job.icon ?
-                    (typeof job.icon === 'string' && IconComponent) ?
-                        <IconComponent className="w-7 h-7 text-accent-foreground" />
-                        : <job.icon className="w-7 h-7 text-accent-foreground" /> :
-                    <Briefcase className="w-7 h-7 text-accent-foreground" />}
-            </div>
-            <div className="flex-1">
-                <h4 className="text-xl font-bold text-foreground group-hover:text-accent-foreground transition-colors duration-300 mb-2">
-                    {job.title}
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-3 py-1 bg-accent/15 text-accent-foreground rounded-full font-medium">
-                        {job.department}
-                    </span>
-                    <span className="text-xs px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full font-medium">
-                        {job.type}
-                    </span>
+
+    return (
+        <div className="group relative bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:border-accent/50 hover:-translate-y-1 sm:hover:-translate-y-2 w-full max-w-full overflow-hidden">
+            {/* Mobile-First Header */}
+            <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 mb-4">
+                {/* Icon and Badge Row */}
+                <div className="flex items-center justify-between sm:block">
+                    <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors duration-300 flex-shrink-0">
+                        {job.icon ?
+                            (typeof job.icon === 'string' && IconComponent) ?
+                                <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-accent-foreground" />
+                                : <job.icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent-foreground" /> :
+                            <Briefcase className="w-6 h-6 sm:w-7 sm:h-7 text-accent-foreground" />
+                        }
+                    </div>
+
+                    {/* Mobile Status Indicator */}
+                    <div className="flex items-center gap-2 sm:hidden">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-xs text-green-600 font-medium">Open</span>
+                    </div>
+                </div>
+                
+                {/* Title and Tags */}
+                <div className="flex-1 min-w-0">
+                    <h4 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-accent-foreground transition-colors duration-300 mb-3 line-clamp-2 break-words leading-tight">
+                        {job.title}
+                    </h4>
+                    
+                    {/* Mobile: Stacked badges */}
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
+                        <div className="flex items-center gap-2">
+                            <span className="text-xs px-3 py-1.5 bg-accent/15 text-accent-foreground rounded-full font-medium truncate max-w-[140px] sm:max-w-none">
+                                {job.department}
+                            </span>
+                            <span className="text-xs px-3 py-1.5 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full font-medium whitespace-nowrap">
+                                {job.type}
+                            </span>
+                        </div>
+                        
+                        {/* Mobile: Location on same line as badges */}
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground sm:hidden">
+                            <MapPin className="w-4 h-4 flex-shrink-0" />
+                            <span className="font-medium truncate">{job.location}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        {/* Description */}
-        <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
-            {job.description}
-        </p>
+            {/* Description - More compact on mobile */}
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2 sm:line-clamp-3 break-words">
+                {job.description}
+            </p>
 
-        {/* Key Responsibilities Preview */}
-        <div className="mb-4">
-            <h5 className="text-sm font-semibold text-foreground mb-2">Key Responsibilities:</h5>
-            <ul className="text-xs text-muted-foreground space-y-1">
-                {job.responsibilities.slice(0, 2).map((resp, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-accent-foreground rounded-full mt-2 flex-shrink-0"></span>
-                        <span className="line-clamp-1">{resp}</span>
-                    </li>
-                ))}
-                {job.responsibilities.length > 2 && (
-                    <li className="text-accent-foreground font-medium">
-                        +{job.responsibilities.length - 2} more...
-                    </li>
-                )}
-            </ul>
-        </div>
-        {/* Perks Preview */}
-        <div className="mb-6">
-            <h5 className="text-sm font-semibold text-foreground mb-2">Perks & Benefits:</h5>
-            <div className="flex flex-wrap gap-1">
-                {job.perks.slice(0, 2).map((perk, idx) => (
-                    <span key={idx} className="text-xs px-2 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-md">
-                        {perk}
+            {/* Compact Sections for Mobile */}
+            <div className="space-y-4 mb-4">
+                {/* Key Responsibilities - More compact on mobile */}
+                <div>
+                    <h5 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                        Key Responsibilities
+                        <span className="text-xs text-muted-foreground">({job.responsibilities.length})</span>
+                    </h5>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                        {job.responsibilities.slice(0, 2).map((resp, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                                <span className="w-1 h-1 bg-accent-foreground rounded-full mt-2 flex-shrink-0"></span>
+                                <span className="line-clamp-1 break-words">{resp}</span>
+                            </li>
+                        ))}
+                        {job.responsibilities.length > 2 && (
+                            <li className="text-accent-foreground font-medium text-xs pl-3">
+                                View all {job.responsibilities.length} responsibilities →
+                            </li>
+                        )}
+                    </ul>
+                </div>
+
+                {/* Perks - Grid layout for better space usage */}
+                <div>
+                    <h5 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                        Benefits
+                        <span className="text-xs text-muted-foreground">({job.perks.length})</span>
+                    </h5>
+                    <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 sm:gap-1">
+                        {job.perks.slice(0, 4).map((perk, idx) => (
+                            <span 
+                                key={idx} 
+                                className="text-xs px-2 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-md truncate text-center sm:text-left"
+                                title={perk}
+                            >
+                                {perk}
+                            </span>
+                        ))}
+                        {job.perks.length > 4 && (
+                            <span className="text-xs px-2 py-1 bg-muted text-muted-foreground rounded-md text-center sm:text-left col-span-2 sm:col-span-1">
+                                +{job.perks.length - 4} more
+                            </span>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            {/* Footer - Mobile optimized */}
+            <div className="flex flex-col gap-3 pt-4 border-t border-border/50">
+                {/* Desktop: Location shown here, Mobile: Already shown above */}
+                <div className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4 flex-shrink-0" />
+                    <span className="font-medium truncate">{job.location}</span>
+                </div>
+
+                {/* Apply Button - Full width on mobile */}
+                <Link 
+                    href={`/careers/${job.job_id}`} 
+                    className="group/btn relative overflow-hidden bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent border border-accent/20 hover:border-accent-foreground rounded-lg sm:rounded-full px-4 py-3 sm:px-6 sm:py-2 text-sm font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 w-full active:scale-95"
+                >
+                    <span className="relative z-10 flex items-center gap-2">
+                        <span>Apply Now</span>
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </span>
-                ))}
-                {job.perks.length > 2 && (
-                    <span className="text-xs px-2 py-1 bg-muted text-muted-foreground rounded-md">
-                        +{job.perks.length - 2} more
-                    </span>
-                )}
+                </Link>
+            </div>
+
+            {/* Desktop-only hover indicator */}
+            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             </div>
         </div>
+    );
+};
 
-        {/* Location and Apply Button */}
-        <div className="flex items-center justify-between pt-4 border-t border-border/50">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                <span className="font-medium">{job.location}</span>
-            </div>
 
-            <Link href={`/careers/${job.job_id}`} passHref
-                // size="sm"
-                className="group/btn relative overflow-hidden bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent border border-accent/20 hover:border-accent-foreground rounded-full px-6 py-2 font-semibold transition-all duration-300 hover:scale-105"
-            >
-                <span className="relative z-10 flex items-center gap-2">
-                    Apply Now
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </span>
-            </Link>
-        </div>
-
-        {/* Hover Effect Gradient Border */}
-        {/* <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl" /> */}
-
-        {/* Top right job type indicator */}
-        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-        </div>
-    </div>
-}
 
 export const HeroCard = ({ items }: { items: typeof socialMediaCards }) => {
     return (
