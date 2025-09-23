@@ -20,8 +20,7 @@ import dynamic from 'next/dynamic';
 import { BlogPost } from '@/config/content/blogs';
 import { useDropzone } from 'react-dropzone';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
-import { getChangedFields,  } from '@/config/utils';
-// import RichTextEditor from '@/components/ui/rich-text-editor';
+import { getChangedFields } from '@/config/utils';
 
 // Rich Text Editor (dynamically imported to prevent SSR issues)
 const RichTextEditor = dynamic(() => import('@/components/ui/rich-text-editor'), {
@@ -49,7 +48,7 @@ interface ImageData {
 
 type ImageValue = string | ImageData | undefined;
 
-// Blog Form Fields Configuration (same as before)
+// Blog Form Fields Configuration
 type BlogFormField = {
   section: string;
   card: string;
@@ -452,7 +451,7 @@ function debounce<T extends (...args: any[]) => void>(
   };
 }
 
-// **FIXED LocalStorage Functions with SSR Safety**
+// LocalStorage Functions with SSR Safety
 const BLOG_STORAGE_KEY = 'blog-draft-data';
 
 const saveToLocalStorage = (data: any, blogId?: string) => {
@@ -508,7 +507,7 @@ const getImageKey = (value: ImageValue): string | undefined => {
   return value.key;
 };
 
-// **FIXED ImageUpload Component**
+// ImageUpload Component
 const ImageUpload: React.FC<{
   value?: ImageValue;
   onChange: (data: ImageValue) => void;
@@ -705,13 +704,13 @@ const ImageUpload: React.FC<{
   );
 };
 
-// **CLIENT-ONLY BLOG EDITOR WRAPPER**
+// CLIENT-ONLY BLOG EDITOR WRAPPER
 const BlogEditorWrapper: React.FC = () => {
   const [isHydrated, setIsHydrated] = useState(false);
   const searchParams = useSearchParams();
   
   // Get blogId from search params instead of props
-  const blogId = searchParams.get('blogId'); 
+  const blogId = searchParams.get('blogId');
 
   useEffect(() => {
     setIsHydrated(true);
@@ -735,7 +734,7 @@ const BlogEditorWrapper: React.FC = () => {
   return <BlogEditor blogId={blogId!} initialData={{}} />;
 };
 
-// **MAIN BLOG EDITOR COMPONENT**
+// MAIN BLOG EDITOR COMPONENT
 const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -745,12 +744,12 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
   const [uploadedFiles, setUploadedFiles] = useState<Record<string, ImageData>>({});
   const [existingBlogData, setExistingBlogData] = useState<any>(null);
   
-  // **NEW: Add retry tracking**
+  // Add retry tracking
   const [retryCount, setRetryCount] = useState(0);
   const [maxRetries] = useState(3);
   const [fetchAttempted, setFetchAttempted] = useState(false);
 
-  // **FIXED: Fetch existing blog data with retry logic**
+  // FIXED: Fetch existing blog data with retry logic
   const fetchExistingBlog = useCallback(async (id: string, retryAttempt: number = 0) => {
     try {
       setFetchingData(true);
@@ -777,7 +776,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
         console.log('Fetched blog data:', blogData);
         
         setExistingBlogData(blogData);
-        setRetryCount(0); // Reset retry count on success
+        setRetryCount(0);
         setFetchAttempted(true);
         return blogData;
       } else {
@@ -789,7 +788,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
       
       const errorMessage = err.response?.data?.message || err.message || 'Failed to fetch blog data';
       
-      // **NEW: Retry logic**
+      // Retry logic
       if (retryAttempt < maxRetries - 1) {
         console.log(`Retrying in 2 seconds... (${retryAttempt + 1}/${maxRetries})`);
         setRetryCount(retryAttempt + 1);
@@ -813,7 +812,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     }
   }, [maxRetries]);
 
-  // **UPDATED: Default form data with proper RichTextEditor content handling**
+  // Default form data with proper RichTextEditor content handling
   const defaultFormData = useMemo(() => {
     const savedData = typeof window !== 'undefined' ? loadFromLocalStorage(blogId) : null;
 
@@ -822,7 +821,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
       title: '',
       slug: '',
       excerpt: '',
-      content: '', // **IMPORTANT: This will be filled by existing blog data**
+      content: '',
       metaTitle: '',
       metaDescription: '',
       keywords: [],
@@ -857,7 +856,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
       updatedAt: new Date(),
     };
 
-    // **FIXED: Proper content handling for RichTextEditor**
+    // Proper content handling for RichTextEditor
     let formData = {
       ...baseDefaults,
       ...initialData,
@@ -869,7 +868,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
       formData = {
         ...formData,
         ...existingBlogData,
-        // **IMPORTANT: Ensure content is properly formatted for RichTextEditor**
+        // IMPORTANT: Ensure content is properly formatted for RichTextEditor
         content: existingBlogData.content || '',
         // Handle dates properly for form inputs
         publishedAt: existingBlogData.publishedAt ? 
@@ -882,7 +881,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     return formData;
   }, [blogId, initialData, existingBlogData]);
 
-  // Dynamic arrays initialization (same as before)
+  // Dynamic arrays initialization
   const [dynamicArrays, setDynamicArrays] = useState<Record<string, string[]>>(() => {
     const initial: Record<string, string[]> = {};
     blogArrayFields.forEach(field => {
@@ -899,7 +898,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     return initial;
   });
 
-  // **FIXED: Prevent infinite API calls with proper dependency management**
+  // Prevent infinite API calls with proper dependency management
   useEffect(() => {
     if (blogId && !existingBlogData && !fetchingData && !fetchAttempted && retryCount < maxRetries) {
       fetchExistingBlog(blogId, retryCount);
@@ -935,15 +934,16 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     defaultValues: defaultFormData
   });
 
-  // **ENHANCED: Reset form when existing blog data is loaded with proper RichTextEditor handling**
+  // ENHANCED: Reset form when existing blog data is loaded with proper RichTextEditor handling
   useEffect(() => {
     if (existingBlogData && Object.keys(existingBlogData).length > 0) {
       console.log('Resetting form with existing blog data:', existingBlogData);
       
-      // **FIXED: Properly handle content for RichTextEditor**
+      // FIXED: Properly handle nested author fields for form
       const formData = {
         ...defaultFormData,
-        // **CRITICAL: Ensure content field is properly set**
+        
+        // CRITICAL: Ensure content field is properly set
         content: existingBlogData.content || '',
         title: existingBlogData.title || '',
         slug: existingBlogData.slug || '',
@@ -952,20 +952,11 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
         visibility: existingBlogData.visibility || 'public',
         featured: !!existingBlogData.featured,
         pinned: !!existingBlogData.pinned,
-        commentsEnabled: existingBlogData.commentsEnabled !== false, // default true
+        commentsEnabled: existingBlogData.commentsEnabled !== false,
         newsletter: !!existingBlogData.newsletter,
         premium: !!existingBlogData.premium,
-        // Dates for datetime-local inputs
-        publishedAt: existingBlogData.publishedAt ? 
-          new Date(existingBlogData.publishedAt).toISOString().slice(0, 16) : '',
-        scheduledAt: existingBlogData.scheduledAt ? 
-          new Date(existingBlogData.scheduledAt).toISOString().slice(0, 16) : '',
-        // Featured image
-        'featuredImage.url': typeof existingBlogData.featuredImage === 'object' ? 
-          existingBlogData.featuredImage?.url || '' : existingBlogData.featuredImage || '',
-        'featuredImage.alt': existingBlogData.featuredImage?.alt || '',
-        'featuredImage.caption': existingBlogData.featuredImage?.caption || '',
-        // Author fields
+        
+        // FIXED: Handle nested author fields properly
         'author.name': existingBlogData.author?.name || '',
         'author.email': existingBlogData.author?.email || '',
         'author.bio': existingBlogData.author?.bio || '',
@@ -973,21 +964,35 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
         'author.socialLinks.twitter': existingBlogData.author?.socialLinks?.twitter || '',
         'author.socialLinks.linkedin': existingBlogData.author?.socialLinks?.linkedin || '',
         'author.socialLinks.github': existingBlogData.author?.socialLinks?.github || '',
+        
+        // Dates for datetime-local inputs
+        publishedAt: existingBlogData.publishedAt ? 
+          new Date(existingBlogData.publishedAt).toISOString().slice(0, 16) : '',
+        scheduledAt: existingBlogData.scheduledAt ? 
+          new Date(existingBlogData.scheduledAt).toISOString().slice(0, 16) : '',
+        
+        // Featured image
+        'featuredImage.url': typeof existingBlogData.featuredImage === 'object' ? 
+          existingBlogData.featuredImage?.url : existingBlogData.featuredImage || '',
+        'featuredImage.alt': existingBlogData.featuredImage?.alt || '',
+        'featuredImage.caption': existingBlogData.featuredImage?.caption || '',
+        
         // SEO fields
         metaTitle: existingBlogData.metaTitle || '',
         metaDescription: existingBlogData.metaDescription || '',
         canonicalUrl: existingBlogData.canonicalUrl || '',
         twitterCard: existingBlogData.twitterCard || 'summary',
         ogImage: existingBlogData.ogImage || '',
+        
         // Other fields
         readTime: existingBlogData.readTime || 5,
         language: existingBlogData.language || 'hi-en',
       };
 
-      // **IMPORTANT: Reset the form with all data including content**
+      // IMPORTANT: Reset the form with all data including content
       reset(formData);
-
-      // **CRITICAL: Also manually set the content field to ensure RichTextEditor gets it**
+      
+      // CRITICAL: Also manually set the content field to ensure RichTextEditor gets it
       setTimeout(() => {
         setValue('content', existingBlogData.content || '', { shouldDirty: false });
       }, 100);
@@ -1005,7 +1010,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
   const watchContent = watch('content');
   const watchStatus = watch('status');
 
-  // Handle file removal function (same as before)
+  // Handle file removal function
   const handleFileRemove = async (url: string, key?: string) => {
     try {
       if (key) {
@@ -1046,7 +1051,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     }
   };
 
-  // Debounced auto-save function (same as before)
+  // Debounced auto-save function
   const debouncedSave = useCallback(
     debounce((data: any) => {
       const dataWithFiles = {
@@ -1104,7 +1109,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     }
   }, [watchStatus, setValue, blogId, existingBlogData?.publishedAt]);
 
-  // Dynamic array functions (same as before)
+  // Dynamic array functions
   const addArrayValue = useCallback((fieldName: string) => {
     const newValue = newValues[fieldName]?.trim();
 
@@ -1124,9 +1129,13 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     setValue(fieldName, updatedArray, { shouldDirty: true, shouldValidate: true });
   }, [dynamicArrays, setValue]);
 
-  // **ENHANCED: RichTextEditor render with better value handling**
+  // FIXED: Enhanced field rendering with author field conditional disable
   const renderField = (field: any) => {
-    const fieldError = errors[field.name];
+    const fieldError = (errors as any)[field.name];
+    
+    // FIXED: Check if it's an author field and we're in update mode
+    const isAuthorField = field.name === 'author.name' || field.name === 'author.email';
+    const isDisabled = isAuthorField && !!blogId; // Disable in update mode only
 
     switch (field.type) {
       case 'rich-text':
@@ -1137,7 +1146,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
             rules={{ required: field.required ? `${field.label} is required` : false }}
             render={({ field: controllerField }) => (
               <RichTextEditor
-                key={`rich-text-${blogId || 'new'}-${existingBlogData?.updatedAt || 'default'}`} // **CRITICAL: Force re-render with key**
+                key={`rich-text-${blogId || 'new'}-${existingBlogData?.updatedAt || 'default'}`} // CRITICAL: Force re-render with key
                 value={controllerField.value || ''}
                 onChange={(value) => {
                   console.log('RichTextEditor onChange:', value?.substring(0, 100) + '...');
@@ -1149,7 +1158,6 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
           />
         );
 
-      // Other field types (same as before)
       case 'text':
       case 'email':
       case 'number':
@@ -1164,6 +1172,8 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
             })}
             placeholder={field.placeholder}
             className={field.className}
+            disabled={isDisabled} // FIXED: Add conditional disable
+            readOnly={isDisabled} // FIXED: Also make readonly for better UX
           />
         );
 
@@ -1176,6 +1186,8 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
             })}
             placeholder={field.placeholder}
             rows={field.rows || 3}
+            disabled={isDisabled} // FIXED: Add conditional disable
+            readOnly={isDisabled} // FIXED: Also make readonly
           />
         );
 
@@ -1186,14 +1198,18 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
             control={control}
             rules={{ required: field.required ? `${field.label} is required` : false }}
             render={({ field: controllerField }) => (
-              <Select value={controllerField.value} onValueChange={controllerField.onChange}>
+              <Select 
+                value={controllerField.value} 
+                onValueChange={controllerField.onChange}
+                disabled={isDisabled} // FIXED: Add conditional disable
+              >
                 <SelectTrigger>
-                  <SelectValue placeholder={field.placeholder || `Select ${field.label}`} />
+                  <SelectValue placeholder={`Select ${field.label}`} />
                 </SelectTrigger>
                 <SelectContent>
                   {field.options.map((option: any) => (
-                    <SelectItem
-                      key={typeof option === 'string' ? option : option.value}
+                    <SelectItem 
+                      key={typeof option === 'string' ? option : option.value} 
                       value={typeof option === 'string' ? option : option.value}
                     >
                       {typeof option === 'string' ? option : option.label}
@@ -1251,7 +1267,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     }
   };
 
-  // Other render functions (same as before)
+  // Other render functions
   const renderArrayField = (field: any) => {
     return (
       <div className="space-y-3">
@@ -1332,7 +1348,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     );
   };
 
-  // Group functions (same as before)
+  // Group functions
   const getFieldsByCard = (section: string, cardName: string) => {
     return blogFormFields.filter(field =>
       field.section === section && field.card === cardName
@@ -1351,59 +1367,78 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     );
   };
 
-  // Form submit (same as before)
+  // FIXED: Enhanced form submit with proper nested author object handling
   const onSubmit = async (data: any) => {
     try {
       setLoading(true);
 
+      // CRITICAL: Build proper nested author object
+      const authorData = {
+        id: data.author?.id || existingBlogData?.author?.id || 'current-user',
+        name: data['author.name'] || data.author?.name || '', // FIXED: Handle both formats
+        email: data['author.email'] || data.author?.email || '', // FIXED: Handle both formats
+        bio: data['author.bio'] || data.author?.bio || '',
+        avatar: data['author.avatar'] || data.author?.avatar || '',
+        socialLinks: {
+          twitter: data['author.socialLinks.twitter'] || data.author?.socialLinks?.twitter || '',
+          linkedin: data['author.socialLinks.linkedin'] || data.author?.socialLinks?.linkedin || '',
+          github: data['author.socialLinks.github'] || data.author?.socialLinks?.github || '',
+        }
+      };
+
+      // ENHANCED: Properly structure blog data with nested objects
       const blogData = {
+        // Basic fields
         ...data,
         ...dynamicArrays,
-        author: {
-          id: data['author.id'] || existingBlogData?.author?.id || 'current-user',
-          name: data['author.name'] || '',
-          email: data['author.email'] || '',
-          bio: data['author.bio'] || '',
-          avatar: data['author.avatar'] || '',
-          socialLinks: {
-            twitter: data['author.socialLinks.twitter'] || '',
-            linkedin: data['author.socialLinks.linkedin'] || '',
-            github: data['author.socialLinks.github'] || '',
-          }
-        },
-        featuredImage: data['featuredImage.url'] ? {
-          url: data['featuredImage.url'],
-          alt: data['featuredImage.alt'] || '',
-          caption: data['featuredImage.caption'] || ''
+        
+        // FIXED: Proper nested author object
+        author: authorData,
+        
+        // FIXED: Featured image object structure
+        featuredImage: data.featuredImage?.url ? {
+          url: data.featuredImage.url,
+          alt: data.featuredImage.alt || '',
+          caption: data.featuredImage.caption || ''
         } : null,
-        // updatedAt: new Date(),
+        
+        // Metadata
+        updatedAt: new Date(),
         ...(blogId ? {} : { createdAt: new Date() }),
-        // ...(data.status === 'published' && !existingBlogData?.publishedAt ? 
-        //   { publishedAt: new Date() } : {}),
+        ...(data.status === 'published' && !existingBlogData?.publishedAt ? { publishedAt: new Date() } : {}),
         ...(blogId ? { version: (existingBlogData?.version || 1) + 1 } : { version: 1 })
       };
 
-      // console.log('Submitting blog data:', blogData);
+      console.log('Submitting blog data:', blogData);
+      console.log('Author data:', authorData);
 
       let response;
       if (blogId) {
-        // const existingData = userApiForAdmin.get(`/blogs/${blogId}`)
-        // console.log(blogData,existingBlogData)
-        const updatedData = getChangedFields<typeof existingBlogData>(existingBlogData,blogData)
-        // console.log(blogData,updatedData,existingBlogData)
-        response = updatedData && await adminApi.patch(`/blogs/${blogId}`, updatedData);
+        // For updates, only send changed fields
+        
+        const updatedData = getChangedFields(typeof existingBlogData, blogData);
+        console.log('blogData:', updatedData, existingBlogData);
+        
+        // FIXED: Ensure author data is properly included in updates
+        if (updatedData.author || authorData.name || authorData.email) {
+          updatedData.author = authorData;
+        }
+        
+        response = updatedData ? updatedData && await adminApi.patch(`/blogs/${blogId}`, updatedData) : null;
       } else {
+        // For creation, send complete data
         response = await adminApi.post('/blogs', blogData);
       }
 
-      // console.log('API Response:', response);
+      console.log('API Response:', response);
 
-      if (response.success !== false) {
+      if (response && (response.success !== false)) {
         clearFromLocalStorage(blogId);
         
         const message = blogId ? 'Blog updated successfully!' : 'Blog created successfully!';
         alert(message);
         
+        // Redirect logic
         if (!blogId && response.data?.slug) {
           router.push(`/blogs/${response.data.slug}`);
         } else if (!blogId && response.slug) {
@@ -1412,9 +1447,8 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
           router.push('/blogs-manager');
         }
       } else {
-        throw new Error(response.error || 'Failed to save blog');
+        throw new Error(response?.error || 'Failed to save blog');
       }
-
     } catch (error: any) {
       console.error('Error saving blog:', error);
       const errorMessage = error.response?.data?.message || error.message || 'Error saving blog. Please try again.';
@@ -1441,7 +1475,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     }
   };
 
-  // **ENHANCED: Manual retry function**
+  // Enhanced manual retry function
   const handleManualRetry = () => {
     setRetryCount(0);
     setFetchAttempted(false);
@@ -1450,7 +1484,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     fetchExistingBlog(blogId!, 0);
   };
 
-  // **ENHANCED: Loading state with retry information**
+  // Loading state with retry information
   if (blogId && fetchingData) {
     return (
       <div className="container mx-auto p-6 max-w-7xl">
@@ -1471,7 +1505,7 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
     );
   }
 
-  // **ENHANCED: Error state with retry count information**
+  // Error state with retry count information
   if (blogId && fetchError && retryCount >= maxRetries) {
     return (
       <div className="container mx-auto p-6 max-w-7xl">
@@ -1548,7 +1582,6 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-        {/* Rest of the form JSX stays the same */}
         <Tabs defaultValue="content" className="w-full">
           <TabsList className="grid w-full grid-cols-4 h-12 rounded-lg bg-secondary">
             {blogTabs.map((tab) => (
@@ -1593,11 +1626,20 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
                       {fields.length > 0 && (
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                           {fields.map((field) => {
-                            const fieldError = errors[field.name];
+                            const fieldError = (errors as any)[field.name];
+                            const isAuthorField = field.name === 'author.name' || field.name === 'author.email';
+                            const isDisabled = isAuthorField && !!blogId;
+                            
                             return (
                               <div key={field.name} className={`space-y-2 ${field.gridCols || ''}`}>
                                 <Label htmlFor={field.name}>
-                                  {field.label} {field.required && '*'}
+                                  {field.label}
+                                  {field.required && <span className="text-red-500 ml-1">*</span>}
+                                  {isDisabled && (
+                                    <Badge variant="secondary" className="ml-2 text-xs">
+                                      Cannot be changed
+                                    </Badge>
+                                  )}
                                 </Label>
                                 {renderField(field)}
                                 {fieldError && (
@@ -1680,6 +1722,5 @@ const BlogEditor: React.FC<BlogEditorProps> = ({ blogId, initialData }) => {
   );
 };
 
-
-// **EXPORT CLIENT-ONLY WRAPPER**
+// EXPORT CLIENT-ONLY WRAPPER
 export default BlogEditorWrapper;

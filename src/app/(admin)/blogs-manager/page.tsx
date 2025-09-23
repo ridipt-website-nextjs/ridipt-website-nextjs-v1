@@ -477,7 +477,7 @@ function BlogsList() {
                         <h1 className="text-3xl font-bold">Blog Management</h1>
                         <p className="text-muted-foreground">Manage all blog posts, analytics, and content</p>
                     </div>
-                    <Button onClick={() => router.push('/admin/blogs/create')}>
+                    <Button onClick={() => router.push('/blog-editor')}>
                         Create New Blog
                     </Button>
                 </div>

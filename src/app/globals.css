@@ -292,3 +292,214 @@
   list-style: decimal;
 }
 
+
+/* HTML Code Block Styles */
+.code-block-wrapper {
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #2d2d2d;
+  border-bottom: 1px solid #404040;
+}
+
+.code-block-language {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.language-icon {
+  font-size: 16px;
+}
+
+.code-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #404040;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.code-copy-btn:hover {
+  background: #505050;
+  color: #fff;
+}
+
+.code-copy-btn.copied {
+  background: #10b981;
+  color: white;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  padding: 20px;
+  background: transparent !important;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.code-block-wrapper code {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+
+/* Markdown Code Block Styles */
+.markdown-code-block-wrapper {
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.markdown-syntax-highlighter {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.markdown-syntax-highlighter pre {
+  margin: 0 !important;
+  padding: 20px !important;
+  background: transparent !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  overflow-x: auto !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace !important;
+}
+
+/* Inline Code Styles */
+.inline-code {
+  background: rgb(244 244 245) !important;
+  color: rgb(139 92 246) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.375rem !important;
+  font-size: 0.875em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace !important;
+}
+
+.dark .inline-code {
+  background: rgb(39 39 42) !important;
+  color: rgb(196 181 253) !important;
+}
+
+/* Enhanced List Styles */
+.enhanced-bullet-list {
+  padding-left: 2rem;
+  margin: 1.5rem 0;
+  list-style: none;
+}
+
+.enhanced-bullet-list .enhanced-list-item {
+  margin: 0.75rem 0;
+  position: relative;
+  padding-left: 0;
+}
+
+.enhanced-bullet-list .enhanced-list-item::before {
+  content: "•";
+  color: #8b5cf6;
+  font-weight: bold;
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+}
+
+.enhanced-ordered-list {
+  padding-left: 2rem;
+  margin: 1.5rem 0;
+  counter-reset: list-counter;
+  list-style: none;
+}
+
+.enhanced-ordered-list .enhanced-list-item {
+  margin: 0.75rem 0;
+  position: relative;
+  counter-increment: list-counter;
+  padding-left: 0;
+}
+
+.enhanced-ordered-list .enhanced-list-item::before {
+  content: counter(list-counter) ".";
+  color: #8b5cf6;
+  font-weight: bold;
+  position: absolute;
+  left: -2rem;
+  width: 1.5rem;
+  text-align: right;
+  top: 0;
+}
+
+/* Image Wrapper Styles */
+.image-wrapper {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.markdown-image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  .code-block-wrapper,
+  .markdown-code-block-wrapper {
+    margin: 1rem -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .code-block-wrapper pre,
+  .markdown-syntax-highlighter pre {
+    padding: 16px !important;
+    font-size: 13px !important;
+  }
+
+  .code-block-header {
+    padding: 10px 16px;
+  }
+
+  .code-copy-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .inline-code {
+    background: rgb(39 39 42) !important;
+    color: rgb(196 181 253) !important;
+  }
+}
+
+/* Add this to your global CSS file or style tag */

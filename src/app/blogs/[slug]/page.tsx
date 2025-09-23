@@ -22,6 +22,7 @@ import {
 import { BlogPost, sampleBlogs } from '@/config/content/blogs';
 import Structure from '@/components/common/page-structure';
 import { getOrigin } from '@/lib/helper-functions';
+import { ContentParser } from '@/components/blogs/content-parser';
 
 interface BlogDetailPageProps {
   params: Promise<{
@@ -55,7 +56,7 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
 }
 
 export async function generateMetadata({ params }: BlogDetailPageProps): Promise<Metadata> {
-  const { slug } = await params; 
+  const { slug } = await params;
   // Server-side data fetching
   const blogPost = await getBlogPost(slug);
 
@@ -74,7 +75,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
-  const { slug } = await params; 
+  const { slug } = await params;
   // Server-side data fetching
   const blogPost = await getBlogPost(slug);
 
@@ -197,9 +198,11 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
             {/* Article Content */}
             <article className="mb-20 text-primary">
-              <div className="prose prose-2xl max-w-none dark:prose-invert prose-headings:font-black prose-headings:text-black dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-xl prose-strong:text-black dark:prose-strong:text-white prose-a:text-violet-600 dark:prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-violet-600 dark:prose-code:text-violet-400">
+              {/* <div className="prose prose-2xl max-w-none dark:prose-invert prose-headings:font-black prose-headings:text-black dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-xl prose-strong:text-black dark:prose-strong:text-white prose-a:text-violet-600 dark:prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-violet-600 dark:prose-code:text-violet-400">
                 <div dangerouslySetInnerHTML={{ __html: blogPost.content?.replace(/\n/g, '<br />') || '<p>Content not available</p>' }} />
-              </div>
+              </div> */}
+
+              <ContentParser content={blogPost?.content || ''} />
             </article>
 
             {/* Tags */}
