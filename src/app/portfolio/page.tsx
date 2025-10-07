@@ -12,11 +12,13 @@ import IOTImg from "@/assests/portfolio/IOT EV Charging Platform.jpeg";
 import Foodcourt_Admin from "@/assests/portfolio/foodcpourt admn.jpg";
 import Foodcourt_App from "@/assests/portfolio/Foodcourt App.webp";
 import Cab_Advertisement_App from "@/assests/portfolio/Cab Advertisement App.jpeg";
-import Lab_Report from "@/assests/portfolio/Lab Report Management.png";
+import Lab_Report from "@/assests/portfolio/Lab Report Management-1.png";
 import Droshipping_portal from "@/assests/portfolio/Dropshipping Portal.webp";
 import Droshipping_platform from "@/assests/portfolio/Dropshipping Platform.jpeg";
 import smart_Delivery from "@/assests/portfolio/Smart Delivery Admin System.png";
-import smart_Delivery_Distributor from "@/assests/portfolio/Smart Delivery Distributor System.jpg";
+import smart_Delivery_admin from "@/assests/portfolio/Delivery.png";
+import smart_Delivery_Distributor from "@/assests/portfolio/Delivery.png";
+
 
 const projects = [
   { id: "iot-ev-charging", title: "IOT EV Charging Platform", category: "Mobile", image: IOTImg },
@@ -26,8 +28,9 @@ const projects = [
   { id: "lab-report-management", title: "Lab Report Management", category: "Web", image: Lab_Report },
   { id: "dropshipping-portal", title: "Dropshipping Portal", category: "Web", image: Droshipping_portal },
   { id: "dropshipping-platform", title: "Dropshipping Platform", category: "Web", image: Droshipping_platform },
-  { id: "smart-delivery-distributor", title: "Smart Delivery Distributor System", category: "Web", image: smart_Delivery_Distributor },
-  { id: "smart-delivery-admin", title: "Smart Delivery Admin System", category: "Web", image: smart_Delivery },
+  { id: "smart-delivery-admin", title: "Grocery Delivery", category: "Web", image: smart_Delivery_admin },
+  //{ id: "smart-delivery-admin", title: "Smart Delivery Admin System", category: "Web", image: smart_Delivery },
+  // { id: "smart-delivery-distributor", title: "Grocery Delivery Distributor", category: "Mobile", image: smart_Delivery_Distributor },
 ];
 
 const categories = ["All", "Mobile", "Web", "Game", "AR/VR", "Blockchain", "UI/UX Design", ".NET"];
