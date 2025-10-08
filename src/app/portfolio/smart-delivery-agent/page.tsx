@@ -249,7 +249,7 @@ const SmartDeliveryPageAgent = () => {
             <div className="max-w-6xl mx-auto space-y-12 p-10 mt-12">
                 <div className="text-center">
                     <h2 className="text-4xl font-bold mb-6">WEBSITE SCREENS</h2>
-                    <div className="grid grid-cols-2 gap-7">
+                    <div className="grid grid-cols-2 gap-7 mt-20">
                         <img
                             src={SDPImg2.src}
                             alt="Smart Delivery Platform Screen 1"
