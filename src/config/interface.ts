@@ -78,3 +78,19 @@ export interface JobData {
   perks: string[];
   challenges?: string[];
 }
+
+
+export interface DecisionGuideItem {
+  title: string;
+  description: string;
+  icon?: string;
+  illustration?: string;
+}
+
+export interface ServiceItem {
+    title: string;
+    description: string;
+    image: any;
+    isAnimation: boolean;
+    highlights: string[];
+}

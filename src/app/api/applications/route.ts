@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
     try {
       await emailService.sendEmail({
-        to: admin?.email || 'admin@yourcompany.com', // Admin email from env
+        to: admin?.email || 'varun.satija@progneur.com', // Admin email from env
         subject: `🔥 New Job Application: ${body.position} - ${body.name}`,
         html: `
           <!DOCTYPE html>

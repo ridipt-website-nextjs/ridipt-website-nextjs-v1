@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import { ChevronRight } from "lucide-react";
 import Image from "next/image"
 
@@ -37,7 +39,6 @@ export const Card1 = ({ item }: {
     </article>
 }
 
-import { useState } from 'react';
 
 export const Card2 = ({ item,  variant = 'default', showBadge = false, clickable = false }: {
     item: any;

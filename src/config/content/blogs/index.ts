@@ -114,9 +114,9 @@ interface Comment {
   parentId?: string; // for nested comments
   replies?: Comment[];
   likes: number;
-  status: 'approved' | 'pending' | 'spam' | 'rejected';
-  createdAt: Date;
-  updatedAt: Date;
+  status?: 'approved' | 'pending' | 'spam' | 'rejected';
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
   ipAddress?: string;
   userAgent?: string;
 }

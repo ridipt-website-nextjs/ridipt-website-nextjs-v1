@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
     try {
       await emailService.sendEmail({
-        to: admin?.email || 'sales@yourcompany.com',
+        to: admin?.email || 'varun.satija@progneur.com',
         subject: `🚀 New Business Lead: ${body.name} from ${body.country}`,
         html: `
           <!DOCTYPE html>
@@ -177,7 +177,7 @@ export async function POST(request: Request) {
                   <h4 style="color: #7c2d12; margin: 0 0 10px 0; font-size: 16px;">📞 Need Immediate Assistance?</h4>
                   <p style="color: #7c2d12; margin: 0;">
                     Feel free to reach out directly:<br>
-                    <strong>Email:</strong> <a href="mailto:sales@yourcompany.com" style="color: #a855f7; text-decoration: none;">sales@yourcompany.com</a><br>
+                    <strong>Email:</strong> <a href="mailto:varun.satija@progneur.com" style="color: #a855f7; text-decoration: none;">varun.satija@progneur.com</a><br>
                     <strong>Phone:</strong> <a href="tel:+1234567890" style="color: #a855f7; text-decoration: none;">+1 (234) 567-890</a>
                   </p>
                 </div>
@@ -193,7 +193,7 @@ export async function POST(request: Request) {
                 </p>
                 
                 <div style="font-size: 12px; color: #94a3b8; margin-top: 20px;">
-                  Questions? Contact us at <a href="mailto:support@yourcompany.com" style="color: #3b82f6; text-decoration: none;">support@yourcompany.com</a>
+                  Questions? Contact us at <a href="mailto:support@ridipt.com" style="color: #3b82f6; text-decoration: none;">support@ridipt.com</a>
                 </div>
               </div>
             </div>

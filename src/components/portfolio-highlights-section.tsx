@@ -42,7 +42,32 @@ const portfolioData = [
             "Multi-language support",
         ],
     },
+    {
+        title: "Lab Report Management System",
+        description:
+            "Digital platform for medical laboratories to manage, generate, and share lab reports efficiently.",
+        image: require('@assets/home/lab-report.jpg'),
+        isAnimation: false,
+        highlights: [
+            "Automated report generation",
+            "Patient portal for secure access",
+            "Integration with lab equipment",
+        ],
+    },
+    {
+        title: "Grocery Delivery App",
+        description:
+            "On-demand grocery delivery service with real-time tracking and fresh produce guarantee.",
+        image: require('@assets/home/grocery.png'),
+        isAnimation: false,
+        highlights: [
+            "Real-time order tracking",
+            "Smart inventory management",
+            "Multi-vendor marketplace support",
+        ],
+    },
 ];
+
 
 interface ServiceItem {
     title: string;
@@ -77,7 +102,7 @@ const page = ({
                     subheading={subheading || 'Building Success Together'}
                     description={description || `We are committed to addressing our clients' evolving business requirements, helping them stand out on the App Store, Google Play, and their websites.`}
                 />
-                <div className='flex flex-col gap-10 md:gap-20 w-full max-w-7xl'>
+                <div className='flex flex-col gap-8 md:gap-15 w-full max-w-7xl'>
                     {content.map((item, idx) => (
                         CustomCard ? (
                             <CustomCard key={idx} item={item} index={idx} />

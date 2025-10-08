@@ -217,11 +217,10 @@ const TabsTrigger: React.FC<TabsTriggerProps> = ({ value, children, activeTab, s
         <button
             type="button"
             onClick={() => setActiveTab?.(value)}
-            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-                activeTab === value
-                    ? 'border-primary text-primary'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
-            }`}
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === value
+                ? 'border-primary text-primary'
+                : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
         >
             {children}
         </button>
@@ -307,10 +306,10 @@ const InlineHeading = Heading.extend<HeadingOptions>({
     addCommands() {
         return {
             ...this.parent?.(),
-            setInlineHeading: (attributes: { level: number }) => ({ commands }) => {
+            setInlineHeading: (attributes: { level: number }) => ({ commands }: { commands: any }) => {
                 return commands.setNode(this.name, attributes);
             },
-            toggleInlineHeading: (attributes: { level: number }) => ({ commands }) => {
+            toggleInlineHeading: (attributes: { level: number }) => ({ commands }: { commands: any }) => {
                 return commands.toggleNode(this.name, 'paragraph', attributes);
             },
         };
@@ -397,16 +396,16 @@ const InlineTextStyle = TextStyle.extend<InlineTextStyleOptions>({
     addCommands() {
         return {
             ...this.parent?.(),
-            setInlineFontSize: (fontSize: string) => ({ commands }) => {
+            setInlineFontSize: (fontSize: string) => ({ commands }: { commands: any }) => {
                 return commands.updateAttributes(this.name, { fontSize });
             },
-            setInlineFontFamily: (fontFamily: string) => ({ commands }) => {
+            setInlineFontFamily: (fontFamily: string) => ({ commands }: { commands: any }) => {
                 return commands.updateAttributes(this.name, { fontFamily });
             },
-            setInlineColor: (color: string) => ({ commands }) => {
+            setInlineColor: (color: string) => ({ commands }: { commands: any }) => {
                 return commands.updateAttributes(this.name, { color });
             },
-            unsetInlineTextStyle: () => ({ commands }) => {
+            unsetInlineTextStyle: () => ({ commands }: { commands: any }) => {
                 return commands.unsetMark(this.name);
             },
         };
@@ -680,6 +679,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     const [currentHighlightColor, setCurrentHighlightColor] = useState<string>('');
     const fileInputRef = useRef<HTMLInputElement>(null);
 
+
     const [formatState, setFormatState] = useState({
         bold: false,
         italic: false,
@@ -729,7 +729,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
             let htmlContent = markdownToHtml(markdownContent);
 
             // Wrap content in paragraphs if not already wrapped
-            if (!htmlContent.startsWith('<h') && !htmlContent.startsWith('<ul') && 
+            if (!htmlContent.startsWith('<h') && !htmlContent.startsWith('<ul') &&
                 !htmlContent.startsWith('<ol') && !htmlContent.startsWith('<blockquote')) {
                 htmlContent = `<p style="font-size: 1rem; line-height: 1.7; margin: 1rem 0; color: inherit;">${htmlContent}</p>`;
             }
@@ -820,6 +820,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         },
     });
 
+
+
     // ✅ ENHANCED: Mode change handler with Showdown conversions
     const handleModeChange = (newMode: 'html' | 'markdown') => {
         if (!editor || newMode === mode) return;
@@ -843,9 +845,9 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
                     // Convert back to HTML for editor display
                     const displayHtml = markdownToHtml(convertedMarkdown);
-                    editor.commands.setContent(displayHtml, { 
+                    editor.commands.setContent(displayHtml, {
                         emitUpdate: false,
-                        preserveWhitespace: 'full'
+                        // preserveWhitespace: 'full'
                     });
                 }
 
@@ -860,9 +862,9 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 if (cleanedMarkdown) {
                     // ✅ Use Showdown for Markdown to HTML conversion
                     const convertedHtml = markdownToHtml(cleanedMarkdown);
-                    editor.commands.setContent(convertedHtml, { 
+                    editor.commands.setContent(convertedHtml, {
                         emitUpdate: false,
-                        preserveWhitespace: 'full'
+                        // preserveWhitespace: 'full'
                     });
                 }
             }
@@ -920,9 +922,24 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 defaultLanguage: 'plaintext',
                 HTMLAttributes: {
                     class: 'tiptap-code-block',
-                    style: 'background: #1e1e1e; color: #e5e5e5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace; font-size: 0.875rem; line-height: 1.5; margin: 1.5rem 0;'
+                    // style: 'background: #1e1e1e; color: #e5e5e5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace; font-size: 0.875rem; line-height: 1.5; margin: 1.5rem 0;'
+                    style: `
+      background: #1e1e1e;
+      color: #e5e5e5;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      font-family: ui-monospace, SF Mono, Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 1.5rem 0;
+      white-space: pre;
+      tab-size: 2;
+    `
                 },
                 languageClassPrefix: 'language-',
+                enableTabIndentation: true,
+                tabSize: 2,
             }),
 
             Link.configure({
@@ -958,6 +975,9 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 transformCopiedText: mode === 'markdown',
             }),
         ],
+        parseOptions: {
+            preserveWhitespace: 'full',
+        },
         content: '',
         immediatelyRender: false,
         autofocus: false,
@@ -980,40 +1000,101 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 class: 'focus:outline-none min-h-[300px] p-4 rich-text-content',
                 style: 'font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 1rem; line-height: 1.6; color: #333;'
             },
+            handlePaste: (view, event, slice) => {
+                const text = event.clipboardData?.getData('text/plain');
+
+                // Special handling for code blocks
+                if (text && view.state.selection.$head.parent.type.name === 'codeBlock') {
+                    event.preventDefault();
+                    // ✅ Preserve exact text formatting in code blocks
+                    view.dispatch(view.state.tr.insertText(text));
+                    return true;
+                }
+
+                // ✅ For regular paste, preserve whitespace
+                if (text && text.includes('\n')) {
+                    event.preventDefault();
+                    const htmlContent = text.replace(/\n/g, '<br>');
+                    view.dispatch(view.state.tr.insertText(htmlContent));
+                    return true;
+                }
+
+                return false; // Let default handle other cases
+            },
         },
     });
+
+    const preprocessContentForTipTap = (content: string): string => {
+        // Replace multiple newlines with HTML breaks to prevent collapse
+        return content
+            .replace(/\n\n+/g, (match) => {
+                // Convert multiple newlines to HTML breaks
+                const count = match.length - 1;
+                return '<br>'.repeat(count);
+            })
+            .replace(/\n/g, '<br>'); // Single newlines to breaks
+    };
 
     // Content loading with proper mode handling
     useEffect(() => {
         if (editor && value) {
+            console.log(value)
             const cleanedContent = cleanContent(value);
             const currentContent = editor.getHTML();
 
+
             if (cleanedContent !== currentContent && cleanedContent.trim()) {
-                console.log(`📝 Setting editor content in ${mode} mode using Showdown:`, cleanedContent.substring(0, 100) + '...');
+                console.log(`📝 Setting editor content in ${mode} mode using Showdown:`, cleanedContent + '...');
+                const preprocessedContent = preprocessContentForTipTap(cleanedContent);
 
                 // If content is markdown but we're in HTML mode, convert it
-                if (mode === 'html' && value.startsWith('[md]')) {
-                    const htmlContent = convertMarkdownToHtml(cleanedContent);
-                    editor.commands.setContent(htmlContent, { 
-                        emitUpdate: false, 
-                        preserveWhitespace: 'full' 
-                    });
-                } else if (mode === 'markdown' && value.startsWith('[html]')) {
-                    // Keep HTML content as is for editing
-                    editor.commands.setContent(cleanedContent, { 
-                        emitUpdate: false, 
-                        preserveWhitespace: 'full' 
-                    });
-                } else {
-                    editor.commands.setContent(cleanedContent, { 
-                        emitUpdate: false, 
-                        preserveWhitespace: 'full' 
-                    });
-                }
+                // if (mode === 'html' && value.startsWith('[md]')) {
+                //     const htmlContent = convertMarkdownToHtml(cleanedContent);
+                //     editor.commands.setContent(htmlContent, {
+                //         emitUpdate: false,
+                //         // preserveWhitespace: 'full'
+                //     });
+                // } else if (mode === 'markdown' && value.startsWith('[html]')) {
+                //     // Keep HTML content as is for editing
+                //     editor.commands.setContent(cleanedContent, {
+                //         emitUpdate: false,
+                //         // preserveWhitespace: 'full'
+                //     });
+                // } else {
+                editor.commands.setContent(preprocessedContent, {
+                    // emitUpdate: false,
+
+                    parseOptions: {
+                        preserveWhitespace: 'full',
+                    }
+                    // preserveWhitespace: 'full'
+                });
+                // }
             }
         }
     }, [editor, value]);
+
+    useEffect(() => {
+        if (!codeModalOpen) {
+            setCodeContent('');
+            setSelectedLanguage('javascript');
+        }
+    }, [codeModalOpen]);
+
+
+    useEffect(() => {
+        // Pre-fill with selected text when opening code modal
+        if (codeModalOpen && editor) {
+            const { from, to } = editor.state.selection;
+            if (from !== to) {
+                const selectedText = editor.state.doc.textBetween(from, to, '\n');
+                if (selectedText.trim()) {
+                    setCodeContent(selectedText);
+                }
+            }
+        }
+    }, [codeModalOpen, editor]);
+
 
     const updateFormatState = useCallback(() => {
         if (!editor) return;
@@ -1153,13 +1234,20 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     const handleInsertCodeBlock = () => {
         if (!editor) return;
 
-        if (codeContent.trim()) {
+        // ✅ Preserve newlines and whitespace properly
+        if (codeContent) {
             editor.chain()
                 .focus()
                 .insertContent({
                     type: 'codeBlock',
                     attrs: { language: selectedLanguage },
-                    content: [{ type: 'text', text: codeContent }]
+                    content: [
+                        {
+                            type: 'text',
+                            // ✅ Keep original formatting
+                            text: codeContent
+                        }
+                    ]
                 })
                 .run();
         } else {
@@ -1177,6 +1265,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         setSelectedLanguage('javascript');
     };
 
+
     const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!editor) return;
 
@@ -1192,7 +1281,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
             if (!success) return;
 
-                        if (mode === 'markdown') {
+            if (mode === 'markdown') {
                 editor.chain().focus().setImage({ src: url, alt: key }).run();
             } else {
                 editor
@@ -1261,7 +1350,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     };
 
     return (
-        <div className="border border-border rounded-md">
+        <div className="border relative border-border rounded-md">
             {/* ✅ ENHANCED: Mode Toggle with Showdown Status */}
             <div className="border-b border-border p-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -1289,14 +1378,14 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="text-xs">
+                    {/* <Badge variant="secondary" className="text-xs">
                         {mode === 'html' ? '[html] HTML Mode' : '[md] Markdown Mode'}
-                    </Badge>
+                    </Badge> */}
 
                     {/* Show conversion engine */}
-                    <Badge variant="outline" className="text-xs bg-green-50 text-green-700 border-green-200">
+                    {/* <Badge variant="outline" className="text-xs bg-green-50 text-green-700 border-green-200">
                         ⚡ Showdown
-                    </Badge>
+                    </Badge> */}
 
                     {/* Show content type indicator */}
                     {value && (
@@ -1310,7 +1399,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
             </div>
 
             {/* Advanced Toolbar */}
-            <div className="border-b border-border p-2 space-y-2">
+            <div className="border-b sticky top-19 bg-background z-10 border-border p-2 space-y-2">
                 {/* First Row - Headings */}
                 <div className="flex flex-wrap items-center gap-1">
                     <Label className="text-xs text-muted-foreground mr-2">Headings:</Label>
@@ -1457,11 +1546,10 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                         <button
                                             key={color}
                                             type="button"
-                                            className={`w-6 h-6 rounded border transition-all duration-200 ${
-                                                currentTextColor === color
-                                                    ? 'ring-2 ring-blue-500 ring-offset-1 scale-110 border-blue-500'
-                                                    : 'border-gray-300 hover:scale-105 hover:border-gray-400'
-                                            }`}
+                                            className={`w-6 h-6 rounded border transition-all duration-200 ${currentTextColor === color
+                                                ? 'ring-2 ring-blue-500 ring-offset-1 scale-110 border-blue-500'
+                                                : 'border-gray-300 hover:scale-105 hover:border-gray-400'
+                                                }`}
                                             style={{ backgroundColor: color }}
                                             onClick={() => handleTextColorChange(color)}
                                             title={`Text color: ${color}`}
@@ -1509,11 +1597,10 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                         <button
                                             key={color}
                                             type="button"
-                                            className={`w-8 h-8 rounded-md border-2 transition-all duration-200 ${
-                                                currentHighlightColor === color
-                                                    ? 'ring-2 ring-violet-500 ring-offset-1 scale-110 border-violet-500 shadow-lg'
-                                                    : 'border-gray-300 hover:scale-105 hover:border-gray-400 hover:shadow-md'
-                                            }`}
+                                            className={`w-8 h-8 rounded-md border-2 transition-all duration-200 ${currentHighlightColor === color
+                                                ? 'ring-2 ring-violet-500 ring-offset-1 scale-110 border-violet-500 shadow-lg'
+                                                : 'border-gray-300 hover:scale-105 hover:border-gray-400 hover:shadow-md'
+                                                }`}
                                             style={{ backgroundColor: color }}
                                             onClick={() => handleHighlightColorChange(color)}
                                             title={`Highlight with ${color}`}
@@ -1654,6 +1741,34 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                                         onChange={(e) => setCodeContent(e.target.value)}
                                         placeholder={`// Write your ${PROGRAMMING_LANGUAGES.find(l => l.value === selectedLanguage)?.label} code here...\nconsole.log('Hello World!');`}
                                         className="flex-1 min-h-[200px] p-3 border border-border rounded-md font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-ring"
+                                        // ✅ ROBUST NEWLINE PRESERVATION
+                                        wrap="off"
+                                        spellCheck={false}
+                                        autoComplete="off"
+                                        rows={12}
+                                        style={{
+                                            whiteSpace: 'pre',
+                                            fontFamily: 'ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace',
+                                            tabSize: 4,
+                                            lineHeight: '1.6',
+                                            // wordWrap: '',
+                                            overflowWrap: 'normal'
+                                        }}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Tab') {
+                                                e.preventDefault();
+                                                const textarea = e.currentTarget;
+                                                const { selectionStart, selectionEnd } = textarea;
+                                                const newValue = codeContent.substring(0, selectionStart) +
+                                                    '    ' + // 4 spaces for proper indentation
+                                                    codeContent.substring(selectionEnd);
+                                                setCodeContent(newValue);
+                                                // Set cursor position properly
+                                                requestAnimationFrame(() => {
+                                                    textarea.selectionStart = textarea.selectionEnd = selectionStart + 4;
+                                                });
+                                            }
+                                        }}
                                     />
                                     <p className="text-xs text-muted-foreground">
                                         Leave empty to create an empty code block
@@ -1853,12 +1968,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 </div>
 
                 {/* ✅ Show Showdown conversion status */}
-                <div className="flex items-center justify-between text-xs text-muted-foreground border-t pt-2">
+                {/* <div className="flex items-center justify-between text-xs text-muted-foreground border-t pt-2">
                     <span>Current mode: <strong>{mode.toUpperCase()}</strong> • Engine: <strong>Showdown</strong></span>
                     <span>
                         Content will be saved as: <strong>{mode === 'html' ? '[html]' : '[md]'}</strong>
                     </span>
-                </div>
+                </div> */}
             </div>
 
             {/* Editor Content */}

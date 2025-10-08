@@ -25,6 +25,9 @@ import ai from "@/assests/our_services/ai.svg";
 import automation from '@/assests/our_services/automation.svg';
 import { CallToActionContent, PromotionalSection } from "@/components/services";
 import { useRouter } from "next/navigation";
+import { PromotionCard2 } from "@/components/services/promotional-section";
+import DecisionGuideSection from "@/components/home/decision";
+import QuestionsSection from "@/components/home/security/question-section";
 
 const content = [
   {
@@ -66,6 +69,7 @@ export default function Home() {
     <>
       <HeroParallaxDemo />
       <div className="relative">
+        <QuestionsSection />
         {/* tech service we provided */}
         <TechServices
           content={content}
@@ -88,6 +92,12 @@ export default function Home() {
       </div>
 
       {/* <TabStack /> */}
+      <DecisionGuideSection
+        heading="Navigate Your Development Journey"
+        subheading="Decision Making Guide"
+        description="Get expert guidance on the most critical decisions that will shape your project's success. From technology choices to architecture decisions, we help you navigate every step."
+        className="!py-20"
+      />
 
 
       <div className="w-full ">
@@ -103,6 +113,7 @@ export default function Home() {
         className="!my-10 !mt-20"
         onClick={() => router.push('/get-in-touch')}
         animationData={require('@assets/animations/bg-animation1.json')} // Static VR image path
+        children={(data) => <PromotionCard2 {...data} />}
       />
 
 

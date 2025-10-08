@@ -1,6 +1,7 @@
+// app/get-in-touch/page.tsx
 'use client';
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import React, { Suspense } from 'react';
+import { useRouter } from 'next/navigation';
 import Structure from '@/components/common/page-structure';
 import Header from '@/components/section-heading';
 import InquiryForm, { FormField } from '@/components/careers/form';
@@ -48,12 +49,12 @@ const formFields: FormField[] = [
     },
 ];
 
-const page = () => {
+function GetInTouchContent() {
     const router = useRouter();
 
     const handleSubmit = async (data: any) => {
         try {
-            console.log(data)
+            console.log(data);
             const res = await fetch("/api/leads", {
                 method: "POST",
                 headers: {
@@ -77,10 +78,9 @@ const page = () => {
         }
     };
 
-
     const handleCareerClick = () => {
-        router.push('/careers'); // Redirect to careers page
-    }
+        router.push('/careers');
+    };
 
     return (
         <Structure className='!pb-0 !mb-0 md:!px-0 !max-w-7xl'>
@@ -184,7 +184,18 @@ const page = () => {
                 </div>
             </div>
         </Structure>
-    )
+    );
 }
 
-export default page
+// Wrap in Suspense
+export default function GetInTouchPage() {
+    return (
+        <Suspense fallback={
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            </div>
+        }>
+            <GetInTouchContent />
+        </Suspense>
+    );
+}

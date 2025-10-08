@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -23,11 +23,118 @@ import { BlogPost, sampleBlogs } from '@/config/content/blogs';
 import Structure from '@/components/common/page-structure';
 import { getOrigin } from '@/lib/helper-functions';
 import { ContentParser } from '@/components/blogs/content-parser';
+import { CopyLinkInteractive, ShareInteractive } from '@/components/blogs/interaction-btn';
 
 interface BlogDetailPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+// Server Actions
+async function toggleLike(formData: FormData) {
+  'use server';
+  const postId = formData.get('postId') as string;
+  const action = formData.get('action') as string;
+  
+  try {
+    // API call to toggle like
+    const res = await fetch(`${await getOrigin()}/api/blogs/${postId}/like`, {
+      method: action === 'like' ? 'POST' : 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (!res.ok) {
+      throw new Error('Failed to toggle like');
+    }
+  } catch (error) {
+    console.error('Like toggle error:', error);
+  }
+  
+  // Revalidate and redirect back to the same page
+  redirect(`/blogs/${formData.get('slug')}`);
+}
+
+async function toggleBookmark(formData: FormData) {
+  'use server';
+  const postId = formData.get('postId') as string;
+  const action = formData.get('action') as string;
+  
+  try {
+    // API call to toggle bookmark
+    const res = await fetch(`${await getOrigin()}/api/blogs/${postId}/bookmark`, {
+      method: action === 'bookmark' ? 'POST' : 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (!res.ok) {
+      throw new Error('Failed to toggle bookmark');
+    }
+  } catch (error) {
+    console.error('Bookmark toggle error:', error);
+  }
+  
+  redirect(`/blogs/${formData.get('slug')}`);
+}
+
+async function shareOnPlatform(formData: FormData) {
+  'use server';
+  const platform = formData.get('platform') as string;
+  const url = formData.get('url') as string;
+  const title = formData.get('title') as string;
+  
+  let shareUrl = '';
+  
+  if (platform === 'twitter') {
+    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+  } else if (platform === 'linkedin') {
+    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+  }
+  
+  if (shareUrl) {
+    redirect(shareUrl);
+  }
+}
+
+async function addComment(formData: FormData) {
+  'use server';
+  const postId = formData.get('postId') as string;
+  const content = formData.get('content') as string;
+  const authorName = formData.get('authorName') as string;
+  const authorEmail = formData.get('authorEmail') as string;
+  
+  if (!content.trim()) {
+    return;
+  }
+  
+  try {
+    // API call to add comment
+    const res = await fetch(`${await getOrigin()}/api/blogs/${postId}/comments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        content,
+        author: {
+          name: authorName || 'Anonymous',
+          email: authorEmail,
+        },
+      }),
+    });
+    
+    if (!res.ok) {
+      throw new Error('Failed to add comment');
+    }
+  } catch (error) {
+    console.error('Comment add error:', error);
+  }
+  
+  redirect(`/blogs/${formData.get('slug')}`);
 }
 
 // Server-side data fetching function
@@ -40,33 +147,48 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
       },
       cache: "no-store",
     });
-
     if (!res.ok) {
-      // Fallback to sample blogs if API fails
       return sampleBlogs.find((b) => b.slug === slug) || null;
     }
-
     const json = await res.json();
     return json.data || null;
   } catch (error) {
     console.error('Blog fetch error:', error);
-    // Fallback to sample blogs
     return sampleBlogs.find((b) => b.slug === slug) || null;
   }
 }
 
-export async function generateMetadata({ params }: BlogDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  // Server-side data fetching
-  const blogPost = await getBlogPost(slug);
+// Check if user has liked/bookmarked (you can implement user session logic)
+async function getUserInteractions(postId: string) {
+  try {
+    // This would typically check user session and database
+    // For now returning default values
+    return {
+      isLiked: false,
+      isBookmarked: false,
+      likeCount: Math.floor(Math.random() * 100), // Sample data
+    };
+  } catch (error) {
+    return {
+      isLiked: false,
+      isBookmarked: false,
+      likeCount: 0,
+    };
+  }
+}
 
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { slug } = await params;
+  const blogPost = await getBlogPost(slug);
+  console.log(blogPost)
+  
   if (!blogPost) {
     return {
       title: "Blog Not Found",
       description: "The requested blog post was not found.",
     };
   }
-
+  
   return {
     title: blogPost.metaTitle || blogPost.title,
     description: blogPost.metaDescription || blogPost.excerpt,
@@ -74,15 +196,20 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
   };
 }
 
-export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
+export default async function BlogDetailPage({ params }: any) {
   const { slug } = await params;
-  // Server-side data fetching
   const blogPost = await getBlogPost(slug);
-
+  
   if (!blogPost) {
     notFound();
   }
-
+  
+  // Get user interactions
+  const userInteractions = await getUserInteractions(blogPost._id || 'default');
+  
+  // Create share URLs
+  const postUrl = `${await getOrigin()}/blogs/${slug}`;
+  
   return (
     <Structure>
       {/* Navigation Bar */}
@@ -98,17 +225,45 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               </div>
               <span className="font-medium">All Articles</span>
             </Link>
-
+            
             <div className="flex items-center space-x-2">
-              <button className="w-9 h-9 bg-gray-50 hover:bg-red-50 dark:bg-gray-900 dark:hover:bg-red-950 text-gray-600 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105">
-                <Heart className="w-4 h-4" />
-              </button>
-              <button className="w-9 h-9 bg-gray-50 hover:bg-blue-50 dark:bg-gray-900 dark:hover:bg-blue-950 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105">
-                <Share2 className="w-4 h-4" />
-              </button>
-              <button className="w-9 h-9 bg-gray-50 hover:bg-yellow-50 dark:bg-gray-900 dark:hover:bg-yellow-950 text-gray-600 hover:text-yellow-600 dark:text-gray-400 dark:hover:text-yellow-400 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105">
-                <Bookmark className="w-4 h-4" />
-              </button>
+              {/* Like Button */}
+              <form action={toggleLike}>
+                <input type="hidden" name="postId" value={blogPost._id || 'default'} />
+                <input type="hidden" name="slug" value={slug} />
+                <input type="hidden" name="action" value={userInteractions.isLiked ? 'unlike' : 'like'} />
+                <button 
+                  type="submit"
+                  className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 ${
+                    userInteractions.isLiked 
+                      ? 'bg-red-50 text-red-600 dark:bg-red-950 dark:text-red-400' 
+                      : 'bg-gray-50 hover:bg-red-50 dark:bg-gray-900 dark:hover:bg-red-950 text-gray-600 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400'
+                  }`}
+                >
+                  <Heart className={`w-4 h-4 ${userInteractions.isLiked ? 'fill-current' : ''}`} />
+                </button>
+              </form>
+
+              {/* Native Share Button - Client Component */}
+              <ShareInteractive postUrl={postUrl} title={blogPost.title} />
+
+              {/* Bookmark Button */}
+              <form action={toggleBookmark}>
+                <input type="hidden" name="postId" value={blogPost._id || 'default'} />
+                <input type="hidden" name="slug" value={slug} />
+                <input type="hidden" name="action" value={userInteractions.isBookmarked ? 'unbookmark' : 'bookmark'} />
+                <button 
+                  type="submit"
+                  className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 ${
+                    userInteractions.isBookmarked 
+                      ? 'bg-yellow-50 text-yellow-600 dark:bg-yellow-950 dark:text-yellow-400' 
+                      : 'bg-gray-50 hover:bg-yellow-50 dark:bg-gray-900 dark:hover:bg-yellow-950 text-gray-600 hover:text-yellow-600 dark:text-gray-400 dark:hover:text-yellow-400'
+                  }`}
+                >
+                  <Bookmark className={`w-4 h-4 ${userInteractions.isBookmarked ? 'fill-current' : ''}`} />
+                </button>
+              </form>
+
               <button className="w-9 h-9 bg-gray-50 hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full flex items-center justify-center transition-all duration-300">
                 <MoreHorizontal className="w-4 h-4" />
               </button>
@@ -117,8 +272,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         </div>
       </nav>
 
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 py-16">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 md:gap-40 py-16">
           {/* Main Content */}
           <main className="lg:col-span-3">
             {/* Header */}
@@ -129,17 +284,17 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   {blogPost.categories?.[0] || 'General'}
                 </span>
               </div>
-
+              
               {/* Title */}
               <h1 className="text-5xl lg:text-5xl font-bold text-primary mb-8 leading-none tracking-tight">
                 {blogPost.title}
               </h1>
-
+              
               {/* Subtitle */}
               <p className="text-2xl text-gray-600 dark:text-gray-400 leading-relaxed mb-12 font-light">
                 {blogPost.excerpt}
               </p>
-
+              
               {/* Author & Meta */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
@@ -156,7 +311,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                     <p className="text-muted-foreground">{blogPost.author?.bio || 'Content Creator'}</p>
                   </div>
                 </div>
-
                 <div className="hidden sm:flex items-center space-x-8 text-muted-foreground">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4" />
@@ -172,6 +326,12 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                     <Clock className="w-4 h-4" />
                     <span className="text-sm">{blogPost.readTime || 5} min read</span>
                   </div>
+                  {userInteractions.likeCount > 0 && (
+                    <div className="flex items-center space-x-2">
+                      <Heart className="w-4 h-4" />
+                      <span className="text-sm">{userInteractions.likeCount} likes</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </header>
@@ -198,10 +358,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
             {/* Article Content */}
             <article className="mb-20 text-primary">
-              {/* <div className="prose prose-2xl max-w-none dark:prose-invert prose-headings:font-black prose-headings:text-black dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-xl prose-strong:text-black dark:prose-strong:text-white prose-a:text-violet-600 dark:prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-violet-600 dark:prose-code:text-violet-400">
-                <div dangerouslySetInnerHTML={{ __html: blogPost.content?.replace(/\n/g, '<br />') || '<p>Content not available</p>' }} />
-              </div> */}
-
               <ContentParser content={blogPost?.content || ''} />
             </article>
 
@@ -212,7 +368,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   {blogPost.tags.map((tag) => (
                     <Link
                       key={tag}
-                      href={`/blog/tag/${tag.toLowerCase()}`}
+                      href={`/blogs/tag/${tag.toLowerCase()}`}
                       className="px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium transition-colors duration-200"
                     >
                       #{tag}
@@ -226,7 +382,11 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             <AuthorCard author={blogPost.author} />
 
             {/* Comments */}
-            {/* <CommentsSection comments={blogPost.comments || []} /> */}
+            {/* <CommentsSection 
+              comments={blogPost.comments || []} 
+              postId={blogPost._id || 'default'}
+              slug={slug}
+            /> */}
           </main>
 
           {/* Sidebar */}
@@ -236,22 +396,40 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               <div className="space-y-4">
                 <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Share</h3>
                 <div className="space-y-3">
-                  <button className="w-full flex items-center space-x-3 p-3 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950 dark:hover:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-xl transition-colors group">
-                    <Twitter className="w-5 h-5" />
-                    <span className="font-medium">Twitter</span>
-                  </button>
-                  <button className="w-full flex items-center space-x-3 p-3 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950 dark:hover:bg-blue-900 text-blue-700 dark:text-blue-400 rounded-xl transition-colors group">
-                    <Linkedin className="w-5 h-5" />
-                    <span className="font-medium">LinkedIn</span>
-                  </button>
-                  <button className="w-full flex items-center space-x-3 p-3 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-xl transition-colors group">
-                    <Copy className="w-5 h-5" />
-                    <span className="font-medium">Copy Link</span>
-                  </button>
+                  {/* Twitter Share */}
+                  <form action={shareOnPlatform}>
+                    <input type="hidden" name="platform" value="twitter" />
+                    <input type="hidden" name="url" value={postUrl} />
+                    <input type="hidden" name="title" value={blogPost.title} />
+                    <button
+                      type="submit"
+                      className="w-full flex items-center space-x-3 p-3 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950 dark:hover:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-xl transition-colors group"
+                    >
+                      <Twitter className="w-5 h-5" />
+                      <span className="font-medium">Twitter</span>
+                    </button>
+                  </form>
+                  
+                  {/* LinkedIn Share */}
+                  <form action={shareOnPlatform}>
+                    <input type="hidden" name="platform" value="linkedin" />
+                    <input type="hidden" name="url" value={postUrl} />
+                    <input type="hidden" name="title" value={blogPost.title} />
+                    <button
+                      type="submit"
+                      className="w-full flex items-center space-x-3 p-3 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950 dark:hover:bg-blue-900 text-blue-700 dark:text-blue-400 rounded-xl transition-colors group"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                      <span className="font-medium">LinkedIn</span>
+                    </button>
+                  </form>
+                  
+                  {/* Copy Link - Client Component */}
+                  <CopyLinkInteractive postUrl={postUrl} />
                 </div>
               </div>
 
-              {/* Related blogPosts */}
+              {/* Related Posts */}
               {/* <RelatedBlogPosts currentBlogPostId={blogPost._id} /> */}
             </div>
           </aside>
@@ -261,7 +439,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   );
 }
 
-// Author Card Component - with null safety
+// Author Card Component
 function AuthorCard({ author }: { author?: BlogPost['author'] }) {
   if (!author) return null;
 
@@ -278,7 +456,6 @@ function AuthorCard({ author }: { author?: BlogPost['author'] }) {
             <Sparkles className="w-3 h-3 text-white" />
           </div>
         </div>
-
         <div className="flex-1">
           <h3 className="text-2xl font-bold text-black dark:text-white mb-3">
             {author.name || 'Anonymous'}
@@ -286,7 +463,6 @@ function AuthorCard({ author }: { author?: BlogPost['author'] }) {
           <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-lg">
             {author.bio || 'Content Creator'}
           </p>
-
           {author.socialLinks && (
             <div className="flex space-x-3">
               {author.socialLinks.twitter && (
@@ -317,7 +493,7 @@ function AuthorCard({ author }: { author?: BlogPost['author'] }) {
   );
 }
 
-// Related blogPosts Component - with proper filtering
+// Related Posts Component
 function RelatedBlogPosts({ currentBlogPostId }: { currentBlogPostId?: string }) {
   const relatedBlogPosts = sampleBlogs
     .filter(blogPost => blogPost._id !== currentBlogPostId)
@@ -334,7 +510,7 @@ function RelatedBlogPosts({ currentBlogPostId }: { currentBlogPostId?: string })
         {relatedBlogPosts.map((blogPost) => (
           <Link
             key={blogPost._id}
-            href={`/blog/${blogPost.slug}`}
+            href={`/blogs/${blogPost.slug}`}
             className="group block"
           >
             <article className="space-y-3">
@@ -365,8 +541,16 @@ function RelatedBlogPosts({ currentBlogPostId }: { currentBlogPostId?: string })
   );
 }
 
-// Comments Section - with proper handling
-function CommentsSection({ comments }: { comments: BlogPost['comments'] }) {
+// Comments Section
+function CommentsSection({ 
+  comments, 
+  postId, 
+  slug 
+}: { 
+  comments: BlogPost['comments']; 
+  postId: string;
+  slug: string;
+}) {
   const commentsArray = Array.isArray(comments) ? comments : [];
 
   return (
@@ -378,25 +562,49 @@ function CommentsSection({ comments }: { comments: BlogPost['comments'] }) {
       </div>
 
       {/* Comment Form */}
-      <div className="mb-12 p-8 bg-gray-50 dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800">
+      <form action={addComment} className="mb-12 p-8 bg-gray-50 dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800">
+        <input type="hidden" name="postId" value={postId} />
+        <input type="hidden" name="slug" value={slug} />
+        
         <div className="flex items-start space-x-4">
           <div className="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center shrink-0">
             <User2 className="w-6 h-6 text-white" />
           </div>
           <div className="flex-1">
+            {/* Name and Email Fields */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <input
+                type="text"
+                name="authorName"
+                placeholder="Your name"
+                className="p-3 bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+              />
+              <input
+                type="email"
+                name="authorEmail"
+                placeholder="Your email (optional)"
+                className="p-3 bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+              />
+            </div>
+            
             <textarea
+              name="content"
               placeholder="Share your thoughts..."
               className="w-full p-4 bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all text-lg"
               rows={4}
+              required
             />
             <div className="flex justify-end mt-4">
-              <button className="px-8 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all duration-200 font-semibold">
+              <button 
+                type="submit"
+                className="px-8 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all duration-200 font-semibold"
+              >
                 Post Comment
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </form>
 
       {/* Comments List */}
       {commentsArray.length > 0 && (
@@ -410,7 +618,7 @@ function CommentsSection({ comments }: { comments: BlogPost['comments'] }) {
   );
 }
 
-// Comment Card Component - with proper null handling
+// Comment Card Component
 function CommentCard({ comment }: { comment: BlogPost['comments'][0] }) {
   if (!comment) return null;
 
@@ -422,7 +630,6 @@ function CommentCard({ comment }: { comment: BlogPost['comments'][0] }) {
             {comment.author?.name?.charAt(0) || 'A'}
           </span>
         </div>
-
         <div className="flex-1">
           <div className="flex items-center space-x-3 mb-4">
             <h4 className="font-bold text-black dark:text-white text-lg">
@@ -435,21 +642,19 @@ function CommentCard({ comment }: { comment: BlogPost['comments'][0] }) {
               }) : 'Recently'}
             </span>
           </div>
-
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
             {comment.content || 'No content available'}
           </p>
-
           <div className="flex items-center space-x-6">
-            <button className="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+            <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
               <Heart className="w-5 h-5" />
               <span className="font-medium">{comment.likes || 0}</span>
-            </button>
+            </div>
             <button className="font-medium text-gray-500 dark:text-gray-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
               Reply
             </button>
           </div>
-
+          
           {/* Replies */}
           {comment.replies && comment.replies.length > 0 && (
             <div className="mt-8 space-y-6 border-l-2 border-gray-200 dark:border-gray-700 pl-8">

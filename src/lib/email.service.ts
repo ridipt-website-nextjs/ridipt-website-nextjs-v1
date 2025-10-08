@@ -229,7 +229,7 @@ class EmailService {
             </p>
             
             <div style="font-size: 12px; color: #94a3b8; margin-top: 20px;">
-              Questions? Contact our HR team at <a href="mailto:hr@yourcompany.com" style="color: #3b82f6; text-decoration: none;">hr@yourcompany.com</a>
+              Questions? Contact our HR team at <a href="mailto:hr@progneur.com" style="color: #3b82f6; text-decoration: none;">hr@progneur.com</a>
             </div>
           </div>
         </div>

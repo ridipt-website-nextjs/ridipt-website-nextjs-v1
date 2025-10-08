@@ -68,26 +68,26 @@ export async function GET(req: Request) {
         await dbConnect();
 
         // 🔑 Token extract karna
-        const authHeader = req.headers.get("authorization");
-        if (!authHeader) {
-            return NextResponse.json({ error: "Unauthorized - Token missing" }, { status: 401 });
-        }
+        // const authHeader = req.headers.get("authorization");
+        // if (!authHeader) {
+        //     return NextResponse.json({ error: "Unauthorized - Token missing" }, { status: 401 });
+        // }
 
-        const token = authHeader.split(" ")[1];
-        if (!token) {
-            return NextResponse.json({ error: "Unauthorized - Invalid token format" }, { status: 401 });
-        }
+        // const token = authHeader.split(" ")[1];
+        // if (!token) {
+        //     return NextResponse.json({ error: "Unauthorized - Invalid token format" }, { status: 401 });
+        // }
 
         // ✅ Token verify
-        const data = TokenManager.verifyToken<{
-            email: string;
-            adminId: string;
-            type: string;
-        }>(token);
+        // const data = TokenManager.verifyToken<{
+        //     email: string;
+        //     adminId: string;
+        //     type: string;
+        // }>(token);
 
-        if (data.type !== "admin") {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
+        // if (data.type !== "admin") {
+        //     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        // }
 
         // ✅ Sab jobs fetch karna
         const jobs = await Job.find();
