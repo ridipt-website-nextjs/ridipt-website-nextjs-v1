@@ -71,7 +71,7 @@ export default async function QuestionDetailPage({ params }: any ) {
                     <div className="mb-12 relative">
                         {/* Background decoration */}
                         <div className="absolute -top-10 -left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10" />
-                        <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl -z-10" />
+                        <div className="absolute -bottom-10 hidden md:block -right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl -z-10" />
 
                         <div className="flex flex-col sm:flex-row items-start gap-6 mb-6">
                             <div className="p-5 rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent shadow-xl shadow-primary/10 border border-primary/20">

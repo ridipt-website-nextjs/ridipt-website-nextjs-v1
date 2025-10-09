@@ -28,6 +28,7 @@ import { useRouter } from "next/navigation";
 import { PromotionCard2 } from "@/components/services/promotional-section";
 import DecisionGuideSection from "@/components/home/decision";
 import QuestionsSection from "@/components/home/security/question-section";
+import Loading from "./loading";
 
 const content = [
   {
