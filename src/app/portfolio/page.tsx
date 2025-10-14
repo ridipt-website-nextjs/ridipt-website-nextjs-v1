@@ -17,6 +17,7 @@ import Droshipping_portal from "@/assests/portfolio/Dropshipping Portal.webp";
 import Droshipping_platform from "@/assests/portfolio/Dropshipping Platform.jpeg";
 import smart_Delivery_admin from "@/assests/portfolio/Delivery.png";
 import Hotel_Room_Booking from "@/assests/portfolio/Room-1.png";
+import Event_Booking from "@/assests/portfolio/e1.png";
 
 
 const projects = [
@@ -24,6 +25,7 @@ const projects = [
   {id: "smart-delivery-admin", title: "Grocery Delivery", category: "Web", image: smart_Delivery_admin},
   {id: "hotel-room-booking", title: "Hotel Room Booking", category: "Web", image: Hotel_Room_Booking},
   {id: "lab-report-management", title: "Lab Report Management", category: "Web", image: Lab_Report},
+  {id: "event-booking-system", title: "Event Booking System", category: "Web", image: Event_Booking},
   {id: "iot-ev-charging", title: "IOT EV Charging Platform", category: "Mobile", image: IOTImg},
   {id: "foodcourt-admin", title: "Foodcourt Admin", category: "Web", image: Foodcourt_Admin},
   {id: "food-court-app", title: "Food Court App", category: "Mobile", image: Foodcourt_App},
