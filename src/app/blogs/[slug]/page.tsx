@@ -232,7 +232,9 @@ export default async function BlogDetailPage({ params }: any) {
                 <input type="hidden" name="postId" value={blogPost._id || 'default'} />
                 <input type="hidden" name="slug" value={slug} />
                 <input type="hidden" name="action" value={userInteractions.isLiked ? 'unlike' : 'like'} />
-                <button 
+
+                {/* when implemented then will uncomment */}
+                {/* <button 
                   type="submit"
                   className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 ${
                     userInteractions.isLiked 
@@ -241,14 +243,14 @@ export default async function BlogDetailPage({ params }: any) {
                   }`}
                 >
                   <Heart className={`w-4 h-4 ${userInteractions.isLiked ? 'fill-current' : ''}`} />
-                </button>
+                </button> */}
               </form>
 
               {/* Native Share Button - Client Component */}
               <ShareInteractive postUrl={postUrl} title={blogPost.title} />
 
               {/* Bookmark Button */}
-              <form action={toggleBookmark}>
+              {/* <form action={toggleBookmark}>
                 <input type="hidden" name="postId" value={blogPost._id || 'default'} />
                 <input type="hidden" name="slug" value={slug} />
                 <input type="hidden" name="action" value={userInteractions.isBookmarked ? 'unbookmark' : 'bookmark'} />
@@ -262,11 +264,11 @@ export default async function BlogDetailPage({ params }: any) {
                 >
                   <Bookmark className={`w-4 h-4 ${userInteractions.isBookmarked ? 'fill-current' : ''}`} />
                 </button>
-              </form>
+              </form> */}
 
-              <button className="w-9 h-9 bg-gray-50 hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full flex items-center justify-center transition-all duration-300">
+              {/* <button className="w-9 h-9 bg-gray-50 hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full flex items-center justify-center transition-all duration-300">
                 <MoreHorizontal className="w-4 h-4" />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
