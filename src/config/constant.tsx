@@ -285,11 +285,11 @@ export const services_tech_stack = {
       ],
       databases: [
         { name: "MySQL", image: require("@assets/technology_icons/mysql.svg") },
-        // { name: "PostgreSQL", image: require("@assets/tech/p") },
-        // { name: "MongoDB", image: require("@assets/tech/mongodb.svg") },
-        // { name: "Redis", image: require("@assets/tech/redis.svg") },
-        // { name: "MariaDB", image: require("@assets/tech/mariadb.svg") },
-        // { name: "DynamoDB", image: require("@assets/tech/dynamodb.svg") }
+        { name: "PostgreSQL", image: require("@assets/technology_icons/PostgreSQL.svg") },
+        { name: "MongoDB", image: require("@assets/technology_icons/MongoDB.svg") },
+        { name: "Redis", image: require("@assets/technology_icons/Redis.svg") },
+        { name: "MariaDB", image: require("@assets/technology_icons/MariaDB.svg") },
+        { name: "DynamoDB", image: require("@assets/technology_icons/DynamoDB.svg") }
       ]
     }
   },
