@@ -2,8 +2,59 @@ import { BlogPost } from '@/config/content/blogs';
 import { Calendar, Clock, User, ArrowRight, Tag, Eye, Heart, Bookmark, Share2, FileText, Hash, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 interface BlogCardProps {
     post: BlogPost;
+}
+
+// ✅ Skeleton Loading Card
+export function SkeletonBlogCard() {
+    return (
+        <div className="relative">
+            <article className="relative bg-card rounded-3xl overflow-hidden shadow-lg">
+                {/* Background Decoration */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-secondary-foreground/40 to-transparent rounded-full -translate-y-16 translate-x-16" />
+
+                {/* Image Skeleton */}
+                <div className="relative h-48 mx-6 mt-6 rounded-2xl overflow-hidden">
+                    <div className="w-full h-full bg-muted animate-pulse" />
+                </div>
+
+                <div className="p-6 space-y-4">
+                    {/* Category & Date Skeleton */}
+                    <div className="flex justify-between items-start">
+                        <div className="h-8 w-24 bg-muted rounded-xl animate-pulse" />
+                        <div className="h-4 w-16 bg-muted rounded animate-pulse" />
+                    </div>
+
+                    {/* Content Skeleton */}
+                    <div className="space-y-3">
+                        <div className="space-y-2">
+                            <div className="h-6 bg-muted rounded w-full animate-pulse" />
+                            <div className="h-6 bg-muted rounded w-3/4 animate-pulse" />
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="h-4 bg-muted rounded w-full animate-pulse" />
+                            <div className="h-4 bg-muted rounded w-5/6 animate-pulse" />
+                        </div>
+                    </div>
+
+                    {/* Author Section Skeleton */}
+                    <div className="flex items-center space-x-4 pt-4">
+                        <div className="flex items-center space-x-3 flex-1">
+                            <div className="w-10 h-10 bg-muted rounded-2xl animate-pulse" />
+                            <div className="flex-1 space-y-2">
+                                <div className="h-4 bg-muted rounded w-24 animate-pulse" />
+                                <div className="h-3 bg-muted rounded w-16 animate-pulse" />
+                            </div>
+                        </div>
+                        <div className="w-8 h-8 bg-muted rounded-full animate-pulse" />
+                    </div>
+                </div>
+            </article>
+        </div>
+    );
 }
 
 export function BlogCard({ post }: BlogCardProps) {
@@ -11,7 +62,6 @@ export function BlogCard({ post }: BlogCardProps) {
         <div className="group relative">
             <Link href={`/blogs/${post.slug}`} className="block">
                 <article className="relative bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-3">
-
                     {/* Background Decoration */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-secondary-foreground/40 to-transparent rounded-full -translate-y-16 translate-x-16" />
 

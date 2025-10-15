@@ -4,10 +4,47 @@ import Header from '@/components/section-heading';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MapPin, Briefcase, Send } from 'lucide-react';
 import { CareerCard } from './cards';
-import { careerJobs } from '@/config/content/careers';
 import { JobData } from '@/config/interface';
 
-export const CareerSection = ({ items }: { items: JobData[] }) => {
+// ✅ Skeleton Loading Card Component
+const SkeletonCareerCard = () => {
+    return (
+        <div className="animate-pulse bg-card rounded-xl border border-border p-6 space-y-4">
+            {/* Header */}
+            <div className="space-y-2">
+                <div className="h-6 bg-muted rounded w-3/4"></div>
+                <div className="flex gap-2">
+                    <div className="h-4 bg-muted rounded w-24"></div>
+                    <div className="h-4 bg-muted rounded w-32"></div>
+                </div>
+            </div>
+
+            {/* Description */}
+            <div className="space-y-2">
+                <div className="h-4 bg-muted rounded w-full"></div>
+                <div className="h-4 bg-muted rounded w-5/6"></div>
+                <div className="h-4 bg-muted rounded w-4/6"></div>
+            </div>
+
+            {/* Tags */}
+            <div className="flex gap-2 flex-wrap">
+                <div className="h-6 bg-muted rounded-full w-16"></div>
+                <div className="h-6 bg-muted rounded-full w-20"></div>
+                <div className="h-6 bg-muted rounded-full w-24"></div>
+            </div>
+
+            {/* Button */}
+            <div className="h-10 bg-muted rounded-full w-32"></div>
+        </div>
+    );
+};
+
+interface CareerSectionProps {
+    items: JobData[];
+    isLoading?: boolean;
+}
+
+export const CareerSection = ({ items, isLoading = false }: CareerSectionProps) => {
     // ✅ Function to scroll to application form
     const scrollToApplicationForm = () => {
         const element = document.getElementById('application-form');
@@ -28,10 +65,16 @@ export const CareerSection = ({ items }: { items: JobData[] }) => {
                 className='!mt-0 !pt-0'
             />
 
-            {/* ✅ Conditional rendering based on jobs availability */}
-            {items.length === 0 ? (
+            {/* ✅ Loading State */}
+            {isLoading ? (
+                <div className="grid gap-8 md:grid-cols-2">
+                    {[1, 2, 3, 4].map((i) => (
+                        <SkeletonCareerCard key={i} />
+                    ))}
+                </div>
+            ) : items.length === 0 ? (
                 // ✅ Empty state when no jobs available
-                <div className="text-center  px-4">
+                <div className="text-center px-4">
                     <div className="max-w-md mx-auto">
                         {/* Icon */}
                         <div className="flex justify-center mb-6">
@@ -75,21 +118,9 @@ export const CareerSection = ({ items }: { items: JobData[] }) => {
                         ))}
                     </div>
 
-                    {/* View All Positions / Apply Now Button */}
+                    {/* Apply Now Button */}
                     <div className="text-center pt-8">
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            {/* View All Positions Button */}
-                            {/* <Button
-                                variant="outline"
-                                className="group relative text-accent-foreground overflow-hidden border border-border hover:border-accent/30 rounded-full px-8 py-3 transition-all duration-300 hover:shadow-md"
-                            >
-                                <span className="relative z-10 flex items-center gap-2">
-                                    View All Positions
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                </span>
-                            </Button> */}
-
-                            {/* Apply Now Button */}
                             <Button
                                 onClick={scrollToApplicationForm}
                                 variant="default"
@@ -109,5 +140,5 @@ export const CareerSection = ({ items }: { items: JobData[] }) => {
                 </div>
             )}
         </Section>
-    )
-}
+    );
+};

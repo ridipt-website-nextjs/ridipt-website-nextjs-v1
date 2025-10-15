@@ -11,23 +11,19 @@ import { ProcessCardsSection } from '@/components/services';
 import ServiceDetailSection from '@/components/industry-section';
 import { howWeWork } from '@/config/content/careers/how-we-work.content';
 import { perks_benefits } from '@/config/content/careers/perk.content';
-import { careerJobs, } from '@/config/content/careers';
+import { careerJobs } from '@/config/content/careers';
 import { CareerHero } from '@/components/careers/hero-section';
 import { adminApi } from '@/lib/admin-api-client';
 import { JobData } from '@/config/interface';
 
+const Page = () => {
+    const [jobs, setJobs] = useState<JobData[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-
-
-
-const page = () => {
-    const [jobs, setJobs] = useState<JobData[]>([])
     const handleFormSubmit = async (formData: FormData): Promise<void> => {
         try {
             console.log('Form data:', typeof formData);
-            // const plainFormData = Object.fromEntries(formData.entries());
-
-            // Submit to your API
+            
             const response = await fetch('/api/applications', {
                 method: 'POST',
                 headers: {
@@ -46,45 +42,53 @@ const page = () => {
         }
     };
 
-
     const fetchJobs = async () => {
-        const data = await adminApi.get('/jobs/') as typeof careerJobs
-        setJobs([...data, ...careerJobs])
-    }
+        try {
+            setIsLoading(true);
+            const data = await adminApi.get('/jobs/') as typeof careerJobs;
+            setJobs([...data]);
+        } catch (err) {
+            console.error('Error fetching jobs:', err);
+            // Fallback to static jobs if API fails
+            setJobs([...careerJobs]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     useEffect(() => {
-        fetchJobs()
-    }, [])
+        fetchJobs();
+    }, []);
 
     return (
         <Structure>
-            {/* hero section */}
+            {/* Hero Section */}
             <CareerHero
                 heading='Careers at Ridipt'
                 subheading='Join Our Team and Shape the Future of Technology'
                 description='At Ridipt Technologies, we are always on the lookout for talented and passionate individuals to join our dynamic team. We believe in fostering a collaborative and inclusive work environment where innovation thrives. If you are driven by technology and eager to make a difference, explore our current job openings and take the next step in your career with us.'
             />
 
-            {/* Career Jobs Section */}
+            {/* ✅ Career Jobs Section with Loading Prop */}
             <Section className="py-8 pb-0">
                 <div className="container">
-                    <CareerSection items={[...jobs]} />
+                    <CareerSection items={jobs} isLoading={isLoading} />
                 </div>
             </Section>
 
-
             {/* Application Form Section */}
-            <Section id='application-form' className='!px-0' >
+            <Section id='application-form' className='!px-0'>
                 <ApplicationFormSection
-                    heading="Didn’t find a role that fits you?"
-                    subheading="We’d still love to hear from you!"
-                    description="Share your details and upload your CV. Even if the current openings don’t match your profile, we’ll keep your application on file and reach out when a suitable opportunity becomes available."
-                    content={<>
+                    heading="Didn't find a role that fits you?"
+                    subheading="We'd still love to hear from you!"
+                    description="Share your details and upload your CV. Even if the current openings don't match your profile, we'll keep your application on file and reach out when a suitable opportunity becomes available."
+                    content={
                         <ApplicationForm
                             applicationFormFields={applicationFormFields as any[]}
                             onSubmit={handleFormSubmit}
                             className='!my-5 w-full'
                         />
-                    </>}
+                    }
                     subSection={false}
                     className="!mt-0 mb-5 !px-0"
                 />
@@ -101,7 +105,7 @@ const page = () => {
                 )}
             />
 
-            {/* Why Choose Ridipt for Social Media Solutions */}
+            {/* Why Choose Ridipt */}
             <ServiceDetailSection
                 cardStyling='border-none text-justify'
                 className='mt-0'
@@ -113,12 +117,8 @@ const page = () => {
                     <IndustrySectionCard2 item={item} key={idx} />
                 )}
             />
-
-
         </Structure>
-    )
-}
+    );
+};
 
-export default page
-
-
+export default Page;
