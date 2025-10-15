@@ -4,211 +4,240 @@ import React from "react";
 import Foodcourt_Admin from "@/assests/portfolio/foodcpourt admn.jpg";
 import Link from "next/link";
 
-const FoodcourtAdminpage = () => {
+const FoodcourtAdminPage = () => {
   return (
-    <div>
+    <div className="bg-background text-foreground min-h-screen">
+      {/* Hero Section with Image and Project Info */}
       <div className="relative p-10">
-        <div className="absolute top-0 left-0 w-full h-[590px] bg-sky-900 z-0"></div>
+        {/* Dark mode supported background */}
+        <div className="absolute top-0 left-0 w-full h-[590px] bg-sky-900 dark:bg-card z-0"></div>
+        
         <div className="relative max-w-6xl mx-auto space-y-12 z-10">
-          <div className="bg-white  shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Main Hero Card */}
+          <div className="bg-card shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center border border-border rounded-lg">
+            {/* Project Image */}
             <div>
               <img
                 src={Foodcourt_Admin.src}
-                alt="IOT EV Charging Platform Screenshot"
-                className="w-full h-auto  shadow-md"
+                alt="Foodcourt Admin Dashboard Screenshot"
+                className="w-full h-auto shadow-md rounded-lg border border-border"
               />
             </div>
+            
+            {/* Project Details */}
             <div>
-              <h1 className="text-4xl font-bold mb-6">Foodcourt Admin</h1>
-              <p className="text-gray-700 text-lg mb-8">
+              <h1 className="text-4xl font-bold mb-6 text-card-foreground">
+                Foodcourt Admin
+              </h1>
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 The FoodCourt Admin web app, built with React, streamlines management tasks by providing admins with an efficient platform to track and manage operations, improving overall efficiency and customer experience.
               </p>
 
+              {/* Project and Platform Info Grid */}
               <div className="grid grid-cols-2 gap-8 mb-8">
                 <div>
-                  <h2 className="text-3xl font-semibold mb-2">Project</h2>
-                  <p className="text-gray-700 text-lg">
-                    - Foodcourt Admin</p>
+                  <h2 className="text-3xl font-semibold mb-2 text-card-foreground">Project</h2>
+                  <p className="text-muted-foreground text-lg">
+                    - Foodcourt Admin
+                  </p>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-semibold mb-2">Platform</h2>
-                  <p className="text-gray-700 text-lg">- Web</p>
+                  <h2 className="text-3xl font-semibold mb-2 text-card-foreground">Platform</h2>
+                  <p className="text-muted-foreground text-lg">- Web</p>
                 </div>
               </div>
 
-              <h2 className="text-3xl font-semibold mb-2">Technologies</h2>
-              <p className="text-gray-700 text-lg"> - React, Node.js, MySQL</p>
+              {/* Technologies */}
+              <div>
+                <h2 className="text-3xl font-semibold mb-2 text-card-foreground">Technologies</h2>
+                <p className="text-muted-foreground text-lg">- React, Node.js, MySQL</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Brief and Solution Section */}
       <div className="relative max-w-6xl mx-auto mt-6">
-        <div className="absolute top-0 left-0 w-full h-2/3 bg-sky-100 z-0"></div>
+        {/* Background with dark mode support */}
+        <div className="absolute top-0 left-0 w-full h-2/3 bg-sky-100 dark:bg-muted/30 z-0"></div>
 
-        <div className="relative bg-white shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 z-10">
+        {/* Card content */}
+        <div className="relative bg-card shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 z-10 border border-border rounded-lg">
+          {/* Brief Section */}
           <div>
-            <h2 className="text-3xl font-bold mb-4">Brief</h2>
-            <p className="text-gray-700 text-lg text-justify">
-              An IoT EV Charging Platform is a digitally connected solution that links
-              electric vehicles, smart charging stations, and the energy grid.
+            <h2 className="text-3xl font-bold mb-4 text-card-foreground">Brief</h2>
+            <p className="text-muted-foreground text-lg text-justify leading-relaxed">
+              The FoodCourt Admin dashboard is a comprehensive web-based management system designed to provide food court operators and administrators with complete control over their operations. Built with React for optimal performance and user experience.
               <br /><br />
-              An IoT (Internet of Things) EV Charging Platform is a comprehensive system designed to integrate electric vehicle (EV) chargers, EVs, energy grids, and cloud-based software to enable smart, connected, and efficient charging infrastructure. With the rise of electric vehicles, managing large numbers of chargers efficiently and optimizing energy usage has become critical.
+              The platform addresses the complex challenges of managing multiple vendors, tracking orders in real-time, monitoring inventory levels, processing payments, and analyzing business performance metrics all from a single, unified interface.
               <br /><br />
-              IoT technology provides real-time monitoring, control, and automation to meet these demands.
+              With real-time data synchronization and intuitive visualizations, administrators can make informed decisions quickly, respond to operational issues proactively, and optimize resource allocation for maximum efficiency.
               <br /><br />
-              An IoT EV Charging Platform is a digitally connected solution that links
-              electric vehicles, smart charging stations, and the energy grid.
+              The system provides role-based access control, ensuring that different stakeholders - from super admins to individual vendor managers - have appropriate access to relevant features and data while maintaining security and data integrity.
               <br /><br />
-              An IoT (Internet of Things) EV Charging Platform is a comprehensive system designed to integrate electric vehicle (EV) chargers, EVs, energy grids, and cloud-based software to enable smart, connected, and efficient charging infrastructure. With the rise of electric vehicles, managing large numbers of chargers efficiently and optimizing energy usage has become critical.
+              By centralizing all management functions in one powerful dashboard, the FoodCourt Admin solution eliminates the need for multiple disparate systems, reduces operational overhead, and enables scalable growth for food court businesses.
               <br /><br />
-              IoT technology provides real-time monitoring, control, and automation to meet these demands.
+              The responsive design ensures administrators can monitor and manage operations from any device, whether in the office or on the food court floor, providing flexibility and mobility for modern business management.
             </p>
           </div>
 
+          {/* Solution Section */}
           <div>
-            <h2 className="text-3xl font-bold mb-4">Solution</h2>
-            <p className="text-gray-700 text-lg text-justify">
-              A solution for an IoT-based EV Charging Platform involves creating a
-              centralized smart network where IoT-enabled charging stations.
+            <h2 className="text-3xl font-bold mb-4 text-card-foreground">Solution</h2>
+            <p className="text-muted-foreground text-lg text-justify leading-relaxed">
+              The FoodCourt Admin solution is architected as a modern single-page application using React for the frontend, providing a responsive and fluid user experience with instant updates and smooth navigation between different management modules.
               <br /><br />
-              An IoT-based Electric Vehicle (EV) Charging Platform is a comprehensive solution designed to create a smart, connected, and efficient charging ecosystem that integrates EV chargers, vehicles, energy grids, and cloud-based software.
+              The dashboard features a comprehensive vendor management system where administrators can onboard new vendors, manage menu items, set pricing rules, track vendor performance metrics, and handle vendor payments and settlements through an integrated financial module.
               <br /><br />
-              At its core, the platform connects chargers through IoT-enabled sensors and communication modules, such as Wi-Fi, 4G/5G, NB-IoT, or LoRaWAN, allowing real-time monitoring of voltage, current, temperature, and energy consumption.
+              Real-time order management capabilities include live order tracking, order status updates, kitchen display system integration, and automated notification workflows that keep all stakeholders informed throughout the order lifecycle from placement to completion.
               <br /><br />
-              Using standard protocols like OCPP and MQTT, the chargers communicate with a cloud-based Charging Management System (CMS) that handles device management, user authentication, billing, scheduling, and analytics. The platform is complemented by mobile and web applications, enabling users to locate charging stations, reserve slots, monitor charging status, and make payments seamlessly.
+              The analytics and reporting module leverages MySQL database for robust data storage and complex query capabilities, providing detailed insights into sales trends, popular items, peak hours, customer behavior patterns, and revenue forecasts through interactive charts and exportable reports.
               <br /><br />
-              Advanced features include smart charging, which optimizes energy usage based on grid load and dynamic electricity pricing, predictive maintenance using AI-driven analytics, vehicle-to-grid (V2G) integration to feed energy back to the grid, and secure blockchain-based energy transactions. Security is ensured through end-to-end encryption, authentication mechanisms, and OTA firmware updates for chargers.
+              The Node.js backend provides RESTful APIs for all administrative functions, handles authentication and authorization, manages database operations, and integrates with third-party services for payment processing, SMS notifications, and email communications.
               <br /><br />
-              By combining hardware, connectivity, cloud computing, software, and emerging technologies, this IoT EV Charging Platform offers a scalable and user-friendly solution that enhances operational efficiency, reduces energy costs, supports renewable energy integration, and delivers a superior experience for EV drivers, while enabling utilities and operators to manage resources intelligently and sustainably.
+              Advanced features include inventory management with low-stock alerts, promotional campaign management, customer relationship management tools, staff scheduling, and multi-location support for food court chains, all designed to provide a complete end-to-end management solution that scales with business growth.
             </p>
           </div>
         </div>
       </div>
 
+      {/* UI/UX Design Section */}
       <div className="max-w-6xl mx-auto space-y-12 p-10 mt-1">
         <div className="text-left mt-7">
-          <h2 className="text-4xl font-bold mb-6">UI/UX (Design)</h2>
-          <p className="text-gray-700 text-lg text-justify">
-            The goal of the UI/UX design is to provide a seamless, intuitive, and user-friendly experience for both EV drivers and charging station operators. It should simplify charger discovery, booking, monitoring, payments, and analytics while presenting complex IoT data in a clear and actionable way.
+          <h2 className="text-4xl font-bold mb-6 text-card-foreground">UI/UX (Design)</h2>
+          <p className="text-muted-foreground text-lg text-justify leading-relaxed">
+            The UI/UX design of the FoodCourt Admin dashboard prioritizes efficiency, clarity, and ease of use for administrators managing complex food court operations. The interface is designed to present large amounts of data in digestible, actionable formats.
           </p>
-          <ul className="list-disc list-inside space-y-2 mt-4 text-gray-700 text-lg">
+          
+          {/* Design Features List */}
+          <ul className="list-disc list-inside space-y-3 mt-6 text-muted-foreground text-lg">
             <li>
-              <span className="font-bold">Onboarding:</span> The onboarding process is a critical first impression for users and should be designed to be fast, intuitive, and frictionless. It includes simple account creation through email, phone number, or social login, combined with secure authentication methods like OTP verification or biometric login.
+              <span className="font-bold text-card-foreground">Dashboard Overview:</span> A comprehensive at-a-glance view with key performance indicators, real-time order status, revenue metrics, and system alerts presented through clear data visualizations and interactive widgets that administrators can customize based on their priorities.
             </li>
             <li>
-              <span className="font-bold">Real-time Feedback:</span> Real-time feedback is essential to build trust and ensure a seamless experience, especially in a system that relies on IoT connectivity. Users should receive instant notifications for key events,
+              <span className="font-bold text-card-foreground">Intuitive Navigation:</span> A well-organized sidebar menu with logical grouping of features, breadcrumb navigation for context awareness, and quick-access shortcuts to frequently used functions, minimizing clicks and reducing time spent navigating between different sections.
             </li>
             <li>
-              <span className="font-bold">Gamification & Incentives:</span> Real-time feedback is essential to build trust and ensure a seamless experience, especially in a system that relies on IoT connectivity. Users should receive instant notifications for key events, such as charger availability, charging session start, progress updates, completion, or errors like connectivity fai
+              <span className="font-bold text-card-foreground">Data Visualization:</span> Advanced charts and graphs using libraries like Chart.js or Recharts to display sales trends, order volumes, vendor performance, and customer analytics in visually appealing and easily interpretable formats with drill-down capabilities for detailed analysis.
             </li>
             <li>
-              <span className="font-bold">Personalization:</span> Real-time feedback is essential to build trust and ensure a seamless experience, especially in a system that relies on IoT connectivity. Users should receive instant notifications for key events, such as charger availability, charging session start, progress updates, completion, or errors like connectivity f
+              <span className="font-bold text-card-foreground">Responsive Tables:</span> Feature-rich data tables with sorting, filtering, pagination, and bulk actions for managing large datasets efficiently. Export functionality for reports and seamless integration with common file formats like CSV and PDF.
             </li>
             <li>
-              <span className="font-bold">Offline Support:</span> Real-time feedback is esscompletion, or errors like connectivity failures or device faults. These notifications can be delivered via push messages, in-app alerts, or emails, and should be clear, concise, and actionable.
+              <span className="font-bold text-card-foreground">Real-time Updates:</span> Live notifications and status updates using WebSocket connections ensure administrators are immediately informed of new orders, system alerts, vendor updates, and critical events without requiring manual page refreshes, enabling rapid response to operational needs.
             </li>
-
-
           </ul>
-
         </div>
 
+        {/* Illustration Section */}
         <div className="text-left mt-12">
-          <h2 className="text-4xl font-bold mb-6">Illustration</h2>
+          <h2 className="text-4xl font-bold mb-6 text-card-foreground">Illustration</h2>
           <div className="grid grid-cols-2 gap-4">
             <img
               src={Foodcourt_Admin.src}
-              alt="IOT EV Charging Platform Screenshot 1"
-              className="w-full h-80 object-cover shadow-md"
+              alt="Foodcourt Admin Dashboard View 1"
+              className="w-full h-80 object-cover shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300"
             />
             <img
               src={Foodcourt_Admin.src}
-              alt="IOT EV Charging Platform Screenshot 2"
-              className="w-full h-80 object-cover shadow-md"
+              alt="Foodcourt Admin Dashboard View 2"
+              className="w-full h-80 object-cover shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300"
             />
           </div>
         </div>
       </div>
-      <div className="w-full bg-sky-900 py-10 mt-10">
+
+      {/* CTA Section */}
+      <div className="w-full bg-sky-900 dark:bg-card py-10 mt-10 border-y border-border">
         <div className="max-w-6xl mx-auto text-center space-y-6 px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Need a VR solution like Artistry Space?
+          <h1 className="text-4xl md:text-5xl font-bold text-white dark:text-card-foreground">
+            Need an admin dashboard solution like FoodCourt?
           </h1>
-          <button className="bg-white text-blue-500 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition">
+          <button className="bg-white dark:bg-primary text-blue-500 dark:text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl">
             Book a strategy call
           </button>
         </div>
       </div>
 
+      {/* Development Section */}
       <div className="max-w-6xl mx-auto space-y-12 p-10 mt-12">
         <div className="text-left">
-          <h2 className="text-4xl font-bold mb-6">Development</h2>
+          <h2 className="text-4xl font-bold mb-6 text-card-foreground">Development</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-
-            <div className="text-gray-700 text-lg leading-relaxed ">
-              Developing an IoT-based Electric Vehicle (EV) Charging Platform involves creating a fully integrated ecosystem that combines smart hardware, cloud infrastructure, connectivity, and user-facing applications to deliver efficient, reliable, and scalable charging solutions. The development process begins with a thorough requirements analysis, identifying the needs of EV drivers, fleet operators, and utilities while ensuring compliance with safety, cybersecurity, and regulatory standards. laudantium sit earum tempora beatae ullam voluptate! Suscipit obcaecati iusto laborum?
+            {/* Development Text */}
+            <div className="text-muted-foreground text-lg leading-relaxed">
+              Developing the FoodCourt Admin dashboard involved creating a robust, scalable web application using React as the core frontend framework, leveraging its component-based architecture to build reusable UI elements and ensure maintainable, testable code across the entire application.
               <br /><br />
-              On the hardware side, chargers are equipped with sensors to monitor voltage, current, temperature, and energy consumption, along with connectivity modules such as Wi-Fi, 4G/5G, NB-IoT, or LoRaWAN to enable real-time communication with the cloud.
+              State management is handled using Redux Toolkit for complex application state, Context API for simpler shared state, and React Query for efficient server state management with automatic caching, background updates, and optimistic UI updates that enhance perceived performance.
               <br /><br />
-              he platform firmware ensures chargers can process sensor data, manage charging sessions, and support remote control and over-the-air updates. The backend is built on cloud services that handle device management, charging management systems (CMS), user authentication, payment processing, scheduling, and analytics, often leveraging AI and machine learning to optimize charging, predict maintenance needs, and balance load on the energy grid
+              The backend is built on Node.js with Express framework, providing RESTful API endpoints for all administrative operations. MySQL database ensures reliable data storage with complex relational queries, transactions for data integrity, and optimized indexing for fast query performance even with large datasets.
               <br /><br />
-              Communication protocols such as OCPP, MQTT, REST APIs, and WebSocket ensure seamless interaction between chargers, mobile apps, and cloud servers
+              Security implementations include JWT-based authentication, role-based access control (RBAC), SQL injection prevention through parameterized queries, XSS protection, CSRF tokens, rate limiting, and comprehensive audit logging to track all administrative actions for compliance and security monitoring.
             </div>
 
+            {/* Development Image */}
             <img
               src={Foodcourt_Admin.src}
-              alt="IOT EV Charging Platform Screenshot"
-              className="w-full h-96 object-cover shadow-lg mt-10"
-
+              alt="Foodcourt Admin Development Screenshot"
+              className="w-full h-96 object-cover shadow-lg rounded-lg mt-10 border border-border"
             />
-
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-12 p-10  -mt-11">
+      {/* Platform Screens Section */}
+      <div className="max-w-6xl mx-auto space-y-12 p-10 -mt-11">
         <div className="text-center mt-12">
-          <h4 className="text-2xl font-bold mb-5">PLATFORM SCREENS</h4>
+          <h4 className="text-2xl font-bold mb-5 text-card-foreground">PLATFORM SCREENS</h4>
           <div className="grid grid-cols-2 gap-7">
             <img
               src={Foodcourt_Admin.src}
-              alt="IOT EV Charging Platform Screenshot 1"
-              className="w-full h-80 object-cover shadow-md"
+              alt="Admin Dashboard Screen 1"
+              className="w-full h-80 object-cover shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300"
             />
             <img
               src={Foodcourt_Admin.src}
-              alt="IOT EV Charging Platform Screenshot 2"
-              className="w-full h-80 object-cover shadow-md"
+              alt="Admin Dashboard Screen 2"
+              className="w-full h-80 object-cover shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300"
             />
           </div>
         </div>
-
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-12 p-10  -mt-11">
+      {/* You May Also Like Section */}
+      <div className="max-w-6xl mx-auto space-y-12 p-10 -mt-11">
         <div className="text-center mt-12">
-          <h2 className="text-4xl font-bold mb-6">You may also like</h2>
+          <h2 className="text-4xl font-bold mb-6 text-card-foreground">You may also like</h2>
           <div className="grid grid-cols-2 gap-7">
-            <img
-              src={Foodcourt_Admin.src}
-              alt="IOT EV Charging Platform Screenshot 1"
-              className="w-full h-80 object-cover shadow-md"
-            />
-            <img
-              src={Foodcourt_Admin.src}
-              alt="IOT EV Charging Platform Screenshot 2"
-              className="w-full h-80 object-cover shadow-md"
-            />
+            <div className="relative group overflow-hidden rounded-lg border border-border cursor-pointer">
+              <img
+                src={Foodcourt_Admin.src}
+                alt="Related Project 1"
+                className="w-full h-80 object-cover shadow-md group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                <span className="text-white font-semibold text-lg">View Project</span>
+              </div>
+            </div>
+            <div className="relative group overflow-hidden rounded-lg border border-border cursor-pointer">
+              <img
+                src={Foodcourt_Admin.src}
+                alt="Related Project 2"
+                className="w-full h-80 object-cover shadow-md group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                <span className="text-white font-semibold text-lg">View Project</span>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
 
-
-      <div className="max-w-6xl mx-auto text-center space-y-6 px-6 mb-15">
+      {/* All Projects Button */}
+      <div className="max-w-6xl mx-auto text-center space-y-6 px-6 mb-20">
         <Link href="/portfolio">
-          <button className="bg-white text-sky-900 border-2 border-sky-900 px-7 py-3 rounded-full font-semibold hover:bg-sky-500 hover:text-white transition-colors duration-300">
+          <button className="bg-background dark:bg-card text-sky-900 dark:text-primary border-2 border-sky-900 dark:border-primary px-7 py-3 rounded-full font-semibold hover:bg-sky-500 hover:text-white dark:hover:bg-primary dark:hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl">
             All Projects
           </button>
         </Link>
@@ -217,4 +246,4 @@ const FoodcourtAdminpage = () => {
   );
 };
 
-export default FoodcourtAdminpage;
+export default FoodcourtAdminPage;

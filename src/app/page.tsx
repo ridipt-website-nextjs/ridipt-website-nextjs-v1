@@ -26,7 +26,7 @@ import automation from '@/assests/our_services/automation.svg';
 import { CallToActionContent, PromotionalSection } from "@/components/services";
 import { useRouter } from "next/navigation";
 import { PromotionCard2 } from "@/components/services/promotional-section";
-import DecisionGuideSection from "@/components/home/decision";
+import DecisionGuideSection, { DecisionCard } from "@/components/home/decision";
 import QuestionsSection from "@/components/home/security/question-section";
 import Loading from "./loading";
 
@@ -93,16 +93,18 @@ export default function Home() {
       </div>
 
       {/* <TabStack /> */}
-      <DecisionGuideSection
+      {/* <DecisionGuideSection
         heading="Navigate Your Development Journey"
         subheading="Decision Making Guide"
         description="Get expert guidance on the most critical decisions that will shape your project's success. From technology choices to architecture decisions, we help you navigate every step."
         className="!py-20"
-      />
+      /> */}
 
 
       <div className="w-full ">
-        <PortofolioHighlight />
+        <PortofolioHighlight 
+        // CustomCard={DecisionCard}
+        />
       </div>
       <TechnologyContainer />
       <PromotionalSection

@@ -7,62 +7,63 @@ import SDPImg3 from "@/assests/portfolio/Clent-3.jpeg";
 import SDPImg4 from "@/assests/portfolio/Clent-4.jpeg";
 import SDPImg5 from "@/assests/portfolio/Clent-5.jpeg";
 import SDPImg6 from "@/assests/portfolio/Clent-6.jpeg";
-
 import Link from "next/link";
 
 const SmartDeliveryPageClient = () => {
     return (
-        <div>
-
+        <div className="bg-background text-foreground min-h-screen">
+            {/* Hero Section */}
             <div className="relative p-10">
-                <div className="absolute top-0 left-0 w-full h-[680px] bg-sky-900 z-0"></div>
+                <div className="absolute top-0 left-0 w-full h-[680px] bg-sky-900 dark:bg-card z-0"></div>
                 <div className="relative max-w-6xl mx-auto space-y-12 z-10">
-                    <div className="bg-white shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="bg-card shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center border border-border rounded-lg">
                         <div>
                             <img
                                 src={SDPImg1.src}
-                                alt="Smart Delivery Platform Screenshot"
-                                className="w-full h-80 object-contain shadow-md"
+                                alt="Grocery Delivery Client App"
+                                className="w-full h-80 object-contain shadow-md rounded-lg border border-border"
                             />
                         </div>
                         <div>
-                            <h1 className="text-4xl font-bold mb-6">
-                                Grocery Delivery(Client)
+                            <h1 className="text-4xl font-bold mb-6 text-card-foreground">
+                                Grocery Delivery (Client)
                             </h1>
-                            <p className="text-gray-700 text-lg mb-8">
+                            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                                 A mobile-friendly app that allows customers to browse products, manage
                                 subscriptions, track orders, and handle account details seamlessly.
                             </p>
 
                             <div className="grid grid-cols-2 gap-8 mb-8">
                                 <div>
-                                    <h2 className="text-2xl font-semibold mb-2">Project</h2>
-                                    <p className="text-gray-700 text-lg">
+                                    <h2 className="text-2xl font-semibold mb-2 text-card-foreground">Project</h2>
+                                    <p className="text-muted-foreground text-lg">
                                         Grocery Delivery - Client
                                     </p>
                                 </div>
                                 <div>
-                                    <h2 className="text-2xl font-semibold mb-2">Platform</h2>
-                                    <p className="text-gray-700 text-lg">Android,iOS</p>
+                                    <h2 className="text-2xl font-semibold mb-2 text-card-foreground">Platform</h2>
+                                    <p className="text-muted-foreground text-lg">Android, iOS</p>
                                 </div>
                             </div>
 
-                            <h2 className="text-2xl font-semibold mb-2">Technologies</h2>
-                            <p className="text-gray-700 text-lg">
+                            <h2 className="text-2xl font-semibold mb-2 text-card-foreground">Technologies</h2>
+                            <p className="text-muted-foreground text-lg">
                                 Flutter, Node.js/Express, MongoDB | REST APIs,
-                                JWT Auth, OTP APIs | Manual & Automated Testing|cloud Azure
+                                JWT Auth, OTP APIs | Manual & Automated Testing | Cloud Azure
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            {/* Brief & Solution */}
             <div className="relative max-w-6xl mx-auto mt-6">
-                <div className="absolute top-0 left-0 w-full h-2/3 bg-sky-100 z-0"></div>
-                <div className="relative bg-white shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 z-10">
+                <div className="absolute top-0 left-0 w-full h-2/3 bg-sky-100 dark:bg-muted/30 z-0"></div>
+                <div className="relative bg-card shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-12 z-10 border border-border rounded-lg">
+                    {/* Brief */}
                     <div>
-                        <h2 className="text-3xl font-bold mb-4">Brief</h2>
-                        <p className="text-gray-700 text-lg text-justify">
+                        <h2 className="text-3xl font-bold mb-4 text-card-foreground">Brief</h2>
+                        <p className="text-muted-foreground text-lg text-justify leading-relaxed">
                             The Client App is a comprehensive mobile platform designed to
                             provide customers with a seamless and enjoyable grocery
                             shopping experience. It allows users to browse a wide range of
@@ -71,6 +72,7 @@ const SmartDeliveryPageClient = () => {
                             subscriptions, track both current and past orders, and securely
                             handle payments, ensuring complete transparency and control
                             over their purchases.
+                            <br /><br />
                             In addition to shopping, the app offers quick access to help and
                             support, allowing users to resolve queries or issues efficiently.
                             Customers can also connect directly with delivery agents for real
@@ -81,14 +83,13 @@ const SmartDeliveryPageClient = () => {
                             Client App delivers a fully integrated and user-friendly experience,
                             helping customers manage their grocery needs effortlessly from
                             browsing to delivery.
-
-
                         </p>
                     </div>
 
+                    {/* Solution */}
                     <div>
-                        <h2 className="text-3xl font-bold mb-4"> Solution / Key Features:</h2>
-                        <p className="text-gray-700 text-lg text-justify mb-6">
+                        <h2 className="text-3xl font-bold mb-4 text-card-foreground">Solution / Key Features:</h2>
+                        <p className="text-muted-foreground text-lg text-justify mb-6 leading-relaxed">
                             The Client App is a comprehensive mobile platform designed to make
                             grocery shopping easy, organized, and enjoyable for customers. By
                             centralizing all essential shopping tasks, the app allows users to browse
@@ -98,61 +99,56 @@ const SmartDeliveryPageClient = () => {
                             complete transparency and control over their purchases.
                         </p>
 
-
-
-
                         <div className="mt-8">
-                            <h3 className="text-2xl font-semibold mb-3">Key Features</h3>
-                            <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                            <h3 className="text-2xl font-semibold mb-3 text-card-foreground">Key Features</h3>
+                            <ul className="list-disc list-inside space-y-2 text-muted-foreground text-lg">
                                 <li>
-                                    <span className="font-bold">Home Screen:</span> Browse all products, explore popular brands, and
+                                    <span className="font-bold text-card-foreground">Home Screen:</span> Browse all products, explore popular brands, and
                                     access featured items easily.
                                 </li>
                                 <li>
-                                    <span className="font-bold">Subscription Management:</span> Subscribe to favorite products or plans,
+                                    <span className="font-bold text-card-foreground">Subscription Management:</span> Subscribe to favorite products or plans,
                                     manage renewals, and stay updated.
                                 </li>
                                 <li>
-                                    <span className="font-bold">My Orders: </span> Track current and past orders, view delivery status, and
+                                    <span className="font-bold text-card-foreground">My Orders:</span> Track current and past orders, view delivery status, and
                                     order details.
                                 </li>
                                 <li>
-                                    <span className="font-bold">Shop by Category: </span>  Quickly find products by categories for faster
-                                    shopping
+                                    <span className="font-bold text-card-foreground">Shop by Category:</span> Quickly find products by categories for faster
+                                    shopping.
                                 </li>
                                 <li>
-                                    <span className="font-bold">Account Management:</span> View past subscriptions, payments, and
+                                    <span className="font-bold text-card-foreground">Account Management:</span> View past subscriptions, payments, and
                                     order history.
                                 </li>
                                 <li>
-                                    <span className="font-bold">Delivery Agent Connection:  </span> Contact or get updates from delivery
+                                    <span className="font-bold text-card-foreground">Delivery Agent Connection:</span> Contact or get updates from delivery
                                     agents directly.
                                 </li>
                                 <li>
-                                    <span className="font-bold">Secure Logout: </span> Ensure account safety with proper logout
+                                    <span className="font-bold text-card-foreground">Secure Logout:</span> Ensure account safety with proper logout
                                     functionality.
                                 </li>
                             </ul>
 
-                            <h3 className="text-2xl font-semibold mt-6 mb-3">Benefits</h3>
-                            <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                            <h3 className="text-2xl font-semibold mt-6 mb-3 text-card-foreground">Benefits</h3>
+                            <ul className="list-disc list-inside space-y-2 text-muted-foreground text-lg">
                                 <li>Streamlined and organized shopping experience.</li>
                                 <li>Easy management of subscriptions and orders.</li>
-                                <li>Transparent payments and delivery tracking. </li>
+                                <li>Transparent payments and delivery tracking.</li>
                                 <li>Efficient access to help and real-time support.</li>
                             </ul>
                         </div>
-
                     </div>
-
                 </div>
             </div>
 
             {/* UI/UX */}
             <div className="max-w-6xl mx-auto space-y-12 p-10 mt-6">
                 <div>
-                    <h2 className="text-4xl font-bold mb-6">UI/UX (Design)</h2>
-                    <p className="text-gray-700 text-lg text-justify mb-6">
+                    <h2 className="text-4xl font-bold mb-6 text-card-foreground">UI/UX (Design)</h2>
+                    <p className="text-muted-foreground text-lg text-justify mb-6 leading-relaxed">
                         The Client App is designed with a focus on simplicity, usability, and
                         visual clarity, ensuring customers can shop efficiently and enjoyably on
                         mobile devices. The interface is intuitive and organized, allowing users to
@@ -160,126 +156,128 @@ const SmartDeliveryPageClient = () => {
                         payments without confusion.
                     </p>
 
-                    <h3 className="text-2xl font-semibold mb-3">UI/UX Highlights:</h3>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                    <h3 className="text-2xl font-semibold mb-3 text-card-foreground">UI/UX Highlights:</h3>
+                    <ul className="list-disc list-inside space-y-3 text-muted-foreground text-lg">
                         <li>
-                            <span className="font-bold">Clean & Intuitive Interface:</span> Easy navigation between Home,
-                            Subscriptions, Orders, and Account sections.</li>
+                            <span className="font-bold text-card-foreground">Clean & Intuitive Interface:</span> Easy navigation between Home,
+                            Subscriptions, Orders, and Account sections.
+                        </li>
                         <li>
-                            <span className="font-bold">Visual Product Display: </span> High-quality images and clear
+                            <span className="font-bold text-card-foreground">Visual Product Display:</span> High-quality images and clear
                             categorization of products and popular brands.
                         </li>
                         <li>
-                            <span className="font-bold">Responsive Mobile Design:</span> Optimized for different screen sizes to
+                            <span className="font-bold text-card-foreground">Responsive Mobile Design:</span> Optimized for different screen sizes to
                             provide a seamless experience.
                         </li>
                         <li>
-                            <span className="font-bold">Consistency & Accessibility:</span> Uniform fonts, colors, and interactive
+                            <span className="font-bold text-card-foreground">Consistency & Accessibility:</span> Uniform fonts, colors, and interactive
                             elements for a smooth user experience.
                         </li>
                         <li>
-                            <span className="font-bold">Real-Time Updates:</span> Instant notifications for order status,
+                            <span className="font-bold text-card-foreground">Real-Time Updates:</span> Instant notifications for order status,
                             subscription renewals, and payment confirmations.
                         </li>
                         <li>
-                            <span className="font-bold">Customer-Friendly Navigation:</span> Quick access to help & support,
+                            <span className="font-bold text-card-foreground">Customer-Friendly Navigation:</span> Quick access to help & support,
                             delivery agents, and account details.
                         </li>
                     </ul>
-                    <br />
-                    <p>The UI/UX design ensures that the shopping experience is clear,
+                    
+                    <p className="text-muted-foreground text-lg text-justify mt-6 leading-relaxed">
+                        The UI/UX design ensures that the shopping experience is clear,
                         organized, and enjoyable, making it easy for customers to explore
-                        products, manage their orders, and complete transactions efficiently. </p>
+                        products, manage their orders, and complete transactions efficiently.
+                    </p>
                 </div>
             </div>
 
-
-
-
-            <div className="w-full bg-sky-900 py-10 mt-10">
+            {/* CTA */}
+            <div className="w-full bg-sky-900 dark:bg-card py-10 mt-10 border-y border-border">
                 <div className="max-w-6xl mx-auto text-center space-y-6 px-6">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white dark:text-card-foreground">
                         Explore More of Our Work
                     </h1>
                     <Link href="/portfolio">
-                        <button className="bg-white text-blue-500 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition">
+                        <button className="bg-white dark:bg-primary text-blue-500 dark:text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl">
                             View All Projects
                         </button>
                     </Link>
                 </div>
             </div>
 
-
+            {/* Development */}
             <div className="max-w-6xl mx-auto space-y-12 p-10 mt-12">
                 <div className="text-left">
-                    <h2 className="text-4xl font-bold mb-6">Development & Tech Stack</h2>
-                    <div className="text-gray-700 text-lg leading-relaxed space-y-6">
+                    <h2 className="text-4xl font-bold mb-6 text-card-foreground">Development & Tech Stack</h2>
+                    <div className="text-muted-foreground text-lg leading-relaxed space-y-6">
                         <p>
                             The Client App was developed using a modern and scalable tech stack
                             to ensure smooth performance, security, and a user-friendly
                             experience for customers.
                         </p>
 
-
+                        {/* Frontend */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-3">Frontend (Mobile App)</h3>
+                            <h3 className="text-2xl font-semibold mb-3 text-card-foreground">Frontend (Mobile App)</h3>
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
-                                    <span className="font-bold">Flutter:</span> Cross-platform mobile development for Android and iOS.
+                                    <span className="font-bold text-card-foreground">Flutter:</span> Cross-platform mobile development for Android and iOS.
                                 </li>
                                 <li>
-                                    <span className="font-bold">UI/UX Design:</span> Clean, intuitive, and responsive interface for easy
+                                    <span className="font-bold text-card-foreground">UI/UX Design:</span> Clean, intuitive, and responsive interface for easy
                                     navigation and shopping.
                                 </li>
                             </ul>
                         </div>
 
+                        {/* Backend */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-3">Backend</h3>
+                            <h3 className="text-2xl font-semibold mb-3 text-card-foreground">Backend</h3>
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
-                                    <span className="font-bold">Node.js & Express.js:</span> Robust server for handling business logic
+                                    <span className="font-bold text-card-foreground">Node.js & Express.js:</span> Robust server for handling business logic
                                     and API requests.
                                 </li>
                                 <li>
-                                    <span className="font-bold">REST APIs:</span> Efficient communication between the app and backend.
+                                    <span className="font-bold text-card-foreground">REST APIs:</span> Efficient communication between the app and backend.
                                 </li>
                                 <li>
-                                    <span className="font-bold">Authentication & Security:</span> JWT-based authentication and OTP APIs for secure login and transactions.
+                                    <span className="font-bold text-card-foreground">Authentication & Security:</span> JWT-based authentication and OTP APIs for secure login and transactions.
                                 </li>
                             </ul>
                         </div>
 
-
+                        {/* Database */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-3">Database</h3>
+                            <h3 className="text-2xl font-semibold mb-3 text-card-foreground">Database</h3>
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
-                                    <span className="font-bold">MongoDB:</span> Efficient storage and management of products, orders,
+                                    <span className="font-bold text-card-foreground">MongoDB:</span> Efficient storage and management of products, orders,
                                     subscriptions, and user data.
                                 </li>
                             </ul>
                         </div>
 
-
+                        {/* Cloud & Hosting */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-3">Cloud & Hosting</h3>
+                            <h3 className="text-2xl font-semibold mb-3 text-card-foreground">Cloud & Hosting</h3>
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
-                                    <span className="font-bold">Microsoft Azure:</span> Reliable cloud hosting for scalability, uptime, and secure data access.
+                                    <span className="font-bold text-card-foreground">Microsoft Azure:</span> Reliable cloud hosting for scalability, uptime, and secure data access.
                                 </li>
                             </ul>
                         </div>
 
-
+                        {/* Testing */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-3">Testing</h3>
+                            <h3 className="text-2xl font-semibold mb-3 text-card-foreground">Testing</h3>
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
-                                    <span className="font-bold">Manual Testing:</span> Ensured all functionalities worked as expected.
+                                    <span className="font-bold text-card-foreground">Manual Testing:</span> Ensured all functionalities worked as expected.
                                 </li>
                                 <li>
-                                    <span className="font-bold">Automated Testing:</span>Critical flows automated to maintain reliability
+                                    <span className="font-bold text-card-foreground">Automated Testing:</span> Critical flows automated to maintain reliability
                                     and prevent bugs.
                                 </li>
                             </ul>
@@ -289,54 +287,45 @@ const SmartDeliveryPageClient = () => {
                             This development approach and tech stack ensured that the Client
                             App is fast, secure, and capable of providing a seamless grocery
                             shopping experience for customers across mobile devices.
-
                         </p>
                     </div>
                 </div>
             </div>
 
-
-
-
-
             {/* Screenshots */}
             <div className="max-w-6xl mx-auto space-y-12 p-10 mt-12">
                 <div className="text-center">
-                    <h2 className="text-4xl font-bold mb-6">WEBSITE SCREENS</h2>
+                    <h2 className="text-4xl font-bold mb-6 text-card-foreground">APP SCREENS</h2>
                     <div className="grid grid-cols-2 gap-7">
                         <img
                             src={SDPImg2.src}
-                            alt="Smart Delivery Platform Screen 1"
-                            className="w-full h-80 object-contain shadow-md mt-8"
+                            alt="Client App Screen 1"
+                            className="w-full h-80 object-contain shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300 mt-8"
                         />
                         <img
                             src={SDPImg3.src}
-                            alt="Smart Delivery Platform Screen 2"
-                            className="w-full h-80 object-contain shadow-md mt-8"
+                            alt="Client App Screen 2"
+                            className="w-full h-80 object-contain shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300 mt-8"
                         />
                         <img
                             src={SDPImg4.src}
-                            alt="Smart Delivery Platform Screen 2"
-                            className="w-full h-80 object-contain shadow-md mt-8"
+                            alt="Client App Screen 3"
+                            className="w-full h-80 object-contain shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300 mt-8"
                         />
                         <img
                             src={SDPImg5.src}
-                            alt="Smart Delivery Platform Screen 2"
-                            className="w-full h-80 object-contain shadow-md mt-8"
+                            alt="Client App Screen 4"
+                            className="w-full h-80 object-contain shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300 mt-8"
                         />
                         <img
                             src={SDPImg6.src}
-                            alt="Smart Delivery Platform Screen 2"
-                            className="w-full h-80 object-contain shadow-md mt-8"
+                            alt="Client App Screen 5"
+                            className="w-full h-80 object-contain shadow-md rounded-lg border border-border hover:scale-[1.02] transition-transform duration-300 mt-8"
                         />
-
                     </div>
                 </div>
             </div>
-
-
         </div>
-
     );
 };
 

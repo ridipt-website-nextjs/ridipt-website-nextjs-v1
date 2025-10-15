@@ -93,4 +93,5 @@ export interface ServiceItem {
     image: any;
     isAnimation: boolean;
     highlights: string[];
+    link?: string;
 }

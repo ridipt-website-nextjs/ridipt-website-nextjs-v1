@@ -232,13 +232,13 @@ export function Navbar() {
                         <MobileNavItems items={navItems} onItemClick={() => setIsMobileMenuOpen(false)} />
 
                         <div className="flex w-full flex-col gap-4">
-                            <NavbarButton
+                            <Button
                                 onClick={() => router.push('/get-in-touch')}
                                 variant="secondary"
                                 className="w-full capitalize"
                             >
                                 get a quote
-                            </NavbarButton>
+                            </Button>
                         </div>
                     </MobileNavMenu>
                 </MobileNav>
