@@ -20,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ridipt Technologies",
   description: "Ridipt Technologies",
+   icons: {
+    icon: '/Rdipt.png', 
+  },
 };
 
 export default function RootLayout({
