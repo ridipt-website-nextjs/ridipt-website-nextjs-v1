@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useState } from "react";
 import { linePoint, technologyIcons } from "@/assests/technology_icons";
 import { HeroParallaxDemo } from "@/components/hero-parallax";
 import { SubHeading } from "@/components/sub-heading";
@@ -185,10 +186,20 @@ const TechnologyContainer = () => {
 }
 
 const TechnologyIcons = ({ direction, speed }: { direction?: "left" | "right" | undefined, speed?: "fast" | "normal" | "slow" | undefined }) => {
+  // Start with the deterministic, unshuffled order so the server-rendered
+  // markup matches the client's first render exactly (avoids a hydration
+  // mismatch). Shuffle only after mount, once we're safely client-side only.
+  const [items, setItems] = useState(technologyIcons);
+
+  useEffect(() => {
+    setItems(shuffleArray(technologyIcons));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
 
     <InfiniteMovingCards
-      items={shuffleArray(technologyIcons)}
+      items={items}
       component={(item, idx) =>
         <HoverBorderGradient
           key={idx}

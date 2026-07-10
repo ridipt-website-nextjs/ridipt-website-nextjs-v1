@@ -8,17 +8,19 @@ let firebaseApp: FirebaseApp | null = null;
 let analytics: Analytics | null = null;
 
 // Initialize Firebase app
-export const getFirebaseApp = async (): Promise<FirebaseApp> => {
+export const getFirebaseApp = async (): Promise<FirebaseApp | null> => {
   if (firebaseApp) return firebaseApp;
 
   try {
     const configString = await getFirebaseConfig();
-    const firebaseConfig = JSON.parse(configString || '{}');
+    if (!configString) return null;
+
+    const firebaseConfig = JSON.parse(configString);
     firebaseApp = initializeApp(firebaseConfig);
     return firebaseApp;
   } catch (error) {
     console.error('Failed to initialize Firebase:', error);
-    throw error;
+    return null;
   }
 };
 
@@ -32,6 +34,8 @@ export const getFirebaseAnalytics = async (): Promise<Analytics | null> => {
     if (!supported) return null;
 
     const app = await getFirebaseApp();
+    if (!app) return null;
+
     analytics = getAnalytics(app);
     return analytics;
   } catch (error) {

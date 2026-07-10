@@ -39,6 +39,21 @@ const Footer = () => {
 
   return (
     <footer className='w-full border-t bg-footer border-muted text-primary'>
+      {/* DPDP Readiness CTA Banner */}
+      <div className='border-b border-muted bg-accent-foreground/10'>
+        <div className='container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 text-center sm:text-left'>
+          <p className='text-sm font-medium dark:text-primary text-secondary'>
+            Start your DPDP journey with a practical readiness assessment tailored to your organization.
+          </p>
+          <Link
+            href='/services/data-privacy-dpdp-compliance#request-assessment'
+            className='shrink-0 text-sm font-semibold text-accent-foreground hover:underline'
+          >
+            Schedule a DPDP Readiness Assessment →
+          </Link>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className='container mx-auto px-6 py-16'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12'>
@@ -99,6 +114,7 @@ const Footer = () => {
               <li><Link href='/services/web-development' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>Web App Development</Link></li>
               <li><Link href='/services/emerging-technology/devops' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>Cloud Solutions</Link></li>
               <li><Link href='/services/emerging-technology/ai-ml-genai' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>AI & Machine Learning</Link></li>
+              <li><Link href='/services/data-privacy-dpdp-compliance' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>Data Privacy & DPDP Compliance</Link></li>
             </ul>
           </div>
 

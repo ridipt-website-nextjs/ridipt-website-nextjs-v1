@@ -189,9 +189,13 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {hovered === idx && (
               <motion.div
                 layoutId="hovered"
-                className="absolute bg-card left-1/2 transform translate-y-2 -translate-x-1/2 top-full overflow-hidden w-[950px] overflow-y-auto rounded-lg shadow-lg border border-border z-50 mb-8"
+                className="absolute bg-card left-1/2 transform translate-y-2 -translate-x-1/2 top-full overflow-hidden w-[1050px] max-w-[calc(100vw-2rem)] rounded-lg shadow-lg border border-border z-50 mb-8"
               >
-                <div className="p-6" onClick={closeDropdown}>
+                <div
+                  className="max-h-[75vh] overflow-y-auto p-6"
+                  style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(155, 155, 155, 0.3) transparent" }}
+                  onClick={closeDropdown}
+                >
                   {item.content}
                 </div>
               </motion.div>

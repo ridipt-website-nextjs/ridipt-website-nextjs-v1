@@ -56,6 +56,7 @@ interface ApplicationFormProps {
     onSubmit: (formData: FormData | any) => Promise<void>;
     className?: string;
     autoFilledData?: FormDataState
+    submitButtonText?: string
 }
 
 interface FormErrors {
@@ -70,7 +71,8 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
     applicationFormFields,
     onSubmit,
     className,
-    autoFilledData = {}
+    autoFilledData = {},
+    submitButtonText = 'Submit Application'
 }) => {
     const [formData, setFormData] = useState<FormDataState>(autoFilledData);
     const [errors, setErrors] = useState<FormErrors>({});
@@ -624,7 +626,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                     <Button
                         type="submit"
                         disabled={loading}
-                        className="px-8 py-3 w-full max-w-[240px] font-medium"
+                        className="px-8 py-3 w-full max-w-[320px] font-medium"
                         size="lg"
                     >
                         {loading ? (
@@ -633,7 +635,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
                                 <span className="truncate">Submitting...</span>
                             </div>
                         ) : (
-                            <span className="truncate">Submit Application</span>
+                            <span className="truncate">{submitButtonText}</span>
                         )}
                     </Button>
                 </div>
