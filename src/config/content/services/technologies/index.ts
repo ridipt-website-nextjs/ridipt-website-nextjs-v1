@@ -35,6 +35,21 @@ import { nextjs_faq } from '@/config/FAQs';
 import { wordpress_services, wordpress_content, wordpress_business_process, wordpress_streamlining_development } from '@/config/content/wordpress.content';
 import { wordpress_faq } from '@/config/FAQs';
 
+import { ai_chatbots_content, ai_chatbots_services, ai_chatbots_business_process, ai_chatbots_streamlining_development } from '@/config/content/ai-services/ai-chatbots.content';
+import { ai_chatbots_faq } from '@/config/content/ai-services/ai-chatbots.faq';
+
+import { llm_rag_content, llm_rag_services, llm_rag_business_process, llm_rag_streamlining_development } from '@/config/content/ai-services/llm-rag.content';
+import { llm_rag_faq } from '@/config/content/ai-services/llm-rag.faq';
+
+import { ai_automation_content, ai_automation_services, ai_automation_business_process, ai_automation_streamlining_development } from '@/config/content/ai-services/ai-automation.content';
+import { ai_automation_faq } from '@/config/content/ai-services/ai-automation.faq';
+
+import { predictive_analytics_content, predictive_analytics_services, predictive_analytics_business_process, predictive_analytics_streamlining_development } from '@/config/content/ai-services/predictive-analytics.content';
+import { predictive_analytics_faq } from '@/config/content/ai-services/predictive-analytics.faq';
+
+import { ai_strategy_content, ai_strategy_services, ai_strategy_business_process, ai_strategy_streamlining_development } from '@/config/content/ai-services/ai-strategy.content';
+import { ai_strategy_faq } from '@/config/content/ai-services/ai-strategy.faq';
+
 const technologyData = {
   'ai-ml-genai': {
     heroSection: {
@@ -800,6 +815,316 @@ const technologyData = {
         description: "Get answers to common questions about WordPress development, including security, customization, e-commerce, migration, and maintenance services."
       },
       content: wordpress_faq
+    }
+  },
+
+  'ai-chatbots-copilots': {
+    heroSection: {
+      heading: 'AI Chatbots & Copilots',
+      subheading: '24/7 Conversational AI for Support, Sales & Your Team',
+      description: 'Give your customers instant answers and your team a smart copilot. We design and build AI chatbots and internal copilots that understand natural language, connect to your real data, and hand off to a human exactly when needed.',
+      image: require('@assets/service/geneative ai.webp'),
+      imageAlt: 'AI Chatbots and Copilots Services',
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+    },
+    servicesSection: {
+      heading: 'Our AI Chatbot & Copilot Solutions',
+      subheading: 'Conversational AI Built Around Your Business',
+      description: 'From customer-facing support bots to internal knowledge copilots, we design conversational AI that actually understands your business, connects to your existing tools, and knows when to bring in a human.',
+      content: ai_chatbots_content,
+      subSection: false,
+      className: ''
+    },
+    serviceDetailSection: {
+      heading: 'Why Businesses Choose Our AI Chatbots',
+      subheading: 'Faster, Smarter, Always-On Conversations',
+      description: 'Our AI chatbots and copilots combine natural language understanding with your real business data, delivering fast, accurate, and on-brand conversations across every channel your customers and employees use.',
+      cardStyling: '',
+      industry: ai_chatbots_services
+    },
+    ctaSection: {
+      heading: "Ready to Launch Your AI Chatbot?",
+      subheading: "Let's design a conversational AI assistant tailored to your customers, your team, and your existing tools.",
+      buttonText: "Contact Now",
+      className: '!bg-gradient-to-br from-blue-50 via-rose-50 to-orange-50 dark:!bg-none dark:!bg-card'
+    },
+    promotionalSection: {
+      title: "Looking to Build an",
+      highlightText: "AI Chatbot or Copilot?",
+      subtitle: "Conversational AI That Understands Your Business",
+      description: "We design and build chatbots and copilots that connect to your real data and existing tools, so every conversation actually gets things done.",
+      buttonText: "Start Your AI Chatbot Project",
+      animationData: require('@assets/animations/Developer.json')
+    },
+    processCardsSection: {
+      heading: "Streamlining the Development Journey",
+      subheading: "From Research to Launch",
+      description: "Our chatbot development process covers everything from mapping your key conversations to designing flows, building integrations, and continuously improving the assistant after launch.",
+      processes: ai_chatbots_streamlining_development,
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
+    },
+    businessProcessSection: {
+      heading: "AI Chatbot Development Lifecycle",
+      subheading: "Agile, Conversational & Continuously Improving",
+      description: "We follow a structured approach from research and conversation design through build, integration, and ongoing refinement, ensuring your chatbot keeps getting better after it goes live.",
+      processes: ai_chatbots_business_process,
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
+    },
+    faqSection: {
+      header: {
+        heading: "AI Chatbots & Copilots FAQs",
+        subheading: "Your Complete Guide to Conversational AI",
+        description: "Get answers to common questions about AI chatbots and copilots, including platforms, timelines, cost, and data privacy."
+      },
+      content: ai_chatbots_faq
+    }
+  },
+
+  'llm-rag-integration': {
+    heroSection: {
+      heading: 'LLM & RAG Integration',
+      subheading: 'Ground AI Answers in Your Own Business Data',
+      description: 'Connect large language models to your documents, databases, and internal knowledge with Retrieval-Augmented Generation. We build AI systems that give accurate, sourced answers based on your business, not generic guesses.',
+      image: require('@assets/service/technology/AI-ml.png'),
+      imageAlt: 'LLM and RAG Integration Services',
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+    },
+    servicesSection: {
+      heading: 'Our LLM & RAG Solutions',
+      subheading: 'Turning Your Data Into Instant, Trustworthy Answers',
+      description: 'We design retrieval pipelines and integrate large language models so your team and customers get accurate answers grounded in your actual documents, data, and systems.',
+      content: llm_rag_content,
+      subSection: false,
+      className: ''
+    },
+    serviceDetailSection: {
+      heading: 'Why RAG Beats a Plain Chatbot',
+      subheading: 'Accuracy You Can Trace Back to the Source',
+      description: 'By retrieving from your real data before generating a response, our RAG systems reduce hallucinations and give your team confidence in every answer.',
+      cardStyling: '',
+      industry: llm_rag_services
+    },
+    ctaSection: {
+      heading: "Ready to Ground AI in Your Own Data?",
+      subheading: "Let's connect a language model to your documents and systems, so answers are accurate, sourced, and specific to your business.",
+      buttonText: "Contact Now",
+      className: '!bg-gradient-to-br from-blue-50 via-rose-50 to-orange-50 dark:!bg-none dark:!bg-card'
+    },
+    promotionalSection: {
+      title: "Looking to Build",
+      highlightText: "LLM & RAG Solutions?",
+      subtitle: "Accurate AI Answers, Grounded in Your Data",
+      description: "We design retrieval-augmented AI systems that connect language models to your real business data, delivering answers you can trust and trace.",
+      buttonText: "Start Your RAG Project",
+      animationData: require('@assets/animations/Developer.json')
+    },
+    processCardsSection: {
+      heading: "Streamlining the Development Journey",
+      subheading: "From Data Discovery to Production",
+      description: "Our RAG development process covers data discovery, architecture design, pipeline development, and ongoing tuning to keep answers accurate as your data changes.",
+      processes: llm_rag_streamlining_development,
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
+    },
+    businessProcessSection: {
+      heading: "LLM & RAG Development Lifecycle",
+      subheading: "Secure, Accurate & Continuously Synced",
+      description: "We follow a structured approach from data and use case discovery through architecture, build, and ongoing maintenance, keeping your AI answers accurate and current.",
+      processes: llm_rag_business_process,
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
+    },
+    faqSection: {
+      header: {
+        heading: "LLM & RAG Integration FAQs",
+        subheading: "Your Complete Guide to Grounded AI",
+        description: "Get answers to common questions about RAG, supported language models, data privacy, cost, and timelines."
+      },
+      content: llm_rag_faq
+    }
+  },
+
+  'ai-powered-automation': {
+    heroSection: {
+      heading: 'AI-Powered Automation',
+      subheading: 'Automate Repetitive Work with Intelligent Decisioning',
+      description: 'Go beyond basic rule-based automation. We combine AI decisioning with your workflows to process documents, route tickets, and handle exceptions, freeing your team from repetitive manual work.',
+      image: require('@assets/service/geneative ai.webp'),
+      imageAlt: 'AI-Powered Automation Services',
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+    },
+    servicesSection: {
+      heading: 'Our AI Automation Solutions',
+      subheading: 'Smarter Workflows, Fewer Manual Tasks',
+      description: 'We design automations that combine AI judgment with your existing workflows, handling documents, tickets, and data entry so your team can focus on higher-value work.',
+      content: ai_automation_content,
+      subSection: false,
+      className: ''
+    },
+    serviceDetailSection: {
+      heading: 'Why AI-Powered Automation Pays Off',
+      subheading: 'Faster, More Accurate, More Scalable Operations',
+      description: 'By adding AI decisioning to automation, routine processes handle more variation on their own, cutting manual effort, reducing errors, and freeing your team for higher-value work.',
+      cardStyling: '',
+      industry: ai_automation_services
+    },
+    ctaSection: {
+      heading: "Ready to Automate the Repetitive Work?",
+      subheading: "Let's identify the manual processes costing your team the most time and design an AI-powered automation to handle them.",
+      buttonText: "Contact Now",
+      className: '!bg-gradient-to-br from-blue-50 via-rose-50 to-orange-50 dark:!bg-none dark:!bg-card'
+    },
+    promotionalSection: {
+      title: "Looking to Automate With",
+      highlightText: "Intelligent AI Decisioning?",
+      subtitle: "Automation That Handles Real-World Variation",
+      description: "We build automations that combine AI judgment with your existing workflows, so routine processes run themselves and only genuine exceptions reach your team.",
+      buttonText: "Start Your Automation Project",
+      animationData: require('@assets/animations/Developer.json')
+    },
+    processCardsSection: {
+      heading: "Streamlining the Development Journey",
+      subheading: "From Process Discovery to Ongoing Optimization",
+      description: "Our automation development process covers process discovery, workflow design, build and integration, and ongoing refinement as your processes evolve.",
+      processes: ai_automation_streamlining_development,
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
+    },
+    businessProcessSection: {
+      heading: "AI Automation Development Lifecycle",
+      subheading: "Efficient, Reliable & Built to Scale",
+      description: "We follow a structured approach from process research through automation build, integration, and continuous refinement, ensuring your workflows stay reliable as volume grows.",
+      processes: ai_automation_business_process,
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
+    },
+    faqSection: {
+      header: {
+        heading: "AI-Powered Automation FAQs",
+        subheading: "Your Complete Guide to Intelligent Automation",
+        description: "Get answers to common questions about AI automation, integrations, ROI, and how exceptions are handled."
+      },
+      content: ai_automation_faq
+    }
+  },
+
+  'predictive-analytics': {
+    heroSection: {
+      heading: 'Predictive Analytics & AI Insights',
+      subheading: 'Turn Your Data Into Forward-Looking Decisions',
+      description: 'Move from backward-looking reports to forward-looking predictions. We build forecasting, churn prediction, and recommendation models that help your team act before problems and opportunities pass by.',
+      image: require('@assets/service/technology/AI-ml.png'),
+      imageAlt: 'Predictive Analytics and AI Insights Services',
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+    },
+    servicesSection: {
+      heading: 'Our Predictive Analytics Solutions',
+      subheading: 'From Historical Data to Future-Ready Decisions',
+      description: 'We build predictive models and dashboards that turn your historical data into forecasts, risk alerts, and recommendations your team can act on immediately.',
+      content: predictive_analytics_content,
+      subSection: false,
+      className: ''
+    },
+    serviceDetailSection: {
+      heading: 'Why Predictive Analytics Matters',
+      subheading: 'Decisions Backed by Data, Not Guesswork',
+      description: 'Our predictive models help you spot risk and opportunity early, personalize customer experiences, and keep leadership informed with real-time, trustworthy insights.',
+      cardStyling: '',
+      industry: predictive_analytics_services
+    },
+    ctaSection: {
+      heading: "Ready to Predict What's Next?",
+      subheading: "Let's turn your existing data into forecasts, alerts, and recommendations your team can act on.",
+      buttonText: "Contact Now",
+      className: '!bg-gradient-to-br from-blue-50 via-rose-50 to-orange-50 dark:!bg-none dark:!bg-card'
+    },
+    promotionalSection: {
+      title: "Looking for",
+      highlightText: "Predictive Analytics Experts?",
+      subtitle: "Turn Your Data Into a Competitive Advantage",
+      description: "We build forecasting, churn prediction, and recommendation models that help you make confident, forward-looking business decisions.",
+      buttonText: "Start Your Analytics Project",
+      animationData: require('@assets/animations/Developer.json')
+    },
+    processCardsSection: {
+      heading: "Streamlining the Development Journey",
+      subheading: "From Data Discovery to Deployed Predictions",
+      description: "Our predictive analytics process covers data and opportunity discovery, model design, build and deployment, and ongoing retraining to keep predictions accurate.",
+      processes: predictive_analytics_streamlining_development,
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
+    },
+    businessProcessSection: {
+      heading: "Predictive Analytics Development Lifecycle",
+      subheading: "Accurate, Scalable & Continuously Improving",
+      description: "We follow a structured approach from data research through model development, deployment, and ongoing retraining, ensuring predictions stay accurate as your business evolves.",
+      processes: predictive_analytics_business_process,
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
+    },
+    faqSection: {
+      header: {
+        heading: "Predictive Analytics FAQs",
+        subheading: "Your Complete Guide to AI-Driven Insights",
+        description: "Get answers to common questions about data requirements, model accuracy, BI integration, and cost."
+      },
+      content: predictive_analytics_faq
+    }
+  },
+
+  'ai-strategy-consulting': {
+    heroSection: {
+      heading: 'AI Strategy & Readiness Consulting',
+      subheading: 'A Clear, Practical Roadmap for AI Adoption',
+      description: 'Not sure where to start with AI? We assess your data, operations, and goals, then deliver a prioritized, vendor-neutral roadmap so your first AI investment is the right one.',
+      image: require('@assets/service/geneative ai.webp'),
+      imageAlt: 'AI Strategy and Readiness Consulting Services',
+      className: '!mt-0 !p-5 md:pt-0 !pb-0 md:mt-0 relative w-full dark:!bg-none bg-accent-foreground/10 dark:bg-gradient-to-b dark:from-sky-800 dark:via-sky-700 dark:to-sky-600 !flex-wrap-reverse'
+    },
+    servicesSection: {
+      heading: 'Our AI Strategy & Consulting Solutions',
+      subheading: 'From Uncertainty to a Prioritized AI Roadmap',
+      description: 'We assess your data readiness and business goals, identify the AI opportunities most worth pursuing, and deliver a practical, vendor-neutral roadmap your team can act on.',
+      content: ai_strategy_content,
+      subSection: false,
+      className: ''
+    },
+    serviceDetailSection: {
+      heading: 'Why Start With AI Strategy',
+      subheading: 'Avoid Costly False Starts',
+      description: 'A short strategy engagement upfront helps you avoid investing in AI projects that were never going to work, and points you toward the opportunities that will.',
+      cardStyling: '',
+      industry: ai_strategy_services
+    },
+    ctaSection: {
+      heading: "Ready to Build Your AI Roadmap?",
+      subheading: "Let's assess your data and operations, and map out a practical, prioritized path to AI adoption.",
+      buttonText: "Contact Now",
+      className: '!bg-gradient-to-br from-blue-50 via-rose-50 to-orange-50 dark:!bg-none dark:!bg-card'
+    },
+    promotionalSection: {
+      title: "Looking for",
+      highlightText: "Vendor-Neutral AI Advice?",
+      subtitle: "A Roadmap Built Around Your Business, Not a Sales Pitch",
+      description: "We assess your data and goals, then deliver a clear, prioritized AI roadmap with objective recommendations on tools and next steps.",
+      buttonText: "Book an AI Readiness Assessment",
+      animationData: require('@assets/animations/Developer.json')
+    },
+    processCardsSection: {
+      heading: "Streamlining the Advisory Journey",
+      subheading: "From Discovery to a Delivered Roadmap",
+      description: "Our AI strategy process covers stakeholder discovery, opportunity mapping, roadmap delivery, and ongoing advisory support as you begin implementation.",
+      processes: ai_strategy_streamlining_development,
+      className: 'p-4 bg-bg-background dark:!bg-none dark:!bg-background'
+    },
+    businessProcessSection: {
+      heading: "AI Strategy Consulting Lifecycle",
+      subheading: "Structured, Objective & Action-Oriented",
+      description: "We follow a structured approach from research and stakeholder interviews through roadmap development and ongoing advisory support, keeping recommendations grounded in your business reality.",
+      processes: ai_strategy_business_process,
+      className: 'p-4 bg-background dark:!bg-none dark:!bg-background'
+    },
+    faqSection: {
+      header: {
+        heading: "AI Strategy & Readiness FAQs",
+        subheading: "Your Complete Guide to Getting Started with AI",
+        description: "Get answers to common questions about the assessment process, data requirements, timelines, and cost."
+      },
+      content: ai_strategy_faq
     }
   }
 };

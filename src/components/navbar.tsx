@@ -19,6 +19,27 @@ import { Button } from "./ui/button";
 
 const services = [
     {
+        name: 'AI Services',
+        link: "/services/ai-services",
+        items: [
+            {
+                name: 'AI Chatbots & Copilots',
+                link: '/services/ai-services/ai-chatbots-copilots'
+            }, {
+                name: 'LLM & RAG Integration',
+                link: '/services/ai-services/llm-rag-integration'
+            }, {
+                name: 'AI-Powered Automation',
+                link: '/services/ai-services/ai-powered-automation'
+            }, {
+                name: 'Predictive Analytics & AI Insights',
+                link: '/services/ai-services/predictive-analytics'
+            }, {
+                name: 'AI Strategy & Readiness Consulting',
+                link: '/services/ai-services/ai-strategy-consulting'
+            }
+        ]
+    }, {
         name: 'Web Development',
         link: "/services/web-development",
         items: [

@@ -1,4 +1,5 @@
 import { ServiceCard } from '@/components/services';
+import { Zap, Target, Layers, Settings, Shield, UserCheck } from 'lucide-react';
 import { services_tech_stack } from '@/config/constant';
 
 // Import all content files
@@ -268,6 +269,138 @@ const servicesData = {
     },
     faqSection: {
       content: uiux_faq
+    }
+  },
+
+  'ai-services': {
+    heroSection: {
+      heading: 'AI Services',
+      subheading: 'Practical AI Solutions Built for Real Business Impact',
+      description: 'At Ridipt Technologies, we help businesses adopt AI in a focused, practical way. From conversational chatbots and copilots to LLM-powered search, intelligent automation, predictive analytics, and AI strategy consulting, we build AI solutions using proven tools and APIs, integrated cleanly into the systems you already run.',
+      image: require('@assets/service/technology/AI-ml.png'),
+      imageAlt: 'AI Services',
+    },
+    servicesSection: {
+      heading: 'AI Solutions Built Around Your Business',
+      subheading: 'Our AI Services',
+      description: 'We focus on AI services that deliver measurable results without requiring you to overhaul your existing systems or team. Every engagement starts with a clear use case and ends with something your team can actually use.',
+      content: [
+        {
+          title: 'AI Chatbots & Copilots',
+          description: 'Conversational AI for customer support, sales, and internal teams, deployed across your website, WhatsApp, Slack, or Teams, with a human handoff built in.',
+          image: require('@assets/service/geneative ai.webp'),
+          isAnimation: false,
+          highlights: ['24/7 Support', 'Multi-Channel', 'CRM Integration', 'Human Handoff']
+        },
+        {
+          title: 'LLM & RAG Integration',
+          description: 'Connect large language models to your own documents and data with Retrieval-Augmented Generation, so answers are accurate, sourced, and specific to your business.',
+          image: require('@assets/service/technology/AI-ml.png'),
+          isAnimation: false,
+          highlights: ['Grounded Answers', 'Enterprise Search', 'Document Intelligence', 'Secure Data Handling']
+        },
+        {
+          title: 'AI-Powered Automation',
+          description: 'Automate document processing, ticket triage, and repetitive workflows with AI decisioning layered on top of the tools you already use.',
+          image: require('@assets/service/geneative ai.webp'),
+          isAnimation: false,
+          highlights: ['Document Processing', 'Workflow Automation', 'Ticket Triage', 'AI + RPA']
+        },
+        {
+          title: 'Predictive Analytics & AI Insights',
+          description: 'Forecast demand, predict churn, and power recommendations with machine learning models built on your existing business data.',
+          image: require('@assets/service/technology/AI-ml.png'),
+          isAnimation: false,
+          highlights: ['Demand Forecasting', 'Churn Prediction', 'Recommendation Engines', 'BI Dashboards']
+        },
+        {
+          title: 'AI Strategy & Readiness Consulting',
+          description: 'A focused assessment of your data and operations, resulting in a practical, vendor-neutral roadmap for where AI will genuinely move the needle.',
+          image: require('@assets/service/geneative ai.webp'),
+          isAnimation: false,
+          highlights: ['AI Readiness Audit', 'Use Case Roadmap', 'ROI Analysis', 'Vendor-Neutral Advice']
+        }
+      ],
+      customCard: ServiceCard,
+      className: '!container !max-w-auto !mb-0'
+    },
+    serviceDetailSection: {
+      heading: 'Why Businesses Choose Ridipt for AI',
+      subheading: 'Lean, Practical, and Built to Deliver',
+      description: 'We deliver AI solutions the way a focused team should: fast to launch, grounded in real business outcomes, and built on proven tools rather than experimental infrastructure.',
+      industry: [
+        {
+          title: 'Fast, Focused Execution',
+          subtitle: 'Agile by Design',
+          description: 'As a lean team, we move quickly on well-scoped AI projects, avoiding the overhead and delays of larger, process-heavy vendors.',
+          icon: Zap,
+        },
+        {
+          title: 'Practical, ROI-Focused AI',
+          subtitle: 'Built Around Business Outcomes',
+          description: 'Every AI engagement is scoped around a measurable outcome, so you can see the impact rather than just the technology.',
+          icon: Target,
+        },
+        {
+          title: 'Works With Your Existing Stack',
+          subtitle: 'No Rip-and-Replace',
+          description: 'We design AI features and automations to integrate with the tools you already use, instead of forcing a costly platform migration.',
+          icon: Layers,
+        },
+        {
+          title: 'Vendor-Neutral Model Selection',
+          subtitle: 'The Right Tool for the Job',
+          description: 'We choose the language models and AI tools that fit your needs and budget, not the ones we are locked into reselling.',
+          icon: Settings,
+        },
+        {
+          title: 'Data Privacy First',
+          subtitle: 'Responsible AI by Default',
+          description: 'We design AI integrations with careful data handling from day one, so adopting AI does not mean compromising on privacy.',
+          icon: Shield,
+        },
+        {
+          title: 'End-to-End Support',
+          subtitle: 'From Strategy to Maintenance',
+          description: 'From the first readiness assessment through to ongoing monitoring and improvement, we stay involved after launch.',
+          icon: UserCheck,
+        },
+      ]
+    },
+    ctaSection: {
+      heading: "Let's Build Your AI Solution",
+      subheading: "Whether you already know what you need or want help figuring it out, we'll help you find the AI service that fits your business.",
+      buttonText: "Contact us",
+      className: '!bg-blue-50 dark:!bg-card'
+    },
+    techStackSection: {
+      heading: "Our AI Services Tech-Stack",
+      subheading: "Built on Proven, Production-Ready AI Tools",
+      description: "We build AI solutions on established frameworks and platforms rather than experimental infrastructure, so what we deliver is reliable, maintainable, and easy to support long after launch.",
+      techStackData: services_tech_stack['AI Services']
+    },
+    promotionalSection: {
+      title: "Looking for a",
+      highlightText: "Practical AI Partner?",
+      subtitle: "AI Solutions That Fit a Growing Business",
+      description: "We help small and mid-sized businesses adopt AI without the overhead of a large AI practice, starting with the use case that will move the needle fastest.",
+      buttonText: "Get Free Estimation",
+      animationData: require('@assets/animations/Developer.json')
+    },
+    processCardsSection: {
+      heading: "Streamlining the AI Journey",
+      subheading: "From First Use Case to Ongoing Support",
+      description: "We combine research, focused scoping, and agile development to take an AI idea from first conversation to a working solution, and keep improving it after launch.",
+      processes: streamlining_development
+    },
+    businessProcessSection: {
+      heading: "Our Business Process",
+      subheading: "Streamlined & Efficient",
+      description: "We follow a structured approach to ensure quality, consistency, and success at every stage of our AI engagements.",
+      processes: business_process
+    },
+    faqSection: {
+      content: null
     }
   }
 };

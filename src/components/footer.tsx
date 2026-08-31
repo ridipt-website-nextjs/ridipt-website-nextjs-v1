@@ -110,10 +110,10 @@ const Footer = () => {
           <div>
             <h3 className='text-lg font-semibold dark:text-primary text-secondary mb-6'>Services</h3>
             <ul className='space-y-3'>
+              <li><Link href='/services/ai-services' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>AI Services</Link></li>
               <li><Link href='/services/mobile-development' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>Mobile App Development</Link></li>
               <li><Link href='/services/web-development' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>Web App Development</Link></li>
               <li><Link href='/services/emerging-technology/devops' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>Cloud Solutions</Link></li>
-              <li><Link href='/services/emerging-technology/ai-ml-genai' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>AI & Machine Learning</Link></li>
               <li><Link href='/services/data-privacy-dpdp-compliance' className='text-sm font-light text-secondary dark:text-primary  hover:underline'>Data Privacy & DPDP Compliance</Link></li>
             </ul>
           </div>

@@ -356,6 +356,24 @@ export const services_tech_stack = {
       ]
     }
   },
+
+  "AI Services": {
+    items: {
+      frameworks: [
+        { name: "TensorFlow", image: require("@assets/our_services/emerging technology/tensorflow.svg") },
+        { name: "PyTorch", image: require("@assets/our_services/emerging technology/pytorch.svg") },
+        { name: "Keras", image: require("@assets/our_services/emerging technology/keras.svg") },
+        { name: "Scikit-learn", image: require("@assets/our_services/emerging technology/r.svg") }
+      ],
+      languages: [
+        { name: "Python", image: require("@assets/technology_icons/python.svg") }
+      ],
+      infrastructure: [
+        { name: "Docker", image: require("@assets/our_services/emerging technology/docker.svg") },
+        { name: "Kubernetes", image: require("@assets/our_services/emerging technology/kubernetes.svg") }
+      ]
+    }
+  }
 };
 
 
